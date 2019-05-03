@@ -251,4 +251,12 @@ button:hover {
 
 #rightPanel img {
   width: 40%;
+  animation-name: floating;
+	-webkit-animation-name: floating;
+	animation-iteration-count: infinite;
+	-webkit-animation-iteration-count: infinite;
+	animation-timing-function: ease-in-out;
+	-webkit-animation-timing-function: ease-in-out;
+  animation-duration: 7s;
+  margin-bottom: 25px;
 }

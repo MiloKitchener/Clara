@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { DatarowComponent } from './../datarow/datarow.component';
+
 @Component({
   selector: 'app-datasets',
   templateUrl: './datasets.component.html',

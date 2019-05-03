@@ -8,6 +8,7 @@ import { IdeasComponent } from './components/ideas/ideas.component';
 import { DatasetsComponent } from './components/datasets/datasets.component';
 import { SharedDashboardsComponent } from './components/shared-dashboards/shared-dashboards.component';
 import { ProfileThumbnailComponent } from './components/profile-thumbnail/profile-thumbnail.component';
+import { DatarowComponent } from './components/datarow/datarow.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { ProfileThumbnailComponent } from './components/profile-thumbnail/profil
     DatasetsComponent,
     SharedDashboardsComponent,
     ProfileThumbnailComponent,
+    DatarowComponent,
   ],
   imports: [
     BrowserModule,
