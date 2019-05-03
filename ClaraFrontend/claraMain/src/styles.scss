@@ -8,13 +8,11 @@
   Style
 *******************/
 
-
 body {
-  background-color: white;
-  padding: 0;
+  margin: 0;
+  background-color: #f1f2f7;
+  color: rgba(0,0,0,0.87);
   font-family: 'Open Sans', sans-serif;
-  width: 99%;
-  height: 100%;
   -webkit-animation: fadein 3s; /* Safari, Chrome and Opera > 12.1 */
      -moz-animation: fadein 3s; /* Firefox < 16 */
       -ms-animation: fadein 3s; /* Internet Explorer */
