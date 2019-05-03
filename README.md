@@ -1,7 +1,7 @@
 # Clara
 Clara is a municipal machine learning and analytics platform,  providing ideas and insights to the municipality of Kitchener.
 
-# Deployment #
+## Deployment ##
 ### Local: ###
 1. Run Frontend Locally:
 2. Ensure angular is installed. If it is not, install it with “npm install -g @angular/cli”
