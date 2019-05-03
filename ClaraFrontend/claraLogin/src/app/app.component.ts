@@ -67,6 +67,17 @@ export class AppComponent implements OnInit {
     function signIn(username, password) {
       console.log("Logging in as user: " + username + ", with password: " + password);
 
+      $.ajax({
+        type: "post",
+        url: "/",
+        success: function(data) {
+          alert(data);
+        },
+        fail: function(error) {
+          alert(error);
+        }
+      });
+
       // login animation
       document.getElementById("splash").style.visibility = "visible";
       document.getElementById("splash").style.animation = "fadein 2s";
