@@ -6,7 +6,7 @@ Clara is a municipal machine learning and analytics platform,  providing ideas a
 #### Frontend: ####
 1. Ensure angular is installed. If it is not, install it with “npm install -g @angular/cli”
    - Note: node/npm is required to install angular
-2. Navigate to frontend folder
+2. Navigate to claraFrontend/claraMain
 3. Run “npm install”
 4. Run “ng serve”
 5. Navigate to the website using the URL: http://localhost:4200/
