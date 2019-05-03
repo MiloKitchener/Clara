@@ -75,6 +75,9 @@ function signUp(username, passwordOne, passwordTwo, emailAddress) {
   if(passwordOne != passwordTwo) { // passwords do not match
     alert("Please Ensure That The Passwords Match");
   }
+  else if(passwordOne.length < 7 || !hasNumber(passwordOne)) { // password meets requirements
+    alert("Please Ensure That The Password is at Least 7 Characters Long, and Includes a Number.");
+  }
   else { // passwords match
     console.log("Registering user: " + username + ", with password: " + passwordOne + ", and email: " + emailAddress);
     signIn(username, passwordOne);
@@ -85,4 +88,10 @@ function signUp(username, passwordOne, passwordTwo, emailAddress) {
 // resends the password associated with the user's email
 function resendPW(emailAddress) {
   console.log("Resending password to " + emailAddress);
+}
+
+
+// checks if a string contains a number (used in ensuring passwords contain a number)
+function hasNumber(myString) {
+  return /\d/.test(myString);
 }
