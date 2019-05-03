@@ -11,8 +11,7 @@ $(document).ready(function() {
   $("#signupPanel").submit(function(e) {
     e.preventDefault();
     var form = document.forms["signupPanel"];
-    signUp(form.elements["username"].value, form.elements["password"].value, form.elements["email"].value);
-    signIn(form.elements["username"].value, form.elements["password"].value);
+    signUp(form.elements["username"].value, form.elements["password"].value, form.elements["passwordconfirm"].value, form.elements["email"].value);
   });
 
   // resend password button event listener
@@ -72,8 +71,14 @@ function signIn(username, password) {
 
 
 // creates a new account
-function signUp(username, password, emailAddress) {
-  console.log("Registering user: " + username + ", with password: " + password + ", and email: " + emailAddress);
+function signUp(username, passwordOne, passwordTwo, emailAddress) {
+  if(passwordOne != passwordTwo) { // passwords do not match
+    alert("Please Ensure That The Passwords Match");
+  }
+  else { // passwords match
+    console.log("Registering user: " + username + ", with password: " + passwordOne + ", and email: " + emailAddress);
+    signIn(username, passwordOne);
+  }
 }
 
 
