@@ -3,20 +3,23 @@ $(document).ready(function() {
   // login button event listener
   $("#loginForm").submit(function(e) {
     e.preventDefault();
-    signIn();
+    var form = document.forms["loginForm"];
+    signIn(form.elements["username"].value, form.elements["password"].value);
   });
 
   // sign up button event listener
   $("#signupPanel").submit(function(e) {
     e.preventDefault();
-    signUp();
-    signIn();
+    var form = document.forms["signupPanel"];
+    signUp(form.elements["username"].value, form.elements["password"].value, form.elements["email"].value);
+    signIn(form.elements["username"].value, form.elements["password"].value);
   });
 
   // resend password button event listener
   $("#forgotPWPanel").submit(function(e) {
     e.preventDefault();
-    resendPW();
+    var form = document.forms["forgotPWPanel"];
+    resendPW(form.elements["email"].value);
   });
 
   // forgot password listener
@@ -47,22 +50,34 @@ $(document).ready(function() {
   });
 });
 
+
 /************************************
   FUNCTIONS
 ************************************/
 
-function signIn() {
+
+// signs in to main site
+function signIn(username, password) {
+  console.log("Logging in as user: " + username + ", with password: " + password);
+
+  // login animation
   document.getElementById("splash").style.visibility = "visible";
   document.getElementById("splash").style.animation = "fadein 2s";
 
+  // reload page, change to load new page if login successful
   setTimeout(function() {
     window.location.reload(false);
   }, 3000);
 }
 
-function signUp() {
+
+// creates a new account
+function signUp(username, password, emailAddress) {
+  console.log("Registering user: " + username + ", with password: " + password + ", and email: " + emailAddress);
 }
 
-function resendPW() {
-  alert("forgot PW");
+
+// resends the password associated with the user's email
+function resendPW(emailAddress) {
+  console.log("Resending password to " + emailAddress);
 }
