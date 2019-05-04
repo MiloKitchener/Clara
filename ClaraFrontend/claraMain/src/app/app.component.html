@@ -10,23 +10,17 @@
 
 <!-- Side Bar -->
 <div id="sidebar">
+  <app-profile-thumbnail></app-profile-thumbnail>
   <ul>
-    <li>
-      <a href="#" class="active">My Dashboard</a>
-    </li>
-    <li>
-      <a href="#">Shared Dashboards</a>
-    </li>
-    <li>
-      <a href="#">Datasets</a>
-    </li>
-    <li>
-      <a href="#">Ideas</a>
-    </li>
+    <li><a routerLink="/personalDashboard" routerLinkActive="active">My Dashboard</a></li>
+    <li><a routerLink="/sharedDashboard" routerLinkActive="active">Shared Dashboards</a></li>
+    <li><a routerLink="/datasets" routerLinkActive="active">Datasets</a></li>
+    <li><a routerLink="/ideas" routerLinkActive="active">Ideas</a></li>
   </ul>
 </div>
 
 <!-- Main Content -->
 <div class="mainContent">
   <h1>{{ title }}</h1>
+  <router-outlet></router-outlet>
 </div>

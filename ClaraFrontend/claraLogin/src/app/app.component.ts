@@ -67,14 +67,18 @@ export class AppComponent implements OnInit {
     function signIn(username, password) {
       console.log("Logging in as user: " + username + ", with password: " + password);
 
+      var csrftoken = getCookie('csrftoken');
+
+      $.ajax({
+        headers: {"HTTP_X_CSRFTOKEN":csrftoken},
+        type: "POST",
+        url: "http://35.182.196.173:8000/api/login/",
+        data: {username: username, password:password},
+      });
+
       // login animation
       document.getElementById("splash").style.visibility = "visible";
       document.getElementById("splash").style.animation = "fadein 2s";
-
-      // reload page, change to load new page if login successful
-      setTimeout(function() {
-        window.location.reload(false);
-      }, 3000);
     }
 
 
@@ -103,5 +107,22 @@ export class AppComponent implements OnInit {
     function hasNumber(myString) {
       return /\d/.test(myString);
     }
+
+    function getCookie(name) {
+   var cookieValue = null;
+   if (document.cookie && document.cookie !== '') {
+       var cookies = document.cookie.split(';');
+       for (var i = 0; i < cookies.length; i++) {
+           var cookie = cookies[i].trim();
+           // Does this cookie string begin with the name we want?
+           if (cookie.substring(0, name.length + 1) === (name + '=')) {
+               cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+               break;
+           }
+       }
+   }
+   return cookieValue;
+}
+var csrftoken = getCookie('csrftoken');
   }
 }
