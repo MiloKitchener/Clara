@@ -9,6 +9,13 @@ import { DatasetsComponent } from './components/datasets/datasets.component';
 import { SharedDashboardsComponent } from './components/shared-dashboards/shared-dashboards.component';
 import { ProfileThumbnailComponent } from './components/profile-thumbnail/profile-thumbnail.component';
 import { DatarowComponent } from './components/datarow/datarow.component';
+import { LoginComponent } from './components/login/login.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {CookieService} from 'ngx-cookie-service';
+import {JwtInterceptorService} from './services/auth/jwt-interceptor.service';
+import {JwtHelperService, JwtModule} from '@auth0/angular-jwt';
+import {AuthService} from './services/auth/auth.service';
 
 @NgModule({
   declarations: [
@@ -19,12 +26,20 @@ import { DatarowComponent } from './components/datarow/datarow.component';
     SharedDashboardsComponent,
     ProfileThumbnailComponent,
     DatarowComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [CookieService, {
+    provide: HTTP_INTERCEPTORS,
+    useClass: JwtInterceptorService,
+    multi: true,
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

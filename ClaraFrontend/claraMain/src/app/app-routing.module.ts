@@ -1,36 +1,43 @@
 import { NgModule } from '@angular/core';
-// services for navigation
+// Services for navigation
 import { Routes, RouterModule } from '@angular/router';
 
-// import all components for which navigation is required
+// Import all components for which navigation is required
 import { PersonalDashboardComponent } from './components/personal-dashboard/personal-dashboard.component';
 import { SharedDashboardsComponent } from './components/shared-dashboards/shared-dashboards.component';
 import { DatasetsComponent } from './components/datasets/datasets.component';
 import { IdeasComponent } from './components/ideas/ideas.component';
+import {LoginComponent} from './components/login/login.component';
+import {AuthService} from './services/auth/auth.service';
 
-// define routes
+// Define routes
 const routes: Routes = [
   {
-    path: "",
-    redirectTo: "/personalDashboard",
-    pathMatch: "full"
+    path: '',
+    redirectTo: 'signin',
+    pathMatch: 'full'
   },
   {
-    path: "personalDashboard",
-    component: PersonalDashboardComponent
+    path: 'signin',
+    component: LoginComponent
   },
   {
-    path: "sharedDashboard",
+    path: 'personalDashboard',
+    component: PersonalDashboardComponent,
+    canActivate: [AuthService]
+  },
+  {
+    path: 'sharedDashboard',
     component: SharedDashboardsComponent
   },
   {
-    path: "datasets",
+    path: 'datasets',
     component: DatasetsComponent
   },
   {
-    path: "ideas",
+    path: 'ideas',
     component: IdeasComponent
-  }
+  },
 ];
 
 @NgModule({
