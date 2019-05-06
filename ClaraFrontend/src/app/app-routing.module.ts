@@ -5,8 +5,8 @@ import { UserDashboardComponent } from './components/user-dashboard/user-dashboa
 import { SharedDashboardComponent } from './components/shared-dashboard/shared-dashboard.component';
 import { DatasetsComponent } from './components/datasets/datasets.component';
 import { IdeasComponent } from './components/ideas/ideas.component';
-import {AuthService} from './services/auth/auth.service';
-import {LoginComponent} from './components/login/login.component';
+import { AuthService } from './services/auth/auth.service';
+import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'signin', pathMatch: 'full' },
@@ -21,4 +21,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule { }
