@@ -1,154 +1,158 @@
+<!-- Loading Indicator -->
 <div *ngIf="showLoadingIndicatior" class="page-loader-wrapper">
-    <div class="loader">
-        <div class="m-t-30">
-            <img class="loading-img-spin" src="assets/images/loading.png" width="20" height="20" alt="admin">
-        </div>
-        <p>Please wait...</p>
+  <div class="loader">
+    <div class="m-t-30">
+      <img class="loading-img-spin" src="assets/images/loading.png" width="20" height="20" alt="admin">
     </div>
+    <p>Please wait...</p>
+  </div>
 </div>
+
 <div class="overlay"></div>
 <!-- #END# Overlay For Sidebars -->
+
 <!-- Search Bar -->
 <div id="main-component">
-    <nav class="navbar">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a href="#" onClick="return false;" class="navbar-toggle collapsed" data-toggle="collapse"
-                    data-target="#navbar-collapse" aria-expanded="false"></a>
-                <a href="#" onClick="return false;" class="bars"></a>
-                <a class="navbar-brand" routerLink="dashboard/main">
-                    <img src="assets/images/logo.png" alt="" />
-                    <span class="logo-name">Lorax</span>
-                </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <!-- Full Screen Button -->
-                    <li class="fullscreen">
-                        <a href="javascript:;" class="fullscreen-btn">
-                            <i class="fas fa-expand"></i>
-                        </a>
-                    </li>
-                    <!-- #END# Full Screen Button -->
-                    <!-- #START# Notifications-->
-                    <li class="dropdown">
-                        <a href="#" onClick="return false;" class="dropdown-toggle" data-toggle="dropdown"
-                            role="button">
-                            <i class="far fa-bell"></i>
-                            <span class="label-count bg-orange"></span>
-                        </a>
-                        <ul class="dropdown-menu pullDown">
-                            <li class="header">NOTIFICATIONS</li>
-                            <li class="body">
-                                <ul class="menu">
-                                  <p>Hi Populate Me Later pls <3</p>
-                                </ul>
-                            </li>
-                            <li class="footer">
-                                <a href="#" onClick="return false;">View All Notifications</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!-- #END# Notifications-->
-                    <li class="dropdown user_profile">
-                        <a href="#" onClick="return false;" class="dropdown-toggle" data-toggle="dropdown"
-                            role="button">
-                            <img src="assets/images/user.jpg" width="32" height="32" alt="User">
-                        </a>
-                        <ul class="dropdown-menu pullDown">
-                            <li class="body">
-                                <ul class="user_dw_menu">
-                                    <li>
-                                        <a href="#" onClick="return false;">
-                                            <i class="material-icons">person</i>Profile
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" onClick="return false;">
-                                            <i class="material-icons">feedback</i>Feedback
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" onClick="return false;">
-                                            <i class="material-icons">help</i>Help
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" onClick="return false;">
-                                            <i class="material-icons">power_settings_new</i>Logout
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <!-- #END# Tasks -->
-                    <li class="pull-right">
-                        <a href="#" onClick="return false;" class="js-right-sidebar" data-close="true">
-                            <i class="fas fa-cog"></i>
-                        </a>
-                    </li>
+  <nav class="navbar">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a href="#" onClick="return false;" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
+        <a href="#" onClick="return false;" class="bars"></a>
+        <a class="navbar-brand" routerLink="dashboard/main">
+          <img src="assets/images/logo.png" alt="" />
+          <span class="logo-name">Lorax</span>
+        </a>
+      </div>
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+
+          <!-- Full Screen Button -->
+          <li class="fullscreen">
+            <a href="javascript:;" class="fullscreen-btn">
+              <i class="fas fa-expand"></i>
+            </a>
+          </li>
+          <!-- #END# Full Screen Button -->
+
+          <!-- #START# Notifications-->
+          <li class="dropdown">
+            <a href="#" onClick="return false;" class="dropdown-toggle" data-toggle="dropdown" role="button">
+              <i class="far fa-bell"></i>
+              <span class="label-count bg-orange"></span>
+            </a>
+            <ul class="dropdown-menu pullDown">
+              <li class="header">NOTIFICATIONS</li>
+              <li class="body">
+                <ul class="menu">
+                  <p>Hi Populate Me Later pls <3</p>
                 </ul>
-            </div>
-        </div>
-    </nav>
+              </li>
+              <li class="footer">
+                <a href="#" onClick="return false;">View All Notifications</a>
+              </li>
+            </ul>
+          </li>
+          <!-- #END# Notifications-->
 
-    <div>
-        <!-- Left Sidebar -->
-        <aside id="leftsidebar" class="sidebar">
-            <!-- Menu -->
-            <div class="menu">
-                <ul class="list">
-                    <li class="sidebar-user-panel">
-                        <div class="user-panel">
-                            <div class=" image">
-                                <img src="assets/images/usrbig.jpg" class="img-circle user-img-circle"
-                                    alt="User Image" />
-                            </div>
-                        </div>
-                        <div class="profile-usertitle">
-                            <div class="sidebar-userpic-name"> Emily Smith </div>
-                            <div class="profile-usertitle-job ">Manager </div>
-                        </div>
-                    </li>
-                    <li routerLinkActive="active">
-                        <a routerLink="/personalDashboard">
-                            <i class="fas fa-tachometer-alt"></i>
-                            <span>User Dashboard</span>
-                        </a>
-                    </li>
-                    <li routerLinkActive="active">
-                        <a routerLink="/sharedDashboard">
-                            <i class="far fa-calendar"></i>
-                            <span>Shared Dashboards</span>
-                        </a>
-                    </li>
-                    <li routerLinkActive="active">
-                        <a routerLink="/datasets">
-                            <i class="fas fa-braille"></i>
-                            <span>Datasets</span>
-                        </a>
-                    </li>
-                    <li routerLinkActive="active">
-                        <a routerLink="/ideas">
-                            <i class="fas fa-mail-bulk"></i>
-                            <span>Ideas</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <!-- #Menu -->
-        </aside>
-        <!-- #END# Left Sidebar -->
+          <!-- #START# User Profile-->
+          <li class="dropdown user_profile">
+            <a href="#" onClick="return false;" class="dropdown-toggle" data-toggle="dropdown" role="button">
+              <img src="assets/images/user.jpg" width="32" height="32" alt="User">
+            </a>
+            <ul class="dropdown-menu pullDown">
+            <li class="body">
+              <ul class="user_dw_menu">
+                <li>
+                  <a href="#" onClick="return false;">
+                    <i class="material-icons">person</i>Profile
+                  </a>
+                </li>
+                <li>
+                  <a href="#" onClick="return false;">
+                    <i class="material-icons">feedback</i>Feedback
+                  </a>
+                </li>
+                <li>
+                  <a href="#" onClick="return false;">
+                    <i class="material-icons">help</i>Help
+                  </a>
+                </li>
+                <li>
+                  <a href="#" onClick="return false;">
+                    <i class="material-icons">power_settings_new</i>Logout
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <!-- #END# User Profile -->
 
-        <!-- Right Sidebar -->
-        <aside id="rightsidebar" class="right-sidebar">
-            <p>Populate Me With User Settings Later <3</p>
-        </aside>
-        <!-- #END# Right Sidebar -->
-
+        <li class="pull-right">
+          <a href="#" onClick="return false;" class="js-right-sidebar" data-close="true">
+            <i class="fas fa-cog"></i>
+          </a>
+        </li>
+      </ul>
     </div>
+  </div>
+</nav>
+
+
+<div class="dark">
+  <!-- Left Sidebar -->
+  <aside id="leftsidebar" class="sidebar">
+    <!-- Menu -->
+    <div class="menu">
+      <ul class="list">
+        <li class="sidebar-user-panel">
+          <div class="user-panel">
+            <div class=" image">
+              <img src="assets/images/usrbig.jpg" class="img-circle user-img-circle" alt="User Image" />
+            </div>
+          </div>
+          <div class="profile-usertitle">
+            <div class="sidebar-userpic-name"> Emily Smith </div>
+            <div class="profile-usertitle-job ">Manager </div>
+          </div>
+        </li>
+        <li routerLinkActive="active">
+          <a routerLink="/personalDashboard">
+            <i class="fas fa-tachometer-alt"></i>
+            <span>User Dashboard</span>
+          </a>
+        </li>
+        <li routerLinkActive="active">
+          <a routerLink="/sharedDashboard">
+            <i class="far fa-calendar"></i>
+            <span>Shared Dashboards</span>
+          </a>
+        </li>
+        <li routerLinkActive="active">
+          <a routerLink="/datasets">
+            <i class="fas fa-braille"></i>
+            <span>Datasets</span>
+          </a>
+        </li>
+        <li routerLinkActive="active">
+          <a routerLink="/ideas">
+            <i class="fas fa-mail-bulk"></i>
+            <span>Ideas</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </aside>
+  <!-- #END# Left Sidebar -->
+
+  <!-- Right Sidebar -->
+  <aside id="rightsidebar" class="right-sidebar">
+    <p>Populate Me With User Settings Later <3</p>
+  </aside>
+  <!-- #END# Right Sidebar -->
+  </div>
 </div>
+
 
 <!-- Routed Elements -->
 <div class="mainContent">
