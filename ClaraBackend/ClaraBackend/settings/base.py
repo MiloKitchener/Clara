@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',  # Library that allows for REST API
 ]
 
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -78,9 +79,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'clara',
-        'USER': 'root',
-        'PASSWORD': 'root',
-        'HOST': 'localhost',  # IP Address that the DB is hosted on
+        'USER': 'Clara',
+        'PASSWORD': 'T1meMachine',
+        'HOST': 'prod-clarabackenddb.clhelwr0pylt.ca-central-1.rds.amazonaws.com',  # IP Address that the DB is hosted on
         'PORT': '3306',
     }
 }
@@ -105,7 +106,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework_simplejwt.authentication.JWTAuthentication',  # jwt token user authentication
+
     ],
 }
 
@@ -130,3 +131,5 @@ STATIC_URL = '/static/'
 CORS_ORIGIN_WHITELIST = (
     'localhost:3000'
 )
+
+AUTH_USER_MODEL = 'api.CustomUser' #new
