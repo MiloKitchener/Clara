@@ -21,8 +21,7 @@ from api import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # Tutorial on JWT authentication
-    # https://simpleisbetterthancomplex.com/tutorial/2018/12/19/how-to-use-jwt-authentication-with-django-rest-framework.html
+    path('api/login/', views.login_view),
     path('hello/', views.HelloView.as_view(), name='hello'),
     path('signup/', views.signup, name='signup'),
 ]
