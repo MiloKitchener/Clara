@@ -1,4 +1,6 @@
 import { Component,OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { AppService } from './app.service';
 
 declare var $:any;
 
@@ -9,6 +11,9 @@ declare var $:any;
 })
 
 export class AppComponent implements OnInit {
+
+  constructor(private service: AppService){}
+
   ngOnInit() {
     // login button event listener
     $("#loginForm").submit(function(e) {
@@ -21,7 +26,9 @@ export class AppComponent implements OnInit {
     $("#signupPanel").submit(function(e) {
       e.preventDefault();
       var form = document.forms["signupPanel"];
-      signUp(form.elements["username"].value, form.elements["password"].value, form.elements["passwordconfirm"].value, form.elements["email"].value);
+      // might edit to just send the form
+        //signUp(form);
+      signUp(form.elements["username"].value, form.elements["password"].value, form.elements["passwordConfirm"].value, form.elements["email"].value);
     });
 
     // resend password button event listener
@@ -84,6 +91,7 @@ export class AppComponent implements OnInit {
 
     // creates a new account
     function signUp(username, passwordOne, passwordTwo, emailAddress) {
+      console.log('test if this runs');
       if(passwordOne != passwordTwo) { // passwords do not match
         alert("Please Ensure That The Passwords Match");
       }
@@ -92,10 +100,35 @@ export class AppComponent implements OnInit {
       }
       else { // passwords match
         console.log("Registering user: " + username + ", with password: " + passwordOne + ", and email: " + emailAddress);
-        signIn(username, passwordOne);
+        // send post request to add the user
+        this.AppService.signUp(username, emailAddress, passwordOne, passwordTwo)
+          .subscribe(res =>{
+            console.log('sucess?');
+            signIn(username, passwordOne);
+          });
+       // signIn(username, passwordOne); // call this in the  call back
       }
     }
 
+
+    /*
+    // IF the backend works better by recieving a form
+    function signUp(form) {
+      console.log(form.elements["username"].value);
+      if(form.passwordOne != form.passwordTwo) { // passwords do not match
+        alert("Please Ensure That The Passwords Match");
+      }
+      else if(form.passwordOne.length < 7 || !hasNumber(form.passwordOne)) { // password meets requirements
+        alert("Please Ensure That The Password is at Least 7 Characters Long, and Includes a Number.");
+      }
+      else { // passwords match
+        console.log("Registering user: " + form.username + ", with password: " + form.passwordOne + ", and email: " + form.emailAddress);
+        // send post request to add the user
+        //HttpClient.post();
+       // signIn(username, passwordOne); // call this in the  call back
+      }
+    }
+*/
 
     // resends the password associated with the user's email
     function resendPW(emailAddress) {

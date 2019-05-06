@@ -7,6 +7,7 @@ class CustomUserCreationForm(UserCreationForm):
     class Meta(UserCreationForm):
         model = CustomUser
        # fields = ('username', 'email')
+        # if issues return to password1 and password2 format
         fields = ('username', 'email', 'password1', 'password2',)
 class CustomUserChangeForm(UserChangeForm):
 

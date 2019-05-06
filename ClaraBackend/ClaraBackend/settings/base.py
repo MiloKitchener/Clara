@@ -132,4 +132,4 @@ CORS_ORIGIN_WHITELIST = (
     'localhost:3000'
 )
 
-AUTH_USER_MODEL = 'api.CustomUser' #new
+AUTH_USER_MODEL = 'api.CustomUser'
