@@ -8,14 +8,11 @@ import { SharedDashboardComponent } from './components/shared-dashboard/shared-d
 import { DatasetsComponent } from './components/datasets/datasets.component';
 import { IdeasComponent } from './components/ideas/ideas.component';
 import { ProfileThumbnailComponent } from './components/profile-thumbnail/profile-thumbnail.component';
-import { DatarowComponent } from './components/datarow/datarow.component';
 import { LoginComponent } from './components/login/login.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {CookieService} from 'ngx-cookie-service';
 import {JwtInterceptorService} from './services/auth/jwt-interceptor.service';
-import {JwtHelperService, JwtModule} from '@auth0/angular-jwt';
-import {AuthService} from './services/auth/auth.service';
 
 @NgModule({
   declarations: [
@@ -24,10 +21,7 @@ import {AuthService} from './services/auth/auth.service';
     SharedDashboardComponent,
     DatasetsComponent,
     IdeasComponent,
-    ProfileThumbnailComponent
-    SharedDashboardsComponent,
     ProfileThumbnailComponent,
-    DatarowComponent,
     LoginComponent,
   ],
   imports: [

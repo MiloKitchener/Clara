@@ -3,8 +3,12 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  backendIP: 'http://localhost:8000/',
+  access_token_name: 'access_token',
+  refresh_token_name: 'refresh_token',
 };
+
 
 /*
  * For easier debugging in development mode, you can import the following file
