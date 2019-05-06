@@ -3,19 +3,19 @@
 
   <div class="datasetStats">
     <div>
-      <h3>##</h3>
+      <h3 id="numOpen">{{ numOpen }}</h3>
       <p>Open Data Sets</p>
     </div>
     <div>
-      <h3>##</h3>
+      <h3 id="numAccepted">{{ numAccepted }}</h3>
       <p>Accepted</p>
     </div>
     <div>
-      <h3>##</h3>
+      <h3 id="numNotMapped">{{ numNotMapped }}</h3>
       <p>Not Mapped</p>
     </div>
     <div>
-      <h3>##</h3>
+      <h3 id="numUnderReview">{{ numUnderReview }}</h3>
       <p>Under Review</p>
     </div>
   </div>
@@ -28,5 +28,9 @@
     </form>
   </div>
 
-  <div class="datasetsList"></div>
+  <div class="datasets">
+    <ul id="datasetsList">
+      <li></li>
+    </ul>
+  </div>
 </div>
