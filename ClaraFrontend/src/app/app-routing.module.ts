@@ -6,9 +6,11 @@ import { SharedDashboardComponent } from './components/shared-dashboard/shared-d
 import { DatasetsComponent } from './components/datasets/datasets.component';
 import { IdeasComponent } from './components/ideas/ideas.component';
 import {AuthService} from './services/auth/auth.service';
+import {LoginComponent} from './components/login/login.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'signin', pathMatch: 'full' },
+  { path: 'signin', component: LoginComponent, data: { title: 'Sign In' } },
   { path: 'personalDashboard', component: UserDashboardComponent, data: { title: 'Personal Dashboard' }, canActivate: [AuthService] },
   { path: 'sharedDashboard', component: SharedDashboardComponent, data: { title: 'Shared Dashboards' } },
   { path: 'datasets', component: DatasetsComponent, data: { title: 'Datasets' } },
