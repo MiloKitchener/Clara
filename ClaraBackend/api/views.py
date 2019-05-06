@@ -14,14 +14,10 @@ class HelloView(APIView):
 
 
 def login_view(request):
-    username = request.POST.get('username', '')
-    password = request.POST.get('password', '')
-    user = auth.authenticate(username=username, password=password)
+    user = auth.authenticate(username=request.POST.get('password', ''), password=request.POST.get('username', ''))
     if user is not None and user.is_active:
         # Correct password, and the user is marked "active"
         auth.login(request, user)
-        # Redirect to a success page.
-        return HttpResponseRedirect("/api/loggedin/")
     else:
         # Show an error page
         return HttpResponseRedirect("/api/invalid/")

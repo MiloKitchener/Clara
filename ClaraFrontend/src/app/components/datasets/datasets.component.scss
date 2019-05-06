@@ -10,17 +10,29 @@
   background-color: white;
   border-radius: 7px;
   width: 23%;
-  height: 140px;
+  padding: 20px;
 }
 
 .datasetStats h3 {
-  margin: 20px;
-  font-weight: 100;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
   font-size: 50px;
 }
 
 .datasetStats p {
   font-size: 12px;
+}
+
+#numAccepted {
+  color: #40f7aa;
+}
+
+#numNotMapped {
+  color: #f7408d;
+}
+
+#numUnderReview {
+  color: #f7aa40;
 }
 
 .searchBar {
@@ -39,16 +51,22 @@ form ::placeholder{
 }
 
 input[type="submit"] {
-  background-color: #f1f2f7;
+  background-color: #408DF7;
+  color: white;
   padding: 7px 15px;
+  margin-top: 15px;
   border-radius: 3px;
   font-size: 16px;
-  border: 2px solid transparent;
+  border: 0;
   transition:color .2s ease-out, background 0.3s ease-in;
 }
 
 input[type="submit"]:hover {
-  color: #408DF7;
-  border: 2px solid #408DF7;
+  background-color: #0f70f5;
   transition:color .2s ease-out, background 0.3s ease-in;
+}
+
+.datasets {
+  background-color: white;
+  border-radius: 7px;
 }
