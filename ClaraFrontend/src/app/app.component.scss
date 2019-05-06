@@ -1,0 +1,11 @@
+.mainContent {
+  position: relative;
+  margin-left: 260px;
+  margin-top: 60px;
+  padding: 15px;
+  text-align: center;
+}
+
+.mainContent>* {
+  display: block;
+}
