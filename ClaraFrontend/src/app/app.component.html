@@ -43,7 +43,7 @@
               <li class="header">NOTIFICATIONS</li>
               <li class="body">
                 <ul class="menu">
-                  <p>Hi Populate Me Later pls <3</p>
+                  <p>Hi Populate Me Later pls</p>
                 </ul>
               </li>
               <li class="footer">
@@ -98,22 +98,14 @@
 </nav>
 
 
-<div class="dark">
+<div>
   <!-- Left Sidebar -->
   <aside id="leftsidebar" class="sidebar">
     <!-- Menu -->
     <div class="menu">
       <ul class="list">
-        <li class="sidebar-user-panel">
-          <div class="user-panel">
-            <div class=" image">
-              <img src="assets/images/usrbig.jpg" class="img-circle user-img-circle" alt="User Image" />
-            </div>
-          </div>
-          <div class="profile-usertitle">
-            <div class="sidebar-userpic-name"> Emily Smith </div>
-            <div class="profile-usertitle-job ">Manager </div>
-          </div>
+        <li style="margin-top:30px;margin-bottom:40px;">
+          <app-profile-thumbnail></app-profile-thumbnail>
         </li>
         <li routerLinkActive="active">
           <a routerLink="/personalDashboard">
@@ -146,6 +138,7 @@
 
   <!-- Right Sidebar -->
   <aside id="rightsidebar" class="right-sidebar">
+    <app-profile-thumbnail></app-profile-thumbnail>
     <p>Populate Me With User Settings Later <3</p>
   </aside>
   <!-- #END# Right Sidebar -->

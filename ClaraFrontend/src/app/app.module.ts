@@ -7,6 +7,7 @@ import { UserDashboardComponent } from './components/user-dashboard/user-dashboa
 import { SharedDashboardComponent } from './components/shared-dashboard/shared-dashboard.component';
 import { DatasetsComponent } from './components/datasets/datasets.component';
 import { IdeasComponent } from './components/ideas/ideas.component';
+import { ProfileThumbnailComponent } from './components/profile-thumbnail/profile-thumbnail.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { IdeasComponent } from './components/ideas/ideas.component';
     UserDashboardComponent,
     SharedDashboardComponent,
     DatasetsComponent,
-    IdeasComponent
+    IdeasComponent,
+    ProfileThumbnailComponent
   ],
   imports: [
     BrowserModule,
