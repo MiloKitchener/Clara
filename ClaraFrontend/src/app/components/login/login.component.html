@@ -1,0 +1,57 @@
+<div class="container">
+  <div id="splash">
+    <h2>Welcome to Clara.</h2>
+    <div class="cssload-thecube">
+       <div class="cssload-cube cssload-c1"></div>
+       <div class="cssload-cube cssload-c2"></div>
+       <div class="cssload-cube cssload-c4"></div>
+       <div class="cssload-cube cssload-c3"></div>
+    </div>
+  </div>
+
+  <div id="loginContainer">
+    <img src="assets/claraIcon.png" id="icon">
+
+    <form id="loginForm" [formGroup]="loginForm" (ngSubmit)="signIn()">
+      <h1>Log in to Clara</h1>
+      <div id="loginPanel">
+        <input type="text" formControlName="username" placeholder="Username" value="" required>
+        <br>
+        <input type="password" formControlName="password" placeholder="Password" value="" required>
+        <br>
+        <button id="forgotPW">Forgot Password?</button>
+        <br>
+        <button type="submit">Sign In</button>
+        <button type="button" name="signUpBtn" id="signUpBtn">Sign Up</button>
+      </div>
+    </form>
+
+    <form id="signupPanel" style="display:none">
+      <h1>Sign Up For Clara</h1>
+      <input type="email" name="email" placeholder="Email Address" value="" required>
+      <br>
+      <input type="text" name="username" placeholder="Username" value="" required>
+      <br>
+      <input type="password" name="password" placeholder="Password" value="" required>
+      <br>
+      <input type="password" name="passwordConfirm" placeholder="Confirm Password" value="" required>
+      <br>
+      <input type="submit" name="submitSignUp" id="submitSignUp" value="Sign Up">
+      <button type="button" name="button" id="backBtn1">Back</button>
+    </form>
+
+    <form id="forgotPWPanel" style="display:none">
+      <h1>Forgot Password</h1>
+      <input type="email" name="email" placeholder="Email Address" value="" required>
+      <input type="submit" name="submitForgotPW" value="Resend Password">
+      <button type="button" name="button" id="backBtn2">Back</button>
+    </form>
+  </div>
+
+  <div id="rightPanel">
+    <img src="assets/claraSpace.png" alt="">
+    <h1>Welcome to Clara.</h1>
+    <p>Clara is a municipal machine learning and analytics platform,</p>
+    <p>providing ideas and insights to the municipality of Kitchener.</p>
+  </div>
+</div>
