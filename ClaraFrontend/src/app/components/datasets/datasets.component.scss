@@ -1,0 +1,54 @@
+.datasetStats {
+  margin-top: 60px;
+  margin-bottom: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.datasetStats div {
+  background-color: white;
+  border-radius: 7px;
+  width: 23%;
+  height: 140px;
+}
+
+.datasetStats h3 {
+  margin: 20px;
+  font-weight: 100;
+  font-size: 50px;
+}
+
+.datasetStats p {
+  font-size: 12px;
+}
+
+.searchBar {
+  background-color: white;
+  border-radius: 7px;
+  padding: 25px;
+  margin-bottom: 25px;
+}
+
+.searchBar h4 {
+  text-align: left;
+}
+
+form ::placeholder{
+  font-size: 16px;
+}
+
+input[type="submit"] {
+  background-color: #f1f2f7;
+  padding: 7px 15px;
+  border-radius: 3px;
+  font-size: 16px;
+  border: 2px solid transparent;
+  transition:color .2s ease-out, background 0.3s ease-in;
+}
+
+input[type="submit"]:hover {
+  color: #408DF7;
+  border: 2px solid #408DF7;
+  transition:color .2s ease-out, background 0.3s ease-in;
+}
