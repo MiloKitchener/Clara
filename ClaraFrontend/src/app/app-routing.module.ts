@@ -6,7 +6,6 @@ import { SharedDashboardComponent } from './components/shared-dashboard/shared-d
 import { DatasetsComponent } from './components/datasets/datasets.component';
 import { IdeasComponent } from './components/ideas/ideas.component';
 import { AuthService } from './services/auth/auth.service';
-import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'personalDashboard', pathMatch: 'full' },

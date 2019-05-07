@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GraphPanelComponent } from '../graph-panel/graph-panel.component';
 
 @Component({
   selector: 'app-user-dashboard',

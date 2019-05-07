@@ -14,8 +14,8 @@ import { DatasetsComponent } from './components/datasets/datasets.component';
 import { IdeasComponent } from './components/ideas/ideas.component';
 import { ProfileThumbnailComponent } from './components/profile-thumbnail/profile-thumbnail.component';
 import { DatasetNodeComponent } from './components/dataset-node/dataset-node.component';
-import { LoginComponent } from './components/login/login.component';
 import { IdeaNodeComponent } from './components/idea-node/idea-node.component';
+import { GraphPanelComponent } from './components/graph-panel/graph-panel.component';
 
 @NgModule({
   declarations: [
@@ -26,8 +26,8 @@ import { IdeaNodeComponent } from './components/idea-node/idea-node.component';
     IdeasComponent,
     ProfileThumbnailComponent,
     DatasetNodeComponent,
-    LoginComponent,
-    IdeaNodeComponent
+    IdeaNodeComponent,
+    GraphPanelComponent
   ],
   imports: [
     BrowserModule,
