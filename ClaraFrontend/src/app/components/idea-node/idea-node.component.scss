@@ -1,0 +1,32 @@
+.ideaNodeContainer {
+  margin: 20px;
+  text-align: left;
+}
+
+p {
+  text-align: justify;
+}
+
+#votePanel {
+  text-align: center;
+  margin-top: 5%;
+  margin-left: 40px;
+}
+
+#mainContent {
+  display: flex;
+}
+
+.commentBtn {
+  color: #408DF7;
+  background-color: transparent;
+  transition:color .2s ease-out, background 0.3s ease-in;
+  border: 0;
+  padding: 0;
+  margin-right: 80px;
+}
+
+.commentBtn:hover {
+  color: #0f70f5;
+  transition:color .2s ease-out, background 0.3s ease-in;
+}

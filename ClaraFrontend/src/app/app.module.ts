@@ -15,6 +15,7 @@ import { IdeasComponent } from './components/ideas/ideas.component';
 import { ProfileThumbnailComponent } from './components/profile-thumbnail/profile-thumbnail.component';
 import { DatasetNodeComponent } from './components/dataset-node/dataset-node.component';
 import { LoginComponent } from './components/login/login.component';
+import { IdeaNodeComponent } from './components/idea-node/idea-node.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { LoginComponent } from './components/login/login.component';
     IdeasComponent,
     ProfileThumbnailComponent,
     DatasetNodeComponent,
-    LoginComponent
+    LoginComponent,
+    IdeaNodeComponent
   ],
   imports: [
     BrowserModule,
