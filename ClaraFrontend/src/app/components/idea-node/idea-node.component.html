@@ -2,10 +2,26 @@
   <h4>{{ title }}</h4>
   <div id="mainContent">
     <p>{{ description }}</p>
+
     <div id="votePanel">
-      <h6>Like</h6>
-      <h6>Dislike</h6>
+      <button id="upButton" (click)="upvote()">
+        <svg width="22.5px" height="30px" viewBox="0 0 50 80" xml:space="preserve">
+          <polyline id="arrowUp" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" points="
+      	45.63,75.8 0.375,38.087 45.63,0.375 "/>
+        </svg>
+      </button>
+      <br>
+      <br>
+      <h5 id=numVotes>{{ numVotes }}</h5>
+      <br>
+      <button id = "downButton" (click)="downvote()">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="22.5px" height="30px" viewBox="0 0 50 80" xml:space="preserve">
+          <polyline id="arrowDown" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" points="
+      	0.375,0.375 45.63,38.087 0.375,75.8 "/>
+        </svg>
+      </button>
     </div>
+
   </div>
   <button type="button" name="button" class="commentBtn" style="float:left;">View Comments ({{ numComments }})</button>
   <button type="button" name="button" class="commentBtn" style="float:right;">Add Comment</button>

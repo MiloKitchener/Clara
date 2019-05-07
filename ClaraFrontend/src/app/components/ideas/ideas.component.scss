@@ -6,7 +6,7 @@
   border-radius: 7px;
 }
 
-form ::placeholder{
+form::placeholder{
   font-size: 16px;
 }
 
@@ -14,10 +14,12 @@ textarea {
   margin-top: 20px;
   height: 200px;
   border: 2px solid #d1d1d1;
+  transition:color .2s ease-out, background 0.3s ease-in;
 }
 
-textarea:focus {
+textarea:focus, textarea:hover {
   border: 2px solid #408DF7;
+  transition:color .2s ease-out, background 0.3s ease-in;
 }
 
 input[type="submit"] {
