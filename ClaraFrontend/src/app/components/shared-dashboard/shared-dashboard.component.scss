@@ -1,0 +1,40 @@
+.contain {
+  margin-top: 60px;
+  margin-bottom: 100px;
+  width: 100%;
+  border-radius: 7px;
+}
+
+* {box-sizing: border-box}
+
+.container {
+  width: 100%;
+  background-color: #ddd;
+}
+
+.skills {
+  text-align: right;
+  padding: 10px;
+  color: white;
+}
+
+p {
+    color: #0074D9;
+    padding-left:10em;
+    text-align: left;
+}
+
+.html {width: 30%; background-color: #4CAF50;}
+.css {width: 50%; background-color: #2196F3;}
+.js {width: 60%; background-color: #f44336;}
+.php {width: 70%; background-color: #808080;}
+
+.chart {
+    background-color: white;
+    margin-top: 20px;
+    margin-left: 100px;
+    margin-bottom: 30px;
+    border-radius: 20px;
+    width: 90%;
+    height: 700px;
+  }
