@@ -7,9 +7,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GraphPanelComponent implements OnInit {
 
-  graphTitle = "";
-  yAxisTitle = "";
-  xAxisTitle = "";
+  private graphTitle = "";
+  private yAxisTitle = "";
+  private xAxisTitle = "";
+  private yFields = null;
+  private xFields = null;
+
+  private datasets = [
+    {"title": "Temperature"},
+    {"title": "Traffic"},
+    {"title": "Weather"},
+    {"title": "Wind Speed"}
+  ]
+  private fields = [
+    {"dataset":"Temperature", "fields":["Temperature Field A"]},
+    {"dataset":"Traffic", "fields":["Traffic Field A", "Traffic Field B"]},
+    {"dataset":"Weather", "fields":["Weather Field A", "Weather Field B", "Weather Field C"]},
+    {"dataset":"Wind Speed", "fields":["Wind Speed Field A", "Wind Speed Field B", "Wind Speed Field C"]}
+  ]
 
   constructor() {
     this.yAxisTitle = "None";
