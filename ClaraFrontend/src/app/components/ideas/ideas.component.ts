@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IdeaNodeComponent } from '../idea-node/idea-node.component';
 
 @Component({
   selector: 'app-ideas',

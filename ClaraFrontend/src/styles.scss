@@ -1,6 +1,9 @@
 /* Font */
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300');
 
+input[type="text"]:hover, input[type="email"]:hover, input[type="password"]:hover, {
+  border-bottom: 1px solid #408DF7;
+}
 
 /************************
   Define keyframes

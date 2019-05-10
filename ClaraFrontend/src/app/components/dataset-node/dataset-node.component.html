@@ -1,0 +1,8 @@
+<div class="nodeContainer">
+  <h3>{{ title }}</h3>
+  <p>{{ description }}</p>
+  <div>
+    <h6>Status: </h6>
+    <h6 id="status" [ngStyle]="{'color': status === 'active' ? '#40f7aa' : '#eb3b3b'}">{{ status }}</h6>
+  </div>
+</div>

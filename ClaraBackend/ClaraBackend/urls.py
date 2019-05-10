@@ -25,5 +25,6 @@ urlpatterns = [
     path('api/token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
     path('api/datasets/', views.ListDatasetView.as_view(), name='list-datasets'),
     path('hello/', views.HelloView.as_view(), name='hello'),
+    path('signup/', views.signup, name='signup'),
 
 ]

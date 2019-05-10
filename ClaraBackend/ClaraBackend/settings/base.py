@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',  # Library that allows for REST API
 ]
 
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -78,9 +79,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'clara',
-        'USER': 'root',
-        'PASSWORD': 'root',
-        'HOST': 'localhost',  # IP Address that the DB is hosted on
+        'USER': 'Clara',
+        'PASSWORD': 'T1meMachine',
+        'HOST': 'prod-clarabackenddb.clhelwr0pylt.ca-central-1.rds.amazonaws.com',  # IP Address that the DB is hosted on
         'PORT': '3306',
     }
 }
@@ -102,6 +103,12 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+
+    ],
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
@@ -125,8 +132,25 @@ CORS_ORIGIN_WHITELIST = (
     'localhost:4200'
 )
 
+CORS_ALLOW_HEADERS = (
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-requested-with',
+    'HTTP_X_CSRFTOKEN',
+    'x-csrftoken',
+)
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True
+
+
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ],
 }
+AUTH_USER_MODEL = 'api.CustomUser'

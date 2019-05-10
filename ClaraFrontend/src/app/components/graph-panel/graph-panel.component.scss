@@ -1,0 +1,77 @@
+.graphPanelContainer {
+  background-color: white;
+  border-radius: 7px;
+  padding: 20px;
+  width: 600px;
+  height: auto;
+}
+
+h3 {
+  font-size: 26px;
+}
+
+h4 {
+  margin: 0;
+}
+
+hr {
+  margin-bottom: 20px;
+  width: 90%;
+}
+
+.addBtn:hover {
+  background-color: #d51616;
+  transition:color .2s ease-out, background 0.3s ease-in;
+}
+
+.main {
+  display: flex;
+}
+
+#controls {
+  margin-top: 20px;
+  flex-grow: 1;
+}
+
+button {
+  border: 0;
+  margin: 0 15px;
+  border-radius: 3px;
+  padding: 7px 15px;
+  width: 150px;
+  height: 40px;
+  background-color: #408DF7;
+  color: white;
+  transition:color .2s ease-out, background 0.3s ease-in;
+}
+
+button:hover {
+  background-color: #0f70f5;
+  transition:color .2s ease-out, background 0.3s ease-in;
+}
+
+.dropdown-menu {
+  width: 150px;
+  margin: 0;
+}
+
+#graph {
+  margin: 20px;
+  border: 1px solid gray;
+  border-radius: 7px;
+  width: 400px;
+  height: 350px;
+}
+
+.addBtn {
+  text-align: center;
+  margin-top: 20px;
+  color: white;
+  background-color: #eb3b3b;
+  border: 1px solid transparent;
+  width: 95%;
+  padding: 3px;
+  font-size: 14px;
+  border-radius: 3px;
+  transition:color .2s ease-out, background 0.3s ease-in;
+}
