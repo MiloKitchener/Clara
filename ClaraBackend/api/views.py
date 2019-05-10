@@ -1,8 +1,9 @@
+from django.http import HttpResponseRedirect
 from rest_framework.views import APIView
 from django.http import HttpResponse
 from rest_framework.response import Response
-from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
+<<<<<<< HEAD
 from .models import Dataset
 from .serializers import DatasetSerializer
 from django.views.decorators.csrf import csrf_exempt
@@ -29,28 +30,24 @@ def signup(request):
             return HttpResponse("sucess")
     else:
         form = CustomUserCreationForm()
+=======
+from django.contrib import auth
+>>>>>>> parent of 8a41d7f1... Working on dataset fetching and listing
 
 
 class HelloView(APIView):
     permission_classes = (IsAuthenticated,)
 
-    def get(self):
+    def get(self, request):
         content = {'message': 'Hello, World!'}
         return Response(content)
 
 
-class ListDatasetView(generics.ListAPIView):
-    # Authenticate the user
-    # TODO: Re-enable authentication
-    # permission_classes = (IsAuthenticated,)
-
-    # Select all datasets
-    queryset = Dataset.objects.all()
-    serializer_class = DatasetSerializer
-
-
-def graph(request):
-    dataset1 = request.POST.get('dataset1', '')
-    field1 = request.POST.get('field1', '')
-    dataset2 = request.POST.get('dataset2', '')
-    field2 = request.POST.get('field2', '')
+def login_view(request):
+    user = auth.authenticate(username=request.POST.get('password', ''), password=request.POST.get('username', ''))
+    if user is not None and user.is_active:
+        # Correct password, and the user is marked "active"
+        auth.login(request, user)
+    else:
+        # Show an error page
+        return HttpResponseRedirect("/api/invalid/")

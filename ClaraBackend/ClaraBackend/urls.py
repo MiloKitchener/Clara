@@ -23,8 +23,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/token/', jwt_views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
-    path('api/datasets/', views.ListDatasetView.as_view(), name='list-datasets'),
     path('hello/', views.HelloView.as_view(), name='hello'),
+<<<<<<< HEAD
     path('signup/', views.signup, name='signup'),
 
+=======
+>>>>>>> parent of 8a41d7f1... Working on dataset fetching and listing
 ]
