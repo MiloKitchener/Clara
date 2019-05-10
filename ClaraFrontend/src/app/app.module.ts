@@ -16,6 +16,7 @@ import { RegisterComponent } from "./components/register/register.component";
 import { IdeaNodeComponent } from './components/idea-node/idea-node.component';
 import { GraphPanelComponent } from './components/graph-panel/graph-panel.component';
 import { DatasetsComponent } from './components/datasets/datasets.component';
+import { LabServicesComponent } from './components/lab-services/lab-services.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { DatasetsComponent } from './components/datasets/datasets.component';
     RegisterComponent,
     IdeaNodeComponent,
     GraphPanelComponent,
-    DatasetsComponent
+    DatasetsComponent,
+    LabServicesComponent
   ],
   imports: [
     BrowserModule,
