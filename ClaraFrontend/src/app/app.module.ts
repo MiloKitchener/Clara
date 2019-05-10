@@ -36,11 +36,13 @@ import { GraphPanelComponent } from './components/graph-panel/graph-panel.compon
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [CookieService, {
-    provide: HTTP_INTERCEPTORS,
-    useClass: JwtInterceptorService,
-    multi: true,
-  }],
+  providers: [
+    CookieService, {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptorService,
+      multi: true,
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
