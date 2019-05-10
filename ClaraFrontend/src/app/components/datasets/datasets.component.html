@@ -32,13 +32,16 @@
     <ul id="datasetsList">
       <li *ngFor="let dataset of datasets">
         <div class="nodeContainer">
-          <h3>{{ dataset.title }}</h3>
-          <div style="margin: 0;margin-top: 20px;">
-            <h6>Status: </h6>
-            <h6 [ngStyle]="{'color': dataset.status === 'active' ? '#40f7aa' : '#eb3b3b'}">{{ dataset.status }}</h6>
+          <div class="statusIndicator" [ngStyle]="{'background-color': dataset.status === 'active' ? '#40f7aa' : '#eb3b3b', 'color': dataset.status === 'active' ? '#40f7aa' : '#eb3b3b'}">I</div>
+          <div class="titleDesc">
+            <h3>{{ dataset.title }}</h3>
+            <p>{{ dataset.description }}</p>
+          </div>
+          <div class="statusPanel">
+            <h6>Status:</h6>
+            <h6 style="font-size: 15px;" [ngStyle]="{'color': dataset.status === 'active' ? '#40f7aa' : '#eb3b3b'}">{{ dataset.status }}</h6>
           </div>
         </div>
-        <p style="text-align: justify;margin:20px;margin-top: 0;">{{ dataset.description }}</p>
         <hr>
       </li>
     </ul>
