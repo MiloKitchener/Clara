@@ -1,4 +1,8 @@
 <div class="graphPanelContainer">
+  <div id="addBtnContainer">
+    <button class="addBtn" (click)="addGraph()">+</button>
+  </div>
+
   <h3>{{ graphTitle }}</h3>
   <hr>
 
@@ -11,16 +15,9 @@
         <button type="button" data-toggle="dropdown">{{ yAxisTitle }}
         <span class="caret"></span></button>
         <ul class="dropdown-menu">
-          <li *ngFor="let dataset of datasets">
-            <a (click)="setYAxis(dataset.title)">{{ dataset.title }}</a>
-          </li>
-        </ul>
-      </div>
-      <br>
-      <div class="dropdown">
-        <button type="button" data-toggle="dropdown">Fields
-        <span class="caret"></span></button>
-        <ul class="dropdown-menu">
+          <li><a (click)="setYAxis('HTML')">HTML</a></li>
+          <li><a (click)="setYAxis('CSS')">CSS</a></li>
+          <li><a (click)="setYAxis('JavaScript')">JavaScript</a></li>
         </ul>
       </div>
 
@@ -33,24 +30,15 @@
         <button type="button" data-toggle="dropdown">{{ xAxisTitle }}
         <span class="caret"></span></button>
         <ul class="dropdown-menu">
-          <li *ngFor="let dataset of datasets">
-            <a (click)="setXAxis(dataset.title)">{{ dataset.title }}</a>
-          </li>
-      </ul>
+          <li><a (click)="setXAxis('HTML')">HTML</a></li>
+          <li><a (click)="setXAxis('CSS')">CSS</a></li>
+          <li><a (click)="setXAxis('JavaScript')">JavaScript</a></li>
+        </ul>
+      </div>
     </div>
-    <br>
-    <div class="dropdown">
-      <button type="button" data-toggle="dropdown">Fields
-      <span class="caret"></span></button>
-      <ul class="dropdown-menu">
-      </ul>
-    </div>
-  </div>
 
     <div id="graph">
       <p>Graph</p>
     </div>
   </div>
-
-  <button class="addBtn" (click)="addGraph()">Add Graph to Dashboard</button>
 </div>
