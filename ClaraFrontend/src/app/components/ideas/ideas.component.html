@@ -23,7 +23,10 @@
     </div>
 
     <ul>
-      <li><app-idea-node></app-idea-node></li>
+      <li *ngFor="let dataset of datasets">
+        <app-idea-node [title]=dataset.title [description]=dataset.description [numComments]=dataset.numComments [numVotes]=dataset.numVotes></app-idea-node>
+        <hr>
+      </li>
     </ul>
   </div>
 </div>

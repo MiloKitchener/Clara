@@ -30,17 +30,17 @@
 
   <div class="datasets">
     <ul id="datasetsList">
-      <!--li *ngFor="dataset of datasets">
+      <li *ngFor="let dataset of datasets">
         <div class="nodeContainer">
           <h3>{{ dataset.title }}</h3>
           <p>{{ dataset.description }}</p>
           <div>
             <h6>Status: </h6>
-            <h6 id="status" [ngStyle]="{'color': status === 'active' ? '#40f7aa' : '#eb3b3b'}">{{ status }}</h6>
+            <h6 [ngStyle]="{'color': dataset.status === 'active' ? '#40f7aa' : '#eb3b3b'}">{{ dataset.status }}</h6>
           </div>
         </div>
         <hr>
-      </li-->
+      </li>
     </ul>
   </div>
 </div>
