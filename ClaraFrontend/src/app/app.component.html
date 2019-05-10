@@ -30,16 +30,15 @@
       </div>
     </form>
 
-    <form id="signupPanel" style="display:none">
+     <form id="signupForm" [formGroup]="signUpForm" (ngSubmit)="signUp()">
       <h1>Sign Up For Clara</h1>
-      <input type="email" name="email" placeholder="Email Address" value="" required>
+      <input type="email" formControlName="email" placeholder="Email Address" value="" required>
       <br>
-      <input type="text" name="username" placeholder="Username" value="" required>
+      <input type="text" formControlName="username" placeholder="Username" value="" required>
       <br>
-      <input type="password" name="password" placeholder="Password" value="" required>
+      <input type="password" formControlName="password1" placeholder="Password" value="" required>
       <br>
-      <input type="password" name="passwordconfirm" placeholder="Confirm Password" value="" required>
-      <br>
+      <input type="password" formControlName="password2" placeholder="Confirm Password" value="" required>
       <br>
       <input type="submit" name="submitSignUp" id="submitSignUp" value="Sign Up">
       <button type="button" name="button" id="backBtn1">Back</button>

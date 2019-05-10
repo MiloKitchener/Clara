@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'ClaraBackend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'clara',
+        'NAME': 'clara_temp',
         'USER': 'Clara',
         'PASSWORD': 'T1meMachine',
         'HOST': 'prod-clarabackenddb.clhelwr0pylt.ca-central-1.rds.amazonaws.com',  # IP Address that the DB is hosted on
