@@ -15,6 +15,7 @@ import { ProfileThumbnailComponent } from './components/profile-thumbnail/profil
 import { RegisterComponent } from "./components/register/register.component";
 import { IdeaNodeComponent } from './components/idea-node/idea-node.component';
 import { GraphPanelComponent } from './components/graph-panel/graph-panel.component';
+import { DatasetsComponent } from './components/datasets/datasets.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { GraphPanelComponent } from './components/graph-panel/graph-panel.compon
     ProfileThumbnailComponent,
     RegisterComponent,
     IdeaNodeComponent,
-    GraphPanelComponent
+    GraphPanelComponent,
+    DatasetsComponent
   ],
   imports: [
     BrowserModule,
