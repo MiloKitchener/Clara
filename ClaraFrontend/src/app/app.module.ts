@@ -15,6 +15,8 @@ import { IdeasComponent } from './components/ideas/ideas.component';
 import { ProfileThumbnailComponent } from './components/profile-thumbnail/profile-thumbnail.component';
 import { DatasetNodeComponent } from './components/dataset-node/dataset-node.component';
 import { LoginComponent } from './components/login/login.component';
+import {RegisterComponent} from "./components/register/register.component";
+import {CsrfInterceptorService} from "./services/RegisterService/csrf-interceptor.service";
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { LoginComponent } from './components/login/login.component';
     IdeasComponent,
     ProfileThumbnailComponent,
     DatasetNodeComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +41,13 @@ import { LoginComponent } from './components/login/login.component';
     provide: HTTP_INTERCEPTORS,
     useClass: JwtInterceptorService,
     multi: true,
-  }],
+  },
+    {
+    provide: HTTP_INTERCEPTORS,
+    useClass: CsrfInterceptorService,
+    multi: true,
+  }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

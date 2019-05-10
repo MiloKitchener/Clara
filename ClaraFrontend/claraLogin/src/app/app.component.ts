@@ -101,7 +101,7 @@ export class AppComponent implements OnInit {
       else { // passwords match
         console.log("Registering user: " + username + ", with password: " + passwordOne + ", and email: " + emailAddress);
         // send post request to add the user
-        this.AppService.signUp(username, emailAddress, passwordOne, passwordTwo)
+        this.service.signUp(username, emailAddress, passwordOne, passwordTwo)
           .subscribe(res =>{
             console.log('sucess?');
             signIn(username, passwordOne);
@@ -109,6 +109,7 @@ export class AppComponent implements OnInit {
        // signIn(username, passwordOne); // call this in the  call back
       }
     }
+
 
 
     /*

@@ -1,24 +1,33 @@
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from django.contrib.auth import login, authenticate
 from django.shortcuts import render, redirect
+from django.views.decorators.csrf import csrf_exempt
+from .models import CustomUser
+import json
 
 from .forms import CustomUserCreationForm
 
+@csrf_exempt
 def signup(request):
-    print("in view")
     if request.method == 'POST':
-        print("post")
-        form = CustomUserCreationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect("/login/")
+        data = json.loads(request.body)
+        print(data.get('username'))
+        if not (data.get('username')) or (not data.get('email') or (not data.get('password1'))):
+            # not a valid user, no user will be created. data will return
+            print('user invalid, user not created')
+            # will return user to the sign up page to try again
+            # CHANGE THIS TO BE DYNAMIC AND NOT A LINK EXCLUSIVE TO LOCAL INSTANCES
+            return HttpResponse("err")
+        else:
+            # user is valid and created
+            print('valid user is created')
+            user = CustomUser.objects.create_user(username=data.get('username'), email=data.get('email'), password=data.get('password1'))
+            return HttpResponse("sucess")
     else:
-        print(request.method)
         form = CustomUserCreationForm()
-        return HttpResponseRedirect("/login/")
 
 
 
