@@ -7,6 +7,7 @@ import { IdeasComponent } from './components/ideas/ideas.component';
 import { DatasetsComponent } from './components/datasets/datasets.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: 'personalDashboard', pathMatch: 'full' },
   { path: 'personalDashboard', component: UserDashboardComponent, data: { title: 'Personal Dashboard' } },
   { path: 'sharedDashboard', component: SharedDashboardComponent, data: { title: 'Shared Dashboards' } },
   { path: 'datasets', component: DatasetsComponent, data: { title: 'Datasets' } },

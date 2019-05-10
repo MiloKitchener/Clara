@@ -12,20 +12,10 @@
 
   <div class="postedIdeas">
     <h3>Browse Ideas</h3>
-
-    <div class="filterPanel">
-      <h4>Filter By:</h4>
-      <select>
-        <option value="mostRecent">Most Recent</option>
-        <option value="highestRated">Highest Rated</option>
-        <option value="trending">Trending</option>
-      </select>
-    </div>
-
     <ul>
       <li *ngFor="let dataset of datasets">
-        <app-idea-node [title]=dataset.title [description]=dataset.description [numComments]=dataset.numComments [numVotes]=dataset.numVotes></app-idea-node>
         <hr>
+        <app-idea-node [title]=dataset.title [description]=dataset.description [numComments]=dataset.numComments [numVotes]=dataset.numVotes></app-idea-node>
       </li>
     </ul>
   </div>
