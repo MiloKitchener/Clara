@@ -17,6 +17,8 @@ import { DatasetNodeComponent } from './components/dataset-node/dataset-node.com
 import { LoginComponent } from './components/login/login.component';
 import {RegisterComponent} from "./components/register/register.component";
 import {CsrfInterceptorService} from "./services/RegisterService/csrf-interceptor.service";
+import { IdeaNodeComponent } from './components/idea-node/idea-node.component';
+import { GraphPanelComponent } from './components/graph-panel/graph-panel.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import {CsrfInterceptorService} from "./services/RegisterService/csrf-intercepto
     ProfileThumbnailComponent,
     DatasetNodeComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    IdeaNodeComponent,
+    GraphPanelComponent
   ],
   imports: [
     BrowserModule,

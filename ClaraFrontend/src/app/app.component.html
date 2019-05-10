@@ -1,151 +1,211 @@
-<!-- Loading Indicator -->
-<div *ngIf="showLoadingIndicatior" class="page-loader-wrapper">
-  <div class="loader">
-    <div class="m-t-30">
-      <img class="loading-img-spin" src="assets/images/loading.png" width="20" height="20" alt="admin">
+<!------------------------------------------------------------------>
+  <!-- Login Page -->
+<!------------------------------------------------------------------>
+
+<div id="loginPage">
+  <div id="splash">
+    <h2>Welcome to Clara.</h2>
+    <div class="cssload-thecube">
+       <div class="cssload-cube cssload-c1"></div>
+       <div class="cssload-cube cssload-c2"></div>
+       <div class="cssload-cube cssload-c4"></div>
+       <div class="cssload-cube cssload-c3"></div>
     </div>
-    <p>Please wait...</p>
+  </div>
+
+  <div id="loginContainer">
+    <img src="assets/claraIcon.png" id="icon">
+
+    <form id="loginForm" [formGroup]="loginForm" (ngSubmit)="signIn()">
+      <h1>Log in to Clara</h1>
+      <div id="loginPanel">
+        <input type="text" formControlName="username" placeholder="Username" value="" required>
+        <br>
+        <input type="password" formControlName="password" placeholder="Password" value="" required>
+        <br>
+        <button id="forgotPW">Forgot Password?</button>
+        <br>
+        <button type="submit">Sign In</button>
+        <button type="button" name="signUpBtn" id="signUpBtn">Sign Up</button>
+      </div>
+    </form>
+
+    <form id="signupPanel" style="display:none">
+      <h1>Sign Up For Clara</h1>
+      <input type="email" name="email" placeholder="Email Address" value="" required>
+      <br>
+      <input type="text" name="username" placeholder="Username" value="" required>
+      <br>
+      <input type="password" name="password" placeholder="Password" value="" required>
+      <br>
+      <input type="password" name="passwordconfirm" placeholder="Confirm Password" value="" required>
+      <br>
+      <br>
+      <input type="submit" name="submitSignUp" id="submitSignUp" value="Sign Up">
+      <button type="button" name="button" id="backBtn1">Back</button>
+    </form>
+
+    <form id="forgotPWPanel" style="display:none">
+      <h1>Forgot Password</h1>
+      <input type="email" name="email" placeholder="Email Address" value="" style="margin-bottom:25;" required>
+      <input type="submit" name="submitForgotPW" value="Resend Password">
+      <button type="button" name="button" id="backBtn2">Back</button>
+    </form>
+  </div>
+
+  <div id="rightPanel">
+    <img src="assets/claraSpace.png" alt="">
+    <h1>Welcome to Clara.</h1>
+    <p>Clara is a municipal machine learning and analytics platform,</p>
+    <p>providing ideas and insights to the municipality of Kitchener.</p>
   </div>
 </div>
 
-<div class="overlay"></div>
-<!-- #END# Overlay For Sidebars -->
 
-<!-- Search Bar -->
-<div id="main-component">
-  <nav class="navbar">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a href="#" onClick="return false;" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
-        <a href="#" onClick="return false;" class="bars"></a>
-        <a class="navbar-brand" routerLink="dashboard/main">
-          <img src="assets/claraIcon.png" alt="Clara" id="claraLogo"/>
-        </a>
-      </div>
-      <div class="collapse navbar-collapse" id="navbar-collapse">
-        <ul class="nav navbar-nav navbar-right">
+<!------------------------------------------------------------------>
+  <!-- Main Page -->
+<!------------------------------------------------------------------>
 
-          <!-- Full Screen Button -->
-          <li class="fullscreen">
-            <a href="javascript:;" class="fullscreen-btn">
-              <i class="fas fa-expand"></i>
-            </a>
-          </li>
-          <!-- #END# Full Screen Button -->
 
-          <!-- #START# Notifications-->
-          <li class="dropdown">
-            <a href="#" onClick="return false;" class="dropdown-toggle" data-toggle="dropdown" role="button">
-              <i class="far fa-bell"></i>
-              <span class="label-count bg-orange"></span>
-            </a>
-            <ul class="dropdown-menu pullDown">
-              <li class="header">NOTIFICATIONS</li>
-              <li class="body">
-                <ul class="menu">
-                  <p>Hi Populate Me Later pls</p>
-                </ul>
-              </li>
-              <li class="footer">
-                <a href="#" onClick="return false;">View All Notifications</a>
-              </li>
-            </ul>
-          </li>
-          <!-- #END# Notifications-->
+<div id="mainPage">
+  <div class="overlay"></div>
+  <!-- #END# Overlay For Sidebars -->
 
-          <!-- #START# User Profile-->
-          <li class="dropdown user_profile">
-            <a href="#" onClick="return false;" class="dropdown-toggle" data-toggle="dropdown" role="button">
-              <img src="assets/images/user.jpg" width="32" height="32" alt="User">
-            </a>
-            <ul class="dropdown-menu pullDown">
-            <li class="body">
-              <ul class="user_dw_menu">
-                <li>
-                  <a href="#" onClick="return false;">
-                    <i class="material-icons">person</i>Profile
-                  </a>
+  <!-- Search Bar -->
+  <div id="main-component">
+    <nav class="navbar">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a href="#" onClick="return false;" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
+          <a href="#" onClick="return false;" class="bars"></a>
+          <a class="navbar-brand" routerLink="dashboard/main">
+            <img src="assets/claraIcon.png" alt="Clara" id="claraLogo"/>
+          </a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+
+            <!-- Full Screen Button -->
+            <li class="fullscreen">
+              <a href="javascript:;" class="fullscreen-btn">
+                <i class="fas fa-expand"></i>
+              </a>
+            </li>
+            <!-- #END# Full Screen Button -->
+
+            <!-- #START# Notifications-->
+            <li class="dropdown">
+              <a href="#" onClick="return false;" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                <i class="far fa-bell"></i>
+                <span class="label-count bg-orange"></span>
+              </a>
+              <ul class="dropdown-menu pullDown">
+                <li class="header">NOTIFICATIONS</li>
+                <li class="body">
+                  <ul class="menu">
+                    <p>Hi Populate Me Later pls</p>
+                  </ul>
                 </li>
-                <li>
-                  <a href="#" onClick="return false;">
-                    <i class="material-icons">feedback</i>Feedback
-                  </a>
-                </li>
-                <li>
-                  <a href="#" onClick="return false;">
-                    <i class="material-icons">help</i>Help
-                  </a>
-                </li>
-                <li>
-                  <a href="#" onClick="return false;">
-                    <i class="material-icons">power_settings_new</i>Logout
-                  </a>
+                <li class="footer">
+                  <a href="#" onClick="return false;">View All Notifications</a>
                 </li>
               </ul>
             </li>
-          </ul>
-        </li>
-        <!-- #END# User Profile -->
+            <!-- #END# Notifications-->
 
-        <li class="pull-right">
-          <a href="#" onClick="return false;" class="js-right-sidebar" data-close="true">
-            <i class="fas fa-cog"></i>
-          </a>
-        </li>
-      </ul>
+            <!-- #START# User Profile-->
+            <li class="dropdown user_profile">
+              <a href="#" onClick="return false;" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                <img src="assets/images/user.jpg" width="32" height="32" alt="User">
+              </a>
+              <ul class="dropdown-menu pullDown">
+              <li class="body">
+                <ul class="user_dw_menu">
+                  <li>
+                    <a href="#" onClick="return false;">
+                      <i class="material-icons">person</i>Profile
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" onClick="return false;">
+                      <i class="material-icons">feedback</i>Feedback
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" onClick="return false;">
+                      <i class="material-icons">help</i>Help
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" onClick="return false;">
+                      <i class="material-icons">power_settings_new</i>Logout
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <!-- #END# User Profile -->
+
+          <li class="pull-right">
+            <a href="#" onClick="return false;" class="js-right-sidebar" data-close="true">
+              <i class="fas fa-cog"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div>
+    <!-- Left Sidebar -->
+    <aside id="leftsidebar" class="sidebar">
+      <!-- Menu -->
+      <div class="menu">
+        <ul class="list">
+          <li style="margin-top:30px;margin-bottom:40px;">
+            <app-profile-thumbnail></app-profile-thumbnail>
+          </li>
+          <li routerLinkActive="active">
+            <a routerLink="/personalDashboard">
+              <i class="fas fa-tachometer-alt"></i>
+              <span>User Dashboard</span>
+            </a>
+          </li>
+          <li routerLinkActive="active">
+            <a routerLink="/sharedDashboard">
+              <i class="far fa-calendar"></i>
+              <span>Shared Dashboards</span>
+            </a>
+          </li>
+          <li routerLinkActive="active">
+            <a routerLink="/datasets">
+              <i class="fas fa-braille"></i>
+              <span>Datasets</span>
+            </a>
+          </li>
+          <li routerLinkActive="active">
+            <a routerLink="/ideas">
+              <i class="fas fa-mail-bulk"></i>
+              <span>Ideas</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </aside>
+    <!-- #END# Left Sidebar -->
+
+    <!-- Right Sidebar -->
+    <aside id="rightsidebar" class="right-sidebar">
+      <app-profile-thumbnail></app-profile-thumbnail>
+      <p>Populate Me With User Settings Later <3</p>
+    </aside>
+    <!-- #END# Right Sidebar -->
     </div>
   </div>
-</nav>
 
-
-<div>
-  <!-- Left Sidebar -->
-  <aside id="leftsidebar" class="sidebar">
-    <!-- Menu -->
-    <div class="menu">
-      <ul class="list">
-        <li style="margin-top:30px;margin-bottom:40px;">
-          <app-profile-thumbnail></app-profile-thumbnail>
-        </li>
-        <li routerLinkActive="active">
-          <a routerLink="/personalDashboard">
-            <i class="fas fa-tachometer-alt"></i>
-            <span>User Dashboard</span>
-          </a>
-        </li>
-        <li routerLinkActive="active">
-          <a routerLink="/sharedDashboard">
-            <i class="far fa-calendar"></i>
-            <span>Shared Dashboards</span>
-          </a>
-        </li>
-        <li routerLinkActive="active">
-          <a routerLink="/datasets">
-            <i class="fas fa-braille"></i>
-            <span>Datasets</span>
-          </a>
-        </li>
-        <li routerLinkActive="active">
-          <a routerLink="/ideas">
-            <i class="fas fa-mail-bulk"></i>
-            <span>Ideas</span>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </aside>
-  <!-- #END# Left Sidebar -->
-
-  <!-- Right Sidebar -->
-  <aside id="rightsidebar" class="right-sidebar">
-    <app-profile-thumbnail></app-profile-thumbnail>
-    <p>Populate Me With User Settings Later <3</p>
-  </aside>
-  <!-- #END# Right Sidebar -->
+  <!-- Routed Elements -->
+  <div class="mainContent">
+    <router-outlet></router-outlet>
   </div>
-</div>
-
-<!-- Routed Elements -->
-<div class="mainContent">
-  <router-outlet></router-outlet>
 </div>
