@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { DatasetNodeComponent } from '../dataset-node/dataset-node.component';
 
 @Component({
   selector: 'app-datasets',

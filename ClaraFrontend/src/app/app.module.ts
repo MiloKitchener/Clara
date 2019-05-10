@@ -13,7 +13,6 @@ import { SharedDashboardComponent } from './components/shared-dashboard/shared-d
 import { DatasetsComponent } from './components/datasets/datasets.component';
 import { IdeasComponent } from './components/ideas/ideas.component';
 import { ProfileThumbnailComponent } from './components/profile-thumbnail/profile-thumbnail.component';
-import { DatasetNodeComponent } from './components/dataset-node/dataset-node.component';
 import { RegisterComponent } from "./components/register/register.component";
 import { IdeaNodeComponent } from './components/idea-node/idea-node.component';
 import { GraphPanelComponent } from './components/graph-panel/graph-panel.component';
@@ -26,7 +25,6 @@ import { GraphPanelComponent } from './components/graph-panel/graph-panel.compon
     DatasetsComponent,
     IdeasComponent,
     ProfileThumbnailComponent,
-    DatasetNodeComponent,
     RegisterComponent,
     IdeaNodeComponent,
     GraphPanelComponent
