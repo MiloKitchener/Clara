@@ -5,8 +5,8 @@ import {RegisterService} from "../../services/RegisterService/register.service";
 
 @Component({
   selector: 'app-root',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  templateUrl: '../../app.component.html',
+  styleUrls: ['../../app.component.scss']
 })
 
 export class RegisterComponent implements OnInit {
@@ -20,10 +20,10 @@ export class RegisterComponent implements OnInit {
 
   // Linking the form logic with the HTML form
   signUpForm = this.fb.group({
-    username: ['test new'],
-    email: ['jakevink@plswork.ca'],
-    password1: ['test1234'],
-    password2: ['test1234'],
+    username: [''],
+    email: [''],
+    password1: [''],
+    password2: [''],
   });
 
   ngOnInit() {
@@ -36,6 +36,7 @@ export class RegisterComponent implements OnInit {
 
   // put error checking here
   signUp() {
+    console.log("in signup");
       if(this.signUpForm.value.password1 != this.signUpForm.value.password2) { // passwords do not match
         alert("Please Ensure That The Passwords Match");
       }
