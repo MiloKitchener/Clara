@@ -45,6 +45,7 @@ import { GraphPanelComponent } from './components/graph-panel/graph-panel.compon
     provide: HTTP_INTERCEPTORS,
     useClass: JwtInterceptorService,
     multi: true,
+<<<<<<< HEAD
   },
     {
     provide: HTTP_INTERCEPTORS,
@@ -52,6 +53,9 @@ import { GraphPanelComponent } from './components/graph-panel/graph-panel.compon
     multi: true,
   }
   ],
+=======
+  }],
+>>>>>>> parent of 14c6ad22... improved graph panel functionality
   bootstrap: [AppComponent]
 })
 export class AppModule { }
