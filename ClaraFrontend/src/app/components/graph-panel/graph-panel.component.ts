@@ -23,7 +23,6 @@ export class GraphPanelComponent implements OnInit {
   setYAxis(title) {
     this.yAxisTitle = title;
     this.graphTitle = this.yAxisTitle + " V " + this.xAxisTitle;
-<<<<<<< HEAD
 
     // get fields
     var found = 0;
@@ -36,14 +35,11 @@ export class GraphPanelComponent implements OnInit {
     if(found == 0) {
       alert("No Fields Found Corresponding to Dataset " + title);
     }
-=======
->>>>>>> parent of 4cd0625f... Recovered graph panel changes
   }
 
   setXAxis(title) {
     this.xAxisTitle = title;
     this.graphTitle = this.yAxisTitle + " V " + this.xAxisTitle;
-<<<<<<< HEAD
 
     // get fields
     var found = 0;
@@ -56,8 +52,6 @@ export class GraphPanelComponent implements OnInit {
     if(found == 0) {
       alert("No Fields Found Corresponding to Dataset " + title);
     }
-=======
->>>>>>> parent of 4cd0625f... Recovered graph panel changes
   }
 
   addGraph() {
