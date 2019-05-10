@@ -60,7 +60,7 @@ export class AppComponent {
 
     // sign up back button event listener
     document.getElementById("backBtn1").addEventListener("click", function() {
-      document.getElementById("signupPanel").style.display = "none";
+      document.getElementById("signupForm").style.display = "none";
       document.getElementById("loginForm").style.display = "block";
     });
 
