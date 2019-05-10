@@ -7,11 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class IdeaNodeComponent implements OnInit {
-  title = "";
-  description = "";
-  numComments = 0;
-  numVotes = 0;
-  voted = 0; // 0 means no vote by user, 1 means upvote, 2 means downvote
+  private title = "";
+  private description = "";
+  private numComments = 0;
+  private numVotes = 0;
+  private voted = 0; // 0 means no vote by user, 1 means upvote, 2 means downvote
 
   constructor() { }
 
