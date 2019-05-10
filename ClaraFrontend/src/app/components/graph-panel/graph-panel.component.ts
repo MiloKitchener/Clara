@@ -44,10 +44,10 @@ export class GraphPanelComponent implements OnInit {
     // get fields
     var found = 0;
     for(var field in this.fields) {
-      if(field.dataset == title){
+      /*if(field.dataset == title){
         found = 1;
         break;
-      }
+      }*/
     }
     if(found == 0) {
       alert("No Fields Found Corresponding to Dataset " + title);
@@ -61,10 +61,10 @@ export class GraphPanelComponent implements OnInit {
     // get fields
     var found = 0;
     for(var field in this.fields) {
-      if(field.dataset == title){
+      /*if(field.dataset == title){
         found = 1;
         break;
-      }
+      }*/
     }
     if(found == 0) {
       alert("No Fields Found Corresponding to Dataset " + title);

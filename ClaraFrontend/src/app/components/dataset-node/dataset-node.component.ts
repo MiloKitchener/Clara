@@ -9,16 +9,9 @@ declare var $:any;
 })
 
 export class DatasetNodeComponent implements OnInit {
-  title = "";
-  status = "";
-  description = "";
 
   constructor() { }
 
-  ngOnInit() {
-    this.title = "Title";
-    this.status = "active";
-    this.description = "lorem ipsum dolor";
-  }
+  ngOnInit() { }
 
 }

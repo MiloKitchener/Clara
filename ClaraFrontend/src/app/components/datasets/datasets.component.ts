@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DatasetNodeComponent } from '../dataset-node/dataset-node.component';
 
-// jquery
-declare var $:any;
-
 @Component({
   selector: 'app-datasets',
   templateUrl: './datasets.component.html',
@@ -18,6 +15,13 @@ export class DatasetsComponent implements OnInit {
   numNotMapped = 0;
   numUnderReview = 0;
 
+  datasets = [
+    {"title": "Traffic", "status":"active", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
+    {"title": "Rivers", "status":"inactive", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas fermentum felis vitae nunc sagittis iaculis."},
+    {"title": "Roads", "status":"active", "description": "Maecenas convallis blandit mauris."},
+    {"title": "Wind Speed", "status":"active", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas fermentum felis vitae nunc sagittis iaculis."},
+  ]
+
   constructor() { }
 
   ngOnInit() {
@@ -25,14 +29,5 @@ export class DatasetsComponent implements OnInit {
     this.numAccepted = 4;
     this.numNotMapped = 90;
     this.numUnderReview = 0;
-
-    // pull datasets from database
-    for(var i = 0; i < 10; i++) {
-      this.addDataset("Example " + i, "Active", "Lorem ipsum");
-    }
-  }
-
-  addDataset(title, status, description) {
-
   }
 }

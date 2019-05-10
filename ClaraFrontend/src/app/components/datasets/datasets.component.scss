@@ -74,3 +74,21 @@ input[type="submit"]:hover {
 hr {
   margin: 0;
 }
+
+.nodeContainer {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.nodeContainer h3, p, h6 {
+  margin: 0;
+}
+
+.nodeContainer h3, .nodeContainer p {
+  margin-top: 8px;
+}
+
+.nodeContainer  #status {
+  margin-top: 10px;
+}
