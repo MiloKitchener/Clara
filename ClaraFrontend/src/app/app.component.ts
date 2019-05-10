@@ -16,6 +16,13 @@ declare var $:any;
 export class AppComponent {
   returnUrl: string;
 
+  // user profile vars
+  user = {
+    "name": "William McKinnon",
+    "title": "Smart City Developer",
+    "pictureSrc": "assets/images/usrbig.jpg"
+  }
+
   constructor(
     private loginService: AuthService,
     private regService: RegisterService,
@@ -74,25 +81,27 @@ export class AppComponent {
   }
 
   // has number function for password security
-    hasNumber(myString) {
-      return /\d/.test(myString);
-    }
+  hasNumber(myString) {
+    return /\d/.test(myString);
+  }
+
   // registers a new user
-    signUp() {
+  signUp() {
     console.log("in signup");
-      if(this.signUpForm.value.password1 != this.signUpForm.value.password2) { // passwords do not match
-        alert("Please Ensure That The Passwords Match");
-      }
-      else if(this.signUpForm.value.password1.length < 7 || !this.hasNumber(this.signUpForm.value.password1)) { // password meets requirements
-        alert("Please Ensure That The Password is at Least 7 Characters Long, and Includes a Number.");
-      }
-      else { // passwords match
-        console.log("Registering user: " + this.signUpForm.value.username + ", with password: " + this.signUpForm.value.password1 + ", and email: " + this.signUpForm.value.email);
-        // send post request to add the user
-        //console.log(JSON.stringify(this.signUpForm.value));
-        this.regService.signUp(JSON.stringify(this.signUpForm.value));
-      }
+    if(this.signUpForm.value.password1 != this.signUpForm.value.password2) { // passwords do not match
+      alert("Please Ensure That The Passwords Match");
     }
+    else if(this.signUpForm.value.password1.length < 7 || !this.hasNumber(this.signUpForm.value.password1)) { // password meets requirements
+      alert("Please Ensure That The Password is at Least 7 Characters Long, and Includes a Number.");
+    }
+    else { // passwords match
+      console.log("Registering user: " + this.signUpForm.value.username + ", with password: " + this.signUpForm.value.password1 + ", and email: " + this.signUpForm.value.email);
+      // send post request to add the user
+      //console.log(JSON.stringify(this.signUpForm.value));
+      this.regService.signUp(JSON.stringify(this.signUpForm.value));
+    }
+  }
+
   // Signs in to the main site
   signIn() {
     console.log('Logging in:', this.loginForm.value);
