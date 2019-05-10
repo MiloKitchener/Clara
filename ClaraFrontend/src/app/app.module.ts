@@ -14,7 +14,6 @@ import { DatasetsComponent } from './components/datasets/datasets.component';
 import { IdeasComponent } from './components/ideas/ideas.component';
 import { ProfileThumbnailComponent } from './components/profile-thumbnail/profile-thumbnail.component';
 import { DatasetNodeComponent } from './components/dataset-node/dataset-node.component';
-import { LoginComponent } from './components/login/login.component';
 import {RegisterComponent} from "./components/register/register.component";
 import {CsrfInterceptorService} from "./services/RegisterService/csrf-interceptor.service";
 import { IdeaNodeComponent } from './components/idea-node/idea-node.component';
@@ -29,7 +28,6 @@ import { GraphPanelComponent } from './components/graph-panel/graph-panel.compon
     IdeasComponent,
     ProfileThumbnailComponent,
     DatasetNodeComponent,
-    LoginComponent,
     RegisterComponent,
     IdeaNodeComponent,
     GraphPanelComponent
@@ -45,17 +43,7 @@ import { GraphPanelComponent } from './components/graph-panel/graph-panel.compon
     provide: HTTP_INTERCEPTORS,
     useClass: JwtInterceptorService,
     multi: true,
-<<<<<<< HEAD
-  },
-    {
-    provide: HTTP_INTERCEPTORS,
-    useClass: CsrfInterceptorService,
-    multi: true,
-  }
-  ],
-=======
   }],
->>>>>>> parent of 14c6ad22... improved graph panel functionality
   bootstrap: [AppComponent]
 })
 export class AppModule { }
