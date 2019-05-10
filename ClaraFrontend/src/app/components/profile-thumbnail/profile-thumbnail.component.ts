@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-profile-thumbnail',
@@ -6,6 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile-thumbnail.component.scss']
 })
 export class ProfileThumbnailComponent implements OnInit {
+
+  @Input() name: string;
+  @Input() title: string;
+  @Input() pictureSrc: string;
 
   constructor() { }
 
