@@ -79,9 +79,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'clara',
-        'USER': 'Clara',
-        'PASSWORD': 'T1meMachine',
-        'HOST': 'prod-clarabackenddb.clhelwr0pylt.ca-central-1.rds.amazonaws.com',  # IP Address that the DB is hosted on
+        'USER': 'root',
+        'PASSWORD': 'root',
+        'HOST': 'localhost',  # IP Address that the DB is hosted on
         'PORT': '3306',
     }
 }

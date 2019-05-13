@@ -2,13 +2,13 @@ from rest_framework.views import APIView
 from django.http import HttpResponse
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
-from .models import Dataset
-from .serializers import DatasetSerializer
+from .models import CustomUser, Dataset, Field
+from .serializers import DatasetSerializer, FieldSerializer
 from django.views.decorators.csrf import csrf_exempt
-from .models import CustomUser
 from .forms import CustomUserCreationForm
-from rest_framework import generics
+from rest_framework import viewsets
 import json
+from .dal import fetch_data, combine_data_list
 
 
 @csrf_exempt
@@ -25,7 +25,8 @@ def signup(request):
         else:
             # user is valid and created
             print('valid user is created')
-            user = CustomUser.objects.create_user(username=data.get('username'), email=data.get('email'), password=data.get('password1'))
+            user = CustomUser.objects.create_user(username=data.get('username'), email=data.get('email'),
+                                                  password=data.get('password1'))
             return HttpResponse("sucess")
     else:
         form = CustomUserCreationForm()
@@ -38,18 +39,56 @@ class HelloView(APIView):
         content = {'message': 'Hello, World!'}
         return Response(content)
 
-class ListDatasetView(generics.ListAPIView):
+
+# API endpoint that allows datasets to be viewed or edited
+class DatasetView(viewsets.ModelViewSet):
     # Authenticate the user
     # TODO: Re-enable authentication
     # permission_classes = (IsAuthenticated,)
 
     # Select all datasets
-    queryset = Dataset.objects.all()
+    queryset = Dataset.objects.all().order_by('name')
     serializer_class = DatasetSerializer
 
 
-def graph(request):
-    dataset1 = request.POST.get('dataset1', '')
-    field1 = request.POST.get('field1', '')
-    dataset2 = request.POST.get('dataset2', '')
-    field2 = request.POST.get('field2', '')
+# API endpoint that allows fields to be viewed or edited
+class FieldView(viewsets.ModelViewSet):
+    # Authenticate the user
+    # TODO: Re-enable authentication
+    # permission_classes = (IsAuthenticated,)
+
+    # Select all datasets
+    queryset = Field.objects.all()
+    serializer_class = FieldSerializer
+
+
+class GraphView(APIView):
+    # Authenticate the user
+    # TODO: Re-enable authentication
+    # permission_classes = (IsAuthenticated,)
+
+    def post(self, request):
+        dataset1 = request.POST.get('dataset1', '')
+        field1 = request.POST.get('field1', '')
+
+        # Get the dataset api url
+        queryset = Dataset.objects.filter(name=dataset1)
+        url1 = queryset[0].api_url
+        # Add on the field we wish to search
+        url1 = url1 + "&outFields=" + field1
+
+        # Get the data from this dataset
+        data1 = fetch_data(url1, 'x')
+
+        dataset2 = request.POST.get('dataset2', '')
+        field2 = request.POST.get('field2', '')
+
+        # Get the dataset api url
+        queryset = Dataset.objects.filter(name=dataset2)
+        url2 = queryset[0].api_url
+        # Add on the field we wish to search
+        url2 = url2 + "&outFields=" + field2
+
+        # Get the data from this dataset
+        data2 = fetch_data(url2, 'y')
+        return Response(combine_data_list(data1, data2))
