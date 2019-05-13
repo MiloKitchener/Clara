@@ -5,51 +5,51 @@
   display: flex;
   justify-content: space-between;
 }
-
+  
 .datasetStats div {
   background-color: white;
   border-radius: 7px;
   width: 23%;
   padding: 20px;
 }
-
+  
 .datasetStats h3 {
   font-family: 'Open Sans', sans-serif;
   font-weight: 300;
   font-size: 50px;
 }
-
+  
 .datasetStats p {
   font-size: 12px;
 }
-
+  
 #numAccepted {
   color: #40f7aa;
 }
-
+  
 #numNotMapped {
   color: #eb3b3b;
 }
-
+  
 #numUnderReview {
   color: #f7aa40;
 }
-
+  
 .searchBar {
   background-color: white;
   border-radius: 7px;
   padding: 25px;
   margin-bottom: 25px;
 }
-
+  
 .searchBar h4 {
   text-align: left;
 }
-
+  
 form ::placeholder{
   font-size: 16px;
 }
-
+  
 input[type="submit"] {
   background-color: #408DF7;
   color: white;
@@ -60,17 +60,61 @@ input[type="submit"] {
   border: 0;
   transition:color .2s ease-out, background 0.3s ease-in;
 }
-
+  
 input[type="submit"]:hover {
   background-color: #0f70f5;
   transition:color .2s ease-out, background 0.3s ease-in;
 }
-
+  
 .datasets {
   background-color: white;
   border-radius: 7px;
 }
-
+  
 hr {
   margin: 0;
+}
+  
+.nodeContainer {
+  display: flex;
+  padding: 0;
+}
+  
+.nodeContainer h3, h6 {
+  margin: 0;
+}
+  
+.nodeContainer h3 {
+  margin-top: 8px;
+}
+
+.statusIndicator {
+  width: 12px;
+  height: 130px;
+  flex-grow: 0;
+}
+
+.titleDesc {
+  min-width: 80%;
+  flex-grow: 1000;
+  height: 130px;
+  padding: 20px;
+  margin-left: 20px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  text-align: justify;
+}
+
+.statusPanel {
+  flex: 1;
+  min-width: 100px;
+  flex-grow: 0;
+  margin: 0;
+  height: 130px;
+  border-left: 1px dashed black;
+}
+
+.statusPanel h6:first-child{
+  margin-top: 35px;
+  font-size: 20px;
 }

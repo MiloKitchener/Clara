@@ -15,7 +15,6 @@ from .dal import fetch_data, combine_data_list
 def signup(request):
     if request.method == 'POST':
         data = json.loads(request.body)
-        print(data.get('username'))
         if not (data.get('username')) or (not data.get('email') or (not data.get('password1'))):
             # not a valid user, no user will be created. data will return
             print('user invalid, user not created')

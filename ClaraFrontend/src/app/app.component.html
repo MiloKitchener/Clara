@@ -30,16 +30,15 @@
       </div>
     </form>
 
-    <form id="signupPanel" style="display:none">
+     <form id="signupForm" [formGroup]="signUpForm" (ngSubmit)="signUp()">
       <h1>Sign Up For Clara</h1>
-      <input type="email" name="email" placeholder="Email Address" value="" required>
+      <input type="email" formControlName="email" placeholder="Email Address" value="" required>
       <br>
-      <input type="text" name="username" placeholder="Username" value="" required>
+      <input type="text" formControlName="username" placeholder="Username" value="" required>
       <br>
-      <input type="password" name="password" placeholder="Password" value="" required>
+      <input type="password" formControlName="password1" placeholder="Password" value="" required>
       <br>
-      <input type="password" name="passwordconfirm" placeholder="Confirm Password" value="" required>
-      <br>
+      <input type="password" formControlName="password2" placeholder="Confirm Password" value="" required>
       <br>
       <input type="submit" name="submitSignUp" id="submitSignUp" value="Sign Up">
       <button type="button" name="button" id="backBtn1">Back</button>
@@ -74,7 +73,7 @@
   <!-- Search Bar -->
   <div id="main-component">
     <nav class="navbar">
-      <div class="container-fluid">
+      <div class="container-fluid" style="background-color: #e0e0e0;">
         <div class="navbar-header">
           <a href="#" onClick="return false;" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
           <a href="#" onClick="return false;" class="bars"></a>
@@ -116,7 +115,7 @@
             <!-- #START# User Profile-->
             <li class="dropdown user_profile">
               <a href="#" onClick="return false;" class="dropdown-toggle" data-toggle="dropdown" role="button">
-                <img src="assets/images/user.jpg" width="32" height="32" alt="User">
+                <img [src]="user.pictureSrc" width="32" height="32" alt="User">
               </a>
               <ul class="dropdown-menu pullDown">
               <li class="body">
@@ -146,12 +145,6 @@
             </ul>
           </li>
           <!-- #END# User Profile -->
-
-          <li class="pull-right">
-            <a href="#" onClick="return false;" class="js-right-sidebar" data-close="true">
-              <i class="fas fa-cog"></i>
-            </a>
-          </li>
         </ul>
       </div>
     </div>
@@ -164,7 +157,7 @@
       <div class="menu">
         <ul class="list">
           <li style="margin-top:30px;margin-bottom:40px;">
-            <app-profile-thumbnail></app-profile-thumbnail>
+            <app-profile-thumbnail [name]=user.name [title]=user.title [pictureSrc]=user.pictureSrc></app-profile-thumbnail>
           </li>
           <li routerLinkActive="active">
             <a routerLink="/personalDashboard">
@@ -190,18 +183,16 @@
               <span>Ideas</span>
             </a>
           </li>
+          <li routerLinkActive="active">
+            <a routerLink="/lab-services">
+              <i class="far fa-calendar"></i>
+              <span>Lab Services</span>
+            </a>
+          </li>
         </ul>
       </div>
     </aside>
     <!-- #END# Left Sidebar -->
-
-    <!-- Right Sidebar -->
-    <aside id="rightsidebar" class="right-sidebar">
-      <app-profile-thumbnail></app-profile-thumbnail>
-      <p>Populate Me With User Settings Later <3</p>
-    </aside>
-    <!-- #END# Right Sidebar -->
-    </div>
   </div>
 
   <!-- Routed Elements -->
