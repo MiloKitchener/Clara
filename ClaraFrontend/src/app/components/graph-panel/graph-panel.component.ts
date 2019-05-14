@@ -1,110 +1,76 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
+import { GraphDataService } from 'src/app/services/graph-data/graph-data.service';
 
 @Component({
   selector: 'app-graph-panel',
   templateUrl: './graph-panel.component.html',
   styleUrls: ['./graph-panel.component.scss']
 })
+
 export class GraphPanelComponent implements OnInit {
 
-  private graphTitle = '';
-  // use y/x Dataset instead of x/y axistitle and x/y fields
-  private yDataset: any;
-  private xDataset: any;
-  private yAxisTitle = '';
-  private xAxisTitle = '';
-  private yFields: any;
-  private xFields: any;
-  private yField = 'Field';
-  private xField = 'Field';
+  // instance variables
+  private datasets = [];
+  private yFields = [];
+  private xFields = [];
+  private chartData = [];
 
-  private datasets = [
-    {title: 'Traffic_Volumes', fields: ['SPEED_LIMIT', 'AADT']}
-  ];
+  private graphTitle: string;
+  private yAxisTitle: string;
+  private xAxisTitle: string;
+  private yField: string;
+  private xField: string;
 
-  constructor() {
+  constructor(private _graphDataService: GraphDataService) {
+    // instantiate instance variables
+    this.datasets = null;
+    this.yFields = null;
+    this.xFields = null;
+    this.chartData = null;
+
+    this.graphTitle = 'Y-Axis V X-Axis';
     this.yAxisTitle = 'None';
     this.xAxisTitle = 'None';
-
-    this.yFields = this.datasets[0].fields;
-    this.xFields = this.datasets[0].fields;
+    this.yField = 'Field';
+    this.xField = 'Field';
   }
 
   ngOnInit() {
-
-    this.graphTitle = 'Y-Axis V X-Axis';
-
-    // Chart Script
-    const canvas: any = document.getElementById('myChart');
-    const ctx = canvas.getContext('2d');
-    const myChart = new Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        datasets: [{
-          label: '# of Votes',
-          data: [12, 19, 3, 5, 2, 3],
-          backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(255, 206, 86, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(153, 102, 255, 0.2)',
-            'rgba(255, 159, 64, 0.2)'
-          ],
-          borderColor: [
-            'rgba(255, 99, 132, 1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(153, 102, 255, 1)',
-            'rgba(255, 159, 64, 1)'
-          ],
-          borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
-            }]
-        }
-    }
-});
+    // GET datasets
+    this.datasets = this._graphDataService.getDatasets();
+    // Populates initial empty chart
+    this.updateChart();
   }
 
-  setYAxis(title) {
+
+  /****************************
+    Class Functions  
+  ****************************/
+
+
+  // sets the y axis
+  setYAxis(title: string) {
     this.yAxisTitle = title;
     this.graphTitle = this.yAxisTitle + ' V ' + this.xAxisTitle;
     this.yField = 'Field';
 
     // get fields
-    var found = 0;
-    // search
-
-    if (found === 0) {
-      alert('No Fields Found Corresponding to Dataset ' + title);
-    }
+    this.yFields = this._graphDataService.getFields("");
   }
 
-  setXAxis(title) {
+  // sets the x axis
+  setXAxis(title: string) {
     this.xAxisTitle = title;
     this.graphTitle = this.yAxisTitle + ' V ' + this.xAxisTitle;
     this.xField = 'Field';
 
     // get fields
-    var found = 0;
-    // search
-
-    if (found === 0) {
-      alert('No Fields Found Corresponding to Dataset ' + title);
-    }
+    this.xFields = this._graphDataService.getFields("");
   }
 
-  selectYField(title) {
+  // sets the y field
+  selectYField(title: string) {
     this.yField = title;
 
     if(this.xField != 'Field') { // both fields selected
@@ -112,7 +78,8 @@ export class GraphPanelComponent implements OnInit {
     }
   }
 
-  selectXField(title) {
+  // sets the x field
+  selectXField(title: string) {
     this.xField = title;
 
     if(this.yField != 'Field') { // both fields selected
@@ -120,6 +87,7 @@ export class GraphPanelComponent implements OnInit {
     }
   }
 
+  // adds the graph to the user's dashboard
   addGraph() {
     if (this.yAxisTitle === 'None' || this.xAxisTitle === 'None') {
       alert('Please Specify X / Y Axis Values');
@@ -129,7 +97,32 @@ export class GraphPanelComponent implements OnInit {
     }
   }
 
+  // queries database for new chart data, updates chart accordingly
   queryTable() {
-    alert("Quering for table data with yfield " + this.yField + " and xfield " + this.xField);
+    this.chartData = this._graphDataService.getChartData(this.xField, this.yField);
+    this.updateChart(); // update chart
+  }
+
+  // updates the data in a the scatter chart
+  updateChart() {
+    const canvas: any = document.getElementById('myChart');
+    const ctx = canvas.getContext('2d');
+    var scatterChart = new Chart(ctx, {
+      type: 'scatter',
+      data: {
+        datasets: [{
+          label: 'Scatter Dataset',
+          data: this.chartData
+        }]
+      },
+      options: {
+        scales: {
+          xAxes: [{
+            type: 'linear',
+            position: 'bottom'
+          }]
+        }
+      }
+    });
   }
 }

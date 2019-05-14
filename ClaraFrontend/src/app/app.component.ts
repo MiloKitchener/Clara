@@ -119,5 +119,15 @@ export class AppComponent {
         document.getElementById("mainPage").style.animation = "fadein 2s";
       }, 3000);
     }
+    else {
+      document.getElementById("splash").style.visibility = "visible";
+      document.getElementById("splash").style.animation = "fadein 2s";
+
+      setTimeout(function() {
+        document.getElementById("loginPage").style.display = "none";
+        document.getElementById("mainPage").style.display = "block";
+        document.getElementById("mainPage").style.animation = "fadein 2s";
+      }, 3000);
+    }
   }
 }

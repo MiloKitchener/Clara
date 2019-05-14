@@ -18,6 +18,8 @@ import { GraphPanelComponent } from './components/graph-panel/graph-panel.compon
 import { DatasetsComponent } from './components/datasets/datasets.component';
 import { LabServicesComponent } from './components/lab-services/lab-services.component';
 
+import { GraphDataService } from './services/graph-data/graph-data.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,11 +40,14 @@ import { LabServicesComponent } from './components/lab-services/lab-services.com
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [CookieService, {
-    provide: HTTP_INTERCEPTORS,
-    useClass: JwtInterceptorService,
-    multi: true,
-  }],
+  providers: [
+    GraphDataService,
+    CookieService, {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptorService,
+      multi: true,
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
