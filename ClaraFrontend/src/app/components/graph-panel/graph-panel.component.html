@@ -18,9 +18,12 @@
       </div>
       <br>
       <div class="dropdown">
-        <button type="button" data-toggle="dropdown">Fields
+        <button type="button" data-toggle="dropdown">{{ yField }}
         <span class="caret"></span></button>
         <ul class="dropdown-menu">
+            <li *ngFor="let field of yFields">
+              <a (click)="selectYField(field)">{{ field }}</a>
+            </li>
         </ul>
       </div>
 
@@ -40,9 +43,12 @@
     </div>
     <br>
     <div class="dropdown">
-      <button type="button" data-toggle="dropdown">Fields
+      <button type="button" data-toggle="dropdown">{{ xField }}
       <span class="caret"></span></button>
       <ul class="dropdown-menu">
+          <li *ngFor="let field of yFields">
+            <a (click)="selectXField(field)">{{ field }}</a>
+          </li>
       </ul>
     </div>
   </div>

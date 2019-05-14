@@ -9,30 +9,30 @@ import { Chart } from 'chart.js';
 export class GraphPanelComponent implements OnInit {
 
   private graphTitle = '';
+  // use y/x Dataset instead of x/y axistitle and x/y fields
+  private yDataset: any;
+  private xDataset: any;
   private yAxisTitle = '';
   private xAxisTitle = '';
-  private yFields = null;
-  private xFields = null;
+  private yFields: any;
+  private xFields: any;
+  private yField = 'Field';
+  private xField = 'Field';
 
   private datasets = [
-    {title: 'Temperature'},
-    {title: 'Traffic'},
-    {title: 'Weather'},
-    {title: 'Wind Speed'}
-  ];
-  private fields = [
-    {dataset: 'Temperature', fields: ['Temperature Field A']},
-    {dataset: 'Traffic', fields: ['Traffic Field A', 'Traffic Field B']},
-    {dataset: 'Weather', fields: ['Weather Field A', 'Weather Field B', 'Weather Field C']},
-    {dataset: 'Wind Speed', fields: ['Wind Speed Field A', 'Wind Speed Field B', 'Wind Speed Field C']}
+    {title: 'Traffic_Volumes', fields: ['SPEED_LIMIT', 'AADT']}
   ];
 
   constructor() {
     this.yAxisTitle = 'None';
     this.xAxisTitle = 'None';
+
+    this.yFields = this.datasets[0].fields;
+    this.xFields = this.datasets[0].fields;
   }
 
   ngOnInit() {
+
     this.graphTitle = 'Y-Axis V X-Axis';
 
     // Chart Script
@@ -79,15 +79,12 @@ export class GraphPanelComponent implements OnInit {
   setYAxis(title) {
     this.yAxisTitle = title;
     this.graphTitle = this.yAxisTitle + ' V ' + this.xAxisTitle;
+    this.yField = 'Field';
 
     // get fields
-    const found = 0;
-    for (const field in this.fields) {
-      /*if(field.dataset == title){
-        found = 1;
-        break;
-      }*/
-    }
+    var found = 0;
+    // search
+
     if (found === 0) {
       alert('No Fields Found Corresponding to Dataset ' + title);
     }
@@ -96,25 +93,43 @@ export class GraphPanelComponent implements OnInit {
   setXAxis(title) {
     this.xAxisTitle = title;
     this.graphTitle = this.yAxisTitle + ' V ' + this.xAxisTitle;
+    this.xField = 'Field';
 
     // get fields
-    const found = 0;
-    for (const field in this.fields) {
-      /*if(field.dataset == title){
-        found = 1;
-        break;
-      }*/
-    }
+    var found = 0;
+    // search
+
     if (found === 0) {
       alert('No Fields Found Corresponding to Dataset ' + title);
+    }
+  }
+
+  selectYField(title) {
+    this.yField = title;
+
+    if(this.xField != 'Field') { // both fields selected
+      this.queryTable();
+    }
+  }
+
+  selectXField(title) {
+    this.xField = title;
+
+    if(this.yField != 'Field') { // both fields selected
+      this.queryTable();
     }
   }
 
   addGraph() {
     if (this.yAxisTitle === 'None' || this.xAxisTitle === 'None') {
       alert('Please Specify X / Y Axis Values');
-    } else {
+    }
+    else {
       alert('added graph');
     }
+  }
+
+  queryTable() {
+    alert("Quering for table data with yfield " + this.yField + " and xfield " + this.xField);
   }
 }
