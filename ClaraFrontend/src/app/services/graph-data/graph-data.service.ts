@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Dataset } from 'src/app/classes/dataset';
 
 @Injectable({
   providedIn: 'root'
@@ -7,16 +8,15 @@ import { Injectable } from '@angular/core';
 export class GraphDataService {
 
   // instance variables
-  datasets = [
-    { title: 'Traffic_Volumes' }
-  ];
+  private datasets: Dataset[];
 
   constructor() {
-    // query for database list
+    // query for database list to instantiate instance variables
+    this.datasets = [{ title: 'Traffic_Volumes' }]
   }
 
   // returns a list of datasets from the database
-  getDatasets() {
+  getDatasets() : Dataset[] {
     return this.datasets;
   }
   
@@ -26,7 +26,7 @@ export class GraphDataService {
   }
 
   // returns the chart data associated with two fields
-  getChartData(xField: any, yField: any) {
+  getChartData(xField: string, yField: string) {
     return [{
         x: -10,
         y: 0

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
 import { GraphDataService } from 'src/app/services/graph-data/graph-data.service';
 
+import { Dataset } from 'src/app/classes/dataset';
+
 @Component({
   selector: 'app-graph-panel',
   templateUrl: './graph-panel.component.html',
@@ -11,7 +13,7 @@ import { GraphDataService } from 'src/app/services/graph-data/graph-data.service
 export class GraphPanelComponent implements OnInit {
 
   // instance variables
-  private datasets = [];
+  private datasets: Dataset[];
   private yFields = [];
   private xFields = [];
   private chartData = [];
@@ -56,8 +58,9 @@ export class GraphPanelComponent implements OnInit {
     this.yField = 'Field';
 
     // get fields
-    this.yFields = this._graphDataService.getFields("");
+    this.yFields = this._graphDataService.getFields(this.selectDataset(this.yAxisTitle).title);
   }
+
 
   // sets the x axis
   setXAxis(title: string) {
@@ -66,8 +69,9 @@ export class GraphPanelComponent implements OnInit {
     this.xField = 'Field';
 
     // get fields
-    this.xFields = this._graphDataService.getFields("");
+    this.xFields = this._graphDataService.getFields(this.selectDataset(this.xAxisTitle).title);
   }
+
 
   // sets the y field
   selectYField(title: string) {
@@ -78,6 +82,7 @@ export class GraphPanelComponent implements OnInit {
     }
   }
 
+
   // sets the x field
   selectXField(title: string) {
     this.xField = title;
@@ -86,6 +91,18 @@ export class GraphPanelComponent implements OnInit {
       this.queryTable();
     }
   }
+
+
+  // returns a specified dataset from the list
+  selectDataset(datasetTitle: string): Dataset {
+    // search for dataset (ADD FASTER SEARCH ALGORITHM, DATASETS WILL BE IN ALPHABETICAL ORDER)
+    for(var i = 0; i < this.datasets.length; i++) {
+      if(this.datasets[i].title === datasetTitle) {
+        return this.datasets[i];
+      }
+    }
+  }
+
 
   // adds the graph to the user's dashboard
   addGraph() {
@@ -97,11 +114,13 @@ export class GraphPanelComponent implements OnInit {
     }
   }
 
+
   // queries database for new chart data, updates chart accordingly
   queryTable() {
     this.chartData = this._graphDataService.getChartData(this.xField, this.yField);
     this.updateChart(); // update chart
   }
+
 
   // updates the data in a the scatter chart
   updateChart() {
