@@ -1,3 +1,3 @@
 export class Dataset {
-  public title: string;
+  public title:string;
 }
