@@ -7,17 +7,11 @@ import { Dataset } from 'src/app/classes/dataset';
 
 export class GraphDataService {
 
-  // instance variables
-  private datasets: Dataset[];
-
-  constructor() {
-    // query for database list to instantiate instance variables
-    this.datasets = [{ title: 'Traffic_Volumes' }]
-  }
+  constructor() {}
 
   // returns a list of datasets from the database
   getDatasets() : Dataset[] {
-    return this.datasets;
+    return [{title: 'Traffic_Volumes'}];
   }
   
   // returns a list of fields corresponding to a database parameter
