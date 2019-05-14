@@ -11,17 +11,13 @@ export class GraphDataService {
   constructor(private http: HttpClient) {}
 
   // returns a list of datasets from the database
-  getDatasets(): Dataset[] {
-    this.http.get("http://35.182.196.173:8000/datasets/").subscribe((res : any[])=>{
-      alert(res);
-    });
-    // execution reaches this point if error, return null
-    return null;
+  getDatasets() {
+    return this.http.get("http://35.182.196.173:8000/datasets/");
   }
   
   // returns a list of fields corresponding to a database parameter
   getFields(datasetTitle: string) {
-    return ['SPEED_LIMIT', 'AADT'];
+    return this.http.get("http://35.182.196.173:8000/fields/");
   }
 
   // returns the chart data associated with two fields

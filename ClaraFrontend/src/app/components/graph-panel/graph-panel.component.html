@@ -8,11 +8,13 @@
       <h4>Y Axis</h4>
       <br>
       <div class="dropdown">
-        <button type="button" data-toggle="dropdown">{{ yAxisTitle }}
-        <span class="caret"></span></button>
+        <button type="button" data-toggle="dropdown">
+          {{ yAxisTitle }}
+          <span class="caret"></span>
+        </button>
         <ul class="dropdown-menu">
           <li *ngFor="let dataset of datasets">
-            <a (click)="setYAxis(dataset.title)">{{ dataset.title }}</a>
+            <a (click)="setYAxis(dataset.name)">{{ dataset.name }}</a>
           </li>
         </ul>
       </div>
@@ -33,11 +35,13 @@
       <h4>X Axis</h4>
       <br>
       <div class="dropdown">
-        <button type="button" data-toggle="dropdown">{{ xAxisTitle }}
-        <span class="caret"></span></button>
+        <button type="button" data-toggle="dropdown">
+          {{ xAxisTitle }}
+          <span class="caret"></span>
+        </button>
         <ul class="dropdown-menu">
           <li *ngFor="let dataset of datasets">
-            <a (click)="setXAxis(dataset.title)">{{ dataset.title }}</a>
+            <a (click)="setXAxis(dataset.name)">{{ dataset.name }}</a>
           </li>
       </ul>
     </div>

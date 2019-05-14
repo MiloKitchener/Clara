@@ -40,7 +40,10 @@ export class GraphPanelComponent implements OnInit {
 
   ngOnInit() {
     // GET datasets
-    this.datasets = this._graphDataService.getDatasets();
+    this._graphDataService.getDatasets().subscribe((res : any[])=>{
+      this.datasets = res;
+    });
+
     // Populates initial empty chart
     this.updateChart();
   }
@@ -58,7 +61,7 @@ export class GraphPanelComponent implements OnInit {
     this.yField = 'Field';
 
     // get fields
-    this.yFields = this._graphDataService.getFields(this.selectDataset(this.yAxisTitle).title);
+    this.yFields = this._graphDataService.getFields(this.selectDataset(this.yAxisTitle).name);
   }
 
 
@@ -69,7 +72,7 @@ export class GraphPanelComponent implements OnInit {
     this.xField = 'Field';
 
     // get fields
-    this.xFields = this._graphDataService.getFields(this.selectDataset(this.xAxisTitle).title);
+    this.xFields = this._graphDataService.getFields(this.selectDataset(this.xAxisTitle).name);
   }
 
 
@@ -97,7 +100,7 @@ export class GraphPanelComponent implements OnInit {
   selectDataset(datasetTitle: string): Dataset {
     // search for dataset (ADD FASTER SEARCH ALGORITHM, DATASETS WILL BE IN ALPHABETICAL ORDER)
     for(var i = 0; i < this.datasets.length; i++) {
-      if(this.datasets[i].title === datasetTitle) {
+      if(this.datasets[i].name === datasetTitle) {
         return this.datasets[i];
       }
     }
