@@ -55,19 +55,17 @@ p {
     height: 400px;
   }
 
-  // VARIABLES
 $default-delay: .2s;
 $bars: 15;
 $graph-height: 253px;
 
-// MIXINS
 
-//Horizontal Bar Color Mixin 
 @mixin stat-bar($color-dark, $color-light, $direction, $dir-webkit) {
   background-image: -webkit-linear-gradient($dir-webkit, $color-light 0%, $color-light 47%, $color-dark 50%, $color-dark 100%);
   background-image: linear-gradient($direction, $color-light 0%, $color-light 47%, $color-dark 50%, $color-dark 100%);
 }
-// Animation Mixin 
+
+
 @mixin bar-animation($time, $dimension) {
   visibility: hidden;
   @if $dimension == width {
@@ -141,7 +139,7 @@ $graph-height: 253px;
   }
 }
 
-//STYLES
+
 body {
   background-color: #3b4150; 
   font-family: arial, sans-serif;
