@@ -3,6 +3,7 @@ import { Chart } from 'chart.js';
 import { GraphDataService } from 'src/app/services/graph-data/graph-data.service';
 
 import { Dataset } from 'src/app/classes/dataset';
+import { Field } from 'src/app/classes/field';
 
 @Component({
   selector: 'app-graph-panel',
@@ -14,8 +15,8 @@ export class GraphPanelComponent implements OnInit {
 
   // instance variables
   private datasets: Dataset[];
-  private yFields = [];
-  private xFields = [];
+  private yFields: Field[];
+  private xFields: Field[];
   private chartData = [];
 
   private graphTitle: string;
@@ -61,7 +62,9 @@ export class GraphPanelComponent implements OnInit {
     this.yField = 'Field';
 
     // get fields
-    this.yFields = this._graphDataService.getFields(this.selectDataset(this.yAxisTitle).name);
+     this._graphDataService.getFields(this.selectDataset(this.yAxisTitle).name).subscribe((res : any[])=>{
+      this.yFields = res;
+    });
   }
 
 
@@ -71,8 +74,11 @@ export class GraphPanelComponent implements OnInit {
     this.graphTitle = this.yAxisTitle + ' V ' + this.xAxisTitle;
     this.xField = 'Field';
 
+
     // get fields
-    this.xFields = this._graphDataService.getFields(this.selectDataset(this.xAxisTitle).name);
+    this._graphDataService.getFields(this.selectDataset(this.xAxisTitle).name).subscribe((res : any[])=>{
+      this.xFields = res;
+    });
   }
 
 

@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Dataset } from 'src/app/classes/dataset';
 
 @Injectable({
   providedIn: 'root'

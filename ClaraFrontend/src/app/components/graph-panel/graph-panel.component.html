@@ -24,7 +24,7 @@
         <span class="caret"></span></button>
         <ul class="dropdown-menu">
             <li *ngFor="let field of yFields">
-              <a (click)="selectYField(field)">{{ field }}</a>
+              <a (click)="selectYField(field.name)">{{ field.name }}</a>
             </li>
         </ul>
       </div>
@@ -51,7 +51,7 @@
       <span class="caret"></span></button>
       <ul class="dropdown-menu">
           <li *ngFor="let field of xFields">
-            <a (click)="selectXField(field)">{{ field }}</a>
+            <a (click)="selectXField(field.name)">{{ field.name }}</a>
           </li>
       </ul>
     </div>
