@@ -126,8 +126,10 @@ export class GraphPanelComponent implements OnInit {
 
   // queries database for new chart data, updates chart accordingly
   queryTable() {
-    this.chartData = this._graphDataService.getChartData(this.xField, this.yField);
-    this.updateChart(); // update chart
+    this._graphDataService.getChartData(this.xField, this.yField, this.xAxisTitle, this.yAxisTitle).subscribe((res : any[])=>{
+      this.chartData = res;
+      this.updateChart(); // update chart
+    });
   }
 
 

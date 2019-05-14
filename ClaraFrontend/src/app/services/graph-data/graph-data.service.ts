@@ -16,20 +16,12 @@ export class GraphDataService {
   
   // returns a list of fields corresponding to a database parameter
   getFields(datasetTitle: string) {
+    // TODO: send datasetTitle
     return this.http.get("http://35.182.196.173:8000/fields/");
   }
 
   // returns the chart data associated with two fields
-  getChartData(xField: string, yField: string) {
-    return [{
-        x: -10,
-        y: 0
-      }, {
-        x: 0,
-        y: 10
-      }, {
-        x: 10,
-        y: 5
-    }];
+  getChartData(field1: string, field2: string, dataset1: string, dataset2: string) {
+    return this.http.post("http://35.182.196.173:8000/graph/", {field1, field2, dataset1, dataset2});
   }
 }
