@@ -1,0 +1,27 @@
+<div class="leftContainer">
+  <h1>Welcome to Clara.</h1>
+  <div class="loginContainer">
+    <form [formGroup]="loginForm" (ngSubmit)="signIn()">
+      <input type="text"  formControlName="username" placeholder="username" required>
+      <br>
+      <input type="password" formControlName="password" placeholder="password" requried>
+      <br>
+      <button class="textBtn">forgot my password</button>
+       <div class="btnContainer">
+        <input type="submit" value="Sign in" style="margin-right:20px;">
+        <button>Sign Up</button>
+      </div>
+    </form>
+  </div>
+
+  <img src="./assets/vectors/claraIcon.png" alt="" id="thumbnail">
+</div>
+
+<div class="rightContainer">
+  <img src="./assets/vectors/clara-cat.svg" alt="">
+  <p>Clara is a municipal machine learning and</p>
+  <p>analytics platform, providing ideas and</p>
+  <p>insights to the municipality of Kitchener.</p>
+</div>
+
+<img src="./assets/vectors/background.svg" class="background">

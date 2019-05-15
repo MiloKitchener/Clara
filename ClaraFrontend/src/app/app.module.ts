@@ -18,6 +18,8 @@ import { DatasetsComponent } from './components/datasets/datasets.component';
 import { LabServicesComponent } from './components/lab-services/lab-services.component';
 
 import { GraphDataService } from './services/graph-data/graph-data.service';
+import { LoginComponent } from './login/login.component';
+import { MainComponent } from './main/main.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { GraphDataService } from './services/graph-data/graph-data.service';
     IdeaNodeComponent,
     GraphPanelComponent,
     DatasetsComponent,
-    LabServicesComponent
+    LabServicesComponent,
+    LoginComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,

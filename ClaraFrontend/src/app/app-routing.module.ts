@@ -6,14 +6,28 @@ import { SharedDashboardComponent } from './components/shared-dashboard/shared-d
 import { IdeasComponent } from './components/ideas/ideas.component';
 import { DatasetsComponent } from './components/datasets/datasets.component';
 import { LabServicesComponent } from './components/lab-services/lab-services.component';
+import { LoginComponent } from './login/login.component';
+import { MainComponent } from './main/main.component';
+import { AuthService } from './services/auth/auth.service';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'personalDashboard', pathMatch: 'full' },
-  { path: 'personalDashboard', component: UserDashboardComponent, data: { title: 'Personal Dashboard' } },
-  { path: 'sharedDashboard', component: SharedDashboardComponent, data: { title: 'Shared Dashboards' } },
-  { path: 'datasets', component: DatasetsComponent, data: { title: 'Datasets' } },
-  { path: 'ideas', component: IdeasComponent, data: { title: 'Ideas' } },
-  { path: 'lab-services', component: LabServicesComponent, data: { title: 'Lab-Services' } }
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent, data: { title: 'Log in' } },
+  { 
+    path: 'main',
+    component: MainComponent,
+    data: { title: 'Clara' },
+    canActivate: [AuthService],
+    children: [
+      { path: '', redirectTo: 'personalDashboard', pathMatch: 'full' },
+      { path: 'personalDashboard', component: UserDashboardComponent, data: { title: 'Personal Dashboard' } },
+      { path: 'sharedDashboard', component: SharedDashboardComponent, data: { title: 'Shared Dashboards' } },
+      { path: 'datasets', component: DatasetsComponent, data: { title: 'Datasets' } },
+      { path: 'ideas', component: IdeasComponent, data: { title: 'Ideas' } },
+      { path: 'lab-services', component: LabServicesComponent, data: { title: 'Lab-Services' } }
+    ]
+  },
+  //{ path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({

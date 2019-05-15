@@ -27,7 +27,7 @@ export class AuthService implements CanActivate {
         }
 
         // User is not logged in, redirect to login page
-        this.router.navigate(['signin'], { queryParams: { returnUrl: state.url } });
+        this.router.navigate(['login'], { queryParams: { returnUrl: state.url } });
         return false;
     }
 

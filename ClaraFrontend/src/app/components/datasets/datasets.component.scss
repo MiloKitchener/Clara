@@ -25,6 +25,10 @@ input, button {
   font-size: 14pt;
 }
 
+input:focus {
+  outline: none;
+}
+
 input[type="text"] {
   width: 500px;
   border-radius: 10px 0 0 10px;
