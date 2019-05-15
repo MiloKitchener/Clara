@@ -16,7 +16,17 @@ def create_dataset_fields(url, dataset_name):
             dataset = Dataset.objects.get(name=dataset_name)
             # Add all the fields to the database
             for field in layer['fields']:
-                Field.objects.create(name=field['name'], normalized_name=field['name'], alias=field['alias'], type=field['type'], dataset=dataset)
+                Field.objects.create(name=field['name'], normalized_name=field['name'], alias=field['alias'],
+                                     type=field['type'], dataset=dataset)
+    # For every table
+    for table in json_response['tables']:
+        # Get layer that is the dataset we are looking for
+        if table['name'] == dataset_name:
+            dataset = Dataset.objects.get(name=dataset_name)
+            # Add all the fields to the database
+            for field in table['fields']:
+                Field.objects.create(name=field['name'], normalized_name=field['name'], alias=field['alias'],
+                                     type=field['type'], dataset=dataset)
 
 
 def create_datasets(url):
