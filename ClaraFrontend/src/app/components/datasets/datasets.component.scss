@@ -1,3 +1,14 @@
+.searchPanel {
+  padding: 50px;
+  color: white;
+  background-image: linear-gradient(to left, #32CDFE, #00B2FF);
+}
+
+.searchPanel h1 {
+  font-size: 40pt;
+  font-weight: 300;
+}
+
 .datasetStats {
   margin-top: 60px;
   margin-bottom: 30px;
@@ -5,7 +16,7 @@
   display: flex;
   justify-content: space-between;
 }
-  
+
 .datasetStats div {
   background-color: white;
   border-radius: 7px;
@@ -14,8 +25,7 @@
 }
   
 .datasetStats h3 {
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 300;
+  font-weight: 100;
   font-size: 50px;
 }
   

@@ -250,14 +250,68 @@ input[type="submit"]:hover, button:hover {
   Main Page Style
 ***********************************/
 
-
-#claraLogo {
-  height: 40px;
-  margin-left: 45px;
+.sidebarDiv {
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  width: 260px;
+  height: 100%;
+  background-color: white;
+  position: fixed;
+  overflow: hidden;
 }
 
-#mainPage {
-  display: none;
+.sidebar-user-panel img {
+  width: 150px;
+  border-radius: 50%;
+}
+
+.sidebar-user-panel h3 {
+  font-weight: 500;
+  margin: 0;
+  margin-top: 15px;
+  font-size: 16pt;
+}
+
+.sidebar-user-panel p {
+  font-weight: 300;
+  margin: 0;
+  margin-bottom: 60px;
+  font-size: 12pt;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  margin-top: 40px;
+  text-align: center;
+}
+
+li a {
+  display: block;
+}
+
+li:not(:first-child) {
+  margin: 20px;
+  text-align: left;
+}
+
+a {
+  background-color: #EBEBEB;
+  border-radius: 40px;
+  padding: 15px 30px;
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  color: #408DF7;
+}
+
+.active a {
+  color: #0f70f5;
 }
 
 
@@ -269,8 +323,6 @@ input[type="submit"]:hover, button:hover {
 .mainContent {
   position: relative;
   margin-left: 260px;
-  margin-top: 60px;
-  padding: 15px;
   text-align: center;
 }
 

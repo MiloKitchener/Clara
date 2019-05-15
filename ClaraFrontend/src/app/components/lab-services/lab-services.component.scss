@@ -1,0 +1,47 @@
+.container {
+    justify-content: space-between;
+}
+
+.upcoming {
+    margin: 20px;
+    padding: 100px;
+    border-radius: 20px;
+    background-color: white;
+    text-align: start;
+}
+
+.pilot {
+    margin: 20px;
+    padding: 100px;
+    border-radius: 20px;
+    background-color: white;
+    text-align: start;
+}
+
+.list:hover {
+    transform: scale(1.25);
+}
+.list {
+    text-align: left;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: lightgray;
+}
+
+.block:hover {
+    background-color: gray;
+    transition:color .2s ease-out, background 0.3s ease-in;
+  }
+
+.block {
+    display: block;
+    width: 100%;
+    border: none;
+    background-color: #008CBA;
+    border-radius: 10px;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+  }
+

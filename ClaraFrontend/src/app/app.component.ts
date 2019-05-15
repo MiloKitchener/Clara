@@ -20,7 +20,7 @@ export class AppComponent {
   user = {
     "name": "William McKinnon",
     "title": "Smart City Developer",
-    "pictureSrc": "assets/images/usrbig.jpg"
+    "pictureSrc": "assets/avatar.png"
   }
 
   constructor(
@@ -110,6 +110,16 @@ export class AppComponent {
     // display main site content
     if(this.loginService.isUserSessionExpired()) {
       // login animation
+      document.getElementById("splash").style.visibility = "visible";
+      document.getElementById("splash").style.animation = "fadein 2s";
+
+      setTimeout(function() {
+        document.getElementById("loginPage").style.display = "none";
+        document.getElementById("mainPage").style.display = "block";
+        document.getElementById("mainPage").style.animation = "fadein 2s";
+      }, 3000);
+    }
+    else {
       document.getElementById("splash").style.visibility = "visible";
       document.getElementById("splash").style.animation = "fadein 2s";
 
