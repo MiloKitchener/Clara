@@ -3,44 +3,56 @@
 }
 
 .upcoming {
-    margin: 20px;
+    margin-top: 40px;
+    margin-left: 150px;
+    margin-right: 150px;
     padding: 100px;
-    border-radius: 20px;
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 7px;
     background-color: white;
     text-align: start;
 }
 
 .pilot {
-    margin: 20px;
+    margin-top: 40px;
+    margin-left: 150px;
+    margin-right: 150px;
     padding: 100px;
-    border-radius: 20px;
+    margin-bottom: 70px;
+    font-size: 20px;
+    border-radius: 7px;
     background-color: white;
-    text-align: start;
+    text-align: left;
 }
 
 .list:hover {
-    transform: scale(1.25);
+    transform: scale(1.03);
 }
 .list {
-    text-align: left;
+    text-align: center;
     padding: 20px;
-    border-radius: 10px;
-    background-color: lightgray;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 18px;
+    background-image: linear-gradient(to left, #32CDFE, #00B2FF);
 }
 
 .block:hover {
-    background-color: gray;
-    transition:color .2s ease-out, background 0.3s ease-in;
+    transform: scale(1.1);
   }
 
 .block {
     display: block;
-    width: 100%;
+    width:50%;
+    margin-left: 120px;
+    margin-right: 120px;
     border: none;
-    background-color: #008CBA;
-    border-radius: 10px;
-    padding: 14px 28px;
-    font-size: 16px;
+    background-image: linear-gradient(to left, #32CDFE, #00B2FF);
+    border-radius: 7px;
+    padding: 20px;
+    font-size: 18px;
     cursor: pointer;
     text-align: center;
   }
