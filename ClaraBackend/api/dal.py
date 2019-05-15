@@ -16,7 +16,7 @@ def create_dataset_fields(url, dataset_name):
             dataset = Dataset.objects.get(name=dataset_name)
             # Add all the fields to the database
             for field in layer['fields']:
-                Field.objects.create(name=field['name'], normalized_name=field['name'], alias=field['alias'], dataset=dataset)
+                Field.objects.create(name=field['name'], normalized_name=field['name'], alias=field['alias'], type=field['type'], dataset=dataset)
 
 
 def create_datasets(url):

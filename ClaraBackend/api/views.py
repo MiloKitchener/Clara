@@ -41,6 +41,12 @@ class DatasetView(viewsets.ModelViewSet):
     queryset = Dataset.objects.all().order_by('name')
     serializer_class = DatasetSerializer
 
+    # # Get fields for dataset
+    # @action(detail=True)
+    # def field_names(self, request, pk=None):
+    #     queryset = Field.objects.filter(dataset=)
+    #     return Response(queryset.values())
+
 
 class DatasetCreateView(APIView):
     # Authenticate the user
@@ -62,14 +68,6 @@ class FieldView(viewsets.ModelViewSet):
     # Select all datasets
     queryset = Field.objects.all()
     serializer_class = FieldSerializer
-
-    # # Get fields for dataset
-    # @action(detail=True)
-    # def field_names(self, request, pk=None):
-    #     user = self.get_object()
-    #     groups = user.groups.all()
-    #     Field.objects.filter(dataset__name=r)
-    #     return Response([group.name for group in groups])
 
 
 class GraphView(APIView):
