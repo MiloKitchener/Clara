@@ -1,6 +1,13 @@
-<div class="container">
-  <h1>Datasets</h1>
+<div class=searchPanel>
+  <h1>Find a Dataset</h1>
 
+  <form id="searchDataForm" action="">
+    <input type="text" name="" value="" placeholder="Search">
+    <input type="submit" name="searchSubmit" value="See All Results">
+  </form>
+</div>
+
+<div class="container">
   <div class="datasetStats">
     <div>
       <h3 id="numOpen">{{ numOpen }}</h3>
@@ -18,14 +25,6 @@
       <h3 id="numUnderReview">{{ numUnderReview }}</h3>
       <p>Under Review</p>
     </div>
-  </div>
-
-  <div class="searchBar">
-    <form id="searchDataForm" action="">
-      <h4>Search For Dataset:</h4>
-      <input type="text" name="" value="" placeholder="Search Term">
-      <input type="submit" name="searchSubmit" value="Search">
-    </form>
   </div>
 
   <div class="datasets">

@@ -20,7 +20,7 @@ export class AppComponent {
   user = {
     "name": "William McKinnon",
     "title": "Smart City Developer",
-    "pictureSrc": "assets/images/usrbig.jpg"
+    "pictureSrc": "assets/avatar.png"
   }
 
   constructor(
