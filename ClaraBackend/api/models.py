@@ -17,7 +17,7 @@ class Dataset(models.Model):
 class Field(models.Model):
     name = models.CharField(max_length=255, null=False)
     normalized_name = models.CharField(max_length=255, null=True)
-    alias = models.CharField(max_length=255, null=False)
+    alias = models.CharField(max_length=255, null=False, default="default")
     dataset = models.ForeignKey(Dataset, related_name='fields', on_delete=models.CASCADE)
 
     def __str__(self):
