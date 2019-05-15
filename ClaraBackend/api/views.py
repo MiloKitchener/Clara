@@ -41,11 +41,11 @@ class DatasetView(viewsets.ModelViewSet):
     queryset = Dataset.objects.all().order_by('name')
     serializer_class = DatasetSerializer
 
-    # # Get fields for dataset
-    # @action(detail=True)
-    # def field_names(self, request, pk=None):
-    #     queryset = Field.objects.filter(dataset=)
-    #     return Response(queryset.values())
+    # Get fields for dataset
+    @action(detail=True)
+    def field_names(self, pk=None):
+        queryset = Field.objects.filter(dataset__pk=pk)
+        return Response(queryset.values())
 
 
 class DatasetCreateView(APIView):
