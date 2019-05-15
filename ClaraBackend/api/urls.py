@@ -13,4 +13,6 @@ urlpatterns = [
     path('api/token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
     path('signup/', views.signup, name='signup'),
     path('graph/', views.GraphView.as_view(), name='graph'),
+    path('create/datasets', views.DatasetCreateView.as_view(), name='create_datasets'),
+
 ]
