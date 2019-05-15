@@ -11,7 +11,6 @@ import { AppComponent } from './app.component';
 import { UserDashboardComponent } from './components/user-dashboard/user-dashboard.component';
 import { SharedDashboardComponent } from './components/shared-dashboard/shared-dashboard.component';
 import { IdeasComponent } from './components/ideas/ideas.component';
-import { ProfileThumbnailComponent } from './components/profile-thumbnail/profile-thumbnail.component';
 import { RegisterComponent } from "./components/register/register.component";
 import { IdeaNodeComponent } from './components/idea-node/idea-node.component';
 import { GraphPanelComponent } from './components/graph-panel/graph-panel.component';
@@ -26,7 +25,6 @@ import { GraphDataService } from './services/graph-data/graph-data.service';
     UserDashboardComponent,
     SharedDashboardComponent,
     IdeasComponent,
-    ProfileThumbnailComponent,
     RegisterComponent,
     IdeaNodeComponent,
     GraphPanelComponent,
