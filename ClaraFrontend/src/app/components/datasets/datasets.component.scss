@@ -25,7 +25,7 @@ input, button {
   font-size: 14pt;
 }
 
-input:focus {
+input:focus, button:focus {
   outline: none;
 }
 
