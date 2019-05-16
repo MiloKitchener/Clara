@@ -2,6 +2,11 @@ h1 {
   font-weight: 400;
   font-size: 400%;
   margin-bottom: 90px;
+  opacity: 0;
+  -webkit-animation: reveal 2s cubic-bezier(0, 1, 0.5, 1) 1 normal forwards;
+     -moz-animation: reveal 2s ease-in 1 normal forwards;
+       -o-animation: reveal 2s cubic-bezier(0, 1, 0.5, 1) 1 normal forwards;
+          animation: reveal 2s cubic-bezier(0, 1, 0.5, 1) 1 normal forwards;
 }
 
 .leftContainer {
@@ -20,6 +25,15 @@ h1 {
 .loginContainer {
   position: fixed;
   width: 400px;
+  opacity: 0;
+  -webkit-animation: reveal 2s cubic-bezier(0, 1, 0.5, 1) 1 normal forwards;
+     -moz-animation: reveal 2s ease-in 1 normal forwards;
+       -o-animation: reveal 2s cubic-bezier(0, 1, 0.5, 1) 1 normal forwards;
+          animation: reveal 2s cubic-bezier(0, 1, 0.5, 1) 1 normal forwards;
+  -webkit-animation-delay: 500ms;
+     -moz-animation-delay: 500ms;
+       -o-animation-delay: 500ms;
+          animation-delay: 500ms;
 }
 
 input, button {
