@@ -1,5 +1,14 @@
-h1 {
-  margin-bottom: 60px;
+.title {
+  padding: 2px;
+  color: white;
+  font-size: 40pt;
+  font-weight: 300;
+  background-image: linear-gradient(to left, #32CDFE, #00B2FF);
+}
+
+.title p {
+  color: white;
+  text-align: center;
 }
 
 .notifications {
