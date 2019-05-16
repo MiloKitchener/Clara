@@ -16,9 +16,9 @@ export class GraphDataService {
   }
 
   // Returns a list of fields corresponding to a database parameter
-  getFields(datasetTitle: string) {
+  getFields(datasetTitle: string, url) {
     // TODO: send datasetTitle
-    return this.http.get(environment.backendIP + 'fields/');
+    return this.http.get(url + 'field_names/');
   }
 
   // Returns the chart data associated with two fields

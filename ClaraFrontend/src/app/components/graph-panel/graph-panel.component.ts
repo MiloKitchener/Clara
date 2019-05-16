@@ -62,7 +62,7 @@ export class GraphPanelComponent implements OnInit {
     this.yField = 'Field';
 
     // get fields
-     this._graphDataService.getFields(this.selectDataset(this.yAxisTitle).name).subscribe((res : any[])=>{
+     this._graphDataService.getFields(this.selectDataset(this.yAxisTitle).name, this.selectDataset(this.yAxisTitle).url).subscribe((res : any[])=>{
       this.yFields = res;
     });
   }
@@ -76,7 +76,7 @@ export class GraphPanelComponent implements OnInit {
 
 
     // get fields
-    this._graphDataService.getFields(this.selectDataset(this.xAxisTitle).name).subscribe((res : any[])=>{
+    this._graphDataService.getFields(this.selectDataset(this.xAxisTitle).name, this.selectDataset(this.xAxisTitle).url).subscribe((res : any[])=>{
       this.xFields = res;
     });
   }
