@@ -1,7 +1,6 @@
 from rest_framework.views import APIView
 from django.http import HttpResponse
 from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated
 from .models import CustomUser, Dataset, Field, Graph
 from .serializers import DatasetSerializer, FieldSerializer, GraphSerializer
 from django.views.decorators.csrf import csrf_exempt
@@ -27,7 +26,7 @@ def signup(request):
             print('valid user is created')
             user = CustomUser.objects.create_user(username=data.get('username'), email=data.get('email'),
                                                   password=data.get('password1'))
-            return HttpResponse("sucess")
+            return HttpResponse("success")
     else:
         form = CustomUserCreationForm()
 
@@ -44,7 +43,7 @@ class DatasetView(viewsets.ModelViewSet):
 
     # Get fields for dataset
     @action(detail=True)
-    def field_names(self, pk=None):
+    def field_names(self, request, pk=None):
         queryset = Field.objects.filter(dataset__pk=pk)
         return Response(queryset.values())
 

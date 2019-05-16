@@ -27,13 +27,14 @@
 p {
     color: black;
     padding-left: 1em;
+    font-weight: 400;
     text-align: left;
 }
 
-.html {width: 30%; background-color: #4CAF50;}
-.css {width: 50%; background-color: #2196F3;}
-.js {width: 60%; background-color: #f44336;}
-.php {width: 70%; background-color: #808080;}
+.html {width: 30%; background-color: #4CAF50;font-weight: 400;}
+.css {width: 50%; background-color: #2196F3;font-weight: 400;}
+.js {width: 60%; background-color: #f44336;font-weight: 400;}
+.php {width: 70%; background-color: #808080;font-weight: 400;}
 
 .chart {
     background-color: white;
@@ -52,8 +53,6 @@ p {
     margin-bottom: 30px;
     width: 100%;
     display: flex;
-    font-size: 11pt;
-    font-weight: 50;
     justify-content: space-between;
   }
 
@@ -61,10 +60,10 @@ p {
     margin-left: 150px;
     margin-right: 150px;
     background-color: white;
-    font-size: 15pt;
-    font-weight: 600;
     border-radius: 7px;
     width: 100%;
+    font-size: 16pt;
+    font-weight: 600;
     height: 400px;
   }
 
@@ -72,6 +71,8 @@ p {
     margin-right: 150px;
     margin-left: 150px;
     margin-bottom: 40px;
+    font-size: 11pt;
+    font-weight: 50;
     background-color: white;
     border-radius: 7px;
     height: 500px;
