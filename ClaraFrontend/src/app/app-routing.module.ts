@@ -6,8 +6,12 @@ import { SharedDashboardComponent } from './components/shared-dashboard/shared-d
 import { IdeasComponent } from './components/ideas/ideas.component';
 import { DatasetsComponent } from './components/datasets/datasets.component';
 import { LabServicesComponent } from './components/lab-services/lab-services.component';
+
 import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main/main.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+
+
 import { AuthService } from './services/auth/auth.service';
 
 const routes: Routes = [
@@ -27,7 +31,7 @@ const routes: Routes = [
       { path: 'lab-services', component: LabServicesComponent, data: { title: 'Lab-Services' } }
     ]
   },
-  //{ path: '**', component: PageNotFoundComponent }
+  { path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({
