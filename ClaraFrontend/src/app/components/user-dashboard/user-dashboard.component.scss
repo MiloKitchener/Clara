@@ -57,7 +57,7 @@
        -o-animation: reveal 1s cubic-bezier(0, 1, 0.5, 1) 1 normal forwards;
           animation: reveal 1s cubic-bezier(0, 1, 0.5, 1) 1 normal forwards;
   left: 50%;
-  margin-left: -170px; // half the width of the component
+  margin-left: -170px; /* half the width of the component */
   margin-bottom: 40px;
   bottom: 0;
   z-index: 1;

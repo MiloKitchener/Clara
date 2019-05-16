@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 
 import { GraphDataService } from 'src/app/services/graph-data/graph-data.service';
 
@@ -15,29 +16,53 @@ export class DatasetsComponent implements OnInit {
   // class variables
   private datasets: Dataset[];
 
+  private searchForm: any;
+
   private numOpen: number;
   private numAccepted: number;
   private numNotMapped: number;
   private numUnderReview: number;
 
-  /*datasets = [
-    {"title": "Traffic", "status":"active", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
-    {"title": "Rivers", "status":"inactive", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas fermentum felis vitae nunc sagittis iaculis."},
-    {"title": "Roads", "status":"active", "description": "Maecenas convallis blandit mauris."},
-    {"title": "Wind Speed", "status":"active", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas fermentum felis vitae nunc sagittis iaculis."},
-  ]*/
-
-  constructor(private datasetService: GraphDataService) { }
+  constructor(
+    private datasetService: GraphDataService,
+    private fb: FormBuilder
+  ) { }
 
   ngOnInit() {
-    this.numOpen = 96;
-    this.numAccepted = 4;
-    this.numNotMapped = 90;
-    this.numUnderReview = 0;
-
+    this.searchForm = this.fb.group({
+      searchValue: ['']
+    });;
     // GET datasets
     this.datasetService.getDatasets().subscribe((res : any[])=>{
       this.datasets = res;
+      this.numOpen = this.datasets.length;
+      this.numAccepted = 0;
+      this.numNotMapped = 0;
+      this.numUnderReview = 0;
     });
+  }
+
+
+// https://www.w3schools.com/howto/howto_js_filter_lists.asp
+
+  // search function used by search form
+  search() {/*
+    var input = this.searchForm.get('searchValue').value;
+    var filter = input.value.toUpperCase();
+    var ul = document.getElementById("datasetsList");
+    var li = ul.getElementsByTagName('li');
+    
+    var txtValue: string;
+
+    // Loop through all list items, and hide those who don't match the search query
+    for (var i = 0; i < li.length; i++) {
+      txtValue = li[i].innerHTML;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        li[i].style.display = "";
+      }
+      else {
+        li[i].style.display = "none";
+      }
+    }*/
   }
 }
