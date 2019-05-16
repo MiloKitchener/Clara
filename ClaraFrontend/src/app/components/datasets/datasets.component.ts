@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
+import { GraphDataService } from 'src/app/services/graph-data/graph-data.service';
+
+import { Dataset } from 'src/app/classes/dataset';
+
 @Component({
   selector: 'app-datasets',
   templateUrl: './datasets.component.html',
@@ -9,24 +13,31 @@ import { Component, OnInit } from '@angular/core';
 export class DatasetsComponent implements OnInit {
 
   // class variables
-  numOpen = 0;
-  numAccepted = 0;
-  numNotMapped = 0;
-  numUnderReview = 0;
+  private datasets: Dataset[];
 
-  datasets = [
+  private numOpen: number;
+  private numAccepted: number;
+  private numNotMapped: number;
+  private numUnderReview: number;
+
+  /*datasets = [
     {"title": "Traffic", "status":"active", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
     {"title": "Rivers", "status":"inactive", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas fermentum felis vitae nunc sagittis iaculis."},
     {"title": "Roads", "status":"active", "description": "Maecenas convallis blandit mauris."},
     {"title": "Wind Speed", "status":"active", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas fermentum felis vitae nunc sagittis iaculis."},
-  ]
+  ]*/
 
-  constructor() { }
+  constructor(private datasetService: GraphDataService) { }
 
   ngOnInit() {
     this.numOpen = 96;
     this.numAccepted = 4;
     this.numNotMapped = 90;
     this.numUnderReview = 0;
+
+    // GET datasets
+    this.datasetService.getDatasets().subscribe((res : any[])=>{
+      this.datasets = res;
+    });
   }
 }

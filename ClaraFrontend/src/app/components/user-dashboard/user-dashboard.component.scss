@@ -1,4 +1,5 @@
 .title {
+  text-align: center;
   padding: 2px;
   color: white;
   font-size: 40pt;
@@ -6,16 +7,9 @@
   background-image: linear-gradient(to left, #32CDFE, #00B2FF);
 }
 
-.title p {
-  color: white;
-  text-align: center;
-}
-
 .notifications {
   margin-top: 60px;
   margin-bottom: 20px;
-  margin-left: 100px; 
-  margin-right: 100px;
   display: flex;
   justify-content: space-between;
 }
@@ -32,8 +26,6 @@
 
 .data {
   margin-bottom: 20px;
-  margin-left: 100px; 
-  margin-right: 100px;
   display: flex;
   justify-content: space-between;
 }
@@ -60,11 +52,12 @@
 
 #graphContainer {
   position: fixed;
-  -webkit-animation: reveal 2s cubic-bezier(0, 1, 0.5, 1) 1 normal forwards;
-     -moz-animation: reveal 2s ease-in 1 normal forwards;
-       -o-animation: reveal 2s cubic-bezier(0, 1, 0.5, 1) 1 normal forwards;
-          animation: reveal 2s cubic-bezier(0, 1, 0.5, 1) 1 normal forwards;
+  -webkit-animation: reveal 1s cubic-bezier(0, 1, 0.5, 1) 1 normal forwards;
+     -moz-animation: reveal 1s ease-in 1 normal forwards;
+       -o-animation: reveal 1s cubic-bezier(0, 1, 0.5, 1) 1 normal forwards;
+          animation: reveal 1s cubic-bezier(0, 1, 0.5, 1) 1 normal forwards;
   left: 50%;
+  margin-left: -170px; // half the width of the component
   margin-bottom: 40px;
   bottom: 0;
   z-index: 1;
@@ -75,7 +68,7 @@
   width: 50px;
   position: fixed;
   left: 50%;
-  transform: translateX(-50%);
+  margin-left: 105px;
   bottom: 0;
   background-color: white;
   border-radius: 100px 100px 0 0;
