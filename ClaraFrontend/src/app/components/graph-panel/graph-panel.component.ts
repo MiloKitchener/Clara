@@ -60,6 +60,8 @@ export class GraphPanelComponent implements OnInit {
     this.yAxisTitle = title;
     this.graphTitle = this.yAxisTitle + ' V ' + this.xAxisTitle;
     this.yField = 'Field';
+    this.chartData = null;
+    this.updateChart();
 
     // get fields
      this._graphDataService.getFields(this.selectDataset(this.yAxisTitle).name, this.selectDataset(this.yAxisTitle).url).subscribe((res : any[])=>{
@@ -73,7 +75,8 @@ export class GraphPanelComponent implements OnInit {
     this.xAxisTitle = title;
     this.graphTitle = this.yAxisTitle + ' V ' + this.xAxisTitle;
     this.xField = 'Field';
-
+    this.chartData = null;
+    this.updateChart();
 
     // get fields
     this._graphDataService.getFields(this.selectDataset(this.xAxisTitle).name, this.selectDataset(this.xAxisTitle).url).subscribe((res : any[])=>{
@@ -115,7 +118,7 @@ export class GraphPanelComponent implements OnInit {
 
   // adds the graph to the user's dashboard
   addGraph() {
-    if (this.yAxisTitle === 'None' || this.xAxisTitle === 'None') {
+    if (this.yField === 'Field' || this.xField === 'Field') {
       alert('Please Specify X / Y Axis Values');
     }
     else {

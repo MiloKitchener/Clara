@@ -12,7 +12,10 @@ h3 {
 
 hr {
   margin-bottom: 20px;
-  width: 90%;
+  width: 80%;
+  height: 3px;
+  border: none;
+  background-color: #32CDFE;
 }
 
 h4 {
@@ -29,7 +32,7 @@ h4 {
 }
 
 #controls {
-  margin-top: 20px;
+  margin-top: 15px;
   flex-grow: 1;
 }
 
@@ -40,13 +43,13 @@ button {
   padding: 7px 15px;
   width: 150px;
   height: 40px;
-  background-color: #408DF7;
+  background-color: #32CDFE;
   color: white;
   transition:color .2s ease-out, background 0.3s ease-in;
 }
 
 button:hover {
-  background-color: #0f70f5;
+  background-color: #00B2FF;
   transition:color .2s ease-out, background 0.3s ease-in;
 }
 
@@ -71,18 +74,14 @@ button:hover {
   transition:color .2s ease-out, background 0.3s ease-in;
 }
 
-
-
-
-
-
 /* Style The Dropdown Button */
 .dropbtn {
-  background-color: #4CAF50;
   color: white;
   padding: 16px;
+  padding-bottom: 30px;
   font-size: 16px;
   border: none;
+  border-radius: 10px;
   cursor: pointer;
 }
 
@@ -111,18 +110,26 @@ button:hover {
 }
 
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #f1f1f1}
+.dropdown-content a:hover {
+  background-color: #f1f1f1
+}
 
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
   display: block;
 }
 
-/* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {
-  background-color: #3e8e41;
+ul, li {
+  list-style-type: none;
+  margin-left: 0;
+  padding-left: 0;
 }
 
-li {
-  list-style-type: none;
+ul {
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+img {
+  transform: translateY(-15px);
 }
