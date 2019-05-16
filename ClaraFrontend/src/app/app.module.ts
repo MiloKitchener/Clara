@@ -17,9 +17,11 @@ import { GraphPanelComponent } from './components/graph-panel/graph-panel.compon
 import { DatasetsComponent } from './components/datasets/datasets.component';
 import { LabServicesComponent } from './components/lab-services/lab-services.component';
 
-import { GraphDataService } from './services/graph-data/graph-data.service';
 import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main/main.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+
+import { GraphDataService } from './services/graph-data/graph-data.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,8 @@ import { MainComponent } from './main/main.component';
     DatasetsComponent,
     LabServicesComponent,
     LoginComponent,
-    MainComponent
+    MainComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

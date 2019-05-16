@@ -1,0 +1,40 @@
+.container {
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 0;
+  font-weight: 600;
+  font-size: 130pt;
+  background: -webkit-linear-gradient(#32CDFE, #00B2FF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+h3 {
+  font-weight: 400;
+  font-size: 20pt;
+  margin-bottom: 10px;
+}
+
+h5 {
+  font-weight: 400;
+  font-size: 15pt;
+  margin-top: 0;
+  margin-bottom: 40px;
+}
+
+a {
+  text-decoration: none;
+  border: 0;
+  border-radius: 10px;
+  padding: 15px 50px;
+  font-weight: 600;
+  font-size: 16pt;
+  color: white;
+  background-image: linear-gradient(to bottom left, #32CDFE, #00B2FF);
+}
+
+a:hover {
+  background-image: linear-gradient(to bottom left, #0FC0FC, #0099FF);
+}
