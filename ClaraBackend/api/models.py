@@ -25,6 +25,18 @@ class Field(models.Model):
         return self.name
 
 
+class Graph(models.Model):
+    name = models.CharField(max_length=255, null=False)
+    owner = models.CharField(max_length=255, null=False)
+    dataset1 = models.CharField(max_length=255, null=False)
+    field1 = models.CharField(max_length=255, null=False)
+    dataset2 = models.CharField(max_length=255, null=False)
+    field2 = models.CharField(max_length=255, null=False)
+
+    def __str__(self):
+        return self.name
+
+
 class CustomUser(AbstractUser):
     # Add additional fields in here
     def __str__(self):

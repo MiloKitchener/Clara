@@ -2,14 +2,15 @@ from rest_framework.views import APIView
 from django.http import HttpResponse
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
-from .models import CustomUser, Dataset, Field
-from .serializers import DatasetSerializer, FieldSerializer
+from .models import CustomUser, Dataset, Field, Graph
+from .serializers import DatasetSerializer, FieldSerializer, GraphSerializer
 from django.views.decorators.csrf import csrf_exempt
 from .forms import CustomUserCreationForm
 from rest_framework import viewsets
 import json
 from .dal import fetch_data, combine_data_list, create_datasets
 from rest_framework.decorators import action
+
 
 @csrf_exempt
 def signup(request):
@@ -70,15 +71,26 @@ class FieldView(viewsets.ModelViewSet):
     serializer_class = FieldSerializer
 
 
-class GraphView(APIView):
+# API endpoint that allows graphs to be viewed or edited
+class GraphView(viewsets.ModelViewSet):
+    # Authenticate the user
+    # TODO: Re-enable authentication
+    # permission_classes = (IsAuthenticated,)
+
+    # Select all datasets
+    queryset = Graph.objects.all()
+    serializer_class = GraphSerializer
+
+
+class GraphRequestView(APIView):
     # Authenticate the user
     # TODO: Re-enable authentication
     # permission_classes = (IsAuthenticated,)
 
     def post(self, request):
         data = json.loads(request.body)
-        dataset1 = data.get('dataset1', '')
-        field1 = data.get('field1', '')
+        dataset1 = data['dataset1']
+        field1 = data['field1']
 
         # Get the dataset api url
         queryset = Dataset.objects.filter(name=dataset1)
@@ -87,8 +99,8 @@ class GraphView(APIView):
         # Get the data from this dataset
         data1 = fetch_data(url1, 'x', field1)
 
-        dataset2 = data.get('dataset2', '')
-        field2 = data.get('field2', '')
+        dataset2 = data['dataset2']
+        field2 = data['field2']
 
         # Get the dataset api url
         queryset = Dataset.objects.filter(name=dataset2)
