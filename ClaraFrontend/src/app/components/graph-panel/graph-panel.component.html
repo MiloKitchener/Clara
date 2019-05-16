@@ -8,54 +8,42 @@
       <h4>Y Axis</h4>
       <br>
       <div class="dropdown">
-        <button type="button" data-toggle="dropdown">
-          {{ yAxisTitle }}
-          <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu">
+        <button class="dropbtn">{{ yAxisTitle }}</button>
+        <div class="dropdown-content">
           <li *ngFor="let dataset of datasets">
             <a (click)="setYAxis(dataset.name)">{{ dataset.name }}</a>
           </li>
-        </ul>
+        </div>
       </div>
-      <br>
       <div class="dropdown">
-        <button type="button" data-toggle="dropdown">{{ yField }}
-        <span class="caret"></span></button>
-        <ul class="dropdown-menu">
+        <button class="dropbtn">{{ yField }}</button>
+        <div class="dropdown-content">
             <li *ngFor="let field of yFields">
               <a (click)="selectYField(field.name)">{{ field.name }}</a>
             </li>
-        </ul>
+        </div>
       </div>
-
-      <br><br><br>
 
       <!-- X Axis Selection -->
       <h4>X Axis</h4>
       <br>
       <div class="dropdown">
-        <button type="button" data-toggle="dropdown">
-          {{ xAxisTitle }}
-          <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu">
+        <button class="dropbtn">{{ xAxisTitle }}</button>
+        <div class="dropdown-content">
           <li *ngFor="let dataset of datasets">
             <a (click)="setXAxis(dataset.name)">{{ dataset.name }}</a>
           </li>
-      </ul>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="dropbtn">{{ xField }}</button>
+        <div class="dropdown-content">
+            <li *ngFor="let field of xFields">
+              <a (click)="selectXField(field.name)">{{ field.name }}</a>
+            </li>
+        </div>
+      </div>
     </div>
-    <br>
-    <div class="dropdown">
-      <button type="button" data-toggle="dropdown">{{ xField }}
-      <span class="caret"></span></button>
-      <ul class="dropdown-menu">
-          <li *ngFor="let field of xFields">
-            <a (click)="selectXField(field.name)">{{ field.name }}</a>
-          </li>
-      </ul>
-    </div>
-  </div>
 
     <div id="graph">
       <canvas id="myChart" width="400" height="400"></canvas>

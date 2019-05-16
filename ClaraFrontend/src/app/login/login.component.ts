@@ -30,9 +30,18 @@ export class LoginComponent implements OnInit {
     this.returnUrl = this.route.snapshot.queryParams.returnUrl || 'main';
   }
   
+  // calls login service to log user into website
   signIn() {
-    console.log('Logging in:', this.loginForm.value);
     this.loginService.login(this.loginForm.value, this.returnUrl)
   }
 
+  // calls sign up service to create a new user profile
+  signUp() {
+
+  }
+
+  // calls forgot password service to get the user's password reset
+  forgotPW() {
+
+  }
 }
