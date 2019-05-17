@@ -1,7 +1,8 @@
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.views import APIView
 from django.http import HttpResponse
 from rest_framework.response import Response
-from .models import CustomUser, Dataset, Field, Graph
+from .models import User, Dataset, Field, Graph
 from .serializers import DatasetSerializer, FieldSerializer, GraphSerializer
 from django.views.decorators.csrf import csrf_exempt
 from .forms import CustomUserCreationForm
@@ -24,8 +25,8 @@ def signup(request):
         else:
             # user is valid and created
             print('valid user is created')
-            user = CustomUser.objects.create_user(username=data.get('username'), email=data.get('email'),
-                                                  password=data.get('password1'))
+            user = User.objects.create_user(username=data.get('username'), email=data.get('email'),
+                                            password=data.get('password1'))
             return HttpResponse("success")
     else:
         form = CustomUserCreationForm()
@@ -54,7 +55,6 @@ class DatasetCreateView(APIView):
     # permission_classes = (IsAuthenticated,)
     def post(self, request):
         url = request.data.get('url')
-        print(url)
         create_datasets(url)
         return Response("Success")
 
@@ -79,6 +79,17 @@ class GraphView(viewsets.ModelViewSet):
     # Select all datasets
     queryset = Graph.objects.all()
     serializer_class = GraphSerializer
+
+    def create(self, request, **kwargs):
+        # Before the Graph object is created, fill in the user field
+        request.data['user'] = request.user.id
+        return super(GraphView, self).create(request)
+
+    # Get graphs for user
+    @action(detail=False)
+    def user_graphs(self, request, pk=None):
+        queryset = Graph.objects.filter(user_id=request.user.id)
+        return Response(queryset.values())
 
 
 class GraphRequestView(APIView):

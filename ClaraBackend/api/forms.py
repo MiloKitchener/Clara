@@ -1,11 +1,11 @@
 from django.forms import ModelForm
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
-from .models import CustomUser, Dataset
+from .models import User, Dataset
 
 
 class CustomUserCreationForm(UserCreationForm):
     class Meta(UserCreationForm):
-        model = CustomUser
+        model = User
         # fields = ('username', 'email')
         # if issues return to password1 and password2 format
         fields = ('username', 'email', 'password1')
@@ -13,7 +13,7 @@ class CustomUserCreationForm(UserCreationForm):
 
 class CustomUserChangeForm(UserChangeForm):
     class Meta:
-        model = CustomUser
+        model = User
         fields = ('username', 'email')
 
 
