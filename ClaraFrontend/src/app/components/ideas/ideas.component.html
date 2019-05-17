@@ -1,22 +1,44 @@
 <h1>Ideas</h1>
 
 <div class="container">
-  <div class="postPanel">
-    <h3>Post an Idea</h3>
-    <form id="addIdeaForm">
-      <input type="text" name="" value="" placeholder="Title">
-      <textarea placeholder="Description"></textarea>
-      <input type="submit" name="" value="Submit">
-    </form>
-  </div>
-
-  <div class="postedIdeas">
-    <h3>Browse Ideas</h3>
+  <div class="rightToolbar">
+    <button (click)="newPost()">New Post</button>
+    <h2>Filters</h2>
+    <hr>
     <ul>
-      <li *ngFor="let dataset of datasets">
-        <hr>
-        <app-idea-node [title]=dataset.title [description]=dataset.description [numComments]=dataset.numComments [numVotes]=dataset.numVotes></app-idea-node>
+      <li *ngFor="let filter of filters">
+        <h5>{{ filter }}</h5>
       </li>
     </ul>
+  </div>
+
+  <div class="leftContainer">
+    <div class="searchFilter">
+      <div class="dropdown">
+        <button class="dropbtn">Arrange By: {{ selectedFilter }}</button>
+        <div class="dropdown-content">
+          <ul>
+            <li *ngFor="let arrangedFilter of arrangedFilters">
+              <a (click)="selectFilter(arrangedFilter)">{{ arrangedFilter }}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <form class="searchForm">
+        <input type="text" placeholder="Search">
+        <button>
+          <img src="assets/vectors/searchIcon.svg" alt="">
+        </button>
+      </form>
+    </div>
+
+    <div class="postedIdeas">
+      <ul>
+        <li *ngFor="let post of posts">
+          <app-idea-node [title]=post.title [description]=post.description [numComments]=post.numComments [numVotes]=post.numVotes></app-idea-node>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
