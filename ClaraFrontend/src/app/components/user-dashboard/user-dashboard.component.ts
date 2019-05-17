@@ -27,6 +27,7 @@ export class UserDashboardComponent implements OnInit {
 
 // reveals the add graph panel
 function openGraphPanel() {
+  document.getElementById("graphContainer").style.animation = "reveal 1s cubic-bezier(0, 1, 0.5, 1) 1 normal forwards";
   document.getElementById("graphContainer").style.display = "block";
 
   var addButton = document.getElementById("addBtn");
@@ -37,7 +38,11 @@ function openGraphPanel() {
 
 // hides the add graph panel
 function removeGraphPanel() {
-  document.getElementById("graphContainer").style.display = "none";
+  document.getElementById("graphContainer").style.animation = "hide 1s cubic-bezier(0, 1, 0.5, 1) 1 normal forwards";
+  // add one second delay to give animation time to finish
+  setTimeout(function() {
+    document.getElementById("graphContainer").style.display = "none";
+  }, 1000);
 
   var addButton = document.getElementById("addBtn");
   addButton.innerHTML = "+";

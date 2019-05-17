@@ -1,71 +1,72 @@
 <div class="graphPanelContainer">
-  <h3>{{ graphTitle }}</h3>
-  <hr>
-
-  <div class="main">
-    <div id="controls">
-      <!-- Y Axis Selection -->
-      <h4>Y Axis</h4>
-      <br>
-      <div class="dropdown">
-        <button class="dropbtn">{{ yAxisTitle }}</button>
-        <div class="dropdown-content">
-          <ul>
-            <li *ngFor="let dataset of datasets">
-              <a (click)="setYAxis(dataset.name)">{{ dataset.name }}</a>
-            </li>
-          </ul>
+  <div class="mainContainer">
+      <h3>{{ graphTitle }}</h3>
+      <hr>
+      <div class="main">
+        <div id="controls">
+          <!-- Y Axis Selection -->
+          <h4>Y Axis</h4>
+          <br>
+          <div class="dropdown">
+            <button class="dropbtn">{{ yAxisTitle }}</button>
+            <div class="dropdown-content">
+              <ul>
+                <li *ngFor="let dataset of datasets">
+                  <a (click)="setYAxis(dataset.name)">{{ dataset.name }}</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <br>
+          <br>
+          <div class="dropdown">
+            <button class="dropbtn">{{ yField }}</button>
+            <div class="dropdown-content">
+              <ul>
+                <li *ngFor="let field of yFields">
+                  <a (click)="selectYField(field.name)">{{ field.name }}</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+    
+          <br>
+          <br>
+          <br>
+    
+          <!-- X Axis Selection -->
+          <h4>X Axis</h4>
+          <br>
+          <div class="dropdown">
+            <button class="dropbtn">{{ xAxisTitle }}</button>
+            <div class="dropdown-content">
+              <ul>
+                <li *ngFor="let dataset of datasets">
+                  <a (click)="setXAxis(dataset.name)">{{ dataset.name }}</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <br>
+          <br>
+          <div class="dropdown">
+            <button class="dropbtn">{{ xField }}</button>
+            <div class="dropdown-content">
+              <ul>
+                <li *ngFor="let field of xFields">
+                  <a (click)="selectXField(field.name)">{{ field.name }}</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+    
+        <div id="graph">
+          <canvas id="myChart" width="400" height="400"></canvas>
         </div>
       </div>
-      <br>
-      <br>
-      <div class="dropdown">
-        <button class="dropbtn">{{ yField }}</button>
-        <div class="dropdown-content">
-          <ul>
-            <li *ngFor="let field of yFields">
-              <a (click)="selectYField(field.name)">{{ field.name }}</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <br>
-      <br>
-      <br>
-
-      <!-- X Axis Selection -->
-      <h4>X Axis</h4>
-      <br>
-      <div class="dropdown">
-        <button class="dropbtn">{{ xAxisTitle }}</button>
-        <div class="dropdown-content">
-          <ul>
-            <li *ngFor="let dataset of datasets">
-              <a (click)="setXAxis(dataset.name)">{{ dataset.name }}</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <br>
-      <br>
-      <div class="dropdown">
-        <button class="dropbtn">{{ xField }}</button>
-        <div class="dropdown-content">
-          <ul>
-            <li *ngFor="let field of xFields">
-              <a (click)="selectXField(field.name)">{{ field.name }}</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div id="graph">
-      <canvas id="myChart" width="400" height="400"></canvas>
-    </div>
+      <button class="addBtn" (click)="addGraph()">Add Graph to Dashboard</button>
   </div>
-  <button class="addBtn" (click)="addGraph()">Add Graph to Dashboard</button>
-</div>
+  <img src="assets/vectors/triangle.svg" alt="">  
 
-<img src="assets/vectors/triangle.svg" alt="">
+</div>

@@ -8,6 +8,7 @@ body {
   padding: 0;
 }
 
+
 /************************
   Define keyframes
 *************************/
@@ -40,91 +41,6 @@ body {
 @-o-keyframes fadein {
   from { opacity: 0; }
   to   { opacity: 1; }
-}
-
-@keyframes cssload-fold-thecube {
-	0%, 10% {
-		transform: perspective(136px) rotateX(-180deg);
-		opacity: 0;
-	}
-	25%,
-				75% {
-		transform: perspective(136px) rotateX(0deg);
-		opacity: 1;
-	}
-	90%,
-				100% {
-		transform: perspective(136px) rotateY(180deg);
-		opacity: 0;
-	}
-}
-
-@-o-keyframes cssload-fold-thecube {
-	0%, 10% {
-		-o-transform: perspective(136px) rotateX(-180deg);
-		opacity: 0;
-	}
-	25%,
-				75% {
-		-o-transform: perspective(136px) rotateX(0deg);
-		opacity: 1;
-	}
-	90%,
-				100% {
-		-o-transform: perspective(136px) rotateY(180deg);
-		opacity: 0;
-	}
-}
-
-@-ms-keyframes cssload-fold-thecube {
-	0%, 10% {
-		-ms-transform: perspective(136px) rotateX(-180deg);
-		opacity: 0;
-	}
-	25%,
-				75% {
-		-ms-transform: perspective(136px) rotateX(0deg);
-		opacity: 1;
-	}
-	90%,
-				100% {
-		-ms-transform: perspective(136px) rotateY(180deg);
-		opacity: 0;
-	}
-}
-
-@-webkit-keyframes cssload-fold-thecube {
-	0%, 10% {
-		-webkit-transform: perspective(136px) rotateX(-180deg);
-		opacity: 0;
-	}
-	25%,
-				75% {
-		-webkit-transform: perspective(136px) rotateX(0deg);
-		opacity: 1;
-	}
-	90%,
-				100% {
-		-webkit-transform: perspective(136px) rotateY(180deg);
-		opacity: 0;
-	}
-}
-
-@-moz-keyframes cssload-fold-thecube {
-	0%, 10% {
-		-moz-transform: perspective(136px) rotateX(-180deg);
-		opacity: 0;
-	}
-	25%,
-				75% {
-		-moz-transform: perspective(136px) rotateX(0deg);
-		opacity: 1;
-	}
-	90%,
-				100% {
-		-moz-transform: perspective(136px) rotateY(180deg);
-		opacity: 0;
-	}
 }
 
 @keyframes float {
@@ -204,5 +120,73 @@ body {
        -moz-transform: translateY(0);
          -o-transform: translateY(0);
             transform: translateY(0);
+  }
+}
+
+@-webkit-keyframes hide {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+       -moz-transform: translateY(0);
+         -o-transform: translateY(0);
+            transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(100%);
+       -moz-transform: translateY(100%);
+         -o-transform: translateY(100%);
+            transform: translateY(100%);
+  }
+}
+
+@-moz-keyframes hide {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+       -moz-transform: translateY(0);
+         -o-transform: translateY(0);
+            transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(100%);
+       -moz-transform: translateY(100%);
+         -o-transform: translateY(100%);
+            transform: translateY(100%);
+  }
+}
+
+@-o-keyframes hide {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+       -moz-transform: translateY(0);
+         -o-transform: translateY(0);
+            transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(100%);
+       -moz-transform: translateY(100%);
+         -o-transform: translateY(100%);
+            transform: translateY(100%);
+  }
+}
+
+@keyframes hide {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+       -moz-transform: translateY(0);
+         -o-transform: translateY(0);
+            transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(100%);
+       -moz-transform: translateY(100%);
+         -o-transform: translateY(100%);
+            transform: translateY(100%);
   }
 }
