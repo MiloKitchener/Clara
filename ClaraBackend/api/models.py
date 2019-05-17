@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.conf import settings
 
 
 class Dataset(models.Model):
@@ -25,9 +26,15 @@ class Field(models.Model):
         return self.name
 
 
+class User(AbstractUser):
+    # Add additional fields in here
+    def __str__(self):
+        return self.username
+
+
 class Graph(models.Model):
     name = models.CharField(max_length=255, null=False)
-    owner = models.CharField(max_length=255, null=False)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     dataset1 = models.CharField(max_length=255, null=False)
     field1 = models.CharField(max_length=255, null=False)
     dataset2 = models.CharField(max_length=255, null=False)
@@ -35,9 +42,3 @@ class Graph(models.Model):
 
     def __str__(self):
         return self.name
-
-
-class CustomUser(AbstractUser):
-    # Add additional fields in here
-    def __str__(self):
-        return self.email
