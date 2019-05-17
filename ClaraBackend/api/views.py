@@ -56,7 +56,7 @@ class DatasetCreateView(APIView):
         url = request.data.get('url')
         print(url)
         # for jakes test's
-       # map_fields_to_normalized_name(url)
+        # map_fields_to_normalized_name(url)
         create_datasets(url)
         return Response("Success")
 
@@ -88,18 +88,14 @@ class GraphView(viewsets.ModelViewSet):
         return super(GraphView, self).create(request)
 
     # Get graphs for user
-    @action(detail=False)
+    @action(detail=False, methods=['post'])
     def user_graphs(self, request, pk=None):
-        queryset = Graph.objects.filter(user_id=request.user.id)
+        queryset = Graph.objects.filter(user__id=request.user.id)
         return Response(queryset.values())
 
-
-class GraphRequestView(APIView):
-    # Authenticate the user
-    # TODO: Re-enable authentication
-    # permission_classes = (IsAuthenticated,)
-
-    def post(self, request):
+    # Get graph data
+    @action(detail=False, methods=['post'])
+    def request_graph(self, request, pk=None):
         data = json.loads(request.body)
         dataset1 = data['dataset1']
         field1 = data['field1']
