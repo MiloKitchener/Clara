@@ -1,15 +1,39 @@
 <div class="leftContainer">
   <h1>Welcome to Clara.</h1>
   <div class="loginContainer">
-    <form [formGroup]="loginForm" (ngSubmit)="signIn()">
+    <form [formGroup]="loginForm" (ngSubmit)="signIn()" id="loginForm">
       <input type="text"  formControlName="username" placeholder="username" required>
       <br>
       <input type="password" formControlName="password" placeholder="password" requried>
       <br>
-      <button class="textBtn">forgot my password</button>
+      <button class="textBtn" (click)="goToForgotPW()">forgot my password</button>
        <div class="btnContainer">
         <input type="submit" value="Sign in" style="margin-right:20px;">
-        <button id="signUpBtn">Sign Up</button>
+        <button id="signUpBtn" (click)="goToSignup()">Sign Up</button>
+      </div>
+    </form>
+
+    <form [formGroup]="signUpForm" (ngSubmit)="signUp()" id="signUpForm">
+      <input type="text"  formControlName="username" placeholder="username" required>
+      <br>
+      <input type="password" formControlName="password" placeholder="password" requried>
+      <br>
+      <br>
+      <input type="password" formControlName="repeatPassword" placeholder="repeat password" requried>
+      <br>
+      <br>
+       <div class="btnContainer">
+        <input type="submit" value="Sign in" style="margin-right:20px;">
+        <button (click)="goToLogin()">Return</button>
+      </div>
+    </form>
+
+    <form [formGroup]="forgotPWForm" (ngSubmit)="forgotPW()" id="forgotPWForm">
+      <input type="text"  formControlName="email" placeholder="email" required>
+      <br>
+       <div class="btnContainer">
+        <input type="submit" value="Resend Password" style="margin-right:20px;">
+        <button (click)="goToLogin()">Return</button>
       </div>
     </form>
   </div>
