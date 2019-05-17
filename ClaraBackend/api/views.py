@@ -7,7 +7,7 @@ from django.views.decorators.csrf import csrf_exempt
 from .forms import CustomUserCreationForm
 from rest_framework import viewsets
 import json
-from .dal import fetch_data, combine_data_list, create_datasets
+from .dal import *
 from rest_framework.decorators import action
 
 
@@ -55,6 +55,8 @@ class DatasetCreateView(APIView):
     def post(self, request):
         url = request.data.get('url')
         print(url)
+        # for jakes test's
+       # map_fields_to_normalized_name(url)
         create_datasets(url)
         return Response("Success")
 
