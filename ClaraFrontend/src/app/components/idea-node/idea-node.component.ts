@@ -13,6 +13,7 @@ export class IdeaNodeComponent implements OnInit {
   @Input() numVotes: number;
   @Input() imgPath: string;
   @Input() tag: string;
+  @Input() authorName: string;
   private voted: number;
 
   constructor() { }
