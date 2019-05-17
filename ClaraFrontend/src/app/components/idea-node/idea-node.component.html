@@ -1,8 +1,10 @@
 <div class="ideaNodeContainer">
-  <h4>{{ title }}</h4>
   <div id="mainContent">
-    <p>{{ description }}</p>
-
+    <img [src]="imgPath" alt="">
+    <div>
+      <h4>{{ title }}</h4>
+      <p>{{ description }}</p>
+    </div>
     <div id="votePanel">
       <button id="upButton" (click)="upvote()">
         <svg width="22.5px" height="30px" viewBox="0 0 50 80" xml:space="preserve">
@@ -10,18 +12,16 @@
         </svg>
       </button>
       <br>
-      <br>
       <h5 [ngStyle]="{'color': numVotes < 0 ? '#eb3b3b' : 'black'}">{{ numVotes }}</h5>
-      <br>
       <button id = "downButton" (click)="downvote()">
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="22.5px" height="30px" viewBox="0 0 50 80" xml:space="preserve">
           <polyline [ngStyle]="{'stroke': voted === 2 ? '#eb3b3b' : 'black'}" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" points="0.375,0.375 45.63,38.087 0.375,75.8 "/>
         </svg>
       </button>
     </div>
-
   </div>
-  <button type="button" name="button" class="commentBtn" style="float:left;">View Comments ({{ numComments }})</button>
-  <button type="button" name="button" class="commentBtn" style="float:right;">Add Comment</button>
-  <br>
+  <div class="bottomPanel">
+    <h5>{{ tag }}</h5>
+    <button type="button" name="button" class="commentBtn" style="float:left;">Comments ({{ numComments }})</button>    
+  </div>
 </div>
