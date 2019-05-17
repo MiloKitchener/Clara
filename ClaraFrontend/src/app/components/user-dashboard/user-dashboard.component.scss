@@ -1,54 +1,16 @@
-.title {
-  text-align: center;
-  padding: 2px;
+h1 {
+  margin: 0;
+  padding: 50px;
   color: white;
+  background-image: linear-gradient(to left, #32CDFE, #00B2FF);
   font-size: 40pt;
   font-weight: 300;
-  background-image: linear-gradient(to left, #32CDFE, #00B2FF);
 }
 
-.notifications {
-  margin-top: 60px;
-  margin-bottom: 20px;
-  display: flex;
-  justify-content: space-between;
-}
+/***************************************************
+  Fixed Bottom Elements (Graph Panel / Button)
+***************************************************/
 
-.notifications h2 {
-  margin: 20px;
-  width: 100%;
-  font-weight: 500;
-  background-color: white;
-  border-radius: 7px;
-  color: black;
-}
-
-
-.data {
-  margin-bottom: 20px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.data h2 {
-  margin: 20px;
-  font-weight: 500;
-  width: 100%;
-  background-color: white;
-  border-radius: 7px;
-  color: black;
-}
-
-.projects h2 {
-  color: black;
-  margin-bottom: 50px;
-  margin-left: 120px; 
-  font-weight: 500;
-  margin-right: 120px;
-  background-color: white;
-  border-radius: 7px;
-  height: 500px;
-}
 
 #graphContainer {
   position: fixed;

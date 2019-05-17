@@ -19,8 +19,8 @@ export class DatasetsComponent implements OnInit {
   private searchForm: any;
 
   private numOpen: number;
-  private numAccepted: number;
-  private numNotMapped: number;
+  private numRecentlyUpdated: number;
+  private numOutOfDate: number;
   private numUnderReview: number;
 
   constructor(
@@ -29,6 +29,10 @@ export class DatasetsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.numRecentlyUpdated = 0;
+    this.numOutOfDate = 0;
+    this.numUnderReview = 0;
+
     this.searchForm = this.fb.group({
       searchValue: ['']
     });;
@@ -36,9 +40,17 @@ export class DatasetsComponent implements OnInit {
     this.datasetService.getDatasets().subscribe((res : any[])=>{
       this.datasets = res;
       this.numOpen = this.datasets.length;
-      this.numAccepted = 0;
-      this.numNotMapped = 0;
-      this.numUnderReview = 0;
+
+      var year: string;
+      for (var i = 0; i < this.datasets.length; i++) {
+        year = this.datasets[i].datetime_updated.slice(0, 4)
+        if(parseInt(year) > 2014) {
+          this.numRecentlyUpdated++;
+        }
+        else {
+          this.numOutOfDate++;
+        }
+      }
     });
   }
 

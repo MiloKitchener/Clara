@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { GraphPanelComponent } from '../graph-panel/graph-panel.component';
 
 @Component({
   selector: 'app-user-dashboard',
@@ -7,11 +6,22 @@ import { GraphPanelComponent } from '../graph-panel/graph-panel.component';
   styleUrls: ['./user-dashboard.component.scss']
 })
 export class UserDashboardComponent implements OnInit {
+  private charts = [];
+  private chartsPanel: any;
 
   constructor() { }
 
   ngOnInit() {
     document.getElementById("addBtn").addEventListener("click", openGraphPanel);
+    this.chartsPanel = document.getElementById("userChartsFeed");
+
+    if(this.charts.length == 0) { // user has no charts
+      this.chartsPanel.innerHTML = "<h2 style='margin-top:150px;'>No Charts Have Been Saved</h2><p>Add A New Chart With The Button Below</p>";
+    }
+
+    else { // populate chartsPanel with charts
+
+    }
   }
 }
 
