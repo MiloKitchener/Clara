@@ -10,17 +10,18 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 
 export class MainComponent implements OnInit {
   // user profile vars
-  user = {
-    "name": "William McKinnon",
-    "title": "Smart City Developer",
-    "pictureSrc": "assets/images/avatar.png"
-  }
-
+  private user: any;
   constructor(
     private logoutService: AuthService
   ) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.user = {
+      "name": "William McKinnon",
+      "title": "Smart City Developer",
+      "pictureSrc": "assets/images/avatar.png"
+    }
+  }
 
   // logs user out of the site, returns to login page
   logout() {
