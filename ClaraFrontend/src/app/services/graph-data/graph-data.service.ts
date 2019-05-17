@@ -7,16 +7,20 @@ import {environment} from '../../../environments/environment';
 })
 
 export class GraphDataService {
+  // class variables
+  private datasets: any;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    this.datasets = this.http.get(environment.backendIP + 'datasets/');
+  }
 
   // Returns a list of datasets from the database
   getDatasets() {
-    return this.http.get(environment.backendIP + 'datasets/');
+    return this.datasets;
   }
 
   // Returns a list of fields corresponding to a database parameter
-  getFields(datasetTitle: string, url) {
+  getFields(datasetTitle: string, url: string) {
     // TODO: send datasetTitle
     return this.http.get(url + 'field_names/');
   }

@@ -3,6 +3,7 @@
 ***********************************/
 
 .sidebarDiv {
+  z-index: 3;
   top: 0;
   left: 0;
   margin: 0;
@@ -12,10 +13,11 @@
   background-color: white;
   position: fixed;
   overflow: hidden;
+  text-align: center;
 }
 
 .sidebar-user-panel img {
-  width: 150px;
+  width: 130px;
   border-radius: 50%;
 }
 
@@ -23,14 +25,14 @@
   font-weight: 500;
   margin: 0;
   margin-top: 15px;
-  font-size: 16pt;
+  font-size: 14pt;
 }
 
 .sidebar-user-panel p {
   font-weight: 300;
   margin: 0;
   margin-bottom: 60px;
-  font-size: 12pt;
+  font-size: 10pt;
 }
 
 ul {
@@ -43,6 +45,7 @@ ul {
 
 li a {
   display: block;
+  cursor: pointer;
 }
 
 li:not(:first-child) {
@@ -59,13 +62,24 @@ a {
 }
 
 a:hover {
-  color: #408DF7;
+  color: #32CDFE;
+  background-color: #DEDEDE;
 }
 
 .active a {
-  color: #0f70f5;
+  color: #32CDFE;
 }
 
+#logOutBtn {
+  margin-top: 75px;
+  border: 0;
+  color: white;
+  background-image: linear-gradient(to bottom left, #32CDFE, #00B2FF);
+}
+
+#logOutBtn:hover {
+  background-image: linear-gradient(to bottom left, #0FC0FC, #0099FF);
+}
 
 /***********************************
   Main Content (Router-Outlet)

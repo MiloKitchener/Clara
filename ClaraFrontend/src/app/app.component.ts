@@ -1,28 +1,42 @@
 import { Component } from '@angular/core';
-import {AuthService} from './services/auth/auth.service';
-import {FormBuilder} from '@angular/forms';
-import {ActivatedRoute} from '@angular/router';
-import {RegisterService} from "./services/RegisterService/register.service";
-
-// allows jquery
-declare var $:any;
+import {
+  transition,
+  trigger,
+  query,
+  style,
+  animate,
+  group,
+  animateChild
+} from '@angular/animations';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  animations: [
+    trigger('myAnimation', [
+      transition('* => *', [
+        query(
+          ':enter',
+          [style({ opacity: 0 })],
+          { optional: true }
+        ),
+        query(
+          ':leave',
+          [style({ opacity: 1 }), animate('0.3s', style({ opacity: 0 }))],
+          { optional: true }
+        ),
+        query(
+          ':enter',
+          [style({ opacity: 0 }), animate('0.3s', style({ opacity: 1 }))],
+          { optional: true }
+        )
+      ])
+    ])
+  ]
 })
 
 export class AppComponent {
-  returnUrl: string;
-
-  // user profile vars
-  user = {
-    "name": "William McKinnon",
-    "title": "Smart City Developer",
-    "pictureSrc": "assets/avatar.png"
-  }
-
   constructor() { }
 
   ngOnInit() { }
