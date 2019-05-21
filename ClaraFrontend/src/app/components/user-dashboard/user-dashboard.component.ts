@@ -1,27 +1,40 @@
 import { Component, OnInit } from '@angular/core';
 
+import { GraphDataService } from 'src/app/services/graph-data/graph-data.service';
+
 @Component({
   selector: 'app-user-dashboard',
   templateUrl: './user-dashboard.component.html',
   styleUrls: ['./user-dashboard.component.scss']
 })
 export class UserDashboardComponent implements OnInit {
-  private charts = [];
+  private chartsData = [];
   private chartsPanel: any;
 
-  constructor() { }
+  constructor(private _graphDataService: GraphDataService) { }
 
   ngOnInit() {
+    // pulls user chart data
+    this.chartsData = this._graphDataService.getUserCharts();
+
     document.getElementById("addBtn").addEventListener("click", openGraphPanel);
     this.chartsPanel = document.getElementById("userChartsFeed");
 
-    if(this.charts.length == 0) { // user has no charts
+    if(this.chartsData.length == 0) { // user has no charts
       this.chartsPanel.innerHTML = "<h2 style='margin-top:150px;'>No Charts Have Been Saved</h2><p>Add A New Chart With The Button Below</p>";
     }
 
     else { // populate chartsPanel with charts
-
+      displayGraphs();
     }
+
+    // update panel when charts are added
+    this._graphDataService.userDataUpdate.subscribe(
+      (userChartData: any) => {
+        this.chartsData = this._graphDataService.getUserCharts();
+        displayGraphs();
+      }
+    );
   }
 }
 
@@ -48,4 +61,12 @@ function removeGraphPanel() {
   addButton.innerHTML = "+";
   addButton.removeEventListener("click", removeGraphPanel);
   addButton.addEventListener("click", openGraphPanel);
+}
+
+function displayGraphs() {
+  alert("Updating charts panel");
+  // hide "no saved charts" message if user has saved charts
+  if(this.chartsData.length > 0) {
+    this.chartsPanel.innerHTML = "";
   }
+}
