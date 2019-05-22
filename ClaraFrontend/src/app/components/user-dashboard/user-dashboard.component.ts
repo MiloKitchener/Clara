@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Chart } from 'chart.js';
 
 import { GraphDataService } from 'src/app/services/graph-data/graph-data.service';
 
@@ -70,7 +71,29 @@ export class UserDashboardComponent implements OnInit {
         }
 
         var newCell = document.createElement("td");
-        newCell.appendChild(document.createTextNode("Chart " + i));
+        var newChart = document.createElement("canvas")
+        var ctx = newChart.getContext("2d");
+        ctx.canvas.width = 400;
+        ctx.canvas.height = 400;
+        var scatterChart = new Chart(ctx, {
+          type: 'scatter',
+          data: {
+            datasets: [{
+              label: 'Scatter Dataset',
+              data: this.chartsData[i]
+            }]
+          },
+          options: {
+            scales: {
+              xAxes: [{
+                type: 'linear',
+                position: 'bottom'
+              }]
+            }
+          }
+        });
+
+        newCell.appendChild(newChart);
         currentRow.appendChild(newCell);
   
         // add last row
