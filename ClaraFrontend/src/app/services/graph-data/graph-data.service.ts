@@ -10,7 +10,7 @@ export class GraphDataService {
   // class variables
   private datasets: any;
   private userChartData = [];
-  userDataUpdate = new EventEmitter();
+  public userDataUpdate = new EventEmitter();
 
   constructor(private http: HttpClient) {
     this.datasets = this.http.get(environment.backendIP + 'datasets/');
