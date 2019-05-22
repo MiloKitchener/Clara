@@ -41,6 +41,9 @@ export class UserDashboardComponent implements OnInit {
     );
   }
 
+  /****************************
+    Class Functions  
+  ****************************/
 
   // method to populate the user graphs table
   displayGraphs() {
@@ -48,14 +51,14 @@ export class UserDashboardComponent implements OnInit {
     if(document.getElementById("graphContainer").style.display == "block") {
       removeGraphPanel();
     }
-  
+
     // hide "no saved charts" message if user has saved charts
     if(this.chartsData.length > 0) {
       this.chartsPanelText = ""; // remove "no charts saved" message
 
       var table = document.getElementById("chartsTable");
       var currentRow = null;
-  
+
       for(var i = 0; i < this.chartsData.length; i++) {
         alert("adding table cell " + i);
 
@@ -66,7 +69,7 @@ export class UserDashboardComponent implements OnInit {
           }
           currentRow = document.createElement("tr");
         }
-  
+
         var newCell = document.createElement("td");
         newCell.appendChild(document.createTextNode("Cell " + i));
         currentRow.appendChild(newCell);
@@ -79,6 +82,12 @@ export class UserDashboardComponent implements OnInit {
     }
   }
 }
+
+
+/****************************
+  Event Listener Functions  
+****************************/
+
 
 // reveals the add graph panel
 function openGraphPanel() {
