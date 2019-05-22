@@ -73,8 +73,6 @@ export class UserDashboardComponent implements OnInit {
         var newCell = document.createElement("td");
         var newChart = document.createElement("canvas")
         var ctx = newChart.getContext("2d");
-        ctx.canvas.width = 400;
-        ctx.canvas.height = 400;
         var scatterChart = new Chart(ctx, {
           type: 'scatter',
           data: {
