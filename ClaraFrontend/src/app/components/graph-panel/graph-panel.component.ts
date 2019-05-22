@@ -52,7 +52,7 @@ export class GraphPanelComponent implements OnInit {
 
 
   /****************************
-    Class Functions  
+    Class Methods  
   ****************************/
 
 

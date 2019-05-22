@@ -42,7 +42,7 @@ export class UserDashboardComponent implements OnInit {
   }
 
   /****************************
-    Class Functions  
+    Class Methods  
   ****************************/
 
   // method to populate the user graphs table
@@ -57,11 +57,10 @@ export class UserDashboardComponent implements OnInit {
       this.chartsPanelText = ""; // remove "no charts saved" message
 
       var table = document.getElementById("chartsTable");
+      table.innerHTML = "";
+
       var currentRow = null;
-
       for(var i = 0; i < this.chartsData.length; i++) {
-        alert("adding table cell " + i);
-
         // every two elements, create new row
         if(i % 2 == 0) {
           if(currentRow != null) {
@@ -71,11 +70,11 @@ export class UserDashboardComponent implements OnInit {
         }
 
         var newCell = document.createElement("td");
-        newCell.appendChild(document.createTextNode("Cell " + i));
+        newCell.appendChild(document.createTextNode("Chart " + i));
         currentRow.appendChild(newCell);
   
-        // if last row is not an even number
-        if(i == this.chartsData.length) {
+        // add last row
+        if(i == this.chartsData.length - 1) {
           table.appendChild(currentRow);
         }
       }
