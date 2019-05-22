@@ -23,8 +23,7 @@ The first step to setting up Clara on your local machine will be to download all
 ## Deployment ##
 ### Local: ###
 #### Frontend: ####
-1. Ensure angular is installed. If it is not, install it with `npm install -g @angular/cli`
-   - Note: node/npm is required to install angular
+1. Install all of the required programs, found under **setup**
 2. Navigate to claraFrontend
 3. Run `npm install`
 4. Run `ng serve`
