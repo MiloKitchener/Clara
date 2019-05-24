@@ -6,7 +6,7 @@ The first step to setting up Clara on your local machine will be to download all
 1. Node / NPM
    - https://nodejs.org/en/#download
 2. Angular 7
-   - install with `npm install -g @angular/cli` after npm is installed
+   - install with `sudo npm install -g @angular/cli` after npm is installed
 3. Sass
    - install with `sudo npm install --save-dev  --unsafe-perm node-sass` after npm is installed
 4. Python 3
