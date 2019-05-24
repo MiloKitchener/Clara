@@ -55,6 +55,7 @@ class DatasetCreateView(APIView):
     def post(self, request):
         url = request.data.get('url')
         print(url)
+        
         # for jakes test's
        # map_fields_to_normalized_name(url)
         create_datasets(url)
