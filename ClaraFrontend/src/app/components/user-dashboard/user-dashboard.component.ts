@@ -73,6 +73,8 @@ export class UserDashboardComponent implements OnInit {
         var newCell = document.createElement("td");
         var newChart = document.createElement("canvas")
         var ctx = newChart.getContext("2d");
+        newCell.appendChild(newChart);
+
         var scatterChart = new Chart(ctx, {
           type: 'scatter',
           data: {
@@ -90,8 +92,6 @@ export class UserDashboardComponent implements OnInit {
             }
           }
         });
-
-        newCell.appendChild(newChart);
         currentRow.appendChild(newCell);
   
         // add last row
