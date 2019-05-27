@@ -45,5 +45,5 @@ class Graph(models.Model):
 
 
 class AskClaraFeed(models.Model):
-    responses = models.CharField(max_length=255, null=False)
-    datetime = models.DateTimeField(default=datetime.datetime.now(), null=False)
+    response = models.CharField(max_length=255, null=False)
+    datetime = models.DateTimeField(default=datetime.datetime.now(), null=True)
