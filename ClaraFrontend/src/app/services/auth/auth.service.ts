@@ -48,6 +48,15 @@ export class AuthService implements CanActivate {
     );
   }
 
+  signUp(signupData) {
+    this.http.post<any>(environment.backendIP + 'signup/', signupData).subscribe(
+      (res) => {
+        console.log(res);
+      },
+      err => console.log(err)
+    )
+  };
+
   logout() {
     // Log the user out and remove the tokens that exist
     // TODO: Add server call to logout
