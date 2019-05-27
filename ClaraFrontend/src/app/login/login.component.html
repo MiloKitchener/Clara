@@ -4,13 +4,13 @@
     <form [formGroup]="loginForm" (ngSubmit)="signIn()" id="loginForm">
       <input type="text"  formControlName="username" placeholder="username" required>
       <br>
-      <input type="password" formControlName="password" placeholder="password" requried>
+      <input type="password" formControlName="password" placeholder="password" requried style="margin-bottom:20px;">
       <br>
-      <button class="textBtn" (click)="goToForgotPW()">forgot my password</button>
        <div class="btnContainer">
         <input type="submit" value="Sign in" style="margin-right:20px;">
         <button id="signUpBtn" (click)="goToSignup()">Sign Up</button>
       </div>
+      <button class="textBtn" (click)="goToForgotPW()">forgot my password</button>
     </form>
 
     <form [formGroup]="signUpForm" (ngSubmit)="signUp()" id="signUpForm">
