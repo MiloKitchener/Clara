@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Dataset, Field, Graph, User
+from .models import *
 
 
 class DatasetSerializer(serializers.HyperlinkedModelSerializer):
@@ -25,3 +25,8 @@ class GraphSerializer(serializers.HyperlinkedModelSerializer):
         model = Graph
         fields = '__all__'
 
+
+class AskClaraFeedSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = AskClaraFeed
+        fields = '__all__'

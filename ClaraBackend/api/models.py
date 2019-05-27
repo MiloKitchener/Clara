@@ -1,6 +1,6 @@
+import datetime as datetime
 from django.db import models
 from django.contrib.auth.models import AbstractUser
-from django.conf import settings
 
 
 class Dataset(models.Model):
@@ -42,3 +42,8 @@ class Graph(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class AskClaraFeed(models.Model):
+    responses = models.CharField(max_length=255, null=False)
+    datetime = models.DateTimeField(default=datetime.datetime.now(), null=False)
