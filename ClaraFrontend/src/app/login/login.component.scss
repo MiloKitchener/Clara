@@ -77,6 +77,11 @@ input[type="submit"], button {
 
 input[type="submit"]:hover, #signUpBtn:hover {
   background-image: linear-gradient(to bottom left, #0099FF, #0FC0FC);
+  cursor: pointer;
+}
+
+input[type="text"]:hover, input[type="password"]:hover {
+  background-color: #DFDFDF;
 }
 
 button {
@@ -95,6 +100,7 @@ button {
 .textBtn:hover {
   color: #0099FF;
   transition: color 0.3s ease 0s;
+  cursor: pointer;
 }
 
 .rightContainer {
@@ -137,4 +143,16 @@ p {
   width: 70%;
   position: fixed;
   z-index: -1;
+}
+
+/******************************
+  Form Visibility / Animations
+******************************/
+
+#signUpForm {
+  display: none;
+}
+
+#forgotPWForm {
+  display: none;
 }

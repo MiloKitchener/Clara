@@ -11,6 +11,9 @@ export class IdeaNodeComponent implements OnInit {
   @Input() description: string;
   @Input() numComments: number;
   @Input() numVotes: number;
+  @Input() imgPath: string;
+  @Input() tag: string;
+  @Input() authorName: string;
   private voted: number;
 
   constructor() { }

@@ -57,6 +57,10 @@ button:hover {
   transition:color .2s ease-out, background 0.3s ease-in;
 }
 
+button:focus {
+  outline: none;
+}
+
 #graph {
   margin: 20px;
   border-radius: 7px;
@@ -131,6 +135,7 @@ ul, li {
 ul {
   max-height: 150px;
   overflow-y: auto;
+  overflow-x: hidden;
 }
 
 img {
