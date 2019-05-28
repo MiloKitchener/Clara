@@ -88,7 +88,7 @@ class GraphView(viewsets.ModelViewSet):
         return super(GraphView, self).create(request)
 
     # Get graphs for user
-    @action(detail=False, methods=['post'])
+    @action(detail=False)
     def user_graphs(self, request, pk=None):
         queryset = Graph.objects.filter(user__id=request.user.id)
         return Response(queryset.values())
