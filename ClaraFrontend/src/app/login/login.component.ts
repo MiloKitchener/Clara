@@ -12,6 +12,7 @@ import { ActivatedRoute } from '@angular/router';
 export class LoginComponent implements OnInit {
   private returnUrl: string;
   private loginForm: any;
+  private signUpForm: any;
 
   constructor(
     private loginService: AuthService,
@@ -25,6 +26,12 @@ export class LoginComponent implements OnInit {
       username: [''],
       password: ['']
     });
+
+    this.signUpForm = this.fb.group({
+      username: [''],
+      email: [''],
+      password1: ['']
+    })
     
     // Grabs where the user came from if they were kicked out of a page before
     this.returnUrl = this.route.snapshot.queryParams.returnUrl || 'main';
@@ -37,7 +44,13 @@ export class LoginComponent implements OnInit {
 
   // calls sign up service to create a new user profile
   signUp() {
-    alert("Sign Up");
+    // ensure passwords match
+    if((document.forms["signUpForm"].elements["password1"].value != document.forms["signUpForm"].elements["repeatPassword"].value) && document.forms["signUpForm"].elements["password1"].value != "") {
+      alert("Passwords Do Not Match");
+    }
+    else {
+      this.loginService.signUp(this.signUpForm.value);
+    }
   }
 
   // calls forgot password service to get the user's password reset

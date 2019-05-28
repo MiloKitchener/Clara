@@ -16,14 +16,17 @@
     <form [formGroup]="signUpForm" (ngSubmit)="signUp()" id="signUpForm">
       <input type="text"  formControlName="username" placeholder="username" required>
       <br>
-      <input type="password" formControlName="password" placeholder="password" requried>
+      <input type="email" formControlName="email" placeholder="email" required>
       <br>
       <br>
-      <input type="password" formControlName="repeatPassword" placeholder="repeat password" requried>
+      <input type="password" name="password1" formControlName="password1" placeholder="password" requried>
+      <br>
+      <br>
+      <input type="password" name="repeatPassword" formControlName="repeatPassword" placeholder="repeat password" requried>
       <br>
       <br>
        <div class="btnContainer">
-        <input type="submit" value="Sign in" style="margin-right:20px;">
+        <input type="submit" value="Sign Up" style="margin-right:20px;">
         <button id="signUpBtn" (click)="goToLogin()">Return</button>
       </div>
     </form>

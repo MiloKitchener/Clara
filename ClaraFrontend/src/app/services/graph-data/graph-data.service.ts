@@ -1,6 +1,7 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {environment} from '../../../environments/environment';
+import { environment } from '../../../environments/environment';
+import { DatasetsComponent } from 'src/app/components/datasets/datasets.component';
 
 @Injectable({
   providedIn: 'root'

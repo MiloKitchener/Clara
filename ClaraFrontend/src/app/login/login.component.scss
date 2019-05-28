@@ -55,7 +55,7 @@ input::placeholder {
   justify-content: center;
 }
 
-input[type="text"], input[type="password"] {
+input[type="text"], input[type="email"], input[type="password"] {
   background-color: #efefef;
   margin: 0;
   width: 100%;
@@ -80,7 +80,7 @@ input[type="submit"]:hover, #signUpBtn:hover {
   cursor: pointer;
 }
 
-input[type="text"]:hover, input[type="password"]:hover {
+input[type="text"]:hover, input[type="email"]:hover, input[type="password"]:hover {
   background-color: #DFDFDF;
 }
 
