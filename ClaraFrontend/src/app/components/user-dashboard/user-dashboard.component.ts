@@ -17,21 +17,7 @@ export class UserDashboardComponent implements OnInit {
 
   ngOnInit() {
     // instantiate instance variables
-    this.chartsPanelText = "";
-
-    // pulls user chart data
-    this.chartsData = this._graphDataService.getUserCharts();
-
-    // add button action listener
-    document.getElementById("addBtn").addEventListener("click", openGraphPanel);
-
-    // populate chartsPanel
-    if (this.chartsData.length == 0) { // user has no charts
-      this.chartsPanelText = "No Charts Have Been Saved, Add A New Chart With The Button Below";
-    }
-    else { // populate chartsPanel with charts
-      this.displayGraphs();
-    }
+    this.chartsPanelText = "No Charts Have Been Saved, Add A New Chart With The Button Below";
 
     // update panel when charts are added
     this._graphDataService.userDataUpdate.subscribe(
@@ -40,6 +26,9 @@ export class UserDashboardComponent implements OnInit {
         this.displayGraphs();
       }
     );
+
+    // add button action listener
+    document.getElementById("addBtn").addEventListener("click", openGraphPanel);
   }
 
   /****************************
@@ -61,43 +50,49 @@ export class UserDashboardComponent implements OnInit {
       table.innerHTML = "";
 
       var currentRow = null;
+      var datapoints = [];
       for (var i = 0; i < this.chartsData.length; i++) {
-        // every two elements, create new row
-        if (i % 2 == 0) {
-          if (currentRow != null) {
+        // pull datapoints from chart
+        this._graphDataService.getChartData(this.chartsData[i].field1, this.chartsData[i].field2, this.chartsData[i].dataset1, this.chartsData[i].dataset2).subscribe((res: any[]) => {
+          datapoints = res;
+
+          // every two elements, create new row
+          if (i % 2 == 0) {
+            if (currentRow != null) {
+              table.appendChild(currentRow);
+            }
+            currentRow = document.createElement("tr");
+          }
+
+          var newCell = document.createElement("td");
+          var newChart = document.createElement("canvas")
+          var ctx = newChart.getContext("2d");
+          newCell.appendChild(newChart);
+
+          var scatterChart = new Chart(ctx, {
+            type: 'scatter',
+            data: {
+              datasets: [{
+                label: 'Scatter Dataset',
+                data: datapoints
+              }]
+            },
+            options: {
+              scales: {
+                xAxes: [{
+                  type: 'linear',
+                  position: 'bottom'
+                }]
+              }
+            }
+          });
+          currentRow.appendChild(newCell);
+
+          // add last row
+          if (i == this.chartsData.length - 1) {
             table.appendChild(currentRow);
           }
-          currentRow = document.createElement("tr");
-        }
-
-        var newCell = document.createElement("td");
-        var newChart = document.createElement("canvas")
-        var ctx = newChart.getContext("2d");
-        newCell.appendChild(newChart);
-
-        var scatterChart = new Chart(ctx, {
-          type: 'scatter',
-          data: {
-            datasets: [{
-              label: 'Scatter Dataset',
-              data: this.chartsData[i]
-            }]
-          },
-          options: {
-            scales: {
-              xAxes: [{
-                type: 'linear',
-                position: 'bottom'
-              }]
-            }
-          }
         });
-        currentRow.appendChild(newCell);
-
-        // add last row
-        if (i == this.chartsData.length - 1) {
-          table.appendChild(currentRow);
-        }
       }
     }
   }
@@ -133,3 +128,4 @@ function removeGraphPanel() {
   addButton.removeEventListener("click", removeGraphPanel);
   addButton.addEventListener("click", openGraphPanel);
 }
+ // ERROR: Loop executes faster than code can update panel

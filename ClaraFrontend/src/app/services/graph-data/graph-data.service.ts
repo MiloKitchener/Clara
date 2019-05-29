@@ -9,19 +9,14 @@ import { environment } from '../../../environments/environment';
 export class GraphDataService {
   // class variables
   private datasets: any;
-  private userChartData: any;
+  private userChartData = [];
   public userDataUpdate = new EventEmitter();
 
   constructor(private http: HttpClient) {
     // GET datasets
     this.datasets = this.http.get(environment.backendIP + 'datasets/');
     // GET User Charts
-    this.http.get(environment.backendIP + 'graphs/user_graphs/').subscribe((res: any[]) => {
-      this.userChartData = res;
-      alert(JSON.stringify(this.userChartData));
-    });
-
-    // this.userChartData = [];
+    this.pullUserCharts();
   }
 
   // Returns a list of datasets from the database
@@ -39,6 +34,14 @@ export class GraphDataService {
     return this.http.post(environment.backendIP + 'graphs/request_graph/', { field1, field2, dataset1, dataset2, name: 'hardcoded' });
   }
 
+  // GETS user charts from DB
+  pullUserCharts() {
+    this.http.get(environment.backendIP + 'graphs/user_graphs/').subscribe((res: any[]) => {
+      this.userChartData = res;
+      this.userDataUpdate.emit(this.userChartData);
+    });
+  }
+
   // Returns the chart data associated with a user
   getUserCharts() {
     return this.userChartData;
@@ -51,8 +54,9 @@ export class GraphDataService {
     return this.http.post(environment.backendIP + 'graphs/', { name, dataset1, field1, dataset2, field2 }).subscribe(
       () => {
         // Add Chart To List
-        this.userChartData.push(chartData);
+        this.pullUserCharts();
         this.userDataUpdate.emit(this.userChartData);
-    });
+      }
+    );
   }
 }
