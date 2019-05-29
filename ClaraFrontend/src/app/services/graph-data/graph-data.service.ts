@@ -21,7 +21,7 @@ export class GraphDataService {
       alert(JSON.stringify(this.userChartData));
     });
 
-    //this.userChartData = [];
+    // this.userChartData = [];
   }
 
   // Returns a list of datasets from the database
@@ -46,12 +46,13 @@ export class GraphDataService {
 
   // adds a set of chart data to the userCharts list
   addUserChart(chartData: any, dataset1: string, field1: string, dataset2: string, field2: string) {
-    // Add Chart To List
-    //this.userChartData.push(chartData);
-
     // POST user chart changes
-    var name: string = field1 + " V " + field2;
-    this.http.post(environment.backendIP + 'graphs/', { name, dataset1, field1, dataset2, field2 });
-    this.userDataUpdate.emit(this.userChartData);
+    const name: string = field1 + ' V ' + field2;
+    return this.http.post(environment.backendIP + 'graphs/', { name, dataset1, field1, dataset2, field2 }).subscribe(
+      () => {
+        // Add Chart To List
+        this.userChartData.push(chartData);
+        this.userDataUpdate.emit(this.userChartData);
+    });
   }
 }
