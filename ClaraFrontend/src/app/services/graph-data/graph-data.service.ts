@@ -1,7 +1,6 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
-import { DatasetsComponent } from 'src/app/components/datasets/datasets.component';
 
 @Injectable({
   providedIn: 'root'
@@ -10,11 +9,15 @@ import { DatasetsComponent } from 'src/app/components/datasets/datasets.componen
 export class GraphDataService {
   // class variables
   private datasets: any;
-  private userChartData = [];
+  private userChartData: any;
   public userDataUpdate = new EventEmitter();
 
   constructor(private http: HttpClient) {
+    // GET datasets
     this.datasets = this.http.get(environment.backendIP + 'datasets/');
+    // GET User Charts
+    this.userChartData = this.http.get(environment.backendIP + 'graphs/user_graphs/');
+    this.userChartData = [];
   }
 
   // Returns a list of datasets from the database
@@ -23,8 +26,7 @@ export class GraphDataService {
   }
 
   // Returns a list of fields corresponding to a database parameter
-  getFields(datasetTitle: string, url: string) {
-    // TODO: send datasetTitle
+  getFields(url: string) {
     return this.http.get(url + 'field_names/');
   }
 
@@ -33,14 +35,20 @@ export class GraphDataService {
     return this.http.post(environment.backendIP + 'graphs/request_graph/', {field1, field2, dataset1, dataset2, name: 'hardcoded'});
   }
 
-  // adds a set of chart data to the userCharts list
-  addUserChart(chartData: any) {
-    this.userChartData.push(chartData);
-    this.userDataUpdate.emit(this.userChartData);
-  }
-
   // Returns the chart data associated with a user
   getUserCharts() {
     return this.userChartData;
+  }
+
+  // adds a set of chart data to the userCharts list
+  addUserChart(chartData: any, dataset1: string, field1: string, dataset2: string, field2: string) {
+    // Add Chart To List
+    this.userChartData.push(chartData);
+
+    // POST user chart changes
+    var name: string = field1 + " V " + field2;
+    //this.http.post(environment.backendIP + 'graphs/', {name, dataset1, field1, dataset2, field2});
+
+    this.userDataUpdate.emit(this.userChartData);
   }
 }

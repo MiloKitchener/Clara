@@ -65,7 +65,7 @@ export class GraphPanelComponent implements OnInit {
     this.updateChart();
 
     // get fields
-     this._graphDataService.getFields(this.selectDataset(this.yAxisTitle).name, this.selectDataset(this.yAxisTitle).url).subscribe((res : any[])=>{
+     this._graphDataService.getFields(this.selectDataset(this.yAxisTitle).url).subscribe((res : any[])=>{
       this.yFields = res;
     });
   }
@@ -80,7 +80,7 @@ export class GraphPanelComponent implements OnInit {
     this.updateChart();
 
     // get fields
-    this._graphDataService.getFields(this.selectDataset(this.xAxisTitle).name, this.selectDataset(this.xAxisTitle).url).subscribe((res : any[])=>{
+    this._graphDataService.getFields(this.selectDataset(this.xAxisTitle).url).subscribe((res : any[])=>{
       this.xFields = res;
     });
   }
@@ -123,7 +123,7 @@ export class GraphPanelComponent implements OnInit {
       alert('Please Specify X / Y Axis Values');
     }
     else { // add graph data to user charts
-      this._graphDataService.addUserChart(this.newChartData);
+      this._graphDataService.addUserChart(this.newChartData, this.xAxisTitle, this.xField, this.yAxisTitle, this.yField);
     }
   }
 

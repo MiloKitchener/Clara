@@ -43,7 +43,6 @@ export class DatasetsComponent implements OnInit {
       this.numOpen = this.datasets.length;
 
       var year: string;
-      alert(JSON.stringify(this.datasets));
       for (var i = 0; i < this.datasets.length; i++) {
         year = this.datasets[i].datetime_updated.slice(0, 4)
         if(parseInt(year) > 2014) {
