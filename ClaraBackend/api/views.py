@@ -1,4 +1,5 @@
 from rest_framework.pagination import LimitOffsetPagination
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.views import APIView
 from django.http import HttpResponse
 from rest_framework.response import Response
@@ -75,8 +76,7 @@ class FieldView(viewsets.ModelViewSet):
 # API endpoint that allows graphs to be viewed or edited
 class GraphView(viewsets.ModelViewSet):
     # Authenticate the user
-    # TODO: Re-enable authentication
-    # permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticated,)
 
     # Select all datasets
     queryset = Graph.objects.all()
