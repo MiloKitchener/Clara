@@ -36,7 +36,7 @@ export class UserDashboardComponent implements OnInit {
   ****************************/
 
   // method to populate the user graphs table
-  displayGraphs() {
+  async displayGraphs() {
     // hide add graph panel if it was just used to add a new graph
     if (document.getElementById("graphContainer").style.display == "block") {
       removeGraphPanel();
@@ -50,49 +50,46 @@ export class UserDashboardComponent implements OnInit {
       table.innerHTML = "";
 
       var currentRow = null;
-      var datapoints = [];
       for (var i = 0; i < this.chartsData.length; i++) {
         // pull datapoints from chart
-        this._graphDataService.getChartData(this.chartsData[i].field1, this.chartsData[i].field2, this.chartsData[i].dataset1, this.chartsData[i].dataset2).subscribe((res: any[]) => {
-          datapoints = res;
+        let datapoints = await this._graphDataService.getChartData(this.chartsData[i].field1, this.chartsData[i].field2, this.chartsData[i].dataset1, this.chartsData[i].dataset2).toPromise();
 
-          // every two elements, create new row
-          if (i % 2 == 0) {
-            if (currentRow != null) {
-              table.appendChild(currentRow);
-            }
-            currentRow = document.createElement("tr");
-          }
-
-          var newCell = document.createElement("td");
-          var newChart = document.createElement("canvas")
-          var ctx = newChart.getContext("2d");
-          newCell.appendChild(newChart);
-
-          var scatterChart = new Chart(ctx, {
-            type: 'scatter',
-            data: {
-              datasets: [{
-                label: 'Scatter Dataset',
-                data: datapoints
-              }]
-            },
-            options: {
-              scales: {
-                xAxes: [{
-                  type: 'linear',
-                  position: 'bottom'
-                }]
-              }
-            }
-          });
-          currentRow.appendChild(newCell);
-
-          // add last row
-          if (i == this.chartsData.length - 1) {
+        // every two elements, create new row
+        if (i % 2 == 0) {
+          if (currentRow != null) {
             table.appendChild(currentRow);
           }
+          currentRow = document.createElement("tr");
+        }
+
+        var newCell = document.createElement("td");
+        var newChart = document.createElement("canvas")
+        var ctx = newChart.getContext("2d");
+        newCell.appendChild(newChart);
+
+        var scatterChart = new Chart(ctx, {
+          type: 'scatter',
+          data: {
+            datasets: [{
+              label: 'Scatter Dataset',
+              data: datapoints
+            }]
+          },
+          options: {
+            scales: {
+              xAxes: [{
+                type: 'linear',
+                position: 'bottom'
+              }]
+            }
+          }
         });
+        currentRow.appendChild(newCell);
+
+        // add last row
+        if (i == this.chartsData.length - 1) {
+          table.appendChild(currentRow);
+        }
       }
     }
   }
