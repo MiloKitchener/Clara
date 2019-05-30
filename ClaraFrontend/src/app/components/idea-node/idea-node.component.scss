@@ -1,16 +1,41 @@
 .ideaNodeContainer {
-  margin: 20px;
+  margin: 10px;
   text-align: left;
+}
+
+img {
+  height: 100px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.ideaNodeContainer h4 {
+  font-size: 20pt;
+  margin: 0;
+  margin-bottom: 10px;
 }
 
 .ideaNodeContainer p {
   text-align: justify;
+  max-height: 100px;
+  overflow-y: auto;
+  font-size: 10pt;
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+#mainContent {
+  display: flex;
 }
 
 #votePanel {
   text-align: center;
   margin-left: 40px;
-  margin-bottom: 20px;
+  margin-top: 30px;
+}
+
+button:hover {
+  cursor: pointer;
 }
 
 button:focus {
@@ -39,8 +64,13 @@ polyline {
   padding: 0;
 }
 
-#mainContent {
+/************************
+  Comment / Tag Panel
+************************/
+
+.bottomPanel {
   display: flex;
+  justify-content: space-between;
 }
 
 .commentBtn {

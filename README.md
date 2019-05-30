@@ -6,23 +6,24 @@ The first step to setting up Clara on your local machine will be to download all
 1. Node / NPM
    - https://nodejs.org/en/#download
 2. Angular 7
-   - install it with “npm install -g @angular/cli” after npm is installed
-3. Python 3
+   - install with `npm install -g @angular/cli` after npm is installed
+3. Sass
+   - install with `sudo npm install --save-dev  --unsafe-perm node-sass` after npm is installed
+4. Python 3
    - https://www.python.org/downloads/release/python-373/
-4. Django
+5. Django
    - https://www.djangoproject.com/download/
-5. MySQL
+6. MySQL
    - https://dev.mysql.com/downloads/installer/
-6. Git
+7. Git
    - https://git-scm.com/downloads
-7. Putty
+8. Putty
    - https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
 
 ## Deployment ##
 ### Local: ###
 #### Frontend: ####
-1. Ensure angular is installed. If it is not, install it with `npm install -g @angular/cli`
-   - Note: node/npm is required to install angular
+1. Install all of the required programs, found under **setup**
 2. Navigate to claraFrontend
 3. Run `npm install`
 4. Run `ng serve`

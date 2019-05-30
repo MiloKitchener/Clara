@@ -18,7 +18,7 @@ export class GraphPanelComponent implements OnInit {
   private datasets: Dataset[];
   private yFields: Field[];
   private xFields: Field[];
-  private chartData = [];
+  private newChartData = [];
 
   private graphTitle: string;
   private yAxisTitle: string;
@@ -31,7 +31,7 @@ export class GraphPanelComponent implements OnInit {
     this.datasets = null;
     this.yFields = null;
     this.xFields = null;
-    this.chartData = null;
+    this.newChartData = null;
 
     this.graphTitle = 'Y-Axis V X-Axis';
     this.yAxisTitle = 'None';
@@ -52,7 +52,7 @@ export class GraphPanelComponent implements OnInit {
 
 
   /****************************
-    Class Functions  
+    Class Methods  
   ****************************/
 
 
@@ -61,7 +61,7 @@ export class GraphPanelComponent implements OnInit {
     this.yAxisTitle = title;
     this.graphTitle = this.yAxisTitle + ' V ' + this.xAxisTitle;
     this.yField = 'Field';
-    this.chartData = null;
+    this.newChartData = null;
     this.updateChart();
 
     // get fields
@@ -76,7 +76,7 @@ export class GraphPanelComponent implements OnInit {
     this.xAxisTitle = title;
     this.graphTitle = this.yAxisTitle + ' V ' + this.xAxisTitle;
     this.xField = 'Field';
-    this.chartData = null;
+    this.newChartData = null;
     this.updateChart();
 
     // get fields
@@ -119,11 +119,11 @@ export class GraphPanelComponent implements OnInit {
 
   // adds the graph to the user's dashboard
   addGraph() {
-    if (this.yField === 'Field' || this.xField === 'Field') {
+    if (this.yField === 'Field' || this.xField === 'Field' || this.newChartData == null) {
       alert('Please Specify X / Y Axis Values');
     }
-    else {
-      alert('added graph');
+    else { // add graph data to user charts
+      this._graphDataService.addUserChart(this.newChartData);
     }
   }
 
@@ -131,7 +131,7 @@ export class GraphPanelComponent implements OnInit {
   // queries database for new chart data, updates chart accordingly
   queryTable() {
     this._graphDataService.getChartData(this.xField, this.yField, this.xAxisTitle, this.yAxisTitle).subscribe((res : any[])=>{
-      this.chartData = res;
+      this.newChartData = res;
       this.updateChart(); // update chart
     });
   }
@@ -146,7 +146,7 @@ export class GraphPanelComponent implements OnInit {
       data: {
         datasets: [{
           label: 'Scatter Dataset',
-          data: this.chartData
+          data: this.newChartData
         }]
       },
       options: {

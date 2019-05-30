@@ -1,29 +1,113 @@
 import { Component, OnInit } from '@angular/core';
+import { Chart } from 'chart.js';
+
+import { GraphDataService } from 'src/app/services/graph-data/graph-data.service';
 
 @Component({
   selector: 'app-user-dashboard',
   templateUrl: './user-dashboard.component.html',
   styleUrls: ['./user-dashboard.component.scss']
 })
-export class UserDashboardComponent implements OnInit {
-  private charts = [];
-  private chartsPanel: any;
 
-  constructor() { }
+export class UserDashboardComponent implements OnInit {
+  private chartsData = [];
+  private chartsPanelText: string;
+
+  constructor(private _graphDataService: GraphDataService) { }
 
   ngOnInit() {
-    document.getElementById("addBtn").addEventListener("click", openGraphPanel);
-    this.chartsPanel = document.getElementById("userChartsFeed");
+    // instantiate instance variables
+    this.chartsPanelText = "";
 
-    if(this.charts.length == 0) { // user has no charts
-      this.chartsPanel.innerHTML = "<h2 style='margin-top:150px;'>No Charts Have Been Saved</h2><p>Add A New Chart With The Button Below</p>";
+    // pulls user chart data
+    this.chartsData = this._graphDataService.getUserCharts();
+
+    // add button action listener
+    document.getElementById("addBtn").addEventListener("click", openGraphPanel);
+
+    // populate chartsPanel
+    if(this.chartsData.length == 0) { // user has no charts
+      this.chartsPanelText = "No Charts Have Been Saved, Add A New Chart With The Button Below";
+    }
+    else { // populate chartsPanel with charts
+      this.displayGraphs();
     }
 
-    else { // populate chartsPanel with charts
+    // update panel when charts are added
+    this._graphDataService.userDataUpdate.subscribe(
+      (userChartData: any) => {
+        this.chartsData = this._graphDataService.getUserCharts();
+        this.displayGraphs();
+      }
+    );
+  }
 
+  /****************************
+    Class Methods  
+  ****************************/
+
+  // method to populate the user graphs table
+  displayGraphs() {
+    // hide add graph panel if it was just used to add a new graph
+    if(document.getElementById("graphContainer").style.display == "block") {
+      removeGraphPanel();
+    }
+
+    // hide "no saved charts" message if user has saved charts
+    if(this.chartsData.length > 0) {
+      this.chartsPanelText = ""; // remove "no charts saved" message
+
+      var table = document.getElementById("chartsTable");
+      table.innerHTML = "";
+
+      var currentRow = null;
+      for(var i = 0; i < this.chartsData.length; i++) {
+        // every two elements, create new row
+        if(i % 2 == 0) {
+          if(currentRow != null) {
+            table.appendChild(currentRow);
+          }
+          currentRow = document.createElement("tr");
+        }
+
+        var newCell = document.createElement("td");
+        var newChart = document.createElement("canvas")
+        var ctx = newChart.getContext("2d");
+        var scatterChart = new Chart(ctx, {
+          type: 'scatter',
+          data: {
+            datasets: [{
+              label: 'Scatter Dataset',
+              data: this.chartsData[i]
+            }]
+          },
+          options: {
+            scales: {
+              xAxes: [{
+                type: 'linear',
+                position: 'bottom'
+              }]
+            }
+          }
+        });
+
+        newCell.appendChild(newChart);
+        currentRow.appendChild(newCell);
+  
+        // add last row
+        if(i == this.chartsData.length - 1) {
+          table.appendChild(currentRow);
+        }
+      }
     }
   }
 }
+
+
+/****************************
+  Event Listener Functions  
+****************************/
+
 
 // reveals the add graph panel
 function openGraphPanel() {
@@ -48,4 +132,4 @@ function removeGraphPanel() {
   addButton.innerHTML = "+";
   addButton.removeEventListener("click", removeGraphPanel);
   addButton.addEventListener("click", openGraphPanel);
-  }
+}

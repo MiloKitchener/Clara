@@ -37,11 +37,36 @@ export class LoginComponent implements OnInit {
 
   // calls sign up service to create a new user profile
   signUp() {
-
+    alert("Sign Up");
   }
 
   // calls forgot password service to get the user's password reset
   forgotPW() {
+    alert("Forgot PW");
+  }
 
+  // reveals login form
+  goToLogin() {
+    document.getElementById("signUpForm").style.display = "none";
+    document.getElementById("forgotPWForm").style.display = "none";
+    var loginForm = document.getElementById("loginForm");
+    loginForm.style.animation = "fadein 2s";
+    loginForm.style.display = "block";
+  }
+
+  // reveals signup form
+  goToSignup() {
+    document.getElementById("loginForm").style.display = "none";
+    var signupForm = document.getElementById("signUpForm");
+    signupForm.style.animation = "fadein 2s";
+    signupForm.style.display = "block";
+  }
+
+  // reveals forgot PW form
+  goToForgotPW() {
+    document.getElementById("loginForm").style.display = "none";
+    var forgotPWForm = document.getElementById("forgotPWForm")
+    forgotPWForm.style.animation = "fadein 2s";
+    forgotPWForm.style.display = "block";
   }
 }

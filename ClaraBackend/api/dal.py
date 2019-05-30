@@ -82,6 +82,8 @@ def fetch_data(url, replace_name, field_name):
 def combine_data_list(data1, data2):
     # This fancy dancy piece of black magic takes two lists of dictionaries
     # and makes one list with the dictionaries combined by index
+    # ** is explained by https://treyhunner.com/2018/10/asterisks-in-python-what-they-are-and-how-to-use-them/
+    # this sorta makes sense now
     return [dict(**a, **b) for a, b in zip(data1, data2)]
 
 
