@@ -1,40 +1,60 @@
 <div class="leftContainer">
   <h1>Welcome to Clara.</h1>
   <div class="loginContainer">
+
+    <!-- Log In Form -->
     <form [formGroup]="loginForm" (ngSubmit)="signIn()" id="loginForm">
-      <input type="text"  formControlName="username" placeholder="username" required>
+      <input type="text" formControlName="username" placeholder="username">
+      <div *ngIf="loginSubmitted && loginF.username.errors" class="invalid-feedback">
+        <div *ngIf="loginF.username.errors.required">username is required</div>
+      </div>
       <br>
-      <input type="password" formControlName="password" placeholder="password" requried style="margin-bottom:20px;">
+      <input type="password" formControlName="password" placeholder="password" style="margin-bottom:20px;">
+      <div *ngIf="loginSubmitted && loginF.password.errors" class="invalid-feedback">
+        <div *ngIf="loginF.password.errors.required">password is required</div>
+      </div>
       <br>
-       <div class="btnContainer">
+      <div class="btnContainer">
         <input type="submit" value="Sign in" style="margin-right:20px;">
         <button id="signUpBtn" (click)="goToSignup()">Sign Up</button>
       </div>
       <button class="textBtn" (click)="goToForgotPW()">forgot my password</button>
     </form>
 
+    <!-- Sign Up Form -->
     <form [formGroup]="signUpForm" (ngSubmit)="signUp()" id="signUpForm">
-      <input type="text"  formControlName="username" placeholder="username" required>
+      <input type="text" formControlName="username" placeholder="username">
+      <div *ngIf="signUpSubmitted && signUpF.username.errors" class="invalid-feedback">
+        <div *ngIf="signUpF.username.errors.required">username is required</div>
+      </div>
       <br>
-      <input type="email" formControlName="email" placeholder="email" required>
+      <input type="email" formControlName="email" placeholder="email">
+      <div *ngIf="signUpSubmitted && signUpF.email.errors" class="invalid-feedback">
+        <div *ngIf="signUpF.email.errors.required">email is required</div>
+      </div>
       <br>
+      <input type="password" name="password1" formControlName="password1" placeholder="password">
+      <div *ngIf="signUpSubmitted && signUpF.password1.errors" class="invalid-feedback">
+        <div *ngIf="signUpF.password1.errors.required">password is required</div>
+        <div *ngIf="signUpF.password1.errors.minlength">Password must be at least 6 characters</div>
+      </div>
       <br>
-      <input type="password" name="password1" formControlName="password1" placeholder="password" requried>
+      <input type="password" name="repeatPassword" placeholder="repeat password">
       <br>
-      <br>
-      <input type="password" name="repeatPassword" formControlName="repeatPassword" placeholder="repeat password" requried>
-      <br>
-      <br>
-       <div class="btnContainer">
+      <div class="btnContainer">
         <input type="submit" value="Sign Up" style="margin-right:20px;">
         <button id="signUpBtn" (click)="goToLogin()">Return</button>
       </div>
     </form>
 
+    <!-- Forgot PW Form -->
     <form [formGroup]="forgotPWForm" (ngSubmit)="forgotPW()" id="forgotPWForm">
-      <input type="text"  formControlName="email" placeholder="email" required>
+      <input type="text" formControlName="email" placeholder="email" required>
+      <div *ngIf="forgotPWSubmitted && forgotPWF.email.errors" class="invalid-feedback">
+        <div *ngIf="forgotPWF.email.errors.required">email is required</div>
+      </div>
       <br>
-       <div class="btnContainer">
+      <div class="btnContainer">
         <input type="submit" value="Resend Password" style="margin-right:20px;">
         <button id="signUpBtn" (click)="goToLogin()">Return</button>
       </div>

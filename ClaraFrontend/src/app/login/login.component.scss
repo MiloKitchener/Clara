@@ -61,7 +61,7 @@ input[type="text"], input[type="email"], input[type="password"] {
   width: 100%;
 }
 
-input[type="text"] {
+input:not([type="submit"]) {
   margin-bottom: 20px;
 }
 
@@ -82,6 +82,13 @@ input[type="submit"]:hover, #signUpBtn:hover {
 
 input[type="text"]:hover, input[type="email"]:hover, input[type="password"]:hover {
   background-color: #DFDFDF;
+}
+
+.invalid-feedback {
+  font-size: 12pt;
+  margin: 0;
+  padding: 0;
+  color: #EB3B3B;
 }
 
 button {
