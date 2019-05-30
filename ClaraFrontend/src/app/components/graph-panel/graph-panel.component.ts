@@ -42,7 +42,7 @@ export class GraphPanelComponent implements OnInit {
 
   ngOnInit() {
     // GET datasets
-    this._graphDataService.getDatasets().subscribe((res : any[])=>{
+    this._graphDataService.getDatasets().subscribe((res: any[]) => {
       this.datasets = res;
     });
 
@@ -65,7 +65,7 @@ export class GraphPanelComponent implements OnInit {
     this.updateChart();
 
     // get fields
-     this._graphDataService.getFields(this.selectDataset(this.yAxisTitle).name, this.selectDataset(this.yAxisTitle).url).subscribe((res : any[])=>{
+    this._graphDataService.getFields(this.selectDataset(this.yAxisTitle).url).subscribe((res: any[]) => {
       this.yFields = res;
     });
   }
@@ -80,7 +80,7 @@ export class GraphPanelComponent implements OnInit {
     this.updateChart();
 
     // get fields
-    this._graphDataService.getFields(this.selectDataset(this.xAxisTitle).name, this.selectDataset(this.xAxisTitle).url).subscribe((res : any[])=>{
+    this._graphDataService.getFields(this.selectDataset(this.xAxisTitle).url).subscribe((res: any[]) => {
       this.xFields = res;
     });
   }
@@ -90,7 +90,7 @@ export class GraphPanelComponent implements OnInit {
   selectYField(title: string) {
     this.yField = title;
 
-    if(this.xField != 'Field') { // both fields selected
+    if (this.xField != 'Field') { // both fields selected
       this.queryTable();
     }
   }
@@ -100,7 +100,7 @@ export class GraphPanelComponent implements OnInit {
   selectXField(title: string) {
     this.xField = title;
 
-    if(this.yField != 'Field') { // both fields selected
+    if (this.yField != 'Field') { // both fields selected
       this.queryTable();
     }
   }
@@ -109,8 +109,8 @@ export class GraphPanelComponent implements OnInit {
   // returns a specified dataset from the list
   selectDataset(datasetTitle: string): Dataset {
     // search for dataset (ADD FASTER SEARCH ALGORITHM, DATASETS WILL BE IN ALPHABETICAL ORDER)
-    for(var i = 0; i < this.datasets.length; i++) {
-      if(this.datasets[i].name === datasetTitle) {
+    for (var i = 0; i < this.datasets.length; i++) {
+      if (this.datasets[i].name === datasetTitle) {
         return this.datasets[i];
       }
     }
@@ -123,14 +123,14 @@ export class GraphPanelComponent implements OnInit {
       alert('Please Specify X / Y Axis Values');
     }
     else { // add graph data to user charts
-      this._graphDataService.addUserChart(this.newChartData);
+      this._graphDataService.addUserChart(this.newChartData, this.xAxisTitle, this.xField, this.yAxisTitle, this.yField);
     }
   }
 
 
   // queries database for new chart data, updates chart accordingly
   queryTable() {
-    this._graphDataService.getChartData(this.xField, this.yField, this.xAxisTitle, this.yAxisTitle).subscribe((res : any[])=>{
+    this._graphDataService.getChartData(this.xField, this.yField, this.xAxisTitle, this.yAxisTitle).subscribe((res: any[]) => {
       this.newChartData = res;
       this.updateChart(); // update chart
     });

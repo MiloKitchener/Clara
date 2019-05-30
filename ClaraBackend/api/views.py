@@ -1,12 +1,13 @@
+from rest_framework.pagination import LimitOffsetPagination
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.views import APIView
 from django.http import HttpResponse
 from rest_framework.response import Response
-from .models import User, Dataset, Field, Graph
-from .serializers import DatasetSerializer, FieldSerializer, GraphSerializer
+from .models import *
+from .serializers import *
 from django.views.decorators.csrf import csrf_exempt
 from .forms import CustomUserCreationForm
-from rest_framework import viewsets
-import json
+from rest_framework import viewsets, generics
 from .dal import *
 from rest_framework.decorators import action
 
@@ -76,8 +77,7 @@ class FieldView(viewsets.ModelViewSet):
 # API endpoint that allows graphs to be viewed or edited
 class GraphView(viewsets.ModelViewSet):
     # Authenticate the user
-    # TODO: Re-enable authentication
-    # permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticated,)
 
     # Select all datasets
     queryset = Graph.objects.all()
@@ -89,7 +89,7 @@ class GraphView(viewsets.ModelViewSet):
         return super(GraphView, self).create(request)
 
     # Get graphs for user
-    @action(detail=False, methods=['post'])
+    @action(detail=False)
     def user_graphs(self, request, pk=None):
         queryset = Graph.objects.filter(user__id=request.user.id)
         return Response(queryset.values())
@@ -118,3 +118,15 @@ class GraphView(viewsets.ModelViewSet):
         # Get the data from this dataset
         data2 = fetch_data(url2, 'y', field2)
         return Response(combine_data_list(data1, data2))
+
+
+# API endpoint that allows Ask Clara queries to be viewed or edited
+class AskClaraFeedView(viewsets.ModelViewSet):
+    # Authenticate the user
+    # TODO: Re-enable authentication
+    # permission_classes = (IsAuthenticated,)
+
+    # Select all datasets
+    queryset = AskClaraFeed.objects.all()
+    serializer_class = AskClaraFeedSerializer
+    pagination_class = LimitOffsetPagination

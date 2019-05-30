@@ -55,13 +55,13 @@ input::placeholder {
   justify-content: center;
 }
 
-input[type="text"], input[type="password"] {
+input[type="text"], input[type="email"], input[type="password"] {
   background-color: #efefef;
   margin: 0;
   width: 100%;
 }
 
-input[type="text"] {
+input:not([type="submit"]) {
   margin-bottom: 20px;
 }
 
@@ -80,8 +80,15 @@ input[type="submit"]:hover, #signUpBtn:hover {
   cursor: pointer;
 }
 
-input[type="text"]:hover, input[type="password"]:hover {
+input[type="text"]:hover, input[type="email"]:hover, input[type="password"]:hover {
   background-color: #DFDFDF;
+}
+
+.invalid-feedback {
+  font-size: 12pt;
+  margin: 0;
+  padding: 0;
+  color: #EB3B3B;
 }
 
 button {
@@ -94,7 +101,7 @@ button {
   padding: 0;
   margin: 15px;
   margin-left: 15px;
-  width: 160px;
+  width: 170px;
 }
 
 .textBtn:hover {

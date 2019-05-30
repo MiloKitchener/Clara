@@ -11,7 +11,6 @@ import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main/main.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
-
 import { AuthService } from './services/auth/auth.service';
 
 const routes: Routes = [

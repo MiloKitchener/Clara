@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  backendIP: 'http://35.182.196.173:8000/',
+  backendIP: 'http://35.182.196.173/',
   access_token_name: 'access_token',
   refresh_token_name: 'refresh_token',
 };

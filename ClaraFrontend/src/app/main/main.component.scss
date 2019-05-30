@@ -10,7 +10,7 @@
   padding: 0;
   width: 260px;
   height: 100%;
-  background-color: white;
+  background-color: #24344B;
   position: fixed;
   overflow: hidden;
   text-align: center;
@@ -22,6 +22,7 @@
 }
 
 .sidebar-user-panel h3 {
+  color: white;
   font-weight: 500;
   margin: 0;
   margin-top: 15px;
@@ -29,6 +30,7 @@
 }
 
 .sidebar-user-panel p {
+  color: white;
   font-weight: 300;
   margin: 0;
   margin-bottom: 60px;
@@ -54,16 +56,19 @@ li:not(:first-child) {
 }
 
 a {
-  background-color: #EBEBEB;
-  border-radius: 40px;
-  padding: 15px 30px;
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: 14pt;
   text-decoration: none;
-  color: black;
+  color: #bdbdc9;
 }
 
 a:hover {
   color: #32CDFE;
-  background-color: #DEDEDE;
+}
+
+a:focus {
+  outline:none;
 }
 
 .active a {
@@ -71,14 +76,11 @@ a:hover {
 }
 
 #logOutBtn {
-  margin-top: 75px;
+  margin-top: 50px;
+  text-align: center;
   border: 0;
   color: white;
-  background-image: linear-gradient(to bottom left, #32CDFE, #00B2FF);
-}
-
-#logOutBtn:hover {
-  background-image: linear-gradient(to bottom left, #0FC0FC, #0099FF);
+  background: none;
 }
 
 /***********************************

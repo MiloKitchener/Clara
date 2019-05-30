@@ -17,7 +17,12 @@ h1 {
 }
 
 table {
+  margin-left:auto; 
+  margin-right:auto;
   width: 100%;
+  padding: 15px;
+  border-spacing: 25px;
+  display: block;
 }
 
 
@@ -68,6 +73,7 @@ table {
 
 #addBtn:hover {
   background-image: linear-gradient(to bottom left, #0FC0FC, #0099FF);
+  cursor: pointer;
 }
 
 #addBtn:focus {
