@@ -6,7 +6,7 @@ Clara is a municipal machine learning and analytics platform,  providing ideas a
 [Frontend Deployment](#frontendDeployment)
 [Bakcned Deployment](#backendDeployment)
 
-<a name="requirements"/>
+<a name="requirements"></a>
 ## Requirements ##
 The first step to setting up Clara on your local machine will be to download all of these programs. 
 1. Node / NPM
@@ -28,7 +28,7 @@ The first step to setting up Clara on your local machine will be to download all
 
 ## Deployment ##
 ### Local: ###
-<a name="frontendDeployment"/>
+<a name="frontendDeployment"></a>
 #### Frontend: ####
 1. Install all of the required programs, found under **setup**
 2. Navigate to claraFrontend
@@ -36,5 +36,5 @@ The first step to setting up Clara on your local machine will be to download all
 4. Run `ng serve`
 5. Navigate to the website using the URL: http://localhost:4200/
 
-<a name="backendDeployment"/>
+<a name="backendDeployment"></a>
 #### Backend: ####
