@@ -2,9 +2,9 @@
 Clara is a municipal machine learning and analytics platform,  providing ideas and insights to the municipality of Kitchener.
 
 ## Contents ##
-[Requirements](#Requirements)
-[Frontend Deployment](#frontendDeployment)
-[Bakcned Deployment](#backendDeployment)
+1. [Requirements](#Requirements)
+2. [Frontend Deployment](#frontendDeployment)
+3. [Bakcned Deployment](#backendDeployment)
 
 <a name="requirements"></a>
 ## Requirements ##
