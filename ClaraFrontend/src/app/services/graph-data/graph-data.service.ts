@@ -54,7 +54,7 @@ export class GraphDataService {
     return this.http.post(environment.backendIP + 'graphs/', { name, dataset1, field1, dataset2, field2 }).subscribe(
       () => {
         // Add Chart To List
-        this.userChartData = null;
+        this.userChartData = null; // clear previous chart data
         this.pullUserCharts();
         this.userDataUpdate.emit(this.userChartData);
       }
