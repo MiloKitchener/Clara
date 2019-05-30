@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
 
 import { GraphDataService } from 'src/app/services/graph-data/graph-data.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-user-dashboard',
@@ -12,23 +13,33 @@ import { GraphDataService } from 'src/app/services/graph-data/graph-data.service
 export class UserDashboardComponent implements OnInit {
   private chartsData = [];
   private chartsPanelText: string;
+  private chartUpdated: boolean;
 
   constructor(private _graphDataService: GraphDataService) { }
 
   ngOnInit() {
     // instantiate instance variables
     this.chartsPanelText = "No Charts Have Been Saved, Add A New Chart With The Button Below";
+    this.chartUpdated = false;
+
+    // add button action listener
+    document.getElementById("addBtn").addEventListener("click", openGraphPanel);
 
     // update panel when charts are added
     this._graphDataService.userDataUpdate.subscribe(
       (userChartData: any) => {
         this.chartsData = this._graphDataService.getUserCharts();
         this.displayGraphs();
+        this.chartUpdated = true;
       }
     );
 
-    // add button action listener
-    document.getElementById("addBtn").addEventListener("click", openGraphPanel);
+    // updates panel on navigation to user Dashboard via router
+    if (this.chartUpdated == false && this.chartsData != null) {
+      this.chartsData = this._graphDataService.getUserCharts();
+      this.displayGraphs();
+      this.chartUpdated = true;
+    }
   }
 
   /****************************
@@ -44,7 +55,7 @@ export class UserDashboardComponent implements OnInit {
 
     // hide "no saved charts" message if user has saved charts
     if (this.chartsData.length > 0) {
-      this.chartsPanelText = ""; // remove "no charts saved" message
+      this.chartsPanelText = "User Charts"; // remove "no charts saved" message
 
       var table = document.getElementById("chartsTable");
       table.innerHTML = "";
@@ -63,7 +74,12 @@ export class UserDashboardComponent implements OnInit {
         }
 
         var newCell = document.createElement("td");
+        newCell.style.backgroundColor = "white";
+        newCell.style.borderRadius = "7px";
+        newCell.style.padding = "15px";
+
         var newChart = document.createElement("canvas")
+        newChart.style.width = "450px";
         var ctx = newChart.getContext("2d");
         newCell.appendChild(newChart);
 
@@ -72,10 +88,16 @@ export class UserDashboardComponent implements OnInit {
           data: {
             datasets: [{
               label: 'Scatter Dataset',
-              data: datapoints
+              data: datapoints,
+              pointBackgroundColor: 'rgba(0, 178, 255, 0.2)',
+              pointBorderColor: 'rgba(0, 178, 255, 0.2)'
             }]
           },
           options: {
+            title: {
+              display: true,
+              text: this.chartsData[i].name
+            },
             scales: {
               xAxes: [{
                 type: 'linear',
