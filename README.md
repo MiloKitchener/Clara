@@ -1,10 +1,10 @@
 # Clara
 Clara is a municipal machine learning and analytics platform,  providing ideas and insights to the municipality of Kitchener.
-
+[![Node version](https://img.shields.io/node/v/[NPM-MODULE-NAME].svg?style=flat)](http://nodejs.org/download/)
 ## Contents ##
 1. [Requirements](#Requirements)
 2. [Frontend Deployment](#frontendDeployment)
-3. [Bakcned Deployment](#backendDeployment)
+3. [Backend Deployment](#backendDeployment)
 
 <a name="requirements"></a>
 ## Requirements ##
