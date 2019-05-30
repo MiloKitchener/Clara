@@ -22,6 +22,7 @@ img {
   font-size: 10pt;
   margin: 0;
   margin-bottom: 20px;
+  padding: 10px;
 }
 
 #mainContent {
@@ -83,4 +84,14 @@ polyline {
   font-weight: bold;
   color: #0f70f5;
   transition:color .2s ease-out, background 0.3s ease-in;
+}
+
+#commentPanel {
+  display: none;
+}
+
+.comments {
+  border-top: 1px solid #EFEFEF;
+  padding: 15px;
+  list-style-type: none;
 }
