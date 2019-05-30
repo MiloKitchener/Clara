@@ -1,7 +1,13 @@
 # Clara
 Clara is a municipal machine learning and analytics platform,  providing ideas and insights to the municipality of Kitchener.
 
-## Setup ##
+## Contents ##
+[Requirements](#Requirements)
+[Frontend Deployment](#frontendDeployment)
+[Bakcned Deployment](#backendDeployment)
+
+<a name="requirements"/>
+## Requirements ##
 The first step to setting up Clara on your local machine will be to download all of these programs. 
 1. Node / NPM
    - https://nodejs.org/en/#download
@@ -22,6 +28,7 @@ The first step to setting up Clara on your local machine will be to download all
 
 ## Deployment ##
 ### Local: ###
+<a name="frontendDeployment"/>
 #### Frontend: ####
 1. Install all of the required programs, found under **setup**
 2. Navigate to claraFrontend
@@ -29,4 +36,5 @@ The first step to setting up Clara on your local machine will be to download all
 4. Run `ng serve`
 5. Navigate to the website using the URL: http://localhost:4200/
 
+<a name="backendDeployment"/>
 #### Backend: ####
