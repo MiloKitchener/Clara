@@ -14,9 +14,9 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { AuthService } from './services/auth/auth.service';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '', redirectTo: 'main', pathMatch: 'full' },
   { path: 'login', component: LoginComponent, data: { title: 'Log in' } },
-  { 
+  {
     path: 'main',
     component: MainComponent,
     data: { title: 'Clara' },

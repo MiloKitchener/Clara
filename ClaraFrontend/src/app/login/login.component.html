@@ -33,13 +33,17 @@
         <div *ngIf="signUpF.email.errors.required">email is required</div>
       </div>
       <br>
-      <input type="password" name="password1" formControlName="password1" placeholder="password">
+      <input type="password" formControlName="password1" placeholder="password">
       <div *ngIf="signUpSubmitted && signUpF.password1.errors" class="invalid-feedback">
         <div *ngIf="signUpF.password1.errors.required">password is required</div>
         <div *ngIf="signUpF.password1.errors.minlength">Password must be at least 6 characters</div>
       </div>
       <br>
-      <input type="password" name="repeatPassword" placeholder="repeat password">
+      <input type="password" formControlName="password2" placeholder="repeat password">
+      <div *ngIf="signUpSubmitted && signUpF.password2.errors" class="invalid-feedback">
+        <div *ngIf="signUpF.password2.errors.required">password is required</div>
+        <div *ngIf="signUpF.password2.errors.minlength">Password must be at least 6 characters</div>
+      </div>
       <br>
       <div class="btnContainer">
         <input type="submit" value="Sign Up" style="margin-right:20px;">

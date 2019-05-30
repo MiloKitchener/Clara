@@ -37,7 +37,8 @@ export class LoginComponent implements OnInit {
     this.signUpForm = this.fb.group({
       username: ['', Validators.required],
       email: ['', Validators.required],
-      password1: ['', Validators.required, Validators.minLength(6)]
+      password1: ['', Validators.required, Validators.minLength(6)],
+      password2: ['', Validators.required, Validators.minLength(6)]
     });
 
     this.forgotPWForm = this.fb.group({
@@ -65,9 +66,11 @@ export class LoginComponent implements OnInit {
     this.signUpSubmitted = true;
     // stop here if form is invalid
     if (this.signUpForm.invalid) {
+      alert("invalid");
       return;
     }
     else { // sign up service
+      alert("signing up");
       this.loginService.signUp(this.signUpForm.value);
     }
   }
