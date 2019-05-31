@@ -33,7 +33,7 @@
   </div>
 </div>
 
-<div id="commentPanel" [ngStyle]="{'display': viewComments === true ? 'block' : 'none'}">
+<div [ngClass]="{'show' : viewComments, 'hide' : !viewComments}">
   <ul class="comments">
     <li *ngFor="let comment of post.comments">{{ comment }}</li>
   </ul>
