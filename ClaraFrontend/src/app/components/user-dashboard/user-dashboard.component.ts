@@ -95,7 +95,7 @@ export class UserDashboardComponent implements OnInit {
           options: {
             title: {
               display: true,
-              text: this.chartsData[i].name
+              text: this.chartsData[i].name,
             },
             scales: {
               xAxes: [{

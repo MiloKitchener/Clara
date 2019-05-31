@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Post } from 'src/app/classes/post';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { IdeasService } from 'src/app/services/ideas/ideas.service';
 
 @Component({
   selector: 'app-idea-node',
@@ -11,15 +13,23 @@ export class IdeaNodeComponent implements OnInit {
   @Input() private post: Post;
   private voted: number;
   private viewComments: boolean;
+  private addCommentForm: FormGroup;
 
-  constructor() { }
+  constructor(
+    private ideaService: IdeasService,
+    private fb: FormBuilder
+  ) { }
 
   ngOnInit() {
     this.voted = 0 // 0 means no vote by user, 1 means upvote, 2 means downvote
     this.viewComments = false;
+
+    this.addCommentForm = this.fb.group({
+      comment: ['']
+    });
   }
 
-  upvote() {
+  public upvote() {
     if (this.voted == 0) {
       this.post.numVotes++;
       this.voted = 1;
@@ -34,7 +44,7 @@ export class IdeaNodeComponent implements OnInit {
     }
   }
 
-  downvote() {
+  public downvote() {
     if (this.voted == 0) {
       this.post.numVotes--;
       this.voted = 2;
@@ -50,12 +60,17 @@ export class IdeaNodeComponent implements OnInit {
   }
 
   // toggles comment view
-  toggleComments() {
+  public toggleComments() {
     if (this.viewComments == false) {
       this.viewComments = true;
     }
     else {
       this.viewComments = false;
     }
+  }
+
+  // adds a comment
+  public addComment() {
+    this.ideaService.addComment(this.post.id, this.addCommentForm.value);
   }
 }

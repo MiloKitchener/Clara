@@ -16,7 +16,7 @@
         </svg>
       </button>
       <br>
-      <h5 [ngStyle]="{'color': post.numVotes < 0 ? '#eb3b3b' : 'black'}">{{ numVotes }}</h5>
+      <h5 [ngStyle]="{'color': post.numVotes < 0 ? '#eb3b3b' : 'black'}">{{ post.numVotes }}</h5>
       <button id="downButton" (click)="downvote()">
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="22.5px" height="30px"
           viewBox="0 0 50 80" xml:space="preserve">
@@ -27,20 +27,18 @@
     </div>
   </div>
   <div class="bottomPanel">
-    <h5>{{ tag }}</h5>
+    <h5>{{ post.tag }}</h5>
     <button type="button" name="button" class="commentBtn" (click)="toggleComments()" style="float:left;">Comments
       ({{ post.numComments }})</button>
   </div>
 </div>
 
-<!-- TODO: Add comments to post class -->
 <div id="commentPanel" [ngStyle]="{'display': viewComments === true ? 'block' : 'none'}">
   <ul class="comments">
-    <li>Comment One</li>
-    <li>Comment Two</li>
+    <li *ngFor="let comment of post.comments">{{ comment }}</li>
   </ul>
-  <form>
-    <input type="text" placeholder="Comment">
+  <form [formGroup]="addCommentForm" (ngSubmit)="addComment()">
+    <input type="text" formControlName="comment" placeholder="Comment" required>
     <input type="submit" value="Add Comment">
   </form>
 </div>
