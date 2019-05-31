@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Post } from 'src/app/classes/post';
 
 @Component({
   selector: 'app-idea-node',
@@ -7,48 +8,54 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 
 export class IdeaNodeComponent implements OnInit {
-  @Input() title: string;
-  @Input() description: string;
-  @Input() numComments: number;
-  @Input() numVotes: number;
-  @Input() imgPath: string;
-  @Input() tag: string;
-  @Input() authorName: string;
+  @Input() private post: Post;
   private voted: number;
+  private viewComments: boolean;
 
   constructor() { }
 
   ngOnInit() {
     this.voted = 0 // 0 means no vote by user, 1 means upvote, 2 means downvote
+    this.viewComments = false;
   }
 
   upvote() {
-    if(this.voted == 0) {
-      this.numVotes++;
+    if (this.voted == 0) {
+      this.post.numVotes++;
       this.voted = 1;
     }
-    else if(this.voted == 2) { // if previously downvoted, add two to remove downvote and add upvote
-      this.numVotes += 2;
+    else if (this.voted == 2) { // if previously downvoted, add two to remove downvote and add upvote
+      this.post.numVotes += 2;
       this.voted = 1;
     }
     else { // upvote again to remove upvote
-      this.numVotes--;
+      this.post.numVotes--;
       this.voted = 0;
     }
   }
 
   downvote() {
-    if(this.voted == 0) {
-      this.numVotes--;
+    if (this.voted == 0) {
+      this.post.numVotes--;
       this.voted = 2;
     }
-    else if(this.voted == 1) { // if previously upvoted, sub two to remove upvote and add downvote
-      this.numVotes -= 2;
+    else if (this.voted == 1) { // if previously upvoted, sub two to remove upvote and add downvote
+      this.post.numVotes -= 2;
       this.voted = 2;
     }
     else { // downvote again to remove downvote
-      this.numVotes++;
+      this.post.numVotes++;
       this.voted = 0;
+    }
+  }
+
+  // toggles comment view
+  toggleComments() {
+    if (this.viewComments == false) {
+      this.viewComments = true;
+    }
+    else {
+      this.viewComments = false;
     }
   }
 }

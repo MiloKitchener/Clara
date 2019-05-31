@@ -1,42 +1,34 @@
-<h1>Ideas</h1>
+<div class="topBar">
+  <h1>Ideas</h1>
 
-<div class="container">
-  <div class="rightToolbar">
-    <button (click)="newPost()">New Post</button>
-    <h2>Filters</h2>
-    <hr>
-    <ul>
-      <li *ngFor="let filter of filters">
-        <h5>{{ filter }}</h5>
-      </li>
-    </ul>
-  </div>
-
-  <div class="leftContainer">
-    <div class="searchFilter">
-      <div class="dropdown">
-        <button class="dropbtn">Arrange By: {{ selectedFilter }}</button>
-        <div class="dropdown-content">
-          <ul>
-            <li *ngFor="let arrangedFilter of arrangedFilters">
-              <a (click)="selectFilter(arrangedFilter)">{{ arrangedFilter }}</a>
-            </li>
-          </ul>
-        </div>
+  <div class="searchFilter">
+    <div class="dropdown">
+      <button class="dropbtn">Arrange By: {{ selectedFilter }}</button>
+      <div class="dropdown-content">
+        <ul>
+          <li *ngFor="let arrangedFilter of arrangedFilters">
+            <a (click)="selectFilter(arrangedFilter)">{{ arrangedFilter }}</a>
+          </li>
+        </ul>
       </div>
-
-      <form class="searchForm">
-        <input type="text" placeholder="Search">
-        <button>
-          <img src="assets/vectors/searchIcon.svg" alt="">
-        </button>
-      </form>
     </div>
 
+    <form id="searchDataForm" [formGroup]="searchForm" (ngSubmit)="search()">
+      <input type="text" id="search" formControlName="searchValue" placeholder="Search">
+      <input type="submit" name="searchSubmit" value="See All Results">
+      <button>
+        <img src="./assets/vectors/downArrow.svg" alt="">
+      </button>
+    </form>
+  </div>
+</div>
+
+<div class="container">
+  <div class="leftContainer">
     <div class="postedIdeas">
       <ul>
         <li *ngFor="let post of posts">
-          <app-idea-node [title]=post.title [description]=post.description [numComments]=post.numComments [numVotes]=post.numVotes [imgPath]=post.imgSrc [tag]=post.tag [authorName]=post.authorName></app-idea-node>
+          <app-idea-node [post]=post></app-idea-node>
         </li>
       </ul>
     </div>

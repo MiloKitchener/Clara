@@ -50,7 +50,7 @@ export class GraphDataService {
   // adds a set of chart data to the userCharts list
   addUserChart(chartData: any, dataset1: string, field1: string, dataset2: string, field2: string) {
     // POST user chart changes
-    const name: string = field1 + ' V ' + field2;
+    const name: string = field2 + ' V ' + field1;
     return this.http.post(environment.backendIP + 'graphs/', { name, dataset1, field1, dataset2, field2 }).subscribe(
       () => {
         // Add Chart To List

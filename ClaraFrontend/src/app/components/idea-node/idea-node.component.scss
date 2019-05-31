@@ -22,6 +22,7 @@ img {
   font-size: 10pt;
   margin: 0;
   margin-bottom: 20px;
+  padding: 10px;
 }
 
 #mainContent {
@@ -82,5 +83,40 @@ polyline {
 .commentBtn:hover {
   font-weight: bold;
   color: #0f70f5;
+  transition:color .2s ease-out, background 0.3s ease-in;
+}
+
+#commentPanel {
+  animation: fadein 2s;
+}
+
+.comments {
+  border-top: 1px solid #EFEFEF;
+  padding: 15px;
+  text-align: justify;
+}
+
+input {
+  border: 0;
+  background-color: #EFEFEF;
+  color: black;
+  border-radius: 7px;
+  padding: 10px 20px;
+  transition:color .2s ease-out, background 0.3s ease-in;
+}
+
+input[type="submit"] {
+  margin-left: 20px;
+  background-color: #408DF7;
+  color: white;
+}
+
+input[type="submit"]:hover {
+  background-color: #0f70f5;
+  transition:color .2s ease-out, background 0.3s ease-in;
+}
+
+input[type="text"]:hover {
+  background-color: #EAEAEA;
   transition:color .2s ease-out, background 0.3s ease-in;
 }

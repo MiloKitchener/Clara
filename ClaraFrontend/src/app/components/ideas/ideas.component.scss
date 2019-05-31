@@ -1,81 +1,19 @@
-h1 {
+.topBar {
   margin: 0;
   padding: 40px;
+  background-image: linear-gradient(to left, #32CDFE, #00B2FF);
+}
+
+h1 {
   font-weight: 300;
   font-size: 36pt;
   color: white;
-  background-image: linear-gradient(to left, #32CDFE, #00B2FF);
 }
 
 .container {
   padding: 30px;
   padding-bottom: 0;
   padding-top: 0;
-}
-
-.leftContainer {
-  margin-right: 28%;
-}
-
-
-/*****************************
-  Right Toolbar Style
-*****************************/
-
-
-.rightToolbar {
-  position: fixed;
-  right: 0;
-  margin-bottom: 20px;
-  margin-right: 20px;
-  margin-left: 0;
-  width: 18%;
-  border-radius: 10px;
-  padding: 20px;
-  background-color: white;
-}
-
-.rightToolbar button {
-  border: 0;
-  color: white;
-  padding: 10px 40px;
-  width: 80%;
-  margin: 20px;
-  font-size: 14pt;
-  border-radius: 10px;
-  background-image: linear-gradient(to bottom left, #32CDFE, #00B2FF);
-  margin-bottom: 40px;
-}
-
-.rightToolbar button:focus {
-  outline: none;
-}
-
-.rightToolbar button:hover {
-  background-image: linear-gradient(to bottom left, #0FC0FC, #0099FF);
-  cursor: pointer;
-}
-
-.rightToolbar h2 {
-  text-align: left;
-  margin: 0;
-  margin-left: 30px;
-  font-weight: 400;
-  font-size: 28pt;
-}
-
-hr {
-  width: 80%;
-  height: 1px;
-  margin-top: 0;
-  margin-bottom: 40px;
-  background-color: black;
-  border: 0;
-}
-
-.rightToolbar li {
-  text-align: left;
-  font-size: 13pt;
 }
 
 
@@ -89,40 +27,49 @@ hr {
   margin-bottom: 30px;
 }
 
-form {
-  border-radius: 10px;
-  background-color: white;
-  margin-left: 350px;
-}
 
-input {
-  padding: 16px;
-  padding-left: 0;
-  width: 300px;
-  font-size: 16px;
-  text-align: left;
-  border: none;
-}
-
-input:focus {
-  outline: none;
-}
-
-form button {
+#searchDataForm input, #searchDataForm button {
   border: 0;
-  background: none;
-  margin-top: 15px;
-  padding: 0;
+  padding: 20px;
+  background-color: white;
+  font-size: 12pt;
 }
 
-form button:focus {
-  outline: none;
+input[type="text"] {
+  width: 500px;
+  border-radius: 10px 0 0 10px;
+}
+
+input #search {
+  background-repeat: no-repeat;
+  text-indent: 30px;
+}
+
+input[type="submit"] {
+  text-align: right;
+  color: #32CDFE;
+  font-weight: bold;
+  padding-right: 0;
+  transition:color .2s ease-out, background 0.3s ease-in;
+}
+
+input::placeholder {
+  color: #BBBBBB;
+}
+
+input[type="submit"]:hover {
+  color: #00B2FF;
+  transition:color .2s ease-out, background 0.3s ease-in;
+}
+
+button {
+  padding-left: 15px;
+  border-radius: 0 10px 10px 0;
 }
 
 button img {
-  height: 25px;
+  height: 10px;
 }
-
 
 /*****************************
   Dropdown Style
@@ -187,7 +134,6 @@ button img {
   overflow-y: auto;
 }
 
-
 /*****************************
   Posts Style
 *****************************/
@@ -196,8 +142,7 @@ button img {
 .postedIdeas ul {
   list-style-type: none;
   padding: 0;
-  height: 520px;
-  overflow-y: auto;
+  margin-top: 25px;
 }
 
 .postedIdeas li {
