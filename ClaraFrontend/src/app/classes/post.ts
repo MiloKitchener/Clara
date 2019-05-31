@@ -1,9 +1,10 @@
 export class Post {
+	id: number;
 	title: string;
 	description: string;
+	author: string;
 	numComments: number;
 	numVotes: number;
-	authorName: string;
-	imgSrc: string;
 	tag: string;
+	comments: string[];
 }

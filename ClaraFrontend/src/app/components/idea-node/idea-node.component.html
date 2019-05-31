@@ -1,12 +1,12 @@
 <div class="ideaNodeContainer">
   <div id="mainContent">
     <div>
-      <img [src]="imgPath" alt="">
-      <h5 style="margin-right:18px;text-align:center;">{{ authorName }}</h5>
+      <img src="assets/images/avatar.png" alt="">
+      <h5 style="margin-right:18px;text-align:center;">{{ post.author }}</h5>
     </div>
     <div>
-      <h4>{{ title }}</h4>
-      <p>{{ description }}</p>
+      <h4>{{ post.title }}</h4>
+      <p>{{ post.description }}</p>
     </div>
     <div id="votePanel">
       <button id="upButton" (click)="upvote()">
@@ -16,7 +16,7 @@
         </svg>
       </button>
       <br>
-      <h5 [ngStyle]="{'color': numVotes < 0 ? '#eb3b3b' : 'black'}">{{ numVotes }}</h5>
+      <h5 [ngStyle]="{'color': post.numVotes < 0 ? '#eb3b3b' : 'black'}">{{ numVotes }}</h5>
       <button id="downButton" (click)="downvote()">
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="22.5px" height="30px"
           viewBox="0 0 50 80" xml:space="preserve">
@@ -29,7 +29,7 @@
   <div class="bottomPanel">
     <h5>{{ tag }}</h5>
     <button type="button" name="button" class="commentBtn" (click)="toggleComments()" style="float:left;">Comments
-      ({{ numComments }})</button>
+      ({{ post.numComments }})</button>
   </div>
 </div>
 

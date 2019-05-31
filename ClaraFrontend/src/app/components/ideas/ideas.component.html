@@ -28,8 +28,7 @@
     <div class="postedIdeas">
       <ul>
         <li *ngFor="let post of posts">
-          <app-idea-node [title]=post.title [description]=post.description [numComments]=post.numComments
-            [numVotes]=post.numVotes [imgPath]=post.imgSrc [tag]=post.tag [authorName]=post.authorName></app-idea-node>
+          <app-idea-node [post]=post></app-idea-node>
         </li>
       </ul>
     </div>

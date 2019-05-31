@@ -146,4 +146,3 @@ function removeGraphPanel() {
   addButton.removeEventListener("click", removeGraphPanel);
   addButton.addEventListener("click", openGraphPanel);
 }
- // ERROR: Loop executes faster than code can update panel
