@@ -38,9 +38,9 @@ export class IdeasComponent implements OnInit {
     this.newPostSubmitted = false;
 
     // get variables from service
-    this.posts = this._ideasService.getPosts();
     this.filters = this._ideasService.getFilters();
     this.arrangedFilters = this._ideasService.getArrangedFilters();
+    this.posts = this._ideasService.getPosts();
   }
 
   // selects a filter

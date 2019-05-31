@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SharedDashboardComponent } from './shared-dashboard.component';
+import { AlexaFeedComponent } from './alexa-feed.component';
 
-describe('SharedDashboardComponent', () => {
-  let component: SharedDashboardComponent;
-  let fixture: ComponentFixture<SharedDashboardComponent>;
+describe('AlexaFeedComponent', () => {
+  let component: AlexaFeedComponent;
+  let fixture: ComponentFixture<AlexaFeedComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SharedDashboardComponent ]
+      declarations: [ AlexaFeedComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SharedDashboardComponent);
+    fixture = TestBed.createComponent(AlexaFeedComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
