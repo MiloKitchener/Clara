@@ -23,7 +23,7 @@
 
     <!-- Sign Up Form -->
     <form [formGroup]="signUpForm" (ngSubmit)="signUp()" id="signUpForm">
-      <input type="text" formControlName="username" placeholder="username">
+      <input type="text" formControlName="username" placeholder="name">
       <div *ngIf="signUpSubmitted && signUpF.username.errors" class="invalid-feedback">
         <div *ngIf="signUpF.username.errors.required">username is required</div>
       </div>

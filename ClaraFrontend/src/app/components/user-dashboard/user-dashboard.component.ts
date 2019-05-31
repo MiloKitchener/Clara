@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
 
 import { GraphDataService } from 'src/app/services/graph-data/graph-data.service';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-user-dashboard',
