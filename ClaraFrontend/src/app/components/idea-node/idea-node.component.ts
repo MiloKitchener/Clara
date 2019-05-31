@@ -15,11 +15,13 @@ export class IdeaNodeComponent implements OnInit {
   @Input() tag: string;
   @Input() authorName: string;
   private voted: number;
+  private viewComments: boolean;
 
   constructor() { }
 
   ngOnInit() {
     this.voted = 0 // 0 means no vote by user, 1 means upvote, 2 means downvote
+    this.viewComments = false;
   }
 
   upvote() {
@@ -52,8 +54,13 @@ export class IdeaNodeComponent implements OnInit {
     }
   }
 
-  viewComments() {
-    document.getElementById("commentPanel").style.animation = "fadein 2s";;
-    document.getElementById("commentPanel").style.display = "block";
+  // toggles comment view
+  toggleComments() {
+    if (this.viewComments == false) {
+      this.viewComments = true;
+    }
+    else {
+      this.viewComments = false;
+    }
   }
 }

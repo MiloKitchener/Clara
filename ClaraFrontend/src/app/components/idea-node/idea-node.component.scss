@@ -87,11 +87,11 @@ polyline {
 }
 
 #commentPanel {
-  display: none;
+  animation: fadein 2s;
 }
 
 .comments {
   border-top: 1px solid #EFEFEF;
   padding: 15px;
-  list-style-type: none;
+  text-align: justify;
 }

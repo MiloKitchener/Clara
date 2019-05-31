@@ -20,7 +20,7 @@ const routes: Routes = [
     path: 'main',
     component: MainComponent,
     data: { title: 'Clara' },
-    canActivate: [AuthService],
+    //canActivate: [AuthService],
     children: [
       { path: '', redirectTo: 'personalDashboard', pathMatch: 'full' },
       { path: 'personalDashboard', component: UserDashboardComponent, data: { title: 'Personal Dashboard' } },

@@ -28,15 +28,16 @@
   </div>
   <div class="bottomPanel">
     <h5>{{ tag }}</h5>
-    <button type="button" name="button" class="commentBtn" (click)="viewComments()" style="float:left;">Comments
+    <button type="button" name="button" class="commentBtn" (click)="toggleComments()" style="float:left;">Comments
       ({{ numComments }})</button>
   </div>
 </div>
 
 <!-- TODO: Add comments to post class -->
-<div id="commentPanel">
+<div id="commentPanel" [ngStyle]="{'display': viewComments === true ? 'block' : 'none'}">
   <ul class="comments">
-    <li></li>
+    <li>Comment One</li>
+    <li>Comment Two</li>
   </ul>
   <form>
     <input type="text" placeholder="comment">
