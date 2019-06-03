@@ -8,37 +8,83 @@
         <p>{{ user.title }}</p>
       </div>
     </li>
-    <!-- Nav Elements -->
-    <li routerLinkActive="active">
-      <a routerLink="personalDashboard">
+
+    <!-- Dashboards Nav -->
+    <li routerLinkActive="active" class="dropdownBtn">
+      <a routerLink="dashboardSplash">
+        <img src="/assets/vectors/dashboardIcon.svg">
         <span>Dashboard</span>
+        <i class="fa fa-angle-down custom"></i>
       </a>
     </li>
-    <li routerLinkActive="active">
-      <a routerLink="datasets">
+    <div class="dropdownContainer">
+      <li routerLinkActive="active">
+        <a routerLink="personalDashboard">
+          <span>My Dashboard</span>
+        </a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="sharedDashboards">
+          <span>Shared Dashboards</span>
+        </a>
+      </li>
+    </div>
+
+    <!-- Datasets Nav -->
+    <li routerLinkActive="active" class="dropdownBtn">
+      <a>
+        <img src="/assets/vectors/datasetsIcon.svg">
         <span>Datasets</span>
+        <i class="fa fa-angle-down custom"></i>
       </a>
     </li>
+    <div class="dropdownContainer">
+      <li routerLinkActive="active">
+        <a routerLink="datasets">
+          <span>Open Datasets</span>
+        </a>
+      </li>
+      <li routerLinkActive="active">
+        <a>
+          <span>Imported Datasets</span>
+        </a>
+      </li>
+      <li routerLinkActive="active">
+        <a>
+          <span>Official API Data</span>
+        </a>
+      </li>
+      <li routerLinkActive="active">
+        <a>
+          <span>Imported Data</span>
+        </a>
+      </li>
+    </div>
+
+    <!-- Alexa Feed Nav -->
     <li routerLinkActive="active">
       <a routerLink="alexa-feed">
-        <span>Alexa Feed</span>
+        <img src="/assets/vectors/alexaFeedIcon.svg">
+        <span>Alexa: Ask Clara</span>
       </a>
     </li>
+
+    <!-- Ideas Nav -->
     <li routerLinkActive="active">
       <a routerLink="ideas">
+        <img src="/assets/vectors/ideasIcon.svg">
         <span>Ideas</span>
       </a>
     </li>
+
+    <!-- Lab Services Nav -->
     <li routerLinkActive="active">
       <a routerLink="lab-services">
+        <img src="/assets/vectors/labServicesIcon.svg">
         <span>Lab Services</span>
       </a>
     </li>
-    <li>
-      <a id="logOutBtn" (click)="logout()">Log Out</a>
-    </li>
   </ul>
-
 </div>
 
 <!-- Routed Elements -->

@@ -23,6 +23,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
 
 import { GraphDataService } from './services/graph-data/graph-data.service';
 import { AlexaFeedComponent } from './components/alexa-feed/alexa-feed.component';
+import { SharedDashboardsComponent } from './components/shared-dashboards/shared-dashboards.component';
+import { DashboardSplashComponent } from './components/dashboard-splash/dashboard-splash.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { AlexaFeedComponent } from './components/alexa-feed/alexa-feed.component
     LoginComponent,
     MainComponent,
     NotFoundComponent,
-    AlexaFeedComponent
+    AlexaFeedComponent,
+    SharedDashboardsComponent,
+    DashboardSplashComponent,
   ],
   imports: [
     BrowserModule,
