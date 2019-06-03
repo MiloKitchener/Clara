@@ -1,3 +1,4 @@
+<!-- Top Bar -->
 <div class="topBar">
   <h1>Ideas</h1>
 
@@ -23,6 +24,9 @@
   </div>
 </div>
 
+<button id="postButton" (click)="viewNewPost()">New Post</button>
+
+<!-- Posts Feed -->
 <div class="container">
   <div class="leftContainer">
     <div class="postedIdeas">
@@ -33,4 +37,24 @@
       </ul>
     </div>
   </div>
+</div>
+
+<!-- New Post Panel -->
+<div class="newPostPanel" (ngSubmit)="submitPost()"
+  [ngStyle]="{'display': toggleNewPostView === true ? 'block' : 'none'}">
+  <button id="closeNewPostPanelBtn" (click)="closeNewPost()">x</button>
+
+  <form [formGroup]="newPostForm">
+    <h4>Title</h4>
+    <input formControlName="title" type="text" placeholder="Title">
+    <div *ngIf="newPostSubmitted && newPostForm.title.errors" class="invalid-feedback">
+      <div *ngIf="newPostForm.title.errors.required">a title is required</div>
+    </div>
+    <h4>Description</h4>
+    <textarea formControlName="description" cols="30" rows="10" placeholder="Description"></textarea>
+    <select formControlName="filterSelect">
+      <option [value]="filter" *ngFor="let filter of filters">{{ filter }}</option>
+    </select>
+    <input type="submit" value="Post Idea">
+  </form>
 </div>

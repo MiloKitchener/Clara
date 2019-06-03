@@ -86,10 +86,6 @@ polyline {
   transition:color .2s ease-out, background 0.3s ease-in;
 }
 
-#commentPanel {
-  animation: fadein 2s;
-}
-
 .comments {
   border-top: 1px solid #EFEFEF;
   padding: 15px;
@@ -119,4 +115,17 @@ input[type="submit"]:hover {
 input[type="text"]:hover {
   background-color: #EAEAEA;
   transition:color .2s ease-out, background 0.3s ease-in;
+}
+
+li {
+  margin: 10px;
+}
+
+.show {
+  display: block; 
+  animation: openComment 1s cubic-bezier(0, 1, 0.5, 1) 1 normal forwards;
+}
+
+.hide {
+  display: none;
 }
