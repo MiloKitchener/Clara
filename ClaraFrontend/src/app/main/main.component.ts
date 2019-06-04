@@ -9,6 +9,7 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 })
 
 export class MainComponent implements OnInit {
+
   constructor(
     private logoutService: AuthService
   ) { }

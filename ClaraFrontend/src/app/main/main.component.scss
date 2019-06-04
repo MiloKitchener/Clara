@@ -59,6 +59,10 @@ a:focus {
   width: 215px;
 }
 
+.active img {
+ filter: invert(1);
+}
+
 i {
   float: right;
 }
