@@ -42,6 +42,7 @@ const routes: Routes = [
         component: DashboardSplashComponent,
         data: { title: 'Dashboard' },
         children: [
+          { path: '', redirectTo: 'personalExample', pathMatch: 'full' },
           { path: 'personalExample', component: UserHowToComponent },
           { path: 'sharedExample', component: SharedHowToComponent },
         ]
