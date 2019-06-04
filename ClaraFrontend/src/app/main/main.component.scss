@@ -90,7 +90,7 @@ li {
   position: absolute;
   display: none;
   left: 100%;
-  top: 0%;
+  top: -50px; // accomodates the UL top margin
 }
 
 li:hover .dropdown {
