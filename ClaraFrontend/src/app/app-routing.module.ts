@@ -16,6 +16,7 @@ import { SharedDashboardsComponent } from './components/dashboards/shared-dashbo
 import { UserHowToComponent } from './components/dashboards/user-how-to/user-how-to.component';
 import { SharedHowToComponent } from './components/dashboards/shared-how-to/shared-how-to.component';
 
+import { DatasetsHowToComponent } from './components/datasets/datasets-how-to/datasets-how-to.component';
 import { OpenDatasetsComponent } from './components/datasets/open-datasets/open-datasets.component';
 import { ImportedDatasetsComponent } from './components/datasets/imported-datasets/imported-datasets.component';
 import { OfficialAPIDataComponent } from './components/datasets/official-apidata/official-apidata.component';
@@ -49,6 +50,7 @@ const routes: Routes = [
       },
       { path: 'personalDashboard', component: UserDashboardComponent, data: { title: 'My Dashboard' } },
       { path: 'sharedDashboards', component: SharedDashboardsComponent, data: { title: 'Shared Dashboards' } },
+      { path: 'datasetsExample', component: DatasetsHowToComponent, data: { title: 'Datasets' } },
       { path: 'openDatasets', component: OpenDatasetsComponent, data: { title: 'Open Datasets' } },
       { path: 'importedDatasets', component: ImportedDatasetsComponent, data: { title: 'Imported Datasets' } },
       { path: 'apiData', component: OfficialAPIDataComponent, data: { title: 'API Data' } },
