@@ -1,0 +1,32 @@
+.title {
+    padding: 2px;
+    color: white;
+    font-size: 40pt;
+    font-weight: 300;
+    background-image: linear-gradient(to left, #32CDFE, #00B2FF);
+  }
+
+.container {
+    padding: 20px;
+    padding-top: 0; 
+}
+
+.stats {
+    margin-top: 50px;
+    margin-bottom: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.stats div {
+    padding: 100px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 7px;
+    width: 40%;
+    background-color: white;
+}
+
+
