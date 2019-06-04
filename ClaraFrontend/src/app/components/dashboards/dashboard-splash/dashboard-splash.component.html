@@ -2,16 +2,14 @@
 
 <h2>How To Use The {{ selected }}</h2>
 
-<table class="selectionTable">
-  <tr>
-    <td routerLinkActive="active">
-      <a routerLink="personalExample" (click)="setSelected('User Dashboard')">User Dashboard</a>
-    </td>
-    <td routerLinkActive="active">
-      <a routerLink="sharedExample" (click)="setSelected('Shared Dashboards')">Shared Dashboards</a>
-    </td>
-  </tr>
-</table>
+<ul>
+  <li>
+    <a routerLink="personalExample" (click)="setSelected('User Dashboard')">User Dashboard</a>
+  </li>
+  <li>
+    <a routerLink="sharedExample" (click)="setSelected('Shared Dashboards')">Shared Dashboards</a>
+  </li>
+</ul>
 
 <!-- Routed How To Components -->
 <router-outlet></router-outlet>
