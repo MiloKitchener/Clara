@@ -13,20 +13,7 @@ export class MainComponent implements OnInit {
     private logoutService: AuthService
   ) { }
 
-  ngOnInit() {
-    // add dropdown functionality
-    var dropdown = document.getElementsByClassName("dropdownBtn");
-    for (var i = 0; i < dropdown.length; i++) {
-      dropdown[i].addEventListener("click", function () {
-        var dropdownContent = this.nextElementSibling;
-        if (dropdownContent.style.display === "block") {
-          dropdownContent.style.display = "none";
-        } else {
-          dropdownContent.style.display = "block";
-        }
-      });
-    }
-  }
+  ngOnInit() { }
 
   // logs user out of the site, returns to login page
   logout() {
