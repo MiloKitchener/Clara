@@ -14,6 +14,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 
 import { AuthService } from './services/auth/auth.service';
 import { AlexaFeedComponent } from './components/alexa-feed/alexa-feed.component';
+import { AlexaHelpComponent } from './components/alexa-help/alexa-help.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'main', pathMatch: 'full' },
@@ -29,6 +30,7 @@ const routes: Routes = [
       { path: 'personalDashboard', component: UserDashboardComponent, data: { title: 'My Dashboard' } },
       { path: 'sharedDashboards', component: SharedDashboardsComponent, data: { title: 'Shared Dashboards' } },
       { path: 'datasets', component: DatasetsComponent, data: { title: 'Datasets' } },
+      { path: 'alexa-help', component: AlexaHelpComponent, data: { title: 'Alexa Help' } },
       { path: 'alexa-feed', component: AlexaFeedComponent, data: { title: 'Alexa Feed' } },
       { path: 'ideas', component: IdeasComponent, data: { title: 'Ideas' } },
       { path: 'lab-services', component: LabServicesComponent, data: { title: 'Lab-Services' } }

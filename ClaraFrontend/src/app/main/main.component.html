@@ -1,14 +1,5 @@
 <div class="sidebarDiv">
   <ul>
-    <li>
-      <!-- Profile Info -->
-      <div class="sidebar-user-panel">
-        <img [src]="user.pictureSrc" alt="User Image" />
-        <h3>{{ user.name }}</h3>
-        <p>{{ user.title }}</p>
-      </div>
-    </li>
-
     <!-- Dashboards Nav -->
     <li routerLinkActive="active" class="dropdownBtn">
       <a routerLink="dashboardSplash">
@@ -62,12 +53,25 @@
     </div>
 
     <!-- Alexa Feed Nav -->
-    <li routerLinkActive="active">
-      <a routerLink="alexa-feed">
+    <li routerLinkActive="active" class="dropdownBtn">
+      <a routerLink="alexa-help">
         <img src="/assets/vectors/alexaFeedIcon.svg">
         <span>Alexa: Ask Clara</span>
+        <i class="fa fa-angle-down custom"></i>
       </a>
     </li>
+    <div class="dropdownContainer">
+      <li routerLinkActive="active">
+        <a routerLink="alexa-help">
+          <span>Things You Can Ask</span>
+        </a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="alexa-feed">
+          <span>Status</span>
+        </a>
+      </li>
+    </div>
 
     <!-- Ideas Nav -->
     <li routerLinkActive="active">

@@ -25,6 +25,7 @@ import { GraphDataService } from './services/graph-data/graph-data.service';
 import { AlexaFeedComponent } from './components/alexa-feed/alexa-feed.component';
 import { SharedDashboardsComponent } from './components/shared-dashboards/shared-dashboards.component';
 import { DashboardSplashComponent } from './components/dashboard-splash/dashboard-splash.component';
+import { AlexaHelpComponent } from './components/alexa-help/alexa-help.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { DashboardSplashComponent } from './components/dashboard-splash/dashboar
     AlexaFeedComponent,
     SharedDashboardsComponent,
     DashboardSplashComponent,
+    AlexaHelpComponent,
   ],
   imports: [
     BrowserModule,

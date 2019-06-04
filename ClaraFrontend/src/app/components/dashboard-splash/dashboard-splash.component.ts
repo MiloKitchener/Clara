@@ -6,10 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard-splash.component.scss']
 })
 export class DashboardSplashComponent implements OnInit {
+  // user profile vars
+  private user: any;
 
   constructor() { }
 
   ngOnInit() {
+    this.user = {
+      "name": "William McKinnon",
+      "title": "Smart City Developer",
+      "pictureSrc": "assets/images/avatar.png"
+    }
   }
 
 }
