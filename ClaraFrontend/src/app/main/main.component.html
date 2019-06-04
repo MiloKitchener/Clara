@@ -1,6 +1,8 @@
 <div class="sidebarDiv">
 
-  <img src="/assets/images/clara-logo-lrg.png" alt="Clara" id="siteIcon">
+  <a routerLink="dashboardSplash">
+    <img src="/assets/images/clara-logo-lrg.png" alt="Clara" id="siteIcon">
+  </a>
 
   <ul>
     <!-- Dashboards Nav -->
@@ -33,23 +35,18 @@
       </a>
       <ul class="dropdown">
         <li routerLinkActive="active">
-          <a routerLink="datasets">
+          <a routerLink="openDatasets">
             <span>Open Datasets</span>
           </a>
         </li>
         <li routerLinkActive="active">
-          <a>
+          <a routerLink="importedDatasets">
             <span>Imported Datasets</span>
           </a>
         </li>
         <li routerLinkActive="active">
-          <a>
+          <a routerLink="apiData">
             <span>Official API Data</span>
-          </a>
-        </li>
-        <li routerLinkActive="active">
-          <a>
-            <span>Imported Data</span>
           </a>
         </li>
       </ul>

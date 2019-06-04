@@ -1,0 +1,39 @@
+h1 {
+  margin: 0;
+  padding: 50px;
+  color: white;
+  background-image: linear-gradient(to left, #32CDFE, #00B2FF);
+  font-size: 40pt;
+  font-weight: 300;
+}
+
+.selectionTable {
+  border-spacing: 25px;
+  width: 50%;
+  margin: auto;
+}
+
+.selectionTable td a {
+  background-color: #00B2FF;
+  color: white;
+  padding: 5px 30px;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+h2 {
+  margin-top: 50px;
+  margin-bottom: 20px;
+  font-weight: 500;
+  font-size: 24pt;
+}
+
+.guideTable {
+  width: 100%;
+  border-spacing: 25px;
+}
+
+.guideTable td {
+  background-color: white;
+  border-radius: 7px;
+}

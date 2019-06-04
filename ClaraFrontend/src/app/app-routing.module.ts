@@ -1,20 +1,28 @@
+// import core modules
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { SharedDashboardsComponent } from './components/shared-dashboards/shared-dashboards.component';
-import { DashboardSplashComponent } from './components/dashboard-splash/dashboard-splash.component';
-import { UserDashboardComponent } from './components/user-dashboard/user-dashboard.component';
-import { IdeasComponent } from './components/ideas/ideas.component';
-import { DatasetsComponent } from './components/datasets/datasets.component';
-import { LabServicesComponent } from './components/lab-services/lab-services.component';
+// import services
+import { AuthService } from './services/auth/auth.service';
 
+// import components
 import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main/main.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
-import { AuthService } from './services/auth/auth.service';
-import { AlexaFeedComponent } from './components/alexa-feed/alexa-feed.component';
-import { AlexaHelpComponent } from './components/alexa-help/alexa-help.component';
+import { DashboardSplashComponent } from './components/dashboards/dashboard-splash/dashboard-splash.component';
+import { UserDashboardComponent } from './components/dashboards/user-dashboard/user-dashboard.component';
+import { SharedDashboardsComponent } from './components/dashboards/shared-dashboards/shared-dashboards.component';
+
+import { IdeasComponent } from './components/ideas/ideas.component';
+
+import { OpenDatasetsComponent } from './components/datasets/open-datasets/open-datasets.component';
+
+import { LabServicesComponent } from './components/lab-services/lab-services.component';
+import { AlexaFeedComponent } from './components/alexa/alexa-feed/alexa-feed.component';
+import { AlexaHelpComponent } from './components/alexa/alexa-help/alexa-help.component';
+import { ImportedDatasetsComponent } from './components/datasets/imported-datasets/imported-datasets.component';
+import { OfficialAPIDataComponent } from './components/datasets/official-apidata/official-apidata.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'main', pathMatch: 'full' },
@@ -29,7 +37,9 @@ const routes: Routes = [
       { path: 'dashboardSplash', component: DashboardSplashComponent, data: { title: 'Dashboard' } },
       { path: 'personalDashboard', component: UserDashboardComponent, data: { title: 'My Dashboard' } },
       { path: 'sharedDashboards', component: SharedDashboardsComponent, data: { title: 'Shared Dashboards' } },
-      { path: 'datasets', component: DatasetsComponent, data: { title: 'Datasets' } },
+      { path: 'openDatasets', component: OpenDatasetsComponent, data: { title: 'Open Datasets' } },
+      { path: 'importedDatasets', component: ImportedDatasetsComponent, data: { title: 'Imported Datasets' } },
+      { path: 'apiData', component: OfficialAPIDataComponent, data: { title: 'API Data' } },
       { path: 'alexa-help', component: AlexaHelpComponent, data: { title: 'Alexa Help' } },
       { path: 'alexa-feed', component: AlexaFeedComponent, data: { title: 'Alexa Feed' } },
       { path: 'ideas', component: IdeasComponent, data: { title: 'Ideas' } },
