@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+import { SharedDashboardsComponent } from './components/shared-dashboards/shared-dashboards.component';
+import { DashboardSplashComponent } from './components/dashboard-splash/dashboard-splash.component';
 import { UserDashboardComponent } from './components/user-dashboard/user-dashboard.component';
 import { IdeasComponent } from './components/ideas/ideas.component';
 import { DatasetsComponent } from './components/datasets/datasets.component';
@@ -22,8 +24,10 @@ const routes: Routes = [
     data: { title: 'Clara' },
     canActivate: [AuthService],
     children: [
-      { path: '', redirectTo: 'personalDashboard', pathMatch: 'full' },
-      { path: 'personalDashboard', component: UserDashboardComponent, data: { title: 'Personal Dashboard' } },
+      { path: '', redirectTo: 'dashboardSplash', pathMatch: 'full' },
+      { path: 'dashboardSplash', component: DashboardSplashComponent, data: { title: 'Dashboard' } },
+      { path: 'personalDashboard', component: UserDashboardComponent, data: { title: 'My Dashboard' } },
+      { path: 'sharedDashboards', component: SharedDashboardsComponent, data: { title: 'Shared Dashboards' } },
       { path: 'datasets', component: DatasetsComponent, data: { title: 'Datasets' } },
       { path: 'alexa-feed', component: AlexaFeedComponent, data: { title: 'Alexa Feed' } },
       { path: 'ideas', component: IdeasComponent, data: { title: 'Ideas' } },
