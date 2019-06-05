@@ -1,27 +1,31 @@
-
+// import core modules
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { JwtInterceptorService } from './services/auth/jwt-interceptor.service';
 
+// import services
+import { GraphDataService } from './services/graph-data/graph-data.service';
+
+// import components
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UserDashboardComponent } from './components/user-dashboard/user-dashboard.component';
-import { IdeasComponent } from './components/ideas/ideas.component';
-import { IdeaNodeComponent } from './components/idea-node/idea-node.component';
-import { GraphPanelComponent } from './components/graph-panel/graph-panel.component';
-import { DatasetsComponent } from './components/datasets/datasets.component';
-import { LabServicesComponent } from './components/lab-services/lab-services.component';
 
 import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main/main.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
-import { GraphDataService } from './services/graph-data/graph-data.service';
+import { UserDashboardComponent } from './components/dashboards/user-dashboard/user-dashboard.component';
+import { DatasetComponent } from './components/dataset/dataset.component';
+import { IdeasComponent } from './components/ideas/ideas.component';
+import { LabServicesComponent } from './components/lab-services/lab-services.component';
+
+// import sub components
+import { IdeaNodeComponent } from './components/idea-node/idea-node.component';
+import { GraphPanelComponent } from './components/graph-panel/graph-panel.component';
 import { AlexaFeedComponent } from './components/alexa-feed/alexa-feed.component';
 import { SharedDashboardsComponent } from './components/shared-dashboards/shared-dashboards.component';
 import { DashboardSplashComponent } from './components/dashboard-splash/dashboard-splash.component';
@@ -35,7 +39,7 @@ import { IdeaForumComponent } from './components/idea-forum/idea-forum.component
     IdeasComponent,
     IdeaNodeComponent,
     GraphPanelComponent,
-    DatasetsComponent,
+    DatasetComponent,
     LabServicesComponent,
     LoginComponent,
     MainComponent,
@@ -45,7 +49,9 @@ import { IdeaForumComponent } from './components/idea-forum/idea-forum.component
     DashboardSplashComponent,
     IdeaAnchorDirective,
     IdeaForumComponent,
-
+    AlexaHelpComponent,
+    UserHowToComponent,
+    SharedHowToComponent,
   ],
   imports: [
     BrowserModule,

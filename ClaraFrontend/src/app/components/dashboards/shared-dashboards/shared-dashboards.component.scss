@@ -1,0 +1,81 @@
+.title {
+    padding: 2px;
+    color: white;
+    font-size: 40pt;
+    font-weight: 300;
+    background-image: linear-gradient(to left, #32CDFE, #00B2FF);
+  }
+  
+  .title p {
+    color: white;
+    text-align: center;
+  }
+  
+  * {box-sizing: border-box}
+  
+  .container {
+    width: 100%;
+    background-color: #ddd;
+  }
+  
+  .skills {
+    text-align: right;
+    padding: 10px;
+    color: white;
+  }
+  
+  p {
+      color: black;
+      padding-left: 1em;
+      font-weight: 400;
+      text-align: left;
+  }
+  
+  .html {width: 30%; background-color: #4CAF50;font-weight: 400;}
+  .css {width: 50%; background-color: #2196F3;font-weight: 400;}
+  .js {width: 60%; background-color: #f44336;font-weight: 400;}
+  .php {width: 70%; background-color: #808080;font-weight: 400;}
+  
+  .chart {
+      background-color: white;
+      margin-top: 40px;
+      margin-left: 150px;
+      margin-right: 150px;
+      margin-bottom: 30px;
+      border-radius: 7px;
+      height: 650px;
+      font-size: 11pt;
+      font-weight: 50;
+    }
+  
+    .traffic {
+      margin-top: 20px;
+      margin-bottom: 30px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+  
+    .traffic h2 {
+      margin-left: 150px;
+      margin-right: 150px;
+      background-color: white;
+      border-radius: 7px;
+      width: 100%;
+      font-size: 16pt;
+      font-weight: 600;
+      height: 400px;
+    }
+  
+    .graphs {
+      margin-right: 150px;
+      margin-left: 150px;
+      margin-bottom: 40px;
+      font-size: 11pt;
+      font-weight: 50;
+      background-color: white;
+      border-radius: 7px;
+      height: 500px;
+    }
+  
+  
