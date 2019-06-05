@@ -1,5 +1,5 @@
 # Clara
-https://www.dashboard.askclara.ca
+(https://www.dashboard.askclara.ca)
 Clara is a municipal machine learning and analytics platform,  providing ideas and insights to the municipality of Kitchener.
 
 ## Contents ##
