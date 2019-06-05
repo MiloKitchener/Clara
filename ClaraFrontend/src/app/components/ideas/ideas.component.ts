@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, ComponentFactoryResolver, OnInit, ViewChild } from '@angular/core';
+import { IdeaAnchorDirective } from '../../directives/idea-anchor.directive';
+import { Post } from '../../classes/post';
+import { IdeaNodeComponent } from '../idea-node/idea-node.component';
 import { IdeasService } from 'src/app/services/ideas/ideas.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -12,6 +14,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class IdeasComponent implements OnInit {
 
   // instance variables
+  @ViewChild(IdeaAnchorDirective) ideaAnchor: IdeaAnchorDirective;
+
+  private posts: Post[];
   private filters: string[];
   private arrangedFilters: string[];
   private selectedFilter: string;
@@ -23,10 +28,17 @@ export class IdeasComponent implements OnInit {
 
   constructor(
     private ideasService: IdeasService,
+    private componentFactoryResolver: ComponentFactoryResolver,
     private fb: FormBuilder,
   ) { }
 
   ngOnInit() {
+    // load posts, add post updating
+    this.loadPosts();
+    this.ideasService.postUpdateEmitter.subscribe(() => {
+      this.loadPosts();
+    });
+
     // instantiate instance variables
     this.newPostForm = this.fb.group({
       title: ['', Validators.required],
@@ -63,6 +75,26 @@ export class IdeasComponent implements OnInit {
     this.ideasService.addPost(this.newPostForm.value);
   }
 
+  // loads new posts
+  loadPosts() {
+    this.ideasService.getPostsObservable().subscribe((posts: Post[]) => {
+      this.posts = posts;
+      const componentFactory = this.componentFactoryResolver.resolveComponentFactory(IdeaNodeComponent);
+      const viewContainerRef = this.ideaAnchor.viewContainerRef;
+      viewContainerRef.clear();
+
+      const componentRefs = [];
+      this.posts.forEach((post) => {
+        this.ideasService.getCommentsObservable(post).subscribe((comments: Comment[]) => {
+          post.comments = comments || [];
+          const componentRef = viewContainerRef.createComponent(componentFactory);
+          componentRefs.push(componentRef);
+          (componentRef.instance as IdeaNodeComponent).post = post;
+        });
+      });
+    });
+  }
+
   /************************************
    * Form Getters
    ***********************************/
@@ -71,4 +103,5 @@ export class IdeasComponent implements OnInit {
   get newPostF() {
     return this.newPostForm.controls;
   }
+
 }

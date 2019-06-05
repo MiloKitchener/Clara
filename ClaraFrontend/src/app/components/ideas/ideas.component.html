@@ -26,7 +26,13 @@
 
 <button id="postButton" (click)="viewNewPost()">New Post</button>
 
-<app-idea-forum></app-idea-forum>
+<!-- Posts Feed -->
+<div class="postedIdeas">
+  <ul>
+    <!-- Dynamic post list -->
+    <ng-template appIdeaAnchor></ng-template>
+  </ul>
+</div>
 
 <!-- New Post Panel -->
 <div class="newPostPanel" [ngStyle]="{'display': toggleNewPostView === true ? 'block' : 'none'}">

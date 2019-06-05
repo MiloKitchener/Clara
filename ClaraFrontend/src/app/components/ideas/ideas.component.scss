@@ -220,3 +220,21 @@ textarea {
   max-height: 150px;
   overflow-y: auto;
 }
+
+
+/*****************************
+  Posts Style
+*****************************/
+
+.postedIdeas ul {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 25px;
+}
+
+.postedIdeas li {
+  border-radius: 10px;
+  background-color: white;
+  padding: 20px;
+  margin-bottom: 30px;
+}
