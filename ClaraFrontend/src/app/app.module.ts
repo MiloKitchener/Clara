@@ -26,11 +26,14 @@ import { LabServicesComponent } from './components/lab-services/lab-services.com
 // import sub components
 import { IdeaNodeComponent } from './components/idea-node/idea-node.component';
 import { GraphPanelComponent } from './components/graph-panel/graph-panel.component';
-import { AlexaFeedComponent } from './components/alexa-feed/alexa-feed.component';
-import { SharedDashboardsComponent } from './components/shared-dashboards/shared-dashboards.component';
-import { DashboardSplashComponent } from './components/dashboard-splash/dashboard-splash.component';
+import { AlexaFeedComponent } from './components/alexa/alexa-feed/alexa-feed.component';
+import { SharedDashboardsComponent } from './components/dashboards/shared-dashboards/shared-dashboards.component';
+import { DashboardSplashComponent } from './components/dashboards/dashboard-splash/dashboard-splash.component';
 import { IdeaAnchorDirective } from './directives/idea-anchor.directive';
 import { IdeaForumComponent } from './components/idea-forum/idea-forum.component';
+import {UserHowToComponent} from './components/dashboards/user-how-to/user-how-to.component';
+import {AlexaHelpComponent} from './components/alexa/alexa-help/alexa-help.component';
+import {SharedHowToComponent} from './components/dashboards/shared-how-to/shared-how-to.component';
 
 @NgModule({
   declarations: [
