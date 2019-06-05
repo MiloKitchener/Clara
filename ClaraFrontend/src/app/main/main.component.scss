@@ -123,3 +123,11 @@ li:hover:not(:first-child) {
 .mainContent>* {
   display: block;
 }
+
+router-outlet {
+  position: relative; // allows animations
+}
+
+router-outlet ~ * {
+  position: absolute; // allows animations
+}

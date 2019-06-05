@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { IdeasService } from 'src/app/services/ideas/ideas.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -33,7 +33,6 @@ export class IdeasComponent implements OnInit {
       description: ['', Validators.required],
       tag: ['None', Validators.required]
     });
-
     this.selectedFilter = 'None';
     this.toggleNewPostView = false;
     this.newPostSubmitted = false;

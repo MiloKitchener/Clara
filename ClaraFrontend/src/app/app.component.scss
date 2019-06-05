@@ -1,0 +1,12 @@
+div >* {
+  display: block;
+  position: relative; // allows animations
+}
+
+router-outlet {
+  position: relative; // allows animations
+}
+
+router-outlet ~ * {
+  position: absolute; // allows animations
+}
