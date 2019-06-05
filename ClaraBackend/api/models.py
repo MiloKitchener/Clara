@@ -14,6 +14,16 @@ class Dataset(models.Model):
     def __str__(self):
         return self.name
 
+class APICredentials(models.Model):
+    api_url = models.CharField(max_length=255, null=False)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    username = models.CharField(max_length=255, null=False)
+    password = models.CharField(max_length=255, null=False)
+
+    def __str__(self):
+        return self.api_url
+
+
 
 class Field(models.Model):
     name = models.CharField(max_length=255, null=False)

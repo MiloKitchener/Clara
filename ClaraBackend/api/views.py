@@ -74,6 +74,22 @@ class FieldView(viewsets.ModelViewSet):
     serializer_class = FieldSerializer
 
 
+# API endpoint that allows third party dataset's to be added or listed
+class ThirdPartyDatasetView(viewsets.ModelViewSet):
+
+    # add code for listing all datasets and for adding a new dataset
+
+    queryset = Dataset.objects.all().order_by('name')
+    serializer_class = ThirdPartyDatasetSerializer
+
+    @action(detail=False, methods=['post'])
+    def insert (self, request):
+        url = request.data.get('url')
+        print(url)
+
+        # call function from DAL here to load the data into the db.
+        return Response("Success")
+
 # API endpoint that allows graphs to be viewed or edited
 class GraphView(viewsets.ModelViewSet):
     # Authenticate the user

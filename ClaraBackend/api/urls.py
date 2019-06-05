@@ -9,6 +9,7 @@ routers.register(r'fields', views.FieldView)
 routers.register(r'graphs', views.GraphView)
 routers.register(r'ask_clara_feed', views.AskClaraFeedView)
 
+
 urlpatterns = [
     path(r'', include(routers.urls)),
     path('api/token/', jwt_views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
