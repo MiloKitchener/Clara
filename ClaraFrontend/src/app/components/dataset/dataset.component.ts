@@ -10,6 +10,7 @@ import { Dataset } from 'src/app/classes/dataset';
   templateUrl: './dataset.component.html',
   styleUrls: ['./dataset.component.scss']
 })
+
 export class DatasetComponent implements OnInit {
 
   // class variables
@@ -18,7 +19,7 @@ export class DatasetComponent implements OnInit {
 
   private searchForm: any;
 
-  private numOpen: number;
+  private numSets: number;
   private numRecentlyUpdated: number;
   private numOutOfDate: number;
   private numUnderReview: number;
@@ -29,7 +30,7 @@ export class DatasetComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.numOpen = 0;
+    this.numSets = 0;
     this.numRecentlyUpdated = 0;
     this.numOutOfDate = 0;
     this.numUnderReview = 0;
@@ -44,6 +45,7 @@ export class DatasetComponent implements OnInit {
   // populates page with selected dataset information
   setSelectedDataset(name: string) {
     this.selectedDataset = name;
+    this.numSets = 0;
     this.numRecentlyUpdated = 0;
     this.numOutOfDate = 0;
     this.numUnderReview = 0;
@@ -51,7 +53,7 @@ export class DatasetComponent implements OnInit {
     // GET datasets
     this.datasetService.getDatasets().subscribe((res: any[]) => {
       this.datasets = res;
-      this.numOpen = this.datasets.length;
+      this.numSets = this.datasets.length;
 
       var year: string;
       for (var i = 0; i < this.datasets.length; i++) {
