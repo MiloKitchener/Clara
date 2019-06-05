@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { fadeAnimation } from '../animations/fade.animation';
 
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { ProfileService } from 'src/app/services/profile/profile.service';
+
+import { User } from 'src/app/classes/user';
 
 @Component({
   selector: 'app-main',
@@ -12,18 +15,15 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 
 export class MainComponent implements OnInit {
   // user profile vars
-  private user: any;
+  private user: User;
 
   constructor(
+    private _profileService: ProfileService,
     private logoutService: AuthService
   ) { }
 
   ngOnInit() {
-    this.user = {
-      "name": "William McKinnon",
-      "title": "Smart City Developer",
-      "pictureSrc": "assets/images/avatar.png"
-    }
+    this.user = this._profileService.getUser();
   }
 
   /*********************

@@ -1,0 +1,17 @@
+<h1>Profile</h1>
+
+<form [formGroup]="updateUserForm" (ngSubmit)="updateProfile()">
+  <div class="flexContainer">
+    <div class="imagePanel">
+      <img [src]="pictureSrc" />
+      <br>
+      <input type="text" formControlName="imageUrl" [(ngModel)]='pictureSrc' placeholder="Image URL">
+    </div>
+    <div class="rightPanel">
+      <input type="text" formControlName="name" [(ngModel)]='name' placeholder="Name">
+      <br>
+      <input type="text" formControlName="title" [(ngModel)]='title' placeholder="Title">
+    </div>
+  </div>
+  <input type="submit" value="Apply">
+</form>

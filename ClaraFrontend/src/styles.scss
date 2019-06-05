@@ -1,12 +1,16 @@
 /* Font */
 @import url('https://fonts.googleapis.com/css?family=Poppins:100,300,400,500,600');
 
+html {
+  height: 100%;
+}
+
 body {
   font-family: 'Poppins', sans-serif;
   background-color: #EFEFEF;
   margin: 0;
   padding: 0;
-  position: relative;
+  height: 100%;
 }
 
 

@@ -1,0 +1,53 @@
+ h1 {
+	margin: 0;
+	padding: 40px 0;
+	color: white;
+	font-size: 40pt;
+	font-weight: 300;
+	background-image: linear-gradient(to left, #32CDFE, #00B2FF);
+ }
+
+ form {
+  background-color: white;
+  padding: 30px 0;
+  border-radius: 7px;
+  margin: 30px;
+  text-align: center;
+}
+
+.flexContainer {
+  display: flex;
+}
+
+.imagePanel {
+  width: 40%;
+}
+
+img {
+  width: 130px;
+  border-radius: 50%;
+}
+
+input {
+  border: none;
+}
+
+.rightPanel input {
+  font-size: 14pt;
+}
+
+input[type="submit"] {
+  padding: 10px 30px;
+  width: 20%;
+  font-size: 12pt;
+  color: white;
+  background-color: #00B2FF;
+  border-radius: 7px;
+  transition:color .2s ease-out, background 0.3s ease-in;
+}
+
+input[type="submit"]:hover {
+  background-color:#408DF7;
+  transition:color .2s ease-out, background 0.3s ease-in;
+  cursor: pointer;
+}
