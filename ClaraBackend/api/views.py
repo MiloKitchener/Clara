@@ -7,9 +7,10 @@ from .models import *
 from .serializers import *
 from django.views.decorators.csrf import csrf_exempt
 from .forms import CustomUserCreationForm
-from rest_framework import viewsets, generics
+from rest_framework import viewsets
 from .dal import *
 from rest_framework.decorators import action
+from rest_framework.reverse import reverse
 
 
 @csrf_exempt
@@ -44,7 +45,7 @@ class DatasetView(viewsets.ModelViewSet):
 
     # Get fields for dataset
     @action(detail=True)
-    def field_names(self, request, pk=None):
+    def field_names(self, pk=None):
         queryset = Field.objects.filter(dataset__pk=pk)
         return Response(queryset.values())
 
@@ -73,6 +74,29 @@ class FieldView(viewsets.ModelViewSet):
     serializer_class = FieldSerializer
 
 
+# API endpoint that allows users to be viewed or edited
+class UserView(viewsets.ModelViewSet):
+    # Authenticate the user
+    # TODO: Re-enable authentication
+    # permission_classes = (IsAuthenticated,)
+
+    # Select all datasets
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+    http_method_names = ['get']
+
+
+# API endpoint that allows permissions to be viewed or edited
+class PermissionView(viewsets.ModelViewSet):
+    # Authenticate the user
+    # TODO: Re-enable authentication
+    # permission_classes = (IsAuthenticated,)
+
+    # Select all datasets
+    queryset = Permission.objects.all()
+    serializer_class = PermissionSerializer
+
+
 # API endpoint that allows graphs to be viewed or edited
 class GraphView(viewsets.ModelViewSet):
     # Authenticate the user
@@ -84,18 +108,18 @@ class GraphView(viewsets.ModelViewSet):
 
     def create(self, request, **kwargs):
         # Before the Graph object is created, fill in the user field
-        request.data['user'] = request.user.id
+        request.data['user'] = reverse('user-detail', kwargs={'pk': request.user.id})
         return super(GraphView, self).create(request)
 
     # Get graphs for user
     @action(detail=False)
-    def user_graphs(self, request, pk=None):
+    def user_graphs(self, request):
         queryset = Graph.objects.filter(user__id=request.user.id)
         return Response(queryset.values())
 
     # Get graph data
     @action(detail=False, methods=['post'])
-    def request_graph(self, request, pk=None):
+    def request_graph(self, request):
         data = json.loads(request.body)
         dataset1 = data['dataset1']
         field1 = data['field1']
@@ -129,3 +153,40 @@ class AskClaraFeedView(viewsets.ModelViewSet):
     queryset = AskClaraFeed.objects.all()
     serializer_class = AskClaraFeedSerializer
     pagination_class = LimitOffsetPagination
+
+
+# API endpoint that allows ideas to be viewed or edited
+class PostView(viewsets.ModelViewSet):
+    # Authenticate the user
+    permission_classes = (IsAuthenticated,)
+
+    def create(self, request, **kwargs):
+        # Before the Graph object is created, fill in the user field
+        request.data['user'] = reverse('user-detail', kwargs={'pk': request.user.id})
+        return super(PostView, self).create(request)
+
+    # Select all datasets
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
+
+
+# API endpoint that allows comments to be viewed or edited
+class CommentView(viewsets.ModelViewSet):
+    # Authenticate the user
+    permission_classes = (IsAuthenticated,)
+
+    # Get comments for post
+    @action(detail=False, methods=['post'])
+    def post_comments(self, request):
+        data = json.loads(request.body)
+        queryset = Comment.objects.filter(post=data['id'])
+        return Response(queryset.values())
+
+    def create(self, request, **kwargs):
+        # Before the Graph object is created, fill in the user field
+        request.data['user'] = reverse('user-detail', kwargs={'pk': request.user.id})
+        return super(CommentView, self).create(request)
+
+    # Select all datasets
+    queryset = Comment.objects.all()
+    serializer_class = CommentSerializer

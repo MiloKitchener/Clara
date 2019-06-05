@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Dataset
+from .models import *
 from django.contrib.auth.admin import UserAdmin
 from .forms import CustomUserCreationForm, CustomUserChangeForm
 from .models import User
@@ -14,3 +14,4 @@ class CustomUserAdmin(UserAdmin):
 
 admin.site.register(User, CustomUserAdmin)
 admin.site.register(Dataset)
+admin.site.register(Graph)

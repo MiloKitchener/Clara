@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from .models import *
+from django.contrib.auth.models import Permission
 
 
 class DatasetSerializer(serializers.HyperlinkedModelSerializer):
@@ -14,13 +15,18 @@ class FieldSerializer(serializers.HyperlinkedModelSerializer):
         fields = '__all__'
 
 
-class GraphSerializer(serializers.HyperlinkedModelSerializer):
-    # User field will be an id instead of a url because I struggled
-    user = serializers.SlugRelatedField(
-        queryset=User.objects.all(),
-        slug_field='id'
-    )
+class UserSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = User
+        fields = ('url', 'username', 'email', 'first_name', 'last_name')
 
+
+class PermissionSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Permission
+
+
+class GraphSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Graph
         fields = '__all__'
@@ -30,3 +36,15 @@ class AskClaraFeedSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = AskClaraFeed
         fields = '__all__'
+
+
+class PostSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Post
+        fields = ('id', 'url', 'num_votes', 'user', 'description', 'tag', 'title')
+
+
+class CommentSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Comment
+        fields = ('id', 'url', 'comment', 'user', 'post')

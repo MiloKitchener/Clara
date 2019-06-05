@@ -34,7 +34,7 @@ class User(AbstractUser):
 
 class Graph(models.Model):
     name = models.CharField(max_length=255, null=False)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, related_name='graphs', on_delete=models.CASCADE)
     dataset1 = models.CharField(max_length=255, null=False)
     field1 = models.CharField(max_length=255, null=False)
     dataset2 = models.CharField(max_length=255, null=False)
@@ -47,3 +47,26 @@ class Graph(models.Model):
 class AskClaraFeed(models.Model):
     response = models.CharField(max_length=255, null=False)
     datetime = models.DateTimeField(default=datetime.datetime.now(), null=True)
+
+    def __str__(self):
+        return self.response
+
+
+class Post(models.Model):
+    title = models.CharField(max_length=255, null=False)
+    description = models.CharField(max_length=255, null=False)
+    num_votes = models.IntegerField(null=False, default=0)
+    user = models.ForeignKey(User, related_name='posts', on_delete=models.CASCADE)
+    tag = models.CharField(max_length=255, null=True)
+
+    def __str__(self):
+        return self.title
+
+
+class Comment(models.Model):
+    comment = models.CharField(max_length=255, null=False)
+    user = models.ForeignKey(User, related_name='comments', default=1, on_delete=models.CASCADE)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.comment

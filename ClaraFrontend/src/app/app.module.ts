@@ -25,6 +25,8 @@ import { GraphDataService } from './services/graph-data/graph-data.service';
 import { AlexaFeedComponent } from './components/alexa-feed/alexa-feed.component';
 import { SharedDashboardsComponent } from './components/shared-dashboards/shared-dashboards.component';
 import { DashboardSplashComponent } from './components/dashboard-splash/dashboard-splash.component';
+import { IdeaAnchorDirective } from './directives/idea-anchor.directive';
+import { IdeaForumComponent } from './components/idea-forum/idea-forum.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,9 @@ import { DashboardSplashComponent } from './components/dashboard-splash/dashboar
     AlexaFeedComponent,
     SharedDashboardsComponent,
     DashboardSplashComponent,
+    IdeaAnchorDirective,
+    IdeaForumComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -58,6 +63,7 @@ import { DashboardSplashComponent } from './components/dashboard-splash/dashboar
       multi: true,
     }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [IdeaNodeComponent]
 })
 export class AppModule { }

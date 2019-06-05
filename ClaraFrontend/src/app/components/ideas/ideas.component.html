@@ -14,45 +14,34 @@
       </div>
     </div>
 
-    <form id="searchDataForm" [formGroup]="searchForm" (ngSubmit)="search()">
-      <input type="text" id="search" formControlName="searchValue" placeholder="Search">
-      <input type="submit" name="searchSubmit" value="See All Results">
-      <button>
-        <img src="./assets/vectors/downArrow.svg" alt="">
-      </button>
-    </form>
+<!--    <form id="searchDataForm" [formGroup]="searchForm" (ngSubmit)="search()">-->
+<!--      <input type="text" id="search" formControlName="searchValue" placeholder="Search">-->
+<!--      <input type="submit" name="searchSubmit" value="See All Results">-->
+<!--      <button>-->
+<!--        <img src="./assets/vectors/downArrow.svg" alt="">-->
+<!--      </button>-->
+<!--    </form>-->
   </div>
 </div>
 
 <button id="postButton" (click)="viewNewPost()">New Post</button>
 
-<!-- Posts Feed -->
-<div class="container">
-  <div class="leftContainer">
-    <div class="postedIdeas">
-      <ul>
-        <li *ngFor="let post of posts">
-          <app-idea-node [post]=post></app-idea-node>
-        </li>
-      </ul>
-    </div>
-  </div>
-</div>
+<app-idea-forum></app-idea-forum>
 
 <!-- New Post Panel -->
-<div class="newPostPanel" (ngSubmit)="submitPost()"
+<div class="newPostPanel"
   [ngStyle]="{'display': toggleNewPostView === true ? 'block' : 'none'}">
   <button id="closeNewPostPanelBtn" (click)="closeNewPost()">x</button>
 
-  <form [formGroup]="newPostForm">
+  <form [formGroup]="newPostForm" (ngSubmit)="submitPost()">
     <h4>Title</h4>
     <input formControlName="title" type="text" placeholder="Title">
-    <div *ngIf="newPostSubmitted && newPostForm.title.errors" class="invalid-feedback">
-      <div *ngIf="newPostForm.title.errors.required">a title is required</div>
+    <div *ngIf="newPostSubmitted && newPostForm.get('title').errors" class="invalid-feedback">
+      <div *ngIf="newPostForm.get('title').errors.required">A title is required</div>
     </div>
     <h4>Description</h4>
     <textarea formControlName="description" cols="30" rows="10" placeholder="Description"></textarea>
-    <select formControlName="filterSelect">
+    <select formControlName="tag">
       <option [value]="filter" *ngFor="let filter of filters">{{ filter }}</option>
     </select>
     <input type="submit" value="Post Idea">

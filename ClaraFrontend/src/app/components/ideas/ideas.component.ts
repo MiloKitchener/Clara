@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 import { IdeasService } from 'src/app/services/ideas/ideas.service';
-import { Post } from 'src/app/classes/post';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -13,7 +12,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class IdeasComponent implements OnInit {
 
   // instance variables
-  private posts: Post[];
   private filters: string[];
   private arrangedFilters: string[];
   private selectedFilter: string;
@@ -23,24 +21,26 @@ export class IdeasComponent implements OnInit {
   private toggleNewPostView: boolean;
   private newPostSubmitted: boolean;
 
-  constructor(private _ideasService: IdeasService, private fb: FormBuilder) { }
+  constructor(
+    private ideasService: IdeasService,
+    private fb: FormBuilder,
+  ) { }
 
   ngOnInit() {
     // instantiate instance variables
     this.newPostForm = this.fb.group({
       title: ['', Validators.required],
       description: ['', Validators.required],
-      filterSelect: ['None', Validators.required]
+      tag: ['None', Validators.required]
     });
 
-    this.selectedFilter = "None"
+    this.selectedFilter = 'None';
     this.toggleNewPostView = false;
     this.newPostSubmitted = false;
 
-    // get variables from service
-    this.filters = this._ideasService.getFilters();
-    this.arrangedFilters = this._ideasService.getArrangedFilters();
-    this.posts = this._ideasService.getPosts();
+    // Get variables from service
+    this.filters = this.ideasService.getFilters();
+    this.arrangedFilters = this.ideasService.getArrangedFilters();
   }
 
   // selects a filter
@@ -58,9 +58,10 @@ export class IdeasComponent implements OnInit {
     this.toggleNewPostView = false;
   }
 
-  // adds a new idea post
+  // Adds a new idea post
   private submitPost() {
     this.newPostSubmitted = true;
+    this.ideasService.addPost(this.newPostForm.value);
   }
 
   /************************************
