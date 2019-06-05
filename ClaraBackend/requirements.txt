@@ -56,6 +56,7 @@ pyparsing==2.4.0
 pyrsistent==0.15.2
 pyshp==2.1.0
 python-dateutil==2.8.0
+python-Levenshtein==0.12.0
 pytz==2019.1
 pywin32-ctypes==0.2.0
 pywinpty==0.5.5
