@@ -1,0 +1,206 @@
+.container {
+  padding: 30px;
+  padding-top: 0;
+}
+
+.buttonsPanel {
+  list-style-type: none;
+  width: 100%;
+  padding: 0;
+}
+
+
+.buttonsPanel li {
+  display: inline-block;
+  margin: 20px;
+  margin-bottom: 0;
+  width: 20%;
+}
+
+.buttonsPanel button {
+  border: 0;
+  border-radius: 25px;
+  padding: 10px 20px;
+  background-color: white;
+  transition:color .2s ease-out, background 0.3s ease-in;
+}
+
+.buttonsPanel button:hover {
+  background-color: #EFEFEF;
+  transition:color .2s ease-out, background 0.3s ease-in;
+  cursor: pointer;
+}
+
+/********************************
+  Search Panel CSS
+********************************/
+
+.searchPanel {
+  padding: 50px;
+  color: white;
+  background-image: linear-gradient(to left, #32CDFE, #00B2FF);
+}
+
+.searchPanel h1 {
+  font-size: 40pt;
+  font-weight: 300;
+}
+
+input, #searchDataForm button {
+  border: 0;
+  background-color: white;
+  padding: 15px 30px;
+  font-size: 14pt;
+}
+
+input:focus, button:focus {
+  outline: none;
+}
+
+input[type="text"] {
+  width: 500px;
+  border-radius: 10px 0 0 10px;
+}
+
+input #search {
+  background-repeat: no-repeat;
+  text-indent: 30px;
+}
+
+input[type="submit"] {
+  text-align: right;
+  color: #32CDFE;
+  font-weight: bold;
+  padding-right: 0;
+  transition:color .2s ease-out, background 0.3s ease-in;
+}
+
+input::placeholder {
+  color: #BBBBBB;
+}
+
+input[type="submit"]:hover {
+  color: #00B2FF;
+  transition:color .2s ease-out, background 0.3s ease-in;
+}
+
+#searchDataForm button {
+  padding-left: 15px;
+  border-radius: 0 10px 10px 0;
+}
+
+button img {
+  height: 10px;
+}
+
+/********************************
+  Status CSS
+********************************/
+
+h2 {
+  font-weight: 400;
+  font-size: 30pt;
+  margin-top: 30px;
+}
+
+.datasetStats {
+  margin-top: 45px;
+  margin-bottom: 45px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.datasetStats div {
+  background-color: white;
+  border-radius: 7px;
+  width: 20%;
+  padding: 20px;
+}
+  
+.datasetStats h3 {
+  font-weight: 100;
+  margin: 0;
+  font-size: 50px;
+}
+  
+.datasetStats p {
+  margin: 0;
+  margin-bottom: 10px;
+  font-size: 12px;
+}
+  
+#numAccepted {
+  color: #38D900;
+}
+  
+#numNotMapped {
+  color: #E80000;
+}
+  
+#numUnderReview {
+  color: #F5CB35;
+}
+
+/********************************
+  Dataset List CSS
+********************************/
+
+#datasetsList {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#datasetsList li {
+  margin-bottom: 20px;
+  background-color: white;
+  border-radius: 7px;
+  height: 180px;
+}
+  
+.nodeContainer {
+  display: flex;
+  padding: 0;
+}
+  
+.nodeContainer h3 {
+  margin: 0;
+  margin-top: 8px;
+  font-weight: 300;
+  font-size: 28pt;
+}
+
+.nodecontainer p {
+  font-size: 12pt;
+}
+
+.titleDesc {
+  min-width: 80%;
+  flex-grow: 1000;
+  height: 150px;
+  margin-left: 20px;
+  padding: 20px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  text-align: justify;
+}
+
+.statusPanel {
+  flex: 1;
+  min-width: 100px;
+  flex-grow: 0;
+  margin: 0;
+  height: 100%;
+}
+
+.statusPanel svg {
+  height: 215px;
+  margin-top: -18px;
+  margin-right: -55px;
+}
+
+.statusPanel h6:first-child{
+  margin-top: 35px;
+  font-size: 20px;
+}

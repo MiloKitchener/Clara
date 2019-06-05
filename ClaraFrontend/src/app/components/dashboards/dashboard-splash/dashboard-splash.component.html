@@ -1,0 +1,15 @@
+<h1>Dashboards</h1>
+
+<h2>How To Use The {{ selected }}</h2>
+
+<ul>
+  <li>
+    <a routerLink="personalExample" (click)="setSelected('User Dashboard')">User Dashboard</a>
+  </li>
+  <li>
+    <a routerLink="sharedExample" (click)="setSelected('Shared Dashboards')">Shared Dashboards</a>
+  </li>
+</ul>
+
+<!-- Routed How To Components -->
+<router-outlet></router-outlet>

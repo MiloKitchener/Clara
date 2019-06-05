@@ -1,0 +1,24 @@
+<h1>
+  Alexa: Ask Clara
+</h1>
+
+<div class="container">
+  <div class="subcontainer">
+    <div class="feedPanel">
+      <h3>Here's What Clara Has To Say:</h3>
+      <div class="messageContainer">
+        <ul>
+          <li *ngFor="let message of feedData.results">
+            {{ message.response }}
+          </li>
+        </ul>
+        <img src="assets/vectors/claraAlexa.svg" alt="">
+      </div>
+    </div>
+
+    <div class="liveStatsPanel">
+      <h3>Live Stats</h3>
+
+    </div>
+  </div>
+</div>

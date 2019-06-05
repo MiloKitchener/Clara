@@ -1,20 +1,29 @@
+// import core modules
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { SharedDashboardsComponent } from './components/shared-dashboards/shared-dashboards.component';
-import { DashboardSplashComponent } from './components/dashboard-splash/dashboard-splash.component';
-import { UserDashboardComponent } from './components/user-dashboard/user-dashboard.component';
-import { IdeasComponent } from './components/ideas/ideas.component';
-import { DatasetsComponent } from './components/datasets/datasets.component';
-import { LabServicesComponent } from './components/lab-services/lab-services.component';
+// import services
+import { AuthService } from './services/auth/auth.service';
 
+// import components
 import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main/main.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
-import { AuthService } from './services/auth/auth.service';
-import { AlexaFeedComponent } from './components/alexa-feed/alexa-feed.component';
-import { AlexaHelpComponent } from './components/alexa-help/alexa-help.component';
+import { DashboardSplashComponent } from './components/dashboards/dashboard-splash/dashboard-splash.component';
+import { UserDashboardComponent } from './components/dashboards/user-dashboard/user-dashboard.component';
+import { SharedDashboardsComponent } from './components/dashboards/shared-dashboards/shared-dashboards.component';
+import { UserHowToComponent } from './components/dashboards/user-how-to/user-how-to.component';
+import { SharedHowToComponent } from './components/dashboards/shared-how-to/shared-how-to.component';
+
+import { DatasetComponent } from './components/dataset/dataset.component';
+
+import { AlexaFeedComponent } from './components/alexa/alexa-feed/alexa-feed.component';
+import { AlexaHelpComponent } from './components/alexa/alexa-help/alexa-help.component';
+
+import { IdeasComponent } from './components/ideas/ideas.component';
+
+import { LabServicesComponent } from './components/lab-services/lab-services.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'main', pathMatch: 'full' },
@@ -26,10 +35,19 @@ const routes: Routes = [
     canActivate: [AuthService],
     children: [
       { path: '', redirectTo: 'dashboardSplash', pathMatch: 'full' },
-      { path: 'dashboardSplash', component: DashboardSplashComponent, data: { title: 'Dashboard' } },
+      {
+        path: 'dashboardSplash',
+        component: DashboardSplashComponent,
+        data: { title: 'Dashboard' },
+        children: [
+          { path: '', redirectTo: 'personalExample', pathMatch: 'full' },
+          { path: 'personalExample', component: UserHowToComponent },
+          { path: 'sharedExample', component: SharedHowToComponent },
+        ]
+      },
       { path: 'personalDashboard', component: UserDashboardComponent, data: { title: 'My Dashboard' } },
       { path: 'sharedDashboards', component: SharedDashboardsComponent, data: { title: 'Shared Dashboards' } },
-      { path: 'datasets', component: DatasetsComponent, data: { title: 'Datasets' } },
+      { path: 'dataset', component: DatasetComponent, data: { title: 'Dataset' } },
       { path: 'alexa-help', component: AlexaHelpComponent, data: { title: 'Alexa Help' } },
       { path: 'alexa-feed', component: AlexaFeedComponent, data: { title: 'Alexa Feed' } },
       { path: 'ideas', component: IdeasComponent, data: { title: 'Ideas' } },

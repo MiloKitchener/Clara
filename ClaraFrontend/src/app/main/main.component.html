@@ -1,80 +1,62 @@
 <div class="sidebarDiv">
-
-  <img src="/assets/images/clara-logo-lrg.png" alt="Clara" id="siteIcon">
-
   <ul>
+    <!-- Profile Info -->
+    <li>
+      <div class="sidebar-user-panel">
+        <img [src]="user.pictureSrc" />
+        <h3>{{ user.name }}</h3>
+        <p>{{ user.title }}</p>
+      </div>
+    </li>
     <!-- Dashboards Nav -->
-    <li routerLinkActive="active" class="dropdownBtn">
+    <li routerLinkActive="active">
       <a routerLink="dashboardSplash">
         <img src="/assets/vectors/dashboardIcon.svg">
         <span>Dashboard</span>
         <i class="fa fa-angle-down custom"></i>
       </a>
+      <ul class="dropdown">
+        <li routerLinkActive="active">
+          <a routerLink="personalDashboard">
+            <span>My Dashboard</span>
+          </a>
+        </li>
+        <li routerLinkActive="active">
+          <a routerLink="sharedDashboards">
+            <span>Shared Dashboards</span>
+          </a>
+        </li>
+      </ul>
     </li>
-    <div class="dropdownContainer">
-      <li routerLinkActive="active">
-        <a routerLink="personalDashboard">
-          <span>My Dashboard</span>
-        </a>
-      </li>
-      <li routerLinkActive="active">
-        <a routerLink="sharedDashboards">
-          <span>Shared Dashboards</span>
-        </a>
-      </li>
-    </div>
 
     <!-- Datasets Nav -->
-    <li routerLinkActive="active" class="dropdownBtn">
-      <a>
+    <li routerLinkActive="active">
+      <a routerLink="dataset">
         <img src="/assets/vectors/datasetsIcon.svg">
         <span>Datasets</span>
-        <i class="fa fa-angle-down custom"></i>
       </a>
     </li>
-    <div class="dropdownContainer">
-      <li routerLinkActive="active">
-        <a routerLink="datasets">
-          <span>Open Datasets</span>
-        </a>
-      </li>
-      <li routerLinkActive="active">
-        <a>
-          <span>Imported Datasets</span>
-        </a>
-      </li>
-      <li routerLinkActive="active">
-        <a>
-          <span>Official API Data</span>
-        </a>
-      </li>
-      <li routerLinkActive="active">
-        <a>
-          <span>Imported Data</span>
-        </a>
-      </li>
-    </div>
 
     <!-- Alexa Feed Nav -->
-    <li routerLinkActive="active" class="dropdownBtn">
+    <li routerLinkActive="active">
       <a routerLink="alexa-help">
         <img src="/assets/vectors/alexaFeedIcon.svg">
         <span>Alexa: Ask Clara</span>
         <i class="fa fa-angle-down custom"></i>
       </a>
+      <ul class="dropdown">
+        <li routerLinkActive="active">
+          <a routerLink="alexa-help">
+            <span>Things You Can Ask</span>
+          </a>
+        </li>
+        <li routerLinkActive="active">
+          <a routerLink="alexa-feed">
+            <span>Status</span>
+          </a>
+        </li>
+      </ul>
     </li>
-    <div class="dropdownContainer">
-      <li routerLinkActive="active">
-        <a routerLink="alexa-help">
-          <span>Things You Can Ask</span>
-        </a>
-      </li>
-      <li routerLinkActive="active">
-        <a routerLink="alexa-feed">
-          <span>Status</span>
-        </a>
-      </li>
-    </div>
 
     <!-- Ideas Nav -->
     <li routerLinkActive="active">
@@ -92,6 +74,10 @@
       </a>
     </li>
   </ul>
+
+  <a routerLink="dashboardSplash">
+    <img src="/assets/images/clara-logo-lrg.png" alt="Clara" id="siteIcon">
+  </a>
 </div>
 
 <!-- Routed Elements -->
