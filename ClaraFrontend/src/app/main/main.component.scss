@@ -97,10 +97,13 @@ li:hover .dropdown {
   display: block;
 }
 
-li:hover:not(:first-child) {
+li:hover {
   background-color: #EAEAEA;
 }
 
+.noHover:hover {
+  background-color: white;
+}
 
 #siteIcon {
   position: absolute;
