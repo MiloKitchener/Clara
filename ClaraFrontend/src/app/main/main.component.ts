@@ -11,6 +11,7 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 export class MainComponent implements OnInit {
   // user profile vars
   private user: any;
+
   constructor(
     private logoutService: AuthService
   ) { }
@@ -20,20 +21,6 @@ export class MainComponent implements OnInit {
       "name": "William McKinnon",
       "title": "Smart City Developer",
       "pictureSrc": "assets/images/avatar.png"
-    }
-
-
-    // add dropdown functionality
-    var dropdown = document.getElementsByClassName("dropdownBtn");
-    for (var i = 0; i < dropdown.length; i++) {
-      dropdown[i].addEventListener("click", function () {
-        var dropdownContent = this.nextElementSibling;
-        if (dropdownContent.style.display === "block") {
-          dropdownContent.style.display = "none";
-        } else {
-          dropdownContent.style.display = "block";
-        }
-      });
     }
   }
 

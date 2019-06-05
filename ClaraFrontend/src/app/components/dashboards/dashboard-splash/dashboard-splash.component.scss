@@ -1,0 +1,45 @@
+h1 {
+  margin: 0;
+  padding: 50px;
+  color: white;
+  background-image: linear-gradient(to left, #32CDFE, #00B2FF);
+  font-size: 40pt;
+  font-weight: 300;
+}
+
+h2 {
+  margin-top: 50px;
+  margin-bottom: 20px;
+  font-weight: 500;
+  font-size: 24pt;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  display: inline-block;
+  margin: 20px;
+  width: 200px;
+  transition:color .2s ease-out, background 0.3s ease-in;
+}
+
+a {
+  padding: 7px 0;
+  border-radius: 25px;
+  background-color: #00B2FF;
+  display: block;
+  color: white;
+  text-decoration: none;
+}
+
+a:focus {
+  outline: none;
+}
+
+li a:hover {
+  background-color: #0099FF;
+  transition:color .2s ease-out, background 0.3s ease-in;
+}

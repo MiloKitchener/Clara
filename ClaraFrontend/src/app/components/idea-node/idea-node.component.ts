@@ -10,7 +10,7 @@ import { IdeasService } from 'src/app/services/ideas/ideas.service';
 })
 
 export class IdeaNodeComponent implements OnInit {
-  @Input() private post: Post;
+  @Input() post: Post;
   private voted: number;
   private viewComments: boolean;
   private addCommentForm: FormGroup;
@@ -21,7 +21,7 @@ export class IdeaNodeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.voted = 0 // 0 means no vote by user, 1 means upvote, 2 means downvote
+    this.voted = 0; // 0 means no vote by user, 1 means upvote, 2 means downvote
     this.viewComments = false;
 
     this.addCommentForm = this.fb.group({
@@ -30,47 +30,38 @@ export class IdeaNodeComponent implements OnInit {
   }
 
   public upvote() {
-    if (this.voted == 0) {
-      this.post.numVotes++;
+    if (this.voted === 0) {
+      this.post.num_votes++;
       this.voted = 1;
-    }
-    else if (this.voted == 2) { // if previously downvoted, add two to remove downvote and add upvote
-      this.post.numVotes += 2;
+    } else if (this.voted === 2) { // if previously downvoted, add two to remove downvote and add upvote
+      this.post.num_votes += 2;
       this.voted = 1;
-    }
-    else { // upvote again to remove upvote
-      this.post.numVotes--;
+    } else { // upvote again to remove upvote
+      this.post.num_votes--;
       this.voted = 0;
     }
   }
 
   public downvote() {
-    if (this.voted == 0) {
-      this.post.numVotes--;
+    if (this.voted === 0) {
+      this.post.num_votes--;
       this.voted = 2;
-    }
-    else if (this.voted == 1) { // if previously upvoted, sub two to remove upvote and add downvote
-      this.post.numVotes -= 2;
+    } else if (this.voted === 1) { // if previously upvoted, sub two to remove upvote and add downvote
+      this.post.num_votes -= 2;
       this.voted = 2;
-    }
-    else { // downvote again to remove downvote
-      this.post.numVotes++;
+    } else { // downvote again to remove downvote
+      this.post.num_votes++;
       this.voted = 0;
     }
   }
 
-  // toggles comment view
+  // Toggles comment view
   public toggleComments() {
-    if (this.viewComments == false) {
-      this.viewComments = true;
-    }
-    else {
-      this.viewComments = false;
-    }
+    this.viewComments = this.viewComments === false;
   }
 
-  // adds a comment
-  public addComment() {
-    this.ideaService.addComment(this.post.id, this.addCommentForm.value);
+  // Adds a comment
+  public submitComment() {
+    this.ideaService.addComment(this.post, this.addCommentForm.value);
   }
 }
