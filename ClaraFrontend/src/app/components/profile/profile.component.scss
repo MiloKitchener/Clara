@@ -7,9 +7,14 @@
 	background-image: linear-gradient(to left, #32CDFE, #00B2FF);
  }
 
+.formContainer {
+  width: 60%;
+  margin: auto;
+}
+
  form {
   background-color: white;
-  padding: 30px 0;
+  padding: 30px;
   border-radius: 7px;
   margin: 30px;
   text-align: center;
@@ -30,19 +35,23 @@ img {
 
 input {
   border: none;
+  padding: 10px 20px;
+  border-radius: 7px;
+  background-color: #F6F6F6;
+  font-size: 14pt;
+  transition:color .2s ease-out, background 0.3s ease-in;
 }
 
-.rightPanel input {
-  font-size: 14pt;
+input:hover {
+  background-color: #EFEFEF;
+  transition:color .2s ease-out, background 0.3s ease-in;
 }
 
 input[type="submit"] {
-  padding: 10px 30px;
   width: 20%;
   font-size: 12pt;
   color: white;
   background-color: #00B2FF;
-  border-radius: 7px;
   transition:color .2s ease-out, background 0.3s ease-in;
 }
 
