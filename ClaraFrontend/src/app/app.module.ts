@@ -27,10 +27,7 @@ import { SharedHowToComponent } from './components/dashboards/shared-how-to/shar
 import { AlexaFeedComponent } from './components/alexa/alexa-feed/alexa-feed.component';
 import { AlexaHelpComponent } from './components/alexa/alexa-help/alexa-help.component';
 
-import { DatasetsHowToComponent } from './components/datasets/datasets-how-to/datasets-how-to.component';
-import { OpenDatasetsComponent } from './components/datasets/open-datasets/open-datasets.component';
-import { ImportedDatasetsComponent } from './components/datasets/imported-datasets/imported-datasets.component';
-import { OfficialAPIDataComponent } from './components/datasets/official-apidata/official-apidata.component';
+import { DatasetComponent } from './components/dataset/dataset.component';
 
 import { IdeasComponent } from './components/ideas/ideas.component';
 
@@ -47,7 +44,7 @@ import { GraphPanelComponent } from './components/graph-panel/graph-panel.compon
     IdeasComponent,
     IdeaNodeComponent,
     GraphPanelComponent,
-    OpenDatasetsComponent,
+    DatasetComponent,
     LabServicesComponent,
     LoginComponent,
     MainComponent,
@@ -56,11 +53,8 @@ import { GraphPanelComponent } from './components/graph-panel/graph-panel.compon
     SharedDashboardsComponent,
     DashboardSplashComponent,
     AlexaHelpComponent,
-    ImportedDatasetsComponent,
-    OfficialAPIDataComponent,
     UserHowToComponent,
     SharedHowToComponent,
-    DatasetsHowToComponent,
   ],
   imports: [
     BrowserModule,

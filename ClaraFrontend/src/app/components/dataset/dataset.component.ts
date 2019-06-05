@@ -6,14 +6,14 @@ import { GraphDataService } from 'src/app/services/graph-data/graph-data.service
 import { Dataset } from 'src/app/classes/dataset';
 
 @Component({
-  selector: 'app-datasets',
-  templateUrl: './open-datasets.component.html',
-  styleUrls: ['./open-datasets.component.scss']
+  selector: 'app-dataset',
+  templateUrl: './dataset.component.html',
+  styleUrls: ['./dataset.component.scss']
 })
-
-export class OpenDatasetsComponent implements OnInit {
+export class DatasetComponent implements OnInit {
 
   // class variables
+  private selectedDataset: string;
   private datasets: Dataset[];
 
   private searchForm: any;
@@ -29,13 +29,24 @@ export class OpenDatasetsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.numOpen = 0;
     this.numRecentlyUpdated = 0;
     this.numOutOfDate = 0;
     this.numUnderReview = 0;
+    this.setSelectedDataset("Open Data"); // default dataset is open data
 
     this.searchForm = this.fb.group({
       searchValue: ['']
-    });;
+    });
+  }
+
+
+  // populates page with selected dataset information
+  setSelectedDataset(name: string) {
+    this.selectedDataset = name;
+    this.numRecentlyUpdated = 0;
+    this.numOutOfDate = 0;
+    this.numUnderReview = 0;
 
     // GET datasets
     this.datasetService.getDatasets().subscribe((res: any[]) => {

@@ -1,0 +1,67 @@
+<div class=searchPanel>
+	<h1>Find a Dataset</h1>
+
+	<form id="searchDataForm" [formGroup]="searchForm" (ngSubmit)="search()">
+		<input type="text" id="search" formControlName="searchValue" placeholder="Search">
+		<input type="submit" name="searchSubmit" value="See All Results">
+		<button>
+			<img src="./assets/vectors/downArrow.svg" alt="">
+		</button>
+	</form>
+
+
+	<ul class="buttonsPanel">
+		<li>
+			<button (click)="setSelectedDataset('Open Data')">Open Datasets</button>
+		</li>
+		<li>
+			<button (click)="setSelectedDataset('Live Data')">Live Data</button>
+		</li>
+		<li>
+			<button (click)="setSelectedDataset('Imported Data')">Imported Data</button>
+		</li>
+		<li>
+			<button (click)="setSelectedDataset('Authenticated API Data')">Authenticated API Data</button>
+		</li>
+	</ul>
+</div>
+
+<div class="container">
+	<h2>{{ selectedDataset }}</h2>
+	<div class="datasetStats">
+		<div>
+			<h3 id="numOpen">{{ numOpen }}</h3>
+			<p>Open Data Sets</p>
+		</div>
+		<div>
+			<h3 id="numAccepted">{{ numRecentlyUpdated }}</h3>
+			<p>Recently Updated</p>
+		</div>
+		<div>
+			<h3 id="numNotMapped">{{ numOutOfDate }}</h3>
+			<p>Out of Date</p>
+		</div>
+		<div>
+			<h3 id="numUnderReview">{{ numUnderReview }}</h3>
+			<p>Under Review</p>
+		</div>
+	</div>
+
+	<ul id="datasetsList">
+		<li *ngFor="let dataset of datasets">
+			<div class="nodeContainer">
+				<div class="titleDesc">
+					<h3>{{ dataset.name }}</h3>
+					<p>{{ dataset.desc }}</p>
+				</div>
+				<div class="statusPanel">
+					<svg width="46" height="177" viewBox="0 0 46 177" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path [ngStyle]="{'fill': dataset.datetime_updated ? '#7CDD00' : '#EE1D00'}"
+							d="M21.6259 0.00541515C28.0921 0.00272846 32.8734 0.00122665 36.3984 0.000517794C41.9123 -0.000591019 45.6213 4.46866 45.6213 9.98258V166.972C45.6213 172.506 41.6065 176.994 36.0728 176.995C32.5979 176.996 27.9173 176.997 21.6259 177C-6.71441 177.012 -7.69863 0.0175992 21.6259 0.00541515Z"
+							fill="#7CDD00" />
+					</svg>
+				</div>
+			</div>
+		</li>
+	</ul>
+</div>

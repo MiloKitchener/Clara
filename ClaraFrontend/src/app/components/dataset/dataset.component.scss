@@ -3,6 +3,34 @@
   padding-top: 0;
 }
 
+.buttonsPanel {
+  list-style-type: none;
+  width: 100%;
+  padding: 0;
+}
+
+
+.buttonsPanel li {
+  display: inline-block;
+  margin: 20px;
+  margin-bottom: 0;
+  width: 20%;
+}
+
+.buttonsPanel button {
+  border: 0;
+  border-radius: 25px;
+  padding: 10px 20px;
+  background-color: white;
+  transition:color .2s ease-out, background 0.3s ease-in;
+}
+
+.buttonsPanel button:hover {
+  background-color: #EFEFEF;
+  transition:color .2s ease-out, background 0.3s ease-in;
+  cursor: pointer;
+}
+
 /********************************
   Search Panel CSS
 ********************************/
@@ -18,7 +46,7 @@
   font-weight: 300;
 }
 
-input, button {
+input, #searchDataForm button {
   border: 0;
   background-color: white;
   padding: 15px 30px;
@@ -56,7 +84,7 @@ input[type="submit"]:hover {
   transition:color .2s ease-out, background 0.3s ease-in;
 }
 
-button {
+#searchDataForm button {
   padding-left: 15px;
   border-radius: 0 10px 10px 0;
 }
@@ -68,6 +96,12 @@ button img {
 /********************************
   Status CSS
 ********************************/
+
+h2 {
+  font-weight: 400;
+  font-size: 30pt;
+  margin-top: 30px;
+}
 
 .datasetStats {
   margin-top: 45px;
@@ -118,7 +152,7 @@ button img {
   margin: 0;
 }
 
-li {
+#datasetsList li {
   margin-bottom: 20px;
   background-color: white;
   border-radius: 7px;
