@@ -14,7 +14,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class IdeasComponent implements OnInit {
 
   // instance variables
-  @ViewChild(IdeaAnchorDirective) ideaAnchor: IdeaAnchorDirective;
+  @ViewChild(IdeaAnchorDirective, { static: true }) ideaAnchor: IdeaAnchorDirective;
 
   private posts: Post[];
   private filters: string[];
