@@ -18,7 +18,7 @@ h1 {
   position: absolute;
   padding: 4%;
   padding-left: 8%;
-  height: 87%;
+  height: 85%;
   width: 50%;
 }
 
@@ -52,6 +52,10 @@ input::placeholder {
   width: 110%;
   display: flex;
   justify-content: center;
+}
+
+.btnContainer input {
+  margin-right: 5%;
 }
 
 input[type="text"], input[type="email"], input[type="password"] {
@@ -160,4 +164,59 @@ p {
 
 #forgotPWForm {
   display: none;
+}
+
+
+/******************************
+  Portrait Mode CSS
+******************************/
+
+@media screen and (orientation: portrait) {
+
+  .rightContainer {
+    display: none;
+  }
+
+  .background {
+    display: none;
+  }
+
+  .leftContainer {
+    width: 84%;
+    padding: 4%;
+    text-align: center;
+  }
+
+  h1 {
+    width: 90%;
+    font-size: 12vw;
+    margin: 10%;
+  }
+
+  .loginContainer {
+    width: 100%;
+  }
+
+  .btnContainer {
+    display: block;
+  }
+
+  .btnContainer input {
+    margin: 0;
+  }
+
+  input, button {
+    margin: 5%;
+    font-size: 5vw;
+  }
+
+  input::placeholder {
+    font-size: 5vw;
+  }
+
+  #thumbnail {
+    width: 40%;
+    margin: 0;
+    position: static;
+  }
 }
