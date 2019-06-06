@@ -1,7 +1,7 @@
 h1 {
   font-weight: 400;
-  font-size: 400%;
-  margin-bottom: 90px;
+  font-size: 4vw;
+  margin-bottom: 10%;
   opacity: 0;
   -webkit-animation: reveal 2s cubic-bezier(0, 1, 0.5, 1) 1 normal forwards;
      -moz-animation: reveal 2s ease-in 1 normal forwards;
@@ -16,14 +16,14 @@ h1 {
   left: 0;
   z-index: -1;
   position: absolute;
-  padding: 50px;
-  padding-left: 100px;
+  padding: 4%;
+  padding-left: 8%;
   height: 87%;
   width: 50%;
 }
 
 .loginContainer {
-  width: 400px;
+  width: 60%;
   opacity: 0;
   -webkit-animation: reveal 2s cubic-bezier(0, 1, 0.5, 1) 1 normal forwards;
      -moz-animation: reveal 2s ease-in 1 normal forwards;
@@ -37,19 +37,19 @@ h1 {
 
 input, button {
   border: 0;
-  padding: 12px 15px;
+  padding: 3% 5%;
   border-radius: 6px;
-  font-size: 18px;
+  font-size: 1.2vw;
 }
 
 input::placeholder {
   color: #989898;
   font-family: 'Poppins', sans-serif;
-  font-size: 18px;
+  font-size: 1.2vw;
 }
 
 .btnContainer {
-  width: 107%;
+  width: 110%;
   display: flex;
   justify-content: center;
 }
@@ -61,7 +61,7 @@ input[type="text"], input[type="email"], input[type="password"] {
 }
 
 input:not([type="submit"]) {
-  margin-bottom: 20px;
+  margin-bottom: 5%;
 }
 
 input:focus, button:focus {
@@ -98,9 +98,8 @@ button {
   background: none;
   color: #00B2FF;
   padding: 0;
-  margin: 15px;
-  margin-left: 15px;
-  width: 170px;
+  margin: 4%;
+  width: 50%;
 }
 
 .textBtn:hover {
@@ -121,7 +120,7 @@ button {
 
 .rightContainer img {
   margin-top: 12%;
-  margin-bottom: 20px;
+  margin-bottom: 3%;
   width: 50%;
 	transform: translatey(0px);
 	animation: float 3s ease-in-out infinite;
@@ -131,7 +130,7 @@ p {
   margin: 0;
   padding: 0;
   color: white;
-  font-size: 20px;
+  font-size: 1.5vw;
   font-weight: 500;
 }
 
@@ -140,13 +139,13 @@ p {
   left: 0;
   position: fixed;
   width: 12%;
-  margin-left: 55px;
-  margin-bottom: 25px;
+  margin-left: 5%;
+  margin-bottom: 5%;
 }
 
 .background {
   right: 0;
-  width: 70%;
+  height: 100%;
   position: fixed;
   z-index: -1;
 }

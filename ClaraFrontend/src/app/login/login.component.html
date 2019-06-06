@@ -9,13 +9,13 @@
         <div *ngIf="loginF.username.errors.required">username is required</div>
       </div>
       <br>
-      <input type="password" formControlName="password" placeholder="password" style="margin-bottom:20px;">
+      <input type="password" formControlName="password" placeholder="password" style="margin-bottom:5%;">
       <div *ngIf="loginSubmitted && loginF.password.errors" class="invalid-feedback">
         <div *ngIf="loginF.password.errors.required">password is required</div>
       </div>
       <br>
       <div class="btnContainer">
-        <input type="submit" value="Sign in" style="margin-right:20px;">
+        <input type="submit" value="Sign in" style="margin-right:5%;">
         <button id="signUpBtn" (click)="goToSignup()">Sign Up</button>
       </div>
       <button class="textBtn" (click)="goToForgotPW()">forgot my password</button>
@@ -46,7 +46,7 @@
       </div>
       <br>
       <div class="btnContainer">
-        <input type="submit" value="Sign Up" style="margin-right:20px;">
+        <input type="submit" value="Sign Up" style="margin-right:5%;">
         <button id="signUpBtn" (click)="goToLogin()">Return</button>
       </div>
     </form>
@@ -59,7 +59,7 @@
       </div>
       <br>
       <div class="btnContainer">
-        <input type="submit" value="Resend Password" style="margin-right:20px;">
+        <input type="submit" value="Resend Password" style="margin-right:5%;">
         <button id="signUpBtn" (click)="goToLogin()">Return</button>
       </div>
     </form>
