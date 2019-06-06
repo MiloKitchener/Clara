@@ -23,7 +23,7 @@
 	padding: 100px;
 	padding-top: 10px;
 	margin-left: 40px;
-	height: 400px;
+	height: 500px;
 	margin-right: 40px;
 	border-radius: 7px;
 	width: 40%;
@@ -44,6 +44,23 @@
 	margin-left: 10px;
   }
   
+  .questions mat-expansion-panel-header {
+	  padding: 15px;
+	  background-image: linear-gradient(to left, #32CDFE, #00B2FF);
+	  border-radius: 50px;
+	  text-align: left;
+  }
+
+  .questions mat-panel-description {
+	  background-color: #F0F8FF;
+	  padding: 2px;
+	  border-radius: 30px;
+  }
+
+  .questions mat-panel-description p {
+	text-align: center;
+}
+
   .faq {
 	padding: 100px;
 	padding-top: 10px;
