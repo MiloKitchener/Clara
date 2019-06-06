@@ -7,17 +7,26 @@
 	background-image: linear-gradient(to left, #32CDFE, #00B2FF);
  }
 
+ .container {
+   padding: 30px;
+ }
+
 .formContainer {
   width: 60%;
   margin: auto;
 }
 
- form {
-  background-color: white;
+h2 {
+  font-weight: 500;
+  font-size: 18pt;
+}
+
+form {
   padding: 30px;
   border-radius: 7px;
   margin: 30px;
   text-align: center;
+  background-color: white;
 }
 
 .flexContainer {
@@ -59,4 +68,10 @@ input[type="submit"]:hover {
   background-color:#408DF7;
   transition:color .2s ease-out, background 0.3s ease-in;
   cursor: pointer;
+}
+
+.postsPanel {
+  background-color: white;
+  border-radius: 7px;
+  padding: 30px;
 }

@@ -13,6 +13,8 @@ export class ProfileComponent implements OnInit {
   private title: string;
   private pictureSrc: string;
 
+  private postsHeadingTxt: string;
+
   private updateUserForm: FormGroup;
 
   constructor(
@@ -21,6 +23,7 @@ export class ProfileComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.postsHeadingTxt = "You Haven't Made Any Posts Yet!"
     this.name = this._profileService.getName();
     this.title = this._profileService.getTitle();
     this.pictureSrc = this._profileService.getPictureSrc();

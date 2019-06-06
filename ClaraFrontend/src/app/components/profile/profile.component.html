@@ -1,24 +1,31 @@
 <h1>Profile</h1>
+<div class="container">
+  <div class="formContainer">
+    <h2>Edit Profile</h2>
+    <form [formGroup]="updateUserForm" (ngSubmit)="updateProfile()">
+      <div class="flexContainer">
+        <div class="imagePanel">
+          <img [src]="pictureSrc" />
+          <br>
+          <br>
+          <input type="text" formControlName="imageUrl" [(ngModel)]='pictureSrc' placeholder="Image URL"
+            style="text-align: center;font-size:10pt;">
+        </div>
+        <div class="rightPanel">
+          <input type="text" formControlName="name" [(ngModel)]='name' placeholder="Name">
+          <br>
+          <br>
+          <input type="text" formControlName="title" [(ngModel)]='title' placeholder="Title">
+        </div>
+      </div>
+      <br>
+      <br>
+      <input type="submit" value="Apply">
+    </form>
+  </div>
 
-<div class="formContainer">
-  <form [formGroup]="updateUserForm" (ngSubmit)="updateProfile()">
-    <div class="flexContainer">
-      <div class="imagePanel">
-        <img [src]="pictureSrc" />
-        <br>
-        <br>
-        <input type="text" formControlName="imageUrl" [(ngModel)]='pictureSrc' placeholder="Image URL"
-          style="text-align: center;font-size:10pt;">
-      </div>
-      <div class="rightPanel">
-        <input type="text" formControlName="name" [(ngModel)]='name' placeholder="Name">
-        <br>
-        <br>
-        <input type="text" formControlName="title" [(ngModel)]='title' placeholder="Title">
-      </div>
-    </div>
-    <br>
-    <br>
-    <input type="submit" value="Apply">
-  </form>
+  <div class="postsPanel">
+    <h2> {{ postsHeadingTxt }} </h2>
+
+  </div>
 </div>
