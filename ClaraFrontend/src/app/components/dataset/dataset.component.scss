@@ -1,5 +1,5 @@
 .container {
-  padding: 30px;
+  padding: 3%;
   padding-top: 0;
 }
 
@@ -7,22 +7,21 @@
   list-style-type: none;
   width: 100%;
   padding: 0;
-  margin-top: 30px;
+  margin-top: 5%;
 }
 
 
 .buttonsPanel li {
   display: inline;
-  margin: 20px;
-  margin-bottom: 0;
-  width: 20%;
+  margin: 2.5%;
 }
 
 .buttonsPanel button {
   border: 0;
   border-radius: 25px;
-  padding: 10px 20px;
+  padding: 1% 2%;
   background-color: white;
+  font-size: 1.2vw;
   transition:color .2s ease-out, background 0.3s ease-in;
 }
 
@@ -37,21 +36,21 @@
 ********************************/
 
 .searchPanel {
-  padding: 50px;
+  padding: 5%;
   color: white;
   background-image: linear-gradient(to left, #32CDFE, #00B2FF);
 }
 
 .searchPanel h1 {
-  font-size: 40pt;
+  font-size: 4.5vw;
   font-weight: 300;
 }
 
 input, #searchDataForm button {
   border: 0;
   background-color: white;
-  padding: 15px 30px;
-  font-size: 14pt;
+  padding: 1.3% 2%;
+  font-size: 1.3vw;
 }
 
 input:focus, button:focus {
@@ -59,13 +58,13 @@ input:focus, button:focus {
 }
 
 input[type="text"] {
-  width: 500px;
+  width: 70%;
   border-radius: 10px 0 0 10px;
 }
 
 input #search {
   background-repeat: no-repeat;
-  text-indent: 30px;
+  text-indent: 10%;
 }
 
 input[type="submit"] {
@@ -86,7 +85,7 @@ input[type="submit"]:hover {
 }
 
 #searchDataForm button {
-  padding-left: 15px;
+  padding-left: 1%;
   border-radius: 0 10px 10px 0;
 }
 
@@ -100,13 +99,13 @@ button img {
 
 h2 {
   font-weight: 400;
-  font-size: 30pt;
-  margin-top: 30px;
+  font-size: 2.8vw;
+  margin-top: 4%;
 }
 
 .datasetStats {
-  margin-top: 45px;
-  margin-bottom: 45px;
+  margin-top: 4%;
+  margin-bottom: 4%;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -116,19 +115,19 @@ h2 {
   background-color: white;
   border-radius: 7px;
   width: 20%;
-  padding: 20px;
+  padding: 1.7%;
 }
   
 .datasetStats h3 {
   font-weight: 100;
   margin: 0;
-  font-size: 50px;
+  font-size: 4vw;
 }
-  
+
 .datasetStats p {
   margin: 0;
-  margin-bottom: 10px;
-  font-size: 12px;
+  margin-bottom: 5%;
+  font-size: 1vw;
 }
   
 #numAccepted {
@@ -154,54 +153,24 @@ h2 {
 }
 
 #datasetsList li {
-  margin-bottom: 20px;
+  margin-bottom: 2%;
   background-color: white;
   border-radius: 7px;
-  height: 180px;
-}
-  
-.nodeContainer {
-  display: flex;
-  padding: 0;
-}
-  
-.nodeContainer h3 {
-  margin: 0;
-  margin-top: 8px;
-  font-weight: 300;
-  font-size: 28pt;
-}
-
-.nodecontainer p {
-  font-size: 12pt;
+  height: 20%;
 }
 
 .titleDesc {
-  min-width: 80%;
-  flex-grow: 1000;
-  height: 150px;
-  margin-left: 20px;
-  padding: 20px;
+  min-width: 84%;
+  margin-left: 0.7%;
+  padding: 1.5%;
+  font-size: 1.2vw;
   overflow-y: auto;
   overflow-x: hidden;
   text-align: justify;
 }
-
-.statusPanel {
-  flex: 1;
-  min-width: 100px;
-  flex-grow: 0;
+  
+.titleDesc h3 {
   margin: 0;
-  height: 100%;
-}
-
-.statusPanel svg {
-  height: 215px;
-  margin-top: -18px;
-  margin-right: -55px;
-}
-
-.statusPanel h6:first-child{
-  margin-top: 35px;
-  font-size: 20px;
+  font-weight: 300;
+  font-size: 2.7vw;
 }
