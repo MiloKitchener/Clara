@@ -103,6 +103,7 @@ button {
   color: #00B2FF;
   padding: 0;
   margin: 4%;
+  margin-right: 5%;
   width: 50%;
 }
 
@@ -199,14 +200,22 @@ p {
 
   .btnContainer {
     display: block;
+    width: 100%;
   }
 
   .btnContainer input {
     margin: 0;
   }
 
-  input, button {
+  input {
     margin: 5%;
+    font-size: 5vw;
+    width: 100%;
+  }
+
+  input[type="submit"], button {
+    width: 110%;
+    margin-top: 5%;
     font-size: 5vw;
   }
 
@@ -214,9 +223,12 @@ p {
     font-size: 5vw;
   }
 
+  .textBtn {
+    width: 75%;
+    margin-right: -5%;
+  }
+
   #thumbnail {
-    width: 40%;
-    margin: 0;
-    position: static;
+    display: none;
   }
 }
