@@ -49,10 +49,10 @@ li a {
   text-align: left;
   width: 100%;
   display: block;
-  font-size: 1.3vw;
+  font-size: 1.2vw;
   text-decoration: none;
   color: black;
-  width: 82%;
+  width: 84%;
   cursor: pointer;
 }
 
@@ -60,6 +60,12 @@ li a img {
   height: 20px;
   margin-right: 10%;
   margin-bottom: -1%;
+  max-width:13%; 
+  height:auto; 
+}
+
+i {
+  margin-top: 4%;
 }
 
 a:focus {
@@ -109,6 +115,8 @@ li:hover {
   left: 0;
   width: 50%;
   margin: 25%;
+  margin-bottom: 15%;
+  margin-top: 0;
 }
 
 /***********************************
