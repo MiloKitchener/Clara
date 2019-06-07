@@ -1,4 +1,8 @@
-<div class="sidebarDiv">
+<div class="mobileTopBar" id="topBar">
+  <i class="fa fa-bars" (click)="toggleNav()"></i>
+</div>
+
+<div class="sidebarDiv" id="nav">
   <ul>
     <!-- Profile Info -->
     <li class="noHover">
@@ -89,6 +93,6 @@
 </div>
 
 <!-- Routed Elements -->
-<div class="mainContent" [@fadeAnimation]="o.isActivated ? o.activatedRoute : ''">
+<div class="mainContent" id="main" [@fadeAnimation]="o.isActivated ? o.activatedRoute : ''">
   <router-outlet #o="outlet"></router-outlet>
 </div>

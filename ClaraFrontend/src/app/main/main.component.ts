@@ -41,4 +41,16 @@ export class MainComponent implements OnInit {
   public getRouterOutletState(outlet: any) {
     return outlet.isActivated ? outlet.activatedRoute : '';
   }
+
+  public toggleNav() {
+    var nav = document.getElementById("nav");
+    var topBar = document.getElementById("topBar");
+
+    if (nav.style.display == "none") { // shows
+      nav.style.display = "block";
+    }
+    else { // hide
+      nav.style.display = "none";
+    }
+  }
 }
