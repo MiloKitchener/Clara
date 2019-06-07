@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {MatExpansionModule, MatInputModule} from '@angular/material';
+import {MatStepperModule, MatExpansionModule, MatInputModule, MatTabsModule} from '@angular/material';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { JwtInterceptorService } from './services/auth/jwt-interceptor.service';
@@ -61,9 +61,11 @@ import { ProfileComponent } from './components/profile/profile.component';
     BrowserModule,
     BrowserAnimationsModule,
     MatExpansionModule, 
+    MatStepperModule,
     MatInputModule,
     AppRoutingModule,
     FormsModule,
+    MatTabsModule,
     HttpClientModule,
     ReactiveFormsModule
   ],
