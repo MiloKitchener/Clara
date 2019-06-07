@@ -8,16 +8,23 @@
     padding: 50px;
     border-radius: 7px;
     background-color: white;
-    width: 70%;
+    width: 80%;
     margin: auto;
-    height: 100px;
+    height: 200px;
 }
 
 .tab2 mat-tab-group {
     padding: 50px;
     border-radius: 7px;
     background-color: white;
-    width: 70%;
+    width: 80%;
     margin: auto;
-    height: 100px;
+    height: 200px;
 }
+
+.mat-tab-label {
+    border-radius: 0 20px 20px 20px;
+    margin: 5px;
+    background-color: #efefef;
+}
+
