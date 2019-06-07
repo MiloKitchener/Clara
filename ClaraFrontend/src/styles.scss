@@ -9,6 +9,14 @@ body {
   width: 100%;
 }
 
+@media screen and (orientation: portrait) {
+  body {
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+ }
+}
+
 
 /************************
   Define keyframes
