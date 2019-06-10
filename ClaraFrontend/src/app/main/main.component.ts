@@ -16,6 +16,7 @@ import { User } from 'src/app/classes/user';
 export class MainComponent implements OnInit {
   // user profile vars
   private user: User;
+  private navDisplayed = true; // for mobile class methods
 
   constructor(
     private _profileService: ProfileService,
@@ -24,6 +25,11 @@ export class MainComponent implements OnInit {
 
   ngOnInit() {
     this.user = this._profileService.getUser();
+    // checks if on mobile by topbar visibility, if so, hide navbar
+    if (document.getElementById("topBar").style.display == "none") {
+      document.getElementById("topBar").style.display = "block";
+      this.navDisplayed = false;
+    }
   }
 
   /*********************
@@ -42,15 +48,15 @@ export class MainComponent implements OnInit {
     return outlet.isActivated ? outlet.activatedRoute : '';
   }
 
+  // toggles the mobile navigation bar
   public toggleNav() {
     var nav = document.getElementById("nav");
-    var topBar = document.getElementById("topBar");
 
-    if (nav.style.display == "none") { // shows
-      nav.style.display = "block";
+    if (this.navDisplayed == false) { // shows nav
+      this.navDisplayed = true;
     }
     else { // hide
-      nav.style.display = "none";
+      this.navDisplayed = false;
     }
   }
 }

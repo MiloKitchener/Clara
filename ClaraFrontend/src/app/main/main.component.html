@@ -1,8 +1,8 @@
-<div class="mobileTopBar" id="topBar">
-  <i class="fa fa-bars" (click)="toggleNav()"></i>
+<div class="mobileTopBar" id="topBar" style="display: none;">
+  <i class=" fa fa-bars" (click)="toggleNav()"></i>
 </div>
 
-<div class="sidebarDiv" id="nav">
+<div class="sidebarDiv" [ngClass]="{'show' : navDisplayed, 'hide' : !navDisplayed}">
   <ul>
     <!-- Profile Info -->
     <li class="noHover">
