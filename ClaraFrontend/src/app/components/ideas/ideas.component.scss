@@ -78,12 +78,12 @@ h1 {
   padding: 7px 15px;
   font-size: 14pt;
   border-radius: 7px;
-  background-color:#408DF7;
+  background-color: #00B2FF;
   transition:color .2s ease-out, background 0.3s ease-in;
 }
 
 .newPostPanel input[type="submit"]:hover {
-  background-color: #0f70f5;
+  background-color: #408DF7;
   transition:color .2s ease-out, background 0.3s ease-in;
 }
 
@@ -113,7 +113,6 @@ textarea {
   margin-top: 30px;
   margin-bottom: 30px;
 }
-
 
 #searchDataForm input, #searchDataForm button {
   border: 0;
@@ -219,4 +218,13 @@ textarea {
 .dropdown ul {
   max-height: 150px;
   overflow-y: auto;
+}
+
+
+/*****************************
+  Posts Style
+*****************************/
+
+.postedIdeas {
+  padding: 30px;
 }

@@ -4,27 +4,63 @@
 	font-size: 40pt;
 	font-weight: 300;
 	background-image: linear-gradient(to left, #32CDFE, #00B2FF);
-}
-
-.container {
-	padding: 20px;
-	padding-top: 0; 
-}
-
-.stats {
-	margin-top: 50px;
-	margin-bottom: 40px;
+  }
+  
+  .container {
+	width:100%;
+  }
+ 
+  
+//Sample questions and capabilities tab
+  .stats {
+	margin-top: 40px;
+	margin-bottom: 50px;
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
 	
-}
-
-.stats div {
+  }
+  
+  .stats div {
 	padding: 100px;
-	margin-left: 20px;
-	margin-right: 20px;
+	padding-top: 10px;
+	margin-left: 40px;
+	height: 500px;
+	margin-right: 40px;
 	border-radius: 7px;
 	width: 40%;
 	background-color: white;
+  }
+  
+  .stats h3 {
+	font-weight: 400;
+	font-size: 20pt;
+  }
+  
+  .stats p {
+	text-align: left;
+  }
+  
+  .stats ul {
+	text-align: left;
+	margin-left: 10px;
+  }
+  
+  .questions mat-expansion-panel-header {
+	  padding: 15px;
+	  background-image: linear-gradient(to left, #32CDFE, #00B2FF);
+	  border-radius: 50px;
+	  text-align: left;
+  }
+
+  .questions mat-panel-description {
+	  background-color: #F0F8FF;
+	  padding: 2px;
+	  border-radius: 30px;
+  }
+
+  .questions mat-panel-description p {
+	text-align: center;
 }
+
+

@@ -14,23 +14,25 @@
       </div>
     </div>
 
-<!--    <form id="searchDataForm" [formGroup]="searchForm" (ngSubmit)="search()">-->
-<!--      <input type="text" id="search" formControlName="searchValue" placeholder="Search">-->
-<!--      <input type="submit" name="searchSubmit" value="See All Results">-->
-<!--      <button>-->
-<!--        <img src="./assets/vectors/downArrow.svg" alt="">-->
-<!--      </button>-->
-<!--    </form>-->
+    <form id="searchDataForm">
+      <input type="text" id="search" placeholder="Search">
+      <input type="submit" name="searchSubmit" value="See All Results">
+      <button>
+        <img src="./assets/vectors/downArrow.svg" alt="">
+      </button>
+    </form>
   </div>
 </div>
 
 <button id="postButton" (click)="viewNewPost()">New Post</button>
 
-<app-idea-forum></app-idea-forum>
+<!-- Posts Feed -->
+<div class="postedIdeas">
+  <ng-template appIdeaAnchor></ng-template>
+</div>
 
 <!-- New Post Panel -->
-<div class="newPostPanel"
-  [ngStyle]="{'display': toggleNewPostView === true ? 'block' : 'none'}">
+<div class="newPostPanel" [ngStyle]="{'display': toggleNewPostView === true ? 'block' : 'none'}">
   <button id="closeNewPostPanelBtn" (click)="closeNewPost()">x</button>
 
   <form [formGroup]="newPostForm" (ngSubmit)="submitPost()">

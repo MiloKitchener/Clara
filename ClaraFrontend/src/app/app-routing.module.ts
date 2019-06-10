@@ -24,6 +24,7 @@ import { AlexaHelpComponent } from './components/alexa/alexa-help/alexa-help.com
 import { IdeasComponent } from './components/ideas/ideas.component';
 
 import { LabServicesComponent } from './components/lab-services/lab-services.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'main', pathMatch: 'full' },
@@ -51,7 +52,8 @@ const routes: Routes = [
       { path: 'alexa-help', component: AlexaHelpComponent, data: { title: 'Alexa Help' } },
       { path: 'alexa-feed', component: AlexaFeedComponent, data: { title: 'Alexa Feed' } },
       { path: 'ideas', component: IdeasComponent, data: { title: 'Ideas' } },
-      { path: 'lab-services', component: LabServicesComponent, data: { title: 'Lab-Services' } }
+      { path: 'lab-services', component: LabServicesComponent, data: { title: 'Lab-Services' } },
+      { path: 'profile', component: ProfileComponent, data: { title: 'Profile' } }
     ]
   },
   { path: '**', component: NotFoundComponent }

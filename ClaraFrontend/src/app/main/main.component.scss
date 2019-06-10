@@ -2,12 +2,16 @@
   Main Page Style
 ***********************************/
 
+.mobileTopBar {
+  display: none;
+}
+
 .sidebarDiv {
   top: 0;
   left: 0;
   margin: 0;
   padding: 0;
-  width: 260px;
+  width: 18%;
   height: 100%;
   background-color: white;
   position: fixed;
@@ -15,51 +19,57 @@
 }
 
 .sidebar-user-panel img {
-  width: 130px;
+  width: 50%;
   border-radius: 50%;
 }
 
 .sidebar-user-panel h3 {
   font-weight: 500;
   margin: 0;
-  margin-top: 15px;
-  font-size: 14pt;
+  margin-top: 8%;
+  font-size: 1.5vw;
 }
 
 .sidebar-user-panel p {
   font-weight: 300;
   margin: 0;
-  margin-bottom: 60px;
-  font-size: 10pt;
+  margin-bottom: 15%;
+  font-size: 0.9vw;
 }
 
 ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
-  margin-top: 50px;
+  margin-top: 10%;
   width: 100%;
   text-align: center;
   background-color: white;
 }
 
 li a {
-  padding: 15px;
-  padding-left: 30px;
+  padding: 6%;
+  padding-left: 10%;
   text-align: left;
   width: 100%;
   display: block;
-  font-size: 14pt;
+  font-size: 1.2vw;
   text-decoration: none;
   color: black;
-  width: 215px;
+  width: 84%;
   cursor: pointer;
 }
 
 li a img {
   height: 20px;
-  margin-right: 10px;
-  margin-bottom: -4px;
+  margin-right: 10%;
+  margin-bottom: -1%;
+  max-width:13%; 
+  height:auto; 
+}
+
+i {
+  margin-top: 4%;
 }
 
 a:focus {
@@ -69,9 +79,7 @@ a:focus {
 .active a {
   color: white;
   background-color: #32CDFE;
-  border-left: solid #00B2FF 7px;
-  padding-left: 23px;
-  width: 215px;
+  width: 84%;
 }
 
 .active img {
@@ -90,24 +98,29 @@ li {
   position: absolute;
   display: none;
   left: 100%;
-  top: -50px; // accomodates the UL top margin
+  top: -40%; // accomodates the UL top margin
 }
 
 li:hover .dropdown {
   display: block;
 }
 
-li:hover:not(:first-child) {
+li:hover {
   background-color: #EAEAEA;
 }
 
+.noHover:hover {
+  background-color: white;
+}
 
 #siteIcon {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 120px;
-  margin: 30px 65px;
+  width: 50%;
+  margin: 25%;
+  margin-bottom: 15%;
+  margin-top: 0;
 }
 
 /***********************************
@@ -116,10 +129,49 @@ li:hover:not(:first-child) {
 
 
 .mainContent {
-  margin-left: 260px;
+  margin-left: 18%;
   text-align: center;
+  height: 100%;
+  background-color: #EFEFEF;
 }
 
 .mainContent>* {
   display: block;
+}
+
+router-outlet {
+  position: relative; // allows animations
+  height: 100%;
+}
+
+router-outlet ~ * {
+  position: absolute; // allows animations
+}
+
+
+/***********************************
+  Mobile CSS
+***********************************/
+
+@media screen and (orientation: portrait) {
+  .mobileTopBar {
+    display: block;
+    position: fixed;
+    width: 100%;
+    height: 6%;
+    right: 0;
+    padding: 3%;
+    padding-top: 0;
+    background-color: white;
+  }
+
+  #nav {
+    display: none;
+    width: 50%;
+  }
+
+  .mainContent {
+    margin-left: 0;
+    margin-top: 6%;
+  }
 }

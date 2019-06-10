@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatStepperModule, MatExpansionModule, MatInputModule, MatTabsModule} from '@angular/material';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { JwtInterceptorService } from './services/auth/jwt-interceptor.service';
@@ -30,10 +31,10 @@ import { AlexaFeedComponent } from './components/alexa/alexa-feed/alexa-feed.com
 import { SharedDashboardsComponent } from './components/dashboards/shared-dashboards/shared-dashboards.component';
 import { DashboardSplashComponent } from './components/dashboards/dashboard-splash/dashboard-splash.component';
 import { IdeaAnchorDirective } from './directives/idea-anchor.directive';
-import { IdeaForumComponent } from './components/idea-forum/idea-forum.component';
-import {UserHowToComponent} from './components/dashboards/user-how-to/user-how-to.component';
-import {AlexaHelpComponent} from './components/alexa/alexa-help/alexa-help.component';
-import {SharedHowToComponent} from './components/dashboards/shared-how-to/shared-how-to.component';
+import { UserHowToComponent } from './components/dashboards/user-how-to/user-how-to.component';
+import { AlexaHelpComponent } from './components/alexa/alexa-help/alexa-help.component';
+import { SharedHowToComponent } from './components/dashboards/shared-how-to/shared-how-to.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -51,16 +52,20 @@ import {SharedHowToComponent} from './components/dashboards/shared-how-to/shared
     SharedDashboardsComponent,
     DashboardSplashComponent,
     IdeaAnchorDirective,
-    IdeaForumComponent,
     AlexaHelpComponent,
     UserHowToComponent,
     SharedHowToComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    MatExpansionModule, 
+    MatStepperModule,
+    MatInputModule,
     AppRoutingModule,
     FormsModule,
+    MatTabsModule,
     HttpClientModule,
     ReactiveFormsModule
   ],

@@ -1,0 +1,15 @@
+div >* {
+  display: block;
+  position: relative; // allows animations
+  height: 100%;
+}
+
+router-outlet {
+  position: relative; // allows animations
+  height: 100%;
+}
+
+router-outlet ~ * {
+  position: absolute; // allows animations
+  height: 100%;
+}
