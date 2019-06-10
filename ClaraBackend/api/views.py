@@ -113,6 +113,13 @@ class APICredentialsView(viewsets.ModelViewSet):
         #request.data['user'] = reverse('user-detail', kwargs={'pk': request.user.id})
         return super(APICredentialsView, self).create(request)
 
+    # Get permissions for user
+    @action(detail=False)
+    def user_credentials(self, request):
+        queryset = APICredentials.objects.filter(user__id=request.user.id)
+        return Response(queryset.values())
+
+
 
 
 # API endpoint that allows graphs to be viewed or edited
