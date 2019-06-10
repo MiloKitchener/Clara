@@ -16,7 +16,7 @@ import { User } from 'src/app/classes/user';
 export class MainComponent implements OnInit {
   // user profile vars
   private user: User;
-  private navDisplayed = true; // for mobile class methods
+  private navDisplayed: boolean; // for mobile class methods
 
   constructor(
     private _profileService: ProfileService,
@@ -25,9 +25,9 @@ export class MainComponent implements OnInit {
 
   ngOnInit() {
     this.user = this._profileService.getUser();
+    this.navDisplayed = false;
     // checks if on mobile by topbar visibility, if so, hide navbar
-    if (document.getElementById("topBar").style.display == "none") {
-      document.getElementById("topBar").style.display = "block";
+    if (window.innerHeight > window.innerWidth) { // if portrait
       this.navDisplayed = false;
     }
   }

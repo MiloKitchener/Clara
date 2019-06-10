@@ -1,27 +1,27 @@
 h1 {
 	margin: 0;
-	padding: 40px 0;
+	padding: 4% 0;
 	color: white;
-	font-size: 40pt;
+	font-size: 4vw;
 	font-weight: 300;
 	background-image: linear-gradient(to left, #32CDFE, #00B2FF);
 }
 
 h3 {
-	font-size: 22pt;
+	font-size: 2vw;
 	font-weight: 400;
 }
 
 .container {
 	text-align: center;
-	margin-top: 25px;
+	margin-top: 3%;
 }
 
 .subcontainer {
 	display: flex;
 	margin: auto;
   width: 95%;
-  padding-bottom: 30px;
+  padding-bottom: 5%;
 }
 
 .feedPanel {
@@ -29,22 +29,21 @@ h3 {
 	border-radius: 7px;
 	width: 65%;
 	margin-right: 3%;
-	height: 450px;
-	padding: 25px;
+	padding: 3.5%;
 }
 
 .messageContainer {
 	text-align: left;
-	margin-top: 40px;
+	margin-top: 5.5%;
 	margin-left: 25%;
 }
 
 ul {
 	list-style-type: none;
 	width: 65%;
-  margin-right: 50px;
-  padding-right: 30px;
-	height: 240px;
+  margin-right: 5%;
+  padding-right: 6%;
+  height: 40vh;
 	overflow-y: auto;
 }
 
@@ -56,25 +55,25 @@ li:nth-child(4) { animation-delay: 2s }
 li {
 	opacity: 0;
 	border-radius: 30px 30px 30px 0;
-	padding: 15px;
+	padding: 5%;
 	color: white;
 	background-color: #00B2FF;
-	margin-bottom: 10px;
+  margin-bottom: 5%;
+  font-size: 1vw;
 	animation-name: msg1;
   animation-duration: 8s;
   animation-fill-mode: forwards;
 }
 
 .feedPanel img {
-	width: 60px;
+	width: 15%;
 }
 
 .liveStatsPanel {
 	background: white;
 	border-radius: 7px;
 	width: 32%;
-	height: 450px;
-	padding: 25px;
+	padding: 3.5%;
 }
 
 
