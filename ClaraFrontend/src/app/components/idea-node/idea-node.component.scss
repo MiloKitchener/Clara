@@ -13,6 +13,10 @@ img {
   margin-right: 20px;
 }
 
+.postText {
+  width: 80%;
+}
+
 .ideaNodeContainer h4 {
   font-size: 20pt;
   margin: 0;
@@ -132,4 +136,38 @@ li {
 
 .hide {
   display: none;
+}
+
+
+/***********************************
+  Mobile CSS
+***********************************/
+
+@media screen and (orientation: portrait) {
+  #mainContent img, h5 {
+    display: none;
+  }
+
+  .postText {
+    width: 100%;
+  }
+
+  .componentContainer {
+    padding: 8%;
+  }
+
+  .ideaNodeContainer h4 {
+    text-align: center;
+    font-size: 5vw;
+  }
+
+  .ideaNodeContainer p {
+    text-align: justify;
+    font-size: 3vw;
+    padding: 0;
+  }
+
+  #votePanel {
+    display: none;
+  }
 }
