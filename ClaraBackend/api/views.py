@@ -97,6 +97,23 @@ class PermissionView(viewsets.ModelViewSet):
     queryset = Permission.objects.all()
     serializer_class = PermissionSerializer
 
+class APICredentialsView(viewsets.ModelViewSet):
+
+    #authenticate the user
+  #  permission_classes = (IsAuthenticated,)
+
+    queryset = APICredentials.objects.all()
+    serializer_class = APICredentialsSerializer
+
+    def create(self, request, **kwargs):
+        # verify if the credentials are correct
+        #before new credentials are created add in the user's id
+
+        # TODO: uncomment the below code when front end for 3rd Party API is done
+        #request.data['user'] = reverse('user-detail', kwargs={'pk': request.user.id})
+        return super(APICredentialsView, self).create(request)
+
+
 
 # API endpoint that allows graphs to be viewed or edited
 class GraphView(viewsets.ModelViewSet):

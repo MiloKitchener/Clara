@@ -8,11 +8,6 @@ class DatasetSerializer(serializers.HyperlinkedModelSerializer):
         model = Dataset
         fields = '__all__'
 
-class APICredentialsSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = APICredentials
-        fields = '__all__'
-
 class FieldSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Field
@@ -52,3 +47,8 @@ class CommentSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Comment
         fields = ('id', 'url', 'comment', 'user', 'post')
+
+class APICredentialsSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = APICredentials
+        fields = '__all__'

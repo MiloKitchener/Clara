@@ -3,6 +3,11 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 
 
+class User(AbstractUser):
+    # Add additional fields in here
+    def __str__(self):
+        return self.username
+
 class Dataset(models.Model):
     name = models.CharField(max_length=255, null=False)
     desc = models.CharField(max_length=255, null=False)
@@ -16,7 +21,7 @@ class Dataset(models.Model):
 
 class APICredentials(models.Model):
     api_url = models.CharField(max_length=255, null=False)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, related_name='APICredentials', default=1, on_delete=models.CASCADE)
     username = models.CharField(max_length=255, null=False)
     password = models.CharField(max_length=255, null=False)
 
@@ -34,12 +39,6 @@ class Field(models.Model):
 
     def __str__(self):
         return self.name
-
-
-class User(AbstractUser):
-    # Add additional fields in here
-    def __str__(self):
-        return self.username
 
 
 class Graph(models.Model):
