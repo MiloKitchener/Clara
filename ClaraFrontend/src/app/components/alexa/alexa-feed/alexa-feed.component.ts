@@ -7,6 +7,7 @@ import { environment } from '../../../../environments/environment';
   templateUrl: './alexa-feed.component.html',
   styleUrls: ['./alexa-feed.component.scss']
 })
+
 export class AlexaFeedComponent implements OnInit {
   private feedData: any;
   private statsData: any;
