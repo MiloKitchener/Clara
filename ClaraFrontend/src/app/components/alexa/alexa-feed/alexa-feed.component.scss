@@ -21,7 +21,7 @@ h3 {
 	display: flex;
 	margin: auto;
   width: 95%;
-  padding-bottom: 5%;
+  padding-bottom: 2%;
 }
 
 .feedPanel {
@@ -34,7 +34,7 @@ h3 {
 
 .messageContainer {
 	text-align: left;
-	margin-top: 5.5%;
+	margin-top: 5%;
 	margin-left: 25%;
 }
 
@@ -43,7 +43,7 @@ ul {
 	width: 65%;
   margin-right: 5%;
   padding-right: 6%;
-  height: 40vh;
+  height: 36vh;
 	overflow-y: auto;
 }
 
@@ -70,10 +70,30 @@ li {
 }
 
 .liveStatsPanel {
-	background: white;
+  color: white;
+	background-image: linear-gradient(to left, #32CDFE, #00B2FF);
 	border-radius: 7px;
 	width: 32%;
-	padding: 3.5%;
+  padding: 3.5%;
+}
+
+.liveStatsPanel hr {
+  background-color: white;
+  height: 2px;
+  border: 0;
+  margin-top: 0;
+  margin-bottom: 12%;
+}
+
+.liveStatsPanel img {
+  width: 25%;
+  margin-bottom: 0;
+}
+
+.liveStatsPanel h4 {
+  font-weight: 300;
+  font-size: 2vh;
+  margin-top: 0;
 }
 
 
