@@ -1,66 +1,56 @@
-.title {
-	padding: 2px;
-	color: white;
-	font-size: 40pt;
-	font-weight: 300;
-	background-image: linear-gradient(to left, #32CDFE, #00B2FF);
-  }
-  
-  .container {
-	width:100%;
-  }
+ .container {
+	 width:100%;
+ }  
+
+ .title {
+	 padding: 1.8em;
+	 background-image: linear-gradient(to left, #32CDFE, #00B2FF);
+	 color: white;
+	 font-size: 3em;
+ }
+
+ .title p {
+	 text-align: center;
+ }
  
-  
-//Sample questions and capabilities tab
-  .stats {
-	margin-top: 40px;
-	margin-bottom: 50px;
-	width: 100%;
-	display: flex;
-	justify-content: space-between;
-	
-  }
-  
-  .stats div {
-	padding: 100px;
-	padding-top: 10px;
-	margin-left: 40px;
-	height: 500px;
-	margin-right: 40px;
-	border-radius: 7px;
-	width: 40%;
-	background-color: white;
-  }
-  
-  .stats h3 {
-	font-weight: 400;
-	font-size: 20pt;
-  }
-  
-  .stats p {
-	text-align: left;
-  }
-  
-  .stats ul {
-	text-align: left;
-	margin-left: 10px;
-  }
-  
-  .questions mat-expansion-panel-header {
-	  padding: 15px;
+ .stats {
+	 padding: 70px;
+	 border-radius: 7px;
+	 background-color: white;
+	 width: 60%;
+	 margin: auto;
+	 margin-top: 40px;
+ }
+
+
+ .stats mat-expansion-panel-header {
+	  padding: 50px;
+	  width: 50%;
 	  background-image: linear-gradient(to left, #32CDFE, #00B2FF);
-	  border-radius: 50px;
-	  text-align: left;
+	  border-radius: 70px;
+	  margin: auto;
   }
 
-  .questions mat-panel-description {
+  .stats mat-panel-description {
 	  background-color: #F0F8FF;
 	  padding: 2px;
+	  margin: auto;
+	  width: 50%;
 	  border-radius: 30px;
   }
 
-  .questions mat-panel-description p {
-	text-align: center;
+
+.capabilities {
+	width: 60%;
+	background-color: white;
+	padding: 70px;
+	border-radius: 7px;
+	margin: auto;
+	margin-top: 40px;
+	margin-bottom: 40px;
 }
 
+.capabilities li,p {
+	text-align: left;
+}
 
