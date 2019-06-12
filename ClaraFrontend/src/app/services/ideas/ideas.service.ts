@@ -1,8 +1,8 @@
-import {EventEmitter, Injectable} from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Post } from 'src/app/classes/post';
 import { HttpClient } from '@angular/common/http';
-import {environment} from '../../../environments/environment';
-import {Observable} from 'rxjs';
+import { environment } from '../../../environments/environment';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
