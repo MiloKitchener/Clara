@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { fadeAnimation } from '../animations/fade.animation';
+import { fadeAnimation } from '../../animations/fade.animation';
 
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { ProfileService } from 'src/app/services/profile/profile.service';
