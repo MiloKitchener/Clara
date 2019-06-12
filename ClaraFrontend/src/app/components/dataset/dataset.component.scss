@@ -1,6 +1,6 @@
 .container {
-  width: 94%;
-  padding: 3%;
+  width: 90%;
+  padding: 5%;
   padding-top: 0;
 }
 
@@ -172,8 +172,12 @@ h2 {
   
 .titleDesc h3 {
   margin: 0;
-  font-weight: 300;
-  font-size: 2.7vw;
+  font-weight: 500;
+  font-size: 3vh;
+}
+
+p {
+  font-weight: 400;
 }
 
 .datasetUploadBtn {
