@@ -1,7 +1,11 @@
-<div class="sidebarDiv">
+<div class="topBar" id="topBar">
+  <i class=" fa fa-bars" (click)="toggleNav()"></i>
+</div>
+
+<div class="sidebarDiv" [ngClass]="{'show' : navDisplayed, 'hide' : !navDisplayed}">
   <ul>
     <!-- Profile Info -->
-    <li>
+    <li class="noHover">
       <div class="sidebar-user-panel">
         <img [src]="user.pictureSrc" />
         <h3>{{ user.name }}</h3>
@@ -73,6 +77,14 @@
         <span>Lab Services</span>
       </a>
     </li>
+
+    <!-- Profile Nav -->
+    <li routerLinkActive="active">
+      <a routerLink="profile">
+        <img src="/assets/vectors/profileIcon.svg">
+        <span>Profile</span>
+      </a>
+    </li>
   </ul>
 
   <a routerLink="dashboardSplash">
@@ -81,6 +93,6 @@
 </div>
 
 <!-- Routed Elements -->
-<div class="mainContent">
-  <router-outlet></router-outlet>
+<div class="mainContent" id="main" [@fadeAnimation]="o.isActivated ? o.activatedRoute : ''">
+  <router-outlet #o="outlet"></router-outlet>
 </div>

@@ -11,14 +11,12 @@ import { GraphDataService } from 'src/app/services/graph-data/graph-data.service
 
 export class UserDashboardComponent implements OnInit {
   private chartsData = [];
-  private chartsPanelText: string;
   private chartUpdated: boolean;
 
   constructor(private _graphDataService: GraphDataService) { }
 
   ngOnInit() {
     // instantiate instance variables
-    this.chartsPanelText = "No Charts Have Been Saved, Add A New Chart With The Button Below";
     this.chartUpdated = false;
 
     // add button action listener
@@ -54,8 +52,6 @@ export class UserDashboardComponent implements OnInit {
 
     // hide "no saved charts" message if user has saved charts
     if (this.chartsData.length > 0) {
-      this.chartsPanelText = "User Charts"; // remove "no charts saved" message
-
       var table = document.getElementById("chartsTable");
       table.innerHTML = "";
 

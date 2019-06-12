@@ -1,7 +1,7 @@
 h1 {
   font-weight: 400;
-  font-size: 400%;
-  margin-bottom: 90px;
+  font-size: 4vw;
+  margin-bottom: 10%;
   opacity: 0;
   -webkit-animation: reveal 2s cubic-bezier(0, 1, 0.5, 1) 1 normal forwards;
      -moz-animation: reveal 2s ease-in 1 normal forwards;
@@ -10,21 +10,20 @@ h1 {
 }
 
 .leftContainer {
-  background-color: white;
+  //background-color: white;
   padding: 0;
   top: 0;
   left: 0;
   z-index: -1;
   position: absolute;
-  padding: 50px;
-  padding-left: 100px;
-  height: 87%;
+  padding: 4%;
+  padding-left: 8%;
+  height: 85%;
   width: 50%;
 }
 
 .loginContainer {
-  position: fixed;
-  width: 400px;
+  width: 60%;
   opacity: 0;
   -webkit-animation: reveal 2s cubic-bezier(0, 1, 0.5, 1) 1 normal forwards;
      -moz-animation: reveal 2s ease-in 1 normal forwards;
@@ -38,21 +37,25 @@ h1 {
 
 input, button {
   border: 0;
-  padding: 12px 15px;
+  padding: 3% 5%;
   border-radius: 6px;
-  font-size: 18px;
+  font-size: 1.2vw;
 }
 
 input::placeholder {
   color: #989898;
   font-family: 'Poppins', sans-serif;
-  font-size: 18px;
+  font-size: 1.2vw;
 }
 
 .btnContainer {
-  width: 107%;
+  width: 110%;
   display: flex;
   justify-content: center;
+}
+
+.btnContainer input {
+  margin-right: 5%;
 }
 
 input[type="text"], input[type="email"], input[type="password"] {
@@ -62,7 +65,7 @@ input[type="text"], input[type="email"], input[type="password"] {
 }
 
 input:not([type="submit"]) {
-  margin-bottom: 20px;
+  margin-bottom: 5%;
 }
 
 input:focus, button:focus {
@@ -99,9 +102,9 @@ button {
   background: none;
   color: #00B2FF;
   padding: 0;
-  margin: 15px;
-  margin-left: 15px;
-  width: 170px;
+  margin: 4%;
+  margin-right: 5%;
+  width: 50%;
 }
 
 .textBtn:hover {
@@ -122,7 +125,7 @@ button {
 
 .rightContainer img {
   margin-top: 12%;
-  margin-bottom: 20px;
+  margin-bottom: 3%;
   width: 50%;
 	transform: translatey(0px);
 	animation: float 3s ease-in-out infinite;
@@ -132,22 +135,22 @@ p {
   margin: 0;
   padding: 0;
   color: white;
-  font-size: 20px;
+  font-size: 1.5vw;
   font-weight: 500;
 }
 
 #thumbnail {
   bottom: 0;
   left: 0;
-  position: absolute;
+  position: fixed;
   width: 12%;
-  margin-left: 55px;
-  margin-bottom: 25px;
+  margin-left: 5%;
+  margin-bottom: 5%;
 }
 
 .background {
   right: 0;
-  width: 70%;
+  height: 100%;
   position: fixed;
   z-index: -1;
 }
@@ -162,4 +165,70 @@ p {
 
 #forgotPWForm {
   display: none;
+}
+
+
+/******************************
+  Portrait Mode CSS
+******************************/
+
+@media screen and (orientation: portrait) {
+
+  .rightContainer {
+    display: none;
+  }
+
+  .background {
+    display: none;
+  }
+
+  .leftContainer {
+    width: 84%;
+    padding: 4%;
+    text-align: center;
+  }
+
+  h1 {
+    width: 90%;
+    font-size: 12vw;
+    margin: 10%;
+  }
+
+  .loginContainer {
+    width: 100%;
+  }
+
+  .btnContainer {
+    display: block;
+    width: 100%;
+  }
+
+  .btnContainer input {
+    margin: 0;
+  }
+
+  input {
+    margin: 5%;
+    font-size: 5vw;
+    width: 100%;
+  }
+
+  input[type="submit"], button {
+    width: 110%;
+    margin-top: 5%;
+    font-size: 5vw;
+  }
+
+  input::placeholder {
+    font-size: 5vw;
+  }
+
+  .textBtn {
+    width: 75%;
+    margin-right: -5%;
+  }
+
+  #thumbnail {
+    display: none;
+  }
 }

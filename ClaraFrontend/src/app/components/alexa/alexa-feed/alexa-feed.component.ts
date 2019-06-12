@@ -7,13 +7,21 @@ import { environment } from '../../../../environments/environment';
   templateUrl: './alexa-feed.component.html',
   styleUrls: ['./alexa-feed.component.scss']
 })
+
 export class AlexaFeedComponent implements OnInit {
   private feedData: any;
+  private statsData: any;
+  private imageSrc: string;
 
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
     this.pullFeed();
+
+    this.statsData = {
+      weather: "raining"
+    };
+    this.imageSrc = "assets/images/weather/" + this.statsData.weather + ".png";
   }
 
   // pulls alexa feed data

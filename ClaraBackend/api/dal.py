@@ -4,6 +4,7 @@ import pandas as pd
 from fuzzywuzzy import process
 from .models import Field, Dataset
 from datetime import datetime
+import urllib.request
 
 
 def create_dataset_fields(url, dataset_name):

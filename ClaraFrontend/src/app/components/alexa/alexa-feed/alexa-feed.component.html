@@ -12,13 +12,15 @@
             {{ message.response }}
           </li>
         </ul>
-        <img src="assets/vectors/claraAlexa.svg" alt="">
+        <img src="assets/vectors/claraAlexa.svg">
       </div>
     </div>
 
     <div class="liveStatsPanel">
       <h3>Live Stats</h3>
-
+      <hr>
+      <img [src]="imageSrc">
+      <h4>{{"It is currently " + statsData.weather.charAt(0).toUpperCase() + statsData.weather.slice(1)}}</h4>
     </div>
   </div>
 </div>

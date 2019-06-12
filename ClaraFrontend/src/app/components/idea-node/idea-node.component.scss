@@ -1,12 +1,20 @@
-.ideaNodeContainer {
+.componentContainer {
   margin: 10px;
   text-align: left;
+  padding: 30px;
+  border-radius: 10px;
+  background-color: white;
+  margin-bottom: 30px;
 }
 
 img {
   height: 100px;
   border-radius: 50%;
   margin-right: 20px;
+}
+
+.postText {
+  width: 80%;
 }
 
 .ideaNodeContainer h4 {
@@ -92,6 +100,10 @@ polyline {
   text-align: justify;
 }
 
+form {
+  text-align: center;
+}
+
 input {
   border: 0;
   background-color: #EFEFEF;
@@ -128,4 +140,38 @@ li {
 
 .hide {
   display: none;
+}
+
+
+/***********************************
+  Mobile CSS
+***********************************/
+
+@media screen and (orientation: portrait) {
+  #mainContent img, h5 {
+    display: none;
+  }
+
+  .postText {
+    width: 100%;
+  }
+
+  .componentContainer {
+    padding: 8%;
+  }
+
+  .ideaNodeContainer h4 {
+    text-align: center;
+    font-size: 5vw;
+  }
+
+  .ideaNodeContainer p {
+    text-align: justify;
+    font-size: 3vw;
+    padding: 0;
+  }
+
+  #votePanel {
+    display: none;
+  }
 }
