@@ -12,7 +12,8 @@ from rest_framework import viewsets
 from .dal import *
 from rest_framework.decorators import action
 from rest_framework.reverse import reverse
-
+import requests
+import pandas as pd
 
 @csrf_exempt
 def signup(request):
@@ -32,7 +33,6 @@ def signup(request):
             return HttpResponse("success")
     else:
         form = CustomUserCreationForm()
-
 
 # API endpoint that allows datasets to be viewed or edited
 class DatasetView(viewsets.ModelViewSet):
@@ -59,11 +59,19 @@ class DatasetCreateView(APIView):
         url = request.data.get('url')
         print(url)
 
-        # for jakes test's
-        # map_fields_to_normalized_name(url)
         create_datasets(url)
         return Response("Success")
 
+
+class DatasetMapView(APIView):
+    # Authenticate the user
+    # TODO: Re-enable authentication
+    # permission_classes = (IsAuthenticated,)
+    def post(self, request):
+        url = request.data.get('url')
+        print(url)
+        map_fields_to_normalized_name(url)
+        return Response('success')
 
 # API endpoint that allows fields to be viewed or edited
 class FieldView(viewsets.ModelViewSet):
@@ -215,6 +223,49 @@ class CommentView(viewsets.ModelViewSet):
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
 
+# return list of {latitude, longitude, device ID} objects
+# list will be used to add location pins to a map object
+def map_pins(request):
+
+    # TODO: Change this back to post after response is verifies
+    if request.method == 'GET':
+       # data = json.loads(request.body)
+        # list of values to be returned
+        ret_list = []
+        # hard coded
+        url = 'https://slv.prod03.ssn.ssnsgs.net:8443/reports'
+        type = 'third_party'
+
+        # TODO: test this after hard coding works
+        #type = data.get('type')
+        #url =  data.get('api_url')
+
+        if type == 'third_party':
+            # third party dataset
+
+            # TODO: Think of ways to make this modular and not hard coded.
+            payload = {
+                'geozoneId': '5760',
+                'recurse': 'true',
+                'categoryStrId': 'streetlight',
+                'ser': 'json'
+            }
+            device_list = requests.post(url + "/api/asset/getGeozoneDevices", data=payload, auth=('kallenmuncey', '81l0fTh3Inn0v8t1on!'))
+            # json_list = json.dumps(device_list.content.decode('utf8'))
+            df_devices = pd.read_json(device_list.content.decode('utf8'))
+            print(df_devices.columns)
+            cols = ['lat', 'lng', 'id']
+            df_devices = df_devices[cols]
+            print(df_devices)
+            return Response(df_devices.to_json(orient='records'))
+
+        else:
+            # arcGis dataset
+            print("placeholder")
+            return Response('nothing')
+
+    else:
+        return 'err'
 
 def channels(request):
     return render(request, 'templates/api/channels.html')

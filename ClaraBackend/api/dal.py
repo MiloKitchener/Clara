@@ -188,7 +188,6 @@ def map_fields_to_normalized_name(url):
                 if data[0] not in tmp_dict:
                     field_data['norm_name_list'].append(data)
 
-
             # appending list to object
             resp_data['db_fields'].append(field_data)
         resp_list.append(resp_data)

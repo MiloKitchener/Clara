@@ -182,11 +182,17 @@ export class GraphPanelComponent implements OnInit {
     if (tabName === 'Open Data') {
       idTab = 'openDataTab';
       idTabContent = 'openData';
-    } else {
+    }
+    else {
       idTab = 'liveDataTab';
       idTabContent = 'liveData';
     }
-    document.getElementById(idTabContent).style.display = 'block';
+    if (idTabContent == 'openData') {
+      document.getElementById(idTabContent).style.display = 'flex';
+    }
+    else {
+      document.getElementById(idTabContent).style.display = 'block';
+    }
     document.getElementById(idTab).className += ' active';
   }
 }
