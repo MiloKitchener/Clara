@@ -226,12 +226,31 @@ p {
   border: 0;
   padding: 3% 0;
   font-size: 2vh;
+  font-weight: 400;
   border-radius: 7px;
   transition:color .2s ease-out, background 0.3s ease-in;
 }
 
 .submitDatasetPanel input[type="submit"]:hover {
   background-color: #408DF7;
+  cursor: pointer;
+  transition:color .2s ease-out, background 0.3s ease-in;
+}
+
+#closeDatasetPanelBtn {
+  width: 100%;
+  margin-top: 7%;
+  color: white;
+  border: 0;
+  font-size: 2vh;
+  border-radius: 7px;
+  padding: 3% 5%;
+  background-color: #eb3b3b;
+  transition:color .2s ease-out, background 0.3s ease-in;
+}
+
+#closeDatasetPanelBtn:hover {
+  background-color: #d51616;
   cursor: pointer;
   transition:color .2s ease-out, background 0.3s ease-in;
 }

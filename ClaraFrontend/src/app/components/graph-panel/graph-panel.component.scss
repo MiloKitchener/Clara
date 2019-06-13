@@ -26,12 +26,6 @@ h4 {
   margin: 0;
 }
 
-.addBtn:hover {
-  background-color: #d51616;
-  transition:color .2s ease-out, background 0.3s ease-in;
-  cursor: pointer;
-}
-
 .main {
   display: flex;
 }
@@ -80,6 +74,12 @@ button:focus {
   font-size: 14px;
   border-radius: 3px;
   transition:color .2s ease-out, background 0.3s ease-in;
+}
+
+.addBtn:hover {
+  background-color: #d51616;
+  transition:color .2s ease-out, background 0.3s ease-in;
+  cursor: pointer;
 }
 
 /* Style The Dropdown Button */
