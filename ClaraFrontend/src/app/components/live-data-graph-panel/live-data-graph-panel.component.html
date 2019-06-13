@@ -1,0 +1,18 @@
+<div class="controls">
+  <!-- Dataset Selection -->
+  <h4>Live Dataset</h4>
+  <br>
+  <div class="dropdown">
+    <button class="dropbtn">{{ liveDatasetTitle }}</button>
+    <div class="dropdown-content">
+      <ul>
+<!--        <li *ngFor="let dataset of datasets">-->
+<!--          <a (click)="setYAxis(dataset.name)">{{ dataset.name }}</a>-->
+<!--        </li>-->
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="graph">
+  <canvas id="liveChart" width="400" height="400"></canvas>
+</div>
