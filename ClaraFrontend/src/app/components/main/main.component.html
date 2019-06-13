@@ -93,6 +93,6 @@
 </div>
 
 <!-- Routed Elements -->
-<div class="mainContent" id="main" [@fadeAnimation]="o.isActivated ? o.activatedRoute : ''">
+<div class="mainContent" id="main" [@fadeAnimation]="o.isActivated ? o.activatedRoute : ''" (click)="hideNav()">
   <router-outlet #o="outlet"></router-outlet>
 </div>

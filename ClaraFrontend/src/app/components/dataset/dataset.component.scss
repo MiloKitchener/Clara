@@ -254,3 +254,18 @@ p {
   cursor: pointer;
   transition:color .2s ease-out, background 0.3s ease-in;
 }
+
+
+/***********************************
+  Mobile CSS
+***********************************/
+
+@media screen and (orientation: portrait) {
+  .titleDesc h3 {
+    font-size: 3vw;
+  }
+
+  .titleDesc p {
+    font-size: 2vw;
+  }
+}
