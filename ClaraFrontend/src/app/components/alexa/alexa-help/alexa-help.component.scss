@@ -65,3 +65,21 @@ p, li {
 	text-align: left;
 }
 
+
+/***********************************
+  Mobile CSS
+***********************************/
+
+@media screen and (orientation: portrait) {
+	p, li {
+		font-size: 3vw;
+	}
+
+	p {
+		text-align: left;
+	}
+
+	.title p {
+		font-size: 5vw;
+	}
+}
