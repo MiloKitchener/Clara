@@ -1,56 +1,67 @@
- .container {
-	 width:100%;
- }  
-
- .title {
-	 padding: 1.8em;
-	 background-image: linear-gradient(to left, #32CDFE, #00B2FF);
-	 color: white;
-	 font-size: 3em;
- }
-
- .title p {
-	 text-align: center;
- }
- 
- .stats {
-	 padding: 70px;
-	 border-radius: 7px;
-	 background-color: white;
-	 width: 60%;
-	 margin: auto;
-	 margin-top: 40px;
- }
-
-
- .stats mat-expansion-panel-header {
-	  padding: 50px;
-	  width: 50%;
-	  background-image: linear-gradient(to left, #32CDFE, #00B2FF);
-	  border-radius: 70px;
-	  margin: auto;
-  }
-
-  .stats mat-panel-description {
-	  background-color: #F0F8FF;
-	  padding: 2px;
-	  margin: auto;
-	  width: 50%;
-	  border-radius: 30px;
-  }
-
-
-.capabilities {
-	width: 60%;
-	background-color: white;
-	padding: 70px;
-	border-radius: 7px;
-	margin: auto;
-	margin-top: 40px;
-	margin-bottom: 40px;
+.title {
+	padding: 4%;
+	background-image: linear-gradient(to left, #32CDFE, #00B2FF);
+	color: white;
 }
 
-.capabilities li,p {
+.container {
+	width: 100%;
+	margin-top: 5%;
+	padding-bottom: 5%;
+}
+
+.title p {
+  text-align: center;
+}
+ 
+.stats {
+  padding: 4%;
+  border-radius: 7px;
+  background-color: white;
+  width: 80%;
+	margin: auto;
+}
+
+h3 {
+	font-size: 3vh;
+}
+
+p, li {
+	font-size: 2.5vh;
+}
+
+.title p {
+	font-size: 5vh;
+}
+
+.stats mat-expansion-panel-header {
+  padding: 5%;
+	width: 60%;
+	color: white;
+  background-image: linear-gradient(to left, #32CDFE, #00B2FF);
+  border-radius: 25px;
+  margin: auto;
+}
+
+.stats mat-panel-description {
+	width: 60%;
+	margin: auto;
+}
+
+.stats mat-panel-description p {
+	text-align: left;
+}
+
+.capabilities {
+	width: 82%;
+	margin: auto;
+	background-color: white;
+	padding: 3%;
+	border-radius: 7px;
+	margin-top: 4%;
+}
+
+.capabilities li {
 	text-align: left;
 }
 
