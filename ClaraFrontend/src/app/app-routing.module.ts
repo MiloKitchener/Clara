@@ -6,9 +6,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthService } from './services/auth/auth.service';
 
 // import components
-import { LoginComponent } from './login/login.component';
-import { MainComponent } from './main/main.component';
-import { NotFoundComponent } from './not-found/not-found.component';
+import { LoginComponent } from './components/login/login.component';
+import { MainComponent } from './components/main/main.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 import { DashboardSplashComponent } from './components/dashboards/dashboard-splash/dashboard-splash.component';
 import { UserDashboardComponent } from './components/dashboards/user-dashboard/user-dashboard.component';

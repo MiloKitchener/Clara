@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { fadeAnimation } from '../animations/fade.animation';
+import { fadeAnimation } from '../../animations/fade.animation';
 
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { ProfileService } from 'src/app/services/profile/profile.service';
@@ -50,13 +50,16 @@ export class MainComponent implements OnInit {
 
   // toggles the mobile navigation bar
   public toggleNav() {
-    var nav = document.getElementById("nav");
-
     if (this.navDisplayed == false) { // shows nav
       this.navDisplayed = true;
     }
     else { // hide
       this.navDisplayed = false;
     }
+  }
+
+  // hides mobile navigation bar
+  public hideNav() {
+    this.navDisplayed = false;
   }
 }

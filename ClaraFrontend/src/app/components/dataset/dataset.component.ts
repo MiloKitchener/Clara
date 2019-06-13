@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
 
 import { GraphDataService } from 'src/app/services/graph-data/graph-data.service';
 
@@ -17,14 +20,18 @@ export class DatasetComponent implements OnInit {
   private selectedDataset: string;
   private datasets: Dataset[];
 
-  private searchForm: any;
+  private searchForm: FormGroup;
+  private uploadForm: FormGroup;
 
   private numSets: number;
   private numRecentlyUpdated: number;
   private numOutOfDate: number;
   private numUnderReview: number;
 
+  private datasetUploadView: boolean;
+
   constructor(
+    private http: HttpClient,
     private datasetService: GraphDataService,
     private fb: FormBuilder
   ) { }
@@ -34,10 +41,15 @@ export class DatasetComponent implements OnInit {
     this.numRecentlyUpdated = 0;
     this.numOutOfDate = 0;
     this.numUnderReview = 0;
+    this.datasetUploadView = false;
     this.setSelectedDataset("Open Data"); // default dataset is open data
 
     this.searchForm = this.fb.group({
-      searchValue: ['']
+      searchValue: ['', Validators.required]
+    });
+
+    this.uploadForm = this.fb.group({
+      url: ['', Validators.required]
     });
   }
 
@@ -90,5 +102,22 @@ export class DatasetComponent implements OnInit {
         li[i].style.display = "none";
       }
     }*/
+  }
+
+  // toggles the view of the dataset upload form
+  toggleDatasetUpload() {
+    if (this.datasetUploadView == false) {
+      this.datasetUploadView = true;
+    }
+    else {
+      this.datasetUploadView = false;
+    }
+  }
+
+  // POSTS a dataset URL to the database
+  uploadDataset() {
+    this.http.post(environment.backendIP + 'create/datasets', this.uploadForm.value).subscribe(() => {
+      console.log("Dataset POST Successful");
+    });
   }
 }

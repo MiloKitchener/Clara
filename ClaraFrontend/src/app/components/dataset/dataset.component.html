@@ -1,3 +1,12 @@
+<div class="submitDatasetPanel" [ngStyle]="{'display': datasetUploadView === true ? 'block' : 'none'}">
+	<form [formGroup]="uploadForm" (ngSubmit)="uploadDataset()">
+		<input type="text" formControlName="url" placeholder="Database URL">
+		<br>
+		<input type="submit" value="Upload Dataset">
+	</form>
+	<button id="closeDatasetPanelBtn" (click)="toggleDatasetUpload()">Cancel</button>
+</div>
+
 <div class=searchPanel>
 	<h1>Find a Dataset</h1>
 
@@ -55,4 +64,5 @@
 			</div>
 		</li>
 	</ul>
+	<button class="datasetUploadBtn" (click)="toggleDatasetUpload()">Upload a Dataset</button>
 </div>
