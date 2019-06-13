@@ -17,7 +17,7 @@
           </svg>
         </button>
         <br>
-        <h5 [ngStyle]="{'color': post.numVotes < 0 ? '#eb3b3b' : 'black'}">{{ post.num_votes }}</h5>
+        <h5 [ngStyle]="{'color': post.num_votes < 0 ? '#eb3b3b' : 'black'}">{{ post.num_votes }}</h5>
         <button id="downButton" (click)="downvote()">
           <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="22.5px"
             height="30px" viewBox="0 0 50 80" xml:space="preserve">

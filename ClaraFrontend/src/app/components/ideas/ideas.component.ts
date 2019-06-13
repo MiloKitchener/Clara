@@ -16,15 +16,15 @@ export class IdeasComponent implements OnInit {
   // instance variables
   @ViewChild(IdeaAnchorDirective, { static: true }) ideaAnchor: IdeaAnchorDirective;
 
-  private posts: Post[];
-  private filters: string[];
-  private arrangedFilters: string[];
-  private selectedFilter: string;
+  posts: Post[];
+  filters: string[];
+  arrangedFilters: string[];
+  selectedFilter: string;
 
-  private newPostForm: FormGroup;
+  newPostForm: FormGroup;
 
-  private toggleNewPostView: boolean;
-  private newPostSubmitted: boolean;
+  toggleNewPostView: boolean;
+  newPostSubmitted: boolean;
 
   constructor(
     private ideasService: IdeasService,
@@ -55,22 +55,22 @@ export class IdeasComponent implements OnInit {
   }
 
   // selects a filter
-  private selectFilter(name: string) {
+  selectFilter(name: string) {
     this.selectedFilter = name;
   }
 
   // makes the newPostPanel visible
-  private viewNewPost() {
+  viewNewPost() {
     this.toggleNewPostView = true;
   }
 
   // removes newPostPanel visibility
-  private closeNewPost() {
+  closeNewPost() {
     this.toggleNewPostView = false;
   }
 
   // Adds a new idea post
-  private submitPost() {
+  submitPost() {
     this.newPostSubmitted = true;
     this.ideasService.addPost(this.newPostForm.value);
   }

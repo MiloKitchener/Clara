@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardSplashComponent implements OnInit {
   // class variables
-  private selected: string;
+  selected: string;
 
   constructor() { }
 

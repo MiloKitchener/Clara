@@ -1,7 +1,7 @@
 export class User {
-	private name: string;
-	private title: string;
-	private pictureSrc: string;
+	name: string;
+	title: string;
+	pictureSrc: string;
 
 	constructor(name: string, title: string, pictureSrc: string) {
 		this.name = name;

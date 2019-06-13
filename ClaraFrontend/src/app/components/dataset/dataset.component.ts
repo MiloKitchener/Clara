@@ -17,18 +17,18 @@ import { Dataset } from 'src/app/classes/dataset';
 export class DatasetComponent implements OnInit {
 
   // class variables
-  private selectedDataset: string;
-  private datasets: Dataset[];
+  selectedDataset: string;
+  datasets: Dataset[];
 
-  private searchForm: FormGroup;
-  private uploadForm: FormGroup;
+  searchForm: FormGroup;
+  uploadForm: FormGroup;
 
-  private numSets: number;
-  private numRecentlyUpdated: number;
-  private numOutOfDate: number;
-  private numUnderReview: number;
+  numSets: number;
+  numRecentlyUpdated: number;
+  numOutOfDate: number;
+  numUnderReview: number;
 
-  private datasetUploadView: boolean;
+  datasetUploadView: boolean;
 
   constructor(
     private http: HttpClient,

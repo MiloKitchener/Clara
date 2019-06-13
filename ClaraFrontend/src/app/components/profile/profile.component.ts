@@ -9,13 +9,13 @@ import { ProfileService } from 'src/app/services/profile/profile.service';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
-  private name: string;
-  private title: string;
-  private pictureSrc: string;
+  name: string;
+  title: string;
+  pictureSrc: string;
 
-  private postsHeadingTxt: string;
+  postsHeadingTxt: string;
 
-  private updateUserForm: FormGroup;
+  updateUserForm: FormGroup;
 
   constructor(
     private fb: FormBuilder,
@@ -35,7 +35,7 @@ export class ProfileComponent implements OnInit {
     });
   }
 
-  public updateProfile() {
+  updateProfile() {
     // stop if form is invalid
     if (this.updateUserForm.invalid) {
       return;

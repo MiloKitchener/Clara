@@ -15,16 +15,16 @@ import { Field } from 'src/app/classes/field';
 export class GraphPanelComponent implements OnInit {
 
   // instance variables
-  private datasets: Dataset[];
-  private yFields: Field[];
-  private xFields: Field[];
-  private newChartData = [];
+  datasets: Dataset[];
+  yFields: Field[];
+  xFields: Field[];
+  newChartData = [];
 
-  private graphTitle: string;
-  private yAxisTitle: string;
-  private xAxisTitle: string;
-  private yField: string;
-  private xField: string;
+  graphTitle: string;
+  yAxisTitle: string;
+  xAxisTitle: string;
+  yField: string;
+  xField: string;
 
   constructor(private graphDataService: GraphDataService) {
     // instantiate instance variables

@@ -9,9 +9,9 @@ import { environment } from '../../../../environments/environment';
 })
 
 export class AlexaFeedComponent implements OnInit {
-  private feedData: any;
-  private statsData: any;
-  private imageSrc: string;
+  feedData: any;
+  statsData: any;
+  imageSrc: string;
 
   constructor(private http: HttpClient) { }
 
@@ -25,7 +25,7 @@ export class AlexaFeedComponent implements OnInit {
   }
 
   // pulls alexa feed data
-  private async pullFeed() {
+  async pullFeed() {
     // GET clara feeds
     await this.http.get(environment.backendIP + 'ask_clara_feed/').subscribe(
       res => {
