@@ -142,3 +142,14 @@ ul {
 img {
   transform: translateY(-15px);
 }
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  background-color: white;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+}

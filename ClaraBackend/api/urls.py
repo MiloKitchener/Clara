@@ -23,5 +23,6 @@ urlpatterns = [
     path('create/datasets', views.DatasetCreateView.as_view(), name='create_datasets'),
     path('map/datasets', views.DatasetMapView.as_view(), name='map_datasets'),
     path('pins/', views.map_pins, name='map_pins'),
+    path(r'channels/', views.channels, name='channels'),
 
 ]

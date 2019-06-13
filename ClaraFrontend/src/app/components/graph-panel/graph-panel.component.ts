@@ -26,7 +26,7 @@ export class GraphPanelComponent implements OnInit {
   private yField: string;
   private xField: string;
 
-  constructor(private _graphDataService: GraphDataService) {
+  constructor(private graphDataService: GraphDataService) {
     // instantiate instance variables
     this.datasets = null;
     this.yFields = null;
@@ -42,7 +42,7 @@ export class GraphPanelComponent implements OnInit {
 
   ngOnInit() {
     // GET datasets
-    this._graphDataService.getDatasets().subscribe((res: any[]) => {
+    this.graphDataService.getDatasets().subscribe((res: any[]) => {
       this.datasets = res;
     });
 
@@ -52,7 +52,7 @@ export class GraphPanelComponent implements OnInit {
 
 
   /****************************
-    Class Methods  
+    Class Methods
   ****************************/
 
 
@@ -65,7 +65,7 @@ export class GraphPanelComponent implements OnInit {
     this.updateChart();
 
     // get fields
-    this._graphDataService.getFields(this.selectDataset(this.yAxisTitle).url).subscribe((res: any[]) => {
+    this.graphDataService.getFields(this.selectDataset(this.yAxisTitle).url).subscribe((res: any[]) => {
       this.yFields = res;
     });
   }
@@ -80,7 +80,7 @@ export class GraphPanelComponent implements OnInit {
     this.updateChart();
 
     // get fields
-    this._graphDataService.getFields(this.selectDataset(this.xAxisTitle).url).subscribe((res: any[]) => {
+    this.graphDataService.getFields(this.selectDataset(this.xAxisTitle).url).subscribe((res: any[]) => {
       this.xFields = res;
     });
   }
@@ -90,7 +90,7 @@ export class GraphPanelComponent implements OnInit {
   selectYField(title: string) {
     this.yField = title;
 
-    if (this.xField != 'Field') { // both fields selected
+    if (this.xField !== 'Field') { // both fields selected
       this.queryTable();
     }
   }
@@ -100,7 +100,7 @@ export class GraphPanelComponent implements OnInit {
   selectXField(title: string) {
     this.xField = title;
 
-    if (this.yField != 'Field') { // both fields selected
+    if (this.yField !== 'Field') { // both fields selected
       this.queryTable();
     }
   }
@@ -109,7 +109,7 @@ export class GraphPanelComponent implements OnInit {
   // returns a specified dataset from the list
   selectDataset(datasetTitle: string): Dataset {
     // search for dataset (ADD FASTER SEARCH ALGORITHM, DATASETS WILL BE IN ALPHABETICAL ORDER)
-    for (var i = 0; i < this.datasets.length; i++) {
+    for (let i = 0; i < this.datasets.length; i++) {
       if (this.datasets[i].name === datasetTitle) {
         return this.datasets[i];
       }
@@ -121,16 +121,15 @@ export class GraphPanelComponent implements OnInit {
   addGraph() {
     if (this.yField === 'Field' || this.xField === 'Field' || this.newChartData == null) {
       alert('Please Specify X / Y Axis Values');
-    }
-    else { // add graph data to user charts
-      this._graphDataService.addUserChart(this.newChartData, this.xAxisTitle, this.xField, this.yAxisTitle, this.yField);
+    } else { // add graph data to user charts
+      this.graphDataService.addUserChart(this.newChartData, this.xAxisTitle, this.xField, this.yAxisTitle, this.yField);
     }
   }
 
 
   // queries database for new chart data, updates chart accordingly
   queryTable() {
-    this._graphDataService.getChartData(this.xField, this.yField, this.xAxisTitle, this.yAxisTitle).subscribe((res: any[]) => {
+    this.graphDataService.getChartData(this.xField, this.yField, this.xAxisTitle, this.yAxisTitle).subscribe((res: any[]) => {
       this.newChartData = res;
       this.updateChart(); // update chart
     });
@@ -141,7 +140,7 @@ export class GraphPanelComponent implements OnInit {
   updateChart() {
     const canvas: any = document.getElementById('myChart');
     const ctx = canvas.getContext('2d');
-    var scatterChart = new Chart(ctx, {
+    const scatterChart = new Chart(ctx, {
       type: 'scatter',
       data: {
         datasets: [{
@@ -158,5 +157,36 @@ export class GraphPanelComponent implements OnInit {
         }
       }
     });
+  }
+
+  openTab(tabName) {
+    // Declare all variables
+    let tabcontent;
+    let tablinks;
+
+    // Get all elements with class="tabcontent" and hide them
+    tabcontent = document.getElementsByClassName('tabcontent');
+    for (const content of tabcontent) {
+      content.style.display = 'none';
+    }
+
+    // Get all elements with class="tablinks" and remove the class "active"
+    tablinks = document.getElementsByClassName('tablinks');
+    for (const tab of tablinks) {
+      tab.className = tab.className.replace(' active', '');
+    }
+
+    // Show the current tab, and add an "active" class to the button that opened the tab
+    let idTab = '';
+    let idTabContent = '';
+    if (tabName === 'Open Data') {
+      idTab = 'openDataTab';
+      idTabContent = 'openData';
+    } else {
+      idTab = 'liveDataTab';
+      idTabContent = 'liveData';
+    }
+    document.getElementById(idTabContent).style.display = 'block';
+    document.getElementById(idTab).className += ' active';
   }
 }
