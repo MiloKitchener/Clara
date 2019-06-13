@@ -1,3 +1,4 @@
+from django.shortcuts import render
 from rest_framework.pagination import LimitOffsetPagination
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.views import APIView
@@ -97,20 +98,20 @@ class PermissionView(viewsets.ModelViewSet):
     queryset = Permission.objects.all()
     serializer_class = PermissionSerializer
 
-class APICredentialsView(viewsets.ModelViewSet):
 
-    #authenticate the user
-  #  permission_classes = (IsAuthenticated,)
+class APICredentialsView(viewsets.ModelViewSet):
+    # authenticate the user
+    #  permission_classes = (IsAuthenticated,)
 
     queryset = APICredentials.objects.all()
     serializer_class = APICredentialsSerializer
 
     def create(self, request, **kwargs):
         # verify if the credentials are correct
-        #before new credentials are created add in the user's id
+        # before new credentials are created add in the user's id
 
         # TODO: uncomment the below code when front end for 3rd Party API is done
-        #request.data['user'] = reverse('user-detail', kwargs={'pk': request.user.id})
+        # request.data['user'] = reverse('user-detail', kwargs={'pk': request.user.id})
         return super(APICredentialsView, self).create(request)
 
     # Get permissions for user
@@ -118,8 +119,6 @@ class APICredentialsView(viewsets.ModelViewSet):
     def user_credentials(self, request):
         queryset = APICredentials.objects.filter(user__id=request.user.id)
         return Response(queryset.values())
-
-
 
 
 # API endpoint that allows graphs to be viewed or edited
@@ -215,3 +214,7 @@ class CommentView(viewsets.ModelViewSet):
     # Select all datasets
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
+
+
+def channels(request):
+    return render(request, 'templates/api/channels.html')
