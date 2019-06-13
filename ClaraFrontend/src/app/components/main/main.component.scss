@@ -18,6 +18,7 @@
   background-color: white;
   position: fixed;
   text-align: center;
+  overflow: hidden;
 }
 
 .sidebar-user-panel img {
@@ -80,7 +81,7 @@ a:focus {
 
 .active a {
   color: white;
-  background-color: #32CDFE;
+  background-color: #00B2FF;
   width: 84%;
 }
 
@@ -116,13 +117,9 @@ li:hover {
 }
 
 #siteIcon {
-  position: absolute;
-  bottom: 0;
-  left: 0;
   width: 50%;
   margin: 25%;
-  margin-bottom: 15%;
-  margin-top: 0;
+  margin-top: 20%;
 }
 
 /***********************************

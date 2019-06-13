@@ -27,6 +27,11 @@ export class AlexaFeedComponent implements OnInit {
   // pulls alexa feed data
   private async pullFeed() {
     // GET clara feeds
-    this.feedData = await this.http.get(environment.backendIP + 'ask_clara_feed/').toPromise();
+    await this.http.get(environment.backendIP + 'ask_clara_feed/').subscribe(
+      res => {
+        this.feedData = res;
+      },
+      error => console.log('Error', error)
+    );
   }
 }
