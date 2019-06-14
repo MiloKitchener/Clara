@@ -2,16 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { ProfileService } from 'src/app/services/profile/profile.service';
+import { User } from 'src/app/classes/user';
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss']
 })
+
 export class ProfileComponent implements OnInit {
-  name: string;
-  title: string;
-  pictureSrc: string;
+  user: User
 
   postsHeadingTxt: string;
 
@@ -24,9 +24,7 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     this.postsHeadingTxt = "You Haven't Made Any Posts Yet!"
-    this.name = this._profileService.getName();
-    this.title = this._profileService.getTitle();
-    this.pictureSrc = this._profileService.getPictureSrc();
+    this.user = this._profileService.getUser();
 
     this.updateUserForm = this.fb.group({
       name: ['', Validators.required],
@@ -41,7 +39,7 @@ export class ProfileComponent implements OnInit {
       return;
     }
     else {
-      this._profileService.updateProfile(this.updateUserForm.value);
+      this._profileService.updateProfile();
     }
   }
 }

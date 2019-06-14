@@ -10,13 +10,15 @@ export class ProfileService {
 
   constructor() {
     // pull user from database
-    this.user = new User("William McKinnon", "Smart City Developer", "assets/images/avatar.png");
+    this.user = {
+      name: "William McKinnon",
+      title: "Smart City Developer",
+      pictureSrc: "assets/images/avatar.png"
+    };
   }
 
   // pushes profile changes to backend
-  public updateProfile(user: any) {
-    this.user = new User(user.name, user.title, user.imageUrl);
-    alert(JSON.stringify(this.user));
+  updateProfile() {
   }
 
   // GETTERS
@@ -25,14 +27,14 @@ export class ProfileService {
   }
 
   public getName() {
-    return this.user.getName();
+    return this.user.name;
   }
 
   public getTitle() {
-    return this.user.getTitle();
+    return this.user.title;
   }
 
   public getPictureSrc() {
-    return this.user.getPictureSrc();
+    return this.user.pictureSrc;
   }
 }

@@ -85,8 +85,8 @@ export class IdeasComponent implements OnInit {
 
       const componentRefs = [];
       this.posts.forEach((post) => {
-        this.ideasService.getCommentsObservable(post).subscribe((comments: Comment[]) => {
-          post.comments = comments || [];
+        this.ideasService.getCommentsObservable(post).subscribe(res => {
+          post.comments = res || [];
           const componentRef = viewContainerRef.createComponent(componentFactory);
           componentRefs.push(componentRef);
           (componentRef.instance as IdeaNodeComponent).post = post;

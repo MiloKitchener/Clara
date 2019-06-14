@@ -70,7 +70,6 @@ import { ProfileComponent } from './components/profile/profile.component';
     ReactiveFormsModule
   ],
   providers: [
-    GraphDataService,
     CookieService, {
       provide: HTTP_INTERCEPTORS,
       useClass: JwtInterceptorService,
@@ -80,4 +79,5 @@ import { ProfileComponent } from './components/profile/profile.component';
   bootstrap: [AppComponent],
   entryComponents: [IdeaNodeComponent]
 })
+
 export class AppModule { }
