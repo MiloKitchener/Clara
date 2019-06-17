@@ -9,9 +9,7 @@
     <div class="main">
       <!-- Tab content -->
       <div id="openData" class="tabcontent">
-        <div>
-        </div>
-        <div id="controls">
+        <div class="controls">
           <!-- Y Axis Selection -->
           <h4>Y Axis</h4>
           <br>
@@ -67,19 +65,16 @@
             </div>
           </div>
         </div>
-        <div id="graph">
+        <div class="graph">
           <canvas id="myChart" width="400" height="400"></canvas>
         </div>
+        <button class="addBtn" (click)="addGraph()">Add Graph to Dashboard</button>
       </div>
 
       <div id="liveData" class="tabcontent">
-        <h3>Paris</h3>
-        <p>Paris is the capital of France.</p>
+        <app-live-data-graph-panel></app-live-data-graph-panel>
       </div>
-
-
     </div>
-    <button class="addBtn" (click)="addGraph()">Add Graph to Dashboard</button>
   </div>
   <img src="assets/vectors/triangle.svg" alt="">
 

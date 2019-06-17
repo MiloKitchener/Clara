@@ -1,0 +1,30 @@
+<div class="controls">
+  <form [formGroup]="liveDataForm" (ngSubmit)="submit()">
+    <label for="datasets">Live Dataset</label>
+    <select formControlName="datasets" id="datasets" (ngModelChange)="onDatasetChange($event)">
+      <option *ngFor="let dataset of datasets" [ngValue]="dataset">
+        {{dataset.name}}
+      </option>
+    </select>
+
+    <label for="fields">Field</label>
+    <select formControlName="fields" id="fields" (ngModelChange)="onFieldChange($event)">
+      <option *ngFor="let field of fields" [ngValue]="field">
+        {{field.name}}
+      </option>
+    </select>
+
+    <label for="devices">Device</label>
+    <select formControlName="devices" id="devices">
+      <option *ngFor="let device of devices" [ngValue]="device">
+        {{device.name}}
+      </option>
+    </select>
+
+    <div class="graph">
+      <canvas id="liveChart" width="400" height="400"></canvas>
+    </div>
+
+    <button class="addBtn">Submit</button>
+  </form>
+</div>

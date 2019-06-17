@@ -46,7 +46,7 @@ export class GraphPanelComponent implements OnInit {
       this.datasets = res;
     });
 
-    // Populates initial empty chart
+    // Populates initial empty charts
     this.updateChart();
   }
 
@@ -182,17 +182,11 @@ export class GraphPanelComponent implements OnInit {
     if (tabName === 'Open Data') {
       idTab = 'openDataTab';
       idTabContent = 'openData';
-    }
-    else {
+    } else {
       idTab = 'liveDataTab';
       idTabContent = 'liveData';
     }
-    if (idTabContent == 'openData') {
-      document.getElementById(idTabContent).style.display = 'flex';
-    }
-    else {
-      document.getElementById(idTabContent).style.display = 'block';
-    }
+    document.getElementById(idTabContent).style.display = 'flex';
     document.getElementById(idTab).className += ' active';
   }
 }

@@ -25,9 +25,17 @@ export class GraphDataService {
     return this.datasets;
   }
 
+  getLiveDatasets() {
+    return this.http.get<any>(environment.backendIP + 'datasets/?type=live');
+  }
+
   // Returns a list of fields corresponding to a database parameter
   getFields(url: string) {
     return this.http.get(url + 'field_names/');
+  }
+
+  getLiveFields(url: string) {
+    return this.http.get(url + 'matrix_info/get_fields/');
   }
 
   // Returns the chart data associated with two fields
