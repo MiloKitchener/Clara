@@ -72,7 +72,6 @@ import { LiveDataGraphPanelComponent } from './components/live-data-graph-panel/
     ReactiveFormsModule
   ],
   providers: [
-    GraphDataService,
     CookieService, {
       provide: HTTP_INTERCEPTORS,
       useClass: JwtInterceptorService,
@@ -82,4 +81,5 @@ import { LiveDataGraphPanelComponent } from './components/live-data-graph-panel/
   bootstrap: [AppComponent],
   entryComponents: [IdeaNodeComponent]
 })
+
 export class AppModule { }

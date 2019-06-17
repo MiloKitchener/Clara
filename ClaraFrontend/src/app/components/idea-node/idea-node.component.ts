@@ -11,9 +11,9 @@ import { IdeasService } from 'src/app/services/ideas/ideas.service';
 
 export class IdeaNodeComponent implements OnInit {
   @Input() post: Post;
-  private voted: number;
-  private viewComments: boolean;
-  private addCommentForm: FormGroup;
+  voted: number;
+  viewComments: boolean;
+  addCommentForm: FormGroup;
 
   constructor(
     private ideaService: IdeasService,

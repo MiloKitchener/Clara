@@ -1,32 +1,33 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 
+import { AuthService } from 'src/app/services/auth/auth.service';
 import { ProfileService } from 'src/app/services/profile/profile.service';
+
+import { User } from 'src/app/classes/user';
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss']
 })
+
 export class ProfileComponent implements OnInit {
-  private name: string;
-  private title: string;
-  private pictureSrc: string;
+  user: User
 
-  private postsHeadingTxt: string;
+  postsHeadingTxt: string;
 
-  private updateUserForm: FormGroup;
+  updateUserForm: FormGroup;
 
   constructor(
     private fb: FormBuilder,
-    private _profileService: ProfileService
+    private _profileService: ProfileService,
+    private logoutService: AuthService
   ) { }
 
   ngOnInit() {
     this.postsHeadingTxt = "You Haven't Made Any Posts Yet!"
-    this.name = this._profileService.getName();
-    this.title = this._profileService.getTitle();
-    this.pictureSrc = this._profileService.getPictureSrc();
+    this.user = this._profileService.getUser();
 
     this.updateUserForm = this.fb.group({
       name: ['', Validators.required],
@@ -35,13 +36,19 @@ export class ProfileComponent implements OnInit {
     });
   }
 
-  public updateProfile() {
+  updateProfile() {
     // stop if form is invalid
     if (this.updateUserForm.invalid) {
       return;
     }
     else {
-      this._profileService.updateProfile(this.updateUserForm.value);
+      this._profileService.updateProfile();
     }
+  }
+
+  logout() {
+    this.logoutService.logout();
+    // Reload the current page without the browser cache
+    location.reload(true);
   }
 }

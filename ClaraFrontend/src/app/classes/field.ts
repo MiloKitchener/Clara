@@ -1,6 +1,6 @@
 export class Field {
-  public url: string;
-  public name: string;
-  public normalized_name: string;
-  public dataset: string;
+  url: string;
+  name: string;
+  normalized_name: string;
+  dataset: string;
 }

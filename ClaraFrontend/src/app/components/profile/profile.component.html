@@ -5,17 +5,17 @@
     <form [formGroup]="updateUserForm" (ngSubmit)="updateProfile()">
       <div class="flexContainer">
         <div class="imagePanel">
-          <img [src]="pictureSrc" />
+          <img [src]="user.pictureSrc" />
           <br>
           <br>
-          <input type="text" formControlName="imageUrl" [(ngModel)]='pictureSrc' placeholder="Image URL"
+          <input type="text" formControlName="imageUrl" [(ngModel)]='user.pictureSrc' placeholder="Image URL"
             style="text-align: center;font-size:10pt;">
         </div>
         <div class="rightPanel">
-          <input type="text" formControlName="name" [(ngModel)]='name' placeholder="Name">
+          <input type="text" formControlName="name" [(ngModel)]='user.name' placeholder="Name">
           <br>
           <br>
-          <input type="text" formControlName="title" [(ngModel)]='title' placeholder="Title">
+          <input type="text" formControlName="title" [(ngModel)]='user.title' placeholder="Title">
         </div>
       </div>
       <br>
@@ -23,6 +23,8 @@
       <input type="submit" value="Apply">
     </form>
   </div>
+
+  <button (click)="logout()">Log Out</button>
 
   <div class="postsPanel">
     <h2> {{ postsHeadingTxt }} </h2>

@@ -1,10 +1,10 @@
-from django.shortcuts import render
 from rest_framework.pagination import LimitOffsetPagination
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.views import APIView
 from django.http import HttpResponse
 from rest_framework.response import Response
 from .models import *
+from django.shortcuts import render
 from .serializers import *
 from django.views.decorators.csrf import csrf_exempt
 from .forms import CustomUserCreationForm
@@ -77,8 +77,8 @@ class DatasetMapView(APIView):
     def post(self, request):
         url = request.data.get('url')
         print(url)
-        map_fields_to_normalized_name(url)
-        return Response('success')
+        resp = map_fields_to_normalized_name(url)
+        return Response(resp)
 
 
 # API endpoint that allows fields to be viewed or edited
@@ -114,20 +114,20 @@ class PermissionView(viewsets.ModelViewSet):
     queryset = Permission.objects.all()
     serializer_class = PermissionSerializer
 
-
 class APICredentialsView(viewsets.ModelViewSet):
-    # authenticate the user
-    #  permission_classes = (IsAuthenticated,)
+
+    #authenticate the user
+  #  permission_classes = (IsAuthenticated,)
 
     queryset = APICredentials.objects.all()
     serializer_class = APICredentialsSerializer
 
     def create(self, request, **kwargs):
         # verify if the credentials are correct
-        # before new credentials are created add in the user's id
+        #before new credentials are created add in the user's id
 
         # TODO: uncomment the below code when front end for 3rd Party API is done
-        # request.data['user'] = reverse('user-detail', kwargs={'pk': request.user.id})
+        #request.data['user'] = reverse('user-detail', kwargs={'pk': request.user.id})
         return super(APICredentialsView, self).create(request)
 
     # Get permissions for user
@@ -135,6 +135,8 @@ class APICredentialsView(viewsets.ModelViewSet):
     def user_credentials(self, request):
         queryset = APICredentials.objects.filter(user__id=request.user.id)
         return Response(queryset.values())
+
+
 
 
 # API endpoint that allows graphs to be viewed or edited
@@ -243,7 +245,6 @@ def map_pins(request):
         # hard coded
         url = 'https://slv.prod03.ssn.ssnsgs.net:8443/reports'
         type = 'third_party'
-
         # TODO: test this after hard coding works
         #type = data.get('type')
         #url =  data.get('api_url')
@@ -252,14 +253,27 @@ def map_pins(request):
             # third party dataset
 
             # TODO: Think of ways to make this modular and not hard coded.
+            #payload = {
+            #    'latMin': '43.4513',
+            #    'latMax': '43.4513',
+            #    'lngMin': '80.4981',
+            #    'lngMax': '80.4981',
+            #    'maxDevices': '10',
+            #    'ser': 'json'
+            #}
+            # kitchener geozone id: 5760
             payload = {
                 'geozoneId': '5760',
                 'recurse': 'true',
                 'categoryStrId': 'streetlight',
                 'ser': 'json'
             }
-            device_list = requests.post(url + "/api/asset/getGeozoneDevices", data=payload, auth=('kallenmuncey', '81l0fTh3Inn0v8t1on!'))
+
+            url =  'https://slv.prod03.ssn.ssnsgs.net: 8443/reports/api/asset/getGeoZoneDevices?geoZoneId=6638&ser=json&slvSystemServiceRequestTime=1560523889116'
+            device_list = requests.post(url, auth=('*****', '*****'))
+            #device_list = requests.post(url + "/api/asset/getGeozoneDevices", data=payload, auth=('*****', '*****!'))
             # json_list = json.dumps(device_list.content.decode('utf8'))
+            print(device_list.text)
             df_devices = pd.read_json(device_list.content.decode('utf8'))
             print(df_devices.columns)
             cols = ['lat', 'lng', 'id']

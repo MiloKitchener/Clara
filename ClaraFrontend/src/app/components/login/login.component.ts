@@ -10,15 +10,15 @@ import { ActivatedRoute } from '@angular/router';
 })
 
 export class LoginComponent implements OnInit {
-  private returnUrl: string;
+  returnUrl: string;
 
-  private loginForm: FormGroup;
-  private signUpForm: FormGroup;
-  private forgotPWForm: FormGroup;
+  loginForm: FormGroup;
+  signUpForm: FormGroup;
+  forgotPWForm: FormGroup;
 
-  private loginSubmitted: boolean;
-  private signUpSubmitted: boolean;
-  private forgotPWSubmitted: boolean;
+  loginSubmitted: boolean;
+  signUpSubmitted: boolean;
+  forgotPWSubmitted: boolean;
 
   constructor(
     private loginService: AuthService,

@@ -26,6 +26,7 @@ import { IdeasComponent } from './components/ideas/ideas.component';
 import { LabServicesComponent } from './components/lab-services/lab-services.component';
 import { ProfileComponent } from './components/profile/profile.component';
 
+// define routes
 const routes: Routes = [
   { path: '', redirectTo: 'main', pathMatch: 'full' },
   { path: 'login', component: LoginComponent, data: { title: 'Log in' } },

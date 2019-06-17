@@ -15,8 +15,8 @@ import { User } from 'src/app/classes/user';
 
 export class MainComponent implements OnInit {
   // user profile vars
-  private user: User;
-  private navDisplayed: boolean; // for mobile class methods
+  user: User;
+  navDisplayed: boolean; // for mobile class methods
 
   constructor(
     private _profileService: ProfileService,

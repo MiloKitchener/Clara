@@ -10,8 +10,8 @@ import { GraphDataService } from 'src/app/services/graph-data/graph-data.service
 })
 
 export class UserDashboardComponent implements OnInit {
-  private chartsData = [];
-  private chartUpdated: boolean;
+  chartsData = [];
+  chartUpdated: boolean;
 
   constructor(private _graphDataService: GraphDataService) { }
 
