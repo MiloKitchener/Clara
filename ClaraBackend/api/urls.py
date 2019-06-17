@@ -4,7 +4,7 @@ from . import views
 from rest_framework import routers
 
 routers = routers.DefaultRouter()
-routers.register(r'datasets', views.DatasetView)
+routers.register(r'datasets', views.DatasetView, base_name='dataset')
 routers.register(r'fields', views.FieldView)
 routers.register(r'users', views.UserView)
 routers.register(r'permission', views.PermissionView)

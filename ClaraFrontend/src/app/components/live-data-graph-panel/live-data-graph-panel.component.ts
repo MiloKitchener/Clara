@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
+import {FormBuilder, FormGroup} from '@angular/forms';
+import {GraphDataService} from '../../services/graph-data/graph-data.service';
 
 @Component({
   selector: 'app-live-data-graph-panel',
@@ -8,13 +10,30 @@ import { Chart } from 'chart.js';
 })
 export class LiveDataGraphPanelComponent implements OnInit {
   private newChartData = [];
-  private liveDatasetTitle: string;
+  liveDataForm: FormGroup;
+  datasets = [];
+  fields = [];
+  devices = [];
 
-  constructor() {
-    this.liveDatasetTitle = 'None';
+  constructor(
+    private graphDataService: GraphDataService,
+    private formBuilder: FormBuilder
+  ) {
+     this.liveDataForm = formBuilder.group({
+      datasets: [''],
+      fields: [''],
+      devices: [''],
+    });
   }
 
   ngOnInit() {
+    // Get all the live datasets
+    this.graphDataService.getLiveDatasets().subscribe((res) => {
+      res.forEach((dataset) => {
+          this.datasets.push(dataset);
+      });
+    });
+
     // Populates initial empty charts
     this.updateLiveChart();
   }
@@ -33,6 +52,16 @@ export class LiveDataGraphPanelComponent implements OnInit {
           }]
         }
       }
+    });
+  }
+
+  submit() {
+    // TODO: Submit POST request
+  }
+
+  onChange(dataset) {
+    this.graphDataService.getLiveFields(dataset.parent_url).subscribe((res: any) => {
+      this.fields = res;
     });
   }
 

@@ -1,18 +1,30 @@
 <div class="controls">
-  <!-- Dataset Selection -->
-  <h4>Live Dataset</h4>
-  <br>
-  <div class="dropdown">
-    <button class="dropbtn">{{ liveDatasetTitle }}</button>
-    <div class="dropdown-content">
-      <ul>
-<!--        <li *ngFor="let dataset of datasets">-->
-<!--          <a (click)="setYAxis(dataset.name)">{{ dataset.name }}</a>-->
-<!--        </li>-->
-      </ul>
+  <form [formGroup]="liveDataForm" (ngSubmit)="submit()">
+    <label for="datasets">Live Dataset</label>
+    <select formControlName="datasets" id="datasets" (ngModelChange)="onChange($event)">
+      <option *ngFor="let dataset of datasets" [ngValue]="dataset">
+        {{dataset.name}}
+      </option>
+    </select>
+
+    <label for="fields">Field</label>
+    <select formControlName="fields" id="fields">
+      <option *ngFor="let field of fields" [ngValue]="field" [disabled]="datasets">
+        {{field.name}}
+      </option>
+    </select>
+
+    <label for="devices">Device</label>
+    <select formControlName="devices" id="devices">
+      <option *ngFor="let device of devices" [ngValue]="device" [disabled]="datasets">
+        {{device.name}}
+      </option>
+    </select>
+
+    <div class="graph">
+      <canvas id="liveChart" width="400" height="400"></canvas>
     </div>
-  </div>
-</div>
-<div class="graph">
-  <canvas id="liveChart" width="400" height="400"></canvas>
+
+    <button class="addBtn">Submit</button>
+  </form>
 </div>

@@ -8,6 +8,7 @@ class User(AbstractUser):
     def __str__(self):
         return self.username
 
+
 class Dataset(models.Model):
     name = models.CharField(max_length=255, null=False)
     desc = models.CharField(max_length=255, null=False)
@@ -19,6 +20,7 @@ class Dataset(models.Model):
     def __str__(self):
         return self.name
 
+
 class APICredentials(models.Model):
     api_url = models.CharField(max_length=255, null=False)
     user = models.ForeignKey(User, related_name='APICredentials', default=1, on_delete=models.CASCADE)
@@ -27,7 +29,6 @@ class APICredentials(models.Model):
 
     def __str__(self):
         return self.api_url
-
 
 
 class Field(models.Model):

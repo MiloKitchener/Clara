@@ -34,14 +34,21 @@ def signup(request):
     else:
         form = CustomUserCreationForm()
 
+
 # API endpoint that allows datasets to be viewed or edited
 class DatasetView(viewsets.ModelViewSet):
     # Authenticate the user
     # TODO: Re-enable authentication
     # permission_classes = (IsAuthenticated,)
 
-    # Select all datasets
-    queryset = Dataset.objects.all().order_by('name')
+    def get_queryset(self):
+        # Select all datasets
+        queryset = Dataset.objects.all().order_by('name')
+        data_type = self.request.query_params.get('type', None)
+        print("Data:" + str(data_type))
+        if data_type is not None:
+            queryset = queryset.filter(type=data_type)
+        return queryset
     serializer_class = DatasetSerializer
 
     # Get fields for dataset
@@ -72,6 +79,7 @@ class DatasetMapView(APIView):
         print(url)
         map_fields_to_normalized_name(url)
         return Response('success')
+
 
 # API endpoint that allows fields to be viewed or edited
 class FieldView(viewsets.ModelViewSet):
