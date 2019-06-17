@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 
+import { AuthService } from 'src/app/services/auth/auth.service';
 import { ProfileService } from 'src/app/services/profile/profile.service';
+
 import { User } from 'src/app/classes/user';
 
 @Component({
@@ -19,7 +21,8 @@ export class ProfileComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private _profileService: ProfileService
+    private _profileService: ProfileService,
+    private logoutService: AuthService
   ) { }
 
   ngOnInit() {
@@ -41,5 +44,11 @@ export class ProfileComponent implements OnInit {
     else {
       this._profileService.updateProfile();
     }
+  }
+
+  logout() {
+    this.logoutService.logout();
+    // Reload the current page without the browser cache
+    location.reload(true);
   }
 }
