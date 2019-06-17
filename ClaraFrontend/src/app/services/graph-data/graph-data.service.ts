@@ -15,6 +15,7 @@ export class GraphDataService {
   constructor(private http: HttpClient) {
     // GET datasets
     this.datasets = this.http.get(environment.backendIP + 'datasets/');
+    console.log(JSON.stringify(this.datasets));
     // GET User Charts
     this.pullUserCharts();
   }

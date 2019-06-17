@@ -7,6 +7,7 @@ import { environment } from '../../../environments/environment';
 import { GraphDataService } from 'src/app/services/graph-data/graph-data.service';
 
 import { Dataset } from 'src/app/classes/dataset';
+import { DatasetConfirmation } from 'src/app/classes/dataset-confirmation';
 
 @Component({
   selector: 'app-dataset',
@@ -18,7 +19,12 @@ export class DatasetComponent implements OnInit {
 
   // class variables
   selectedDataset: string;
+
   datasets: Dataset[];
+
+  uploadedDataset: DatasetConfirmation;
+  uploadedDatasetName: string;
+  uploadedDatasetFields: any;
 
   searchForm: FormGroup;
   uploadForm: FormGroup;
@@ -37,6 +43,9 @@ export class DatasetComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.uploadedDataset = null;
+    this.uploadedDatasetName = null;
+    this.uploadedDatasetFields = null;
     this.numSets = 0;
     this.numRecentlyUpdated = 0;
     this.numOutOfDate = 0;
@@ -116,8 +125,13 @@ export class DatasetComponent implements OnInit {
 
   // POSTS a dataset URL to the database
   uploadDataset() {
-    this.http.post(environment.backendIP + 'create/datasets', this.uploadForm.value).subscribe(() => {
+    /*this.http.post(environment.backendIP + 'create/datasets', this.uploadForm.value).subscribe(() => {
       console.log("Dataset POST Successful");
+    });*/
+    this.http.post(environment.backendIP + 'map/datasets', this.uploadForm.value).subscribe((res: string) => {
+      this.uploadedDataset = JSON.parse(res);
+      this.uploadedDatasetName = this.uploadedDataset.db_Name;
+      this.uploadedDatasetFields = this.uploadedDataset.db_fields;
     });
   }
 }
