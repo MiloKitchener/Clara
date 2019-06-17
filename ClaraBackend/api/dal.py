@@ -106,7 +106,6 @@ def combine_data_list(data1, data2):
 #        norm_name_lst: [ {'srr',ratio}, {'str', ratio}]}
 #   ]
 def map_fields_to_normalized_name(url):
-    print("in function")
     # Request the layers and get the response in JSON
     r = requests.post(url + 'layers?f=json')
     json_response = json.loads(r.text)
@@ -118,7 +117,7 @@ def map_fields_to_normalized_name(url):
 
     # defines list of objects that will be returned
     resp_list = []
-
+    resp_data = {}
     # For every layer
     for layer in json_response['layers']:
         resp_data = {} # data obj that will be populated and then appended into the resp_list
@@ -148,7 +147,6 @@ def map_fields_to_normalized_name(url):
 
                 # data will contain the normalized name and the ratio coresponding to the unmapped name
                 data = (df_fields.loc[df_fields.name == row[0], 'normalized_name'].values[0], row[1])
-                print(data)
                 # check if the normalized name is already available in field_data['norm_name_list], if not add it
                 if data[0] not in tmp_dict:
                     field_data['norm_name_list'].append(data)
@@ -192,4 +190,4 @@ def map_fields_to_normalized_name(url):
             resp_data['db_fields'].append(field_data)
         resp_list.append(resp_data)
 
-    return  json.dumps(resp_list)
+    return  json.dumps(resp_data)
