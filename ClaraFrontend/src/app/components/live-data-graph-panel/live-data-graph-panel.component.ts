@@ -19,10 +19,10 @@ export class LiveDataGraphPanelComponent implements OnInit {
     private graphDataService: GraphDataService,
     private formBuilder: FormBuilder
   ) {
-     this.liveDataForm = formBuilder.group({
-      datasets: [''],
-      fields: [''],
-      devices: [''],
+    this.liveDataForm = formBuilder.group({
+      datasets: ['None'],
+      fields: ['None'],
+      devices: ['None'],
     });
   }
 
@@ -30,7 +30,7 @@ export class LiveDataGraphPanelComponent implements OnInit {
     // Get all the live datasets
     this.graphDataService.getLiveDatasets().subscribe((res) => {
       res.forEach((dataset) => {
-          this.datasets.push(dataset);
+        this.datasets.push(dataset);
       });
     });
 
@@ -59,10 +59,14 @@ export class LiveDataGraphPanelComponent implements OnInit {
     // TODO: Submit POST request
   }
 
-  onChange(dataset) {
+  onDatasetChange(dataset) {
     this.graphDataService.getLiveFields(dataset.parent_url).subscribe((res: any) => {
       this.fields = res;
+      console.log(this.fields);
     });
   }
 
+  onFieldChange(field) {
+    console.log(field);
+  }
 }
