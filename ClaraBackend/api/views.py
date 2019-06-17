@@ -70,8 +70,8 @@ class DatasetMapView(APIView):
     def post(self, request):
         url = request.data.get('url')
         print(url)
-        map_fields_to_normalized_name(url)
-        return Response('success')
+        resp = map_fields_to_normalized_name(url)
+        return Response(resp)
 
 # API endpoint that allows fields to be viewed or edited
 class FieldView(viewsets.ModelViewSet):
