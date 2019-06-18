@@ -45,7 +45,6 @@ class DatasetView(viewsets.ModelViewSet):
         # Select all datasets
         queryset = Dataset.objects.all().order_by('name')
         data_type = self.request.query_params.get('type', None)
-        print("Data:" + str(data_type))
         if data_type is not None:
             queryset = queryset.filter(type=data_type)
         return queryset
