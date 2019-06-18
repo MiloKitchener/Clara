@@ -129,7 +129,8 @@ export class DatasetComponent implements OnInit {
       console.log("Dataset POST Successful");
     });*/
     this.http.post(environment.backendIP + 'map/datasets', this.uploadForm.value).subscribe((res: string) => {
-      this.uploadedDataset = JSON.parse(res);
+      var resObj = JSON.parse(res);
+      this.uploadDataset = resObj[0]; // change for all datasets returned
       this.uploadedDatasetName = this.uploadedDataset.db_Name;
       this.uploadedDatasetFields = this.uploadedDataset.db_fields;
     });

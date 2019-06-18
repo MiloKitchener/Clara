@@ -9,7 +9,7 @@
 	</div>
 	<div class="submitDatasetProceedPanel" [ngStyle]="{'display': uploadedDataset === null ? 'none' : 'block'}">
 		<h3>{{ uploadedDatasetName }}</h3>
-		<ul>
+		<ul class="datasetFields">
 			<li *ngFor="let field of uploadedDatasetFields">
 				{{ field.field_name }}
 			</li>
