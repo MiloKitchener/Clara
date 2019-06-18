@@ -62,11 +62,13 @@ export class LiveDataGraphPanelComponent implements OnInit {
   onDatasetChange(dataset) {
     this.graphDataService.getLiveFields(dataset.parent_url).subscribe((res: any) => {
       this.fields = res;
-      console.log(this.fields);
+    });
+    this.graphDataService.getLiveDevices(dataset.parent_url).subscribe((res: any) => {
+      this.devices = res;
     });
   }
 
   onFieldChange(field) {
-    console.log(field);
+    return;
   }
 }
