@@ -157,3 +157,12 @@ img {
 .tabcontent {
   display: none;
 }
+
+form {
+  display: flex;
+  margin-bottom: 10%;
+}
+
+.dropdownPanels select{
+  width: 100%;
+}

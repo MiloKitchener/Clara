@@ -257,6 +257,16 @@ p {
   transition:color .2s ease-out, background 0.3s ease-in;
 }
 
+.datasetFields {
+  list-style-type: none;
+  height: 200px;
+  overflow-y: auto;
+}
+
+.datasetFields li {
+  text-align: left;
+}
+
 
 /***********************************
   Mobile CSS
