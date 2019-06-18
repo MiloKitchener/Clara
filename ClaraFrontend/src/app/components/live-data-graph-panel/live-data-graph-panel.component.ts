@@ -20,9 +20,9 @@ export class LiveDataGraphPanelComponent implements OnInit {
     private formBuilder: FormBuilder
   ) {
     this.liveDataForm = formBuilder.group({
-      datasets: ['None'],
-      fields: ['None'],
-      devices: ['None'],
+      datasets: [''],
+      fields: [''],
+      devices: [''],
     });
   }
 
@@ -69,6 +69,8 @@ export class LiveDataGraphPanelComponent implements OnInit {
   }
 
   onFieldChange(field) {
-    return;
+    if (this.liveDataForm. !== '' && this.liveDataForm) {
+
+    }
   }
 }
