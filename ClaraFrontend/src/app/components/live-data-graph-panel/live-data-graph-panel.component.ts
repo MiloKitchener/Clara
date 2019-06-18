@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
-import {FormBuilder, FormGroup} from '@angular/forms';
-import {GraphDataService} from '../../services/graph-data/graph-data.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { GraphDataService } from '../../services/graph-data/graph-data.service';
 
 @Component({
   selector: 'app-live-data-graph-panel',
@@ -69,6 +69,7 @@ export class LiveDataGraphPanelComponent implements OnInit {
   }
 
   onFieldChange(field) {
+    console.log(field);
     return;
   }
 }
