@@ -1,10 +1,22 @@
-<div class="submitDatasetPanel" [ngStyle]="{'display': datasetUploadView === true ? 'block' : 'none'}">
-	<form [formGroup]="uploadForm" (ngSubmit)="uploadDataset()">
-		<input type="text" formControlName="url" placeholder="Database URL">
-		<br>
-		<input type="submit" value="Upload Dataset">
-	</form>
-	<button id="closeDatasetPanelBtn" (click)="toggleDatasetUpload()">Cancel</button>
+<div class="submitDatasetPanel" [ngStyle]="{'display': (datasetUploadView === true) ? 'block' : 'none'}">
+	<div [ngStyle]="{'display': uploadedDataset === null ? 'block' : 'none'}">
+		<form [formGroup]="uploadForm" (ngSubmit)="uploadDataset()">
+			<input type="text" formControlName="url" placeholder="Database URL">
+			<br>
+			<input type="submit" value="Upload Dataset">
+		</form>
+		<button id="closeDatasetPanelBtn" (click)="toggleDatasetUpload()">Cancel</button>
+	</div>
+	<div class="submitDatasetProceedPanel" [ngStyle]="{'display': uploadedDataset === null ? 'none' : 'block'}">
+		<h3>{{ uploadedDatasetName }}</h3>
+		<ul>
+			<li *ngFor="let field of uploadedDatasetFields">
+				{{ field.field_name }}
+			</li>
+		</ul>
+		<button>Upload Dataset</button>
+		<button id="closeDatasetPanelBtn" (click)="toggleDatasetUpload();this.uploadedDataset=null;">Cancel</button>
+	</div>
 </div>
 
 <div class=searchPanel>
