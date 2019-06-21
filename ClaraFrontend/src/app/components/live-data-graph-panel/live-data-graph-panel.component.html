@@ -24,9 +24,9 @@
       <br>
       <label for="devices">Device</label>
       <br>
-      <select formControlName="devices" id="devices">
+      <select formControlName="devices" id="devices" (ngModelChange)="onDeviceChange($event)">
         <option *ngFor="let device of devices" [ngValue]="device">
-          {{device}}
+          {{device.deviceid}}
         </option>
       </select>
     </div>

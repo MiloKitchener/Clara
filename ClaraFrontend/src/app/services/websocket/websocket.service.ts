@@ -1,34 +1,41 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Event } from '../../classes/event';
-import * as socketIo from 'socket.io-client';
+import {environment} from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class WebsocketService {
-  private socket: socketIo;
+  private socket: WebSocket;
 
   constructor() { }
 
-  public initSocket(url: string): void {
-    this.socket = socketIo(url);
+  async initSocket(url, formData) {
+    this.socket = await new WebSocket(environment.backendIPWS + 'ws/clara/');
+    this.socket.onopen = () => {
+      this.send(formData);
+    };
   }
 
-  public send(message: string): void {
-    this.socket.emit('message', message);
+  public send(message: string) {
+    this.socket.send(message);
   }
 
-  public onMessage(): Observable<string> {
-    return new Observable<string>(observer => {
-      this.socket.on('message', (data: string) => observer.next(data));
+  public onMessage(): Observable<any> {
+    return new Observable<any>(observer => {
+      this.socket.onmessage = (event) => {
+        observer.next(event.data);
+      };
     });
   }
 
-  public onEvent(event: Event): Observable<any> {
-    return new Observable<Event>(observer => {
-      this.socket.on(event, () => observer.next());
-    });
+  public isOpen() {
+    if (this.socket) {
+      return this.socket.OPEN;
+    }
+  }
+  public close() {
+    this.socket.close();
   }
 }
