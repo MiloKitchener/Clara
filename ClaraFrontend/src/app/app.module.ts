@@ -36,6 +36,7 @@ import { AlexaHelpComponent } from './components/alexa/alexa-help/alexa-help.com
 import { SharedHowToComponent } from './components/dashboards/shared-how-to/shared-how-to.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { LiveDataGraphPanelComponent } from './components/live-data-graph-panel/live-data-graph-panel.component';
+import { DevicesComponent } from './components/devices/devices.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { LiveDataGraphPanelComponent } from './components/live-data-graph-panel/
     SharedHowToComponent,
     ProfileComponent,
     LiveDataGraphPanelComponent,
+    DevicesComponent,
   ],
   imports: [
     BrowserModule,
