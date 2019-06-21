@@ -25,6 +25,7 @@ import { IdeasComponent } from './components/ideas/ideas.component';
 
 import { LabServicesComponent } from './components/lab-services/lab-services.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { DevicesComponent } from './components/devices/devices.component';
 
 // define routes
 const routes: Routes = [
@@ -49,6 +50,7 @@ const routes: Routes = [
       },
       { path: 'personalDashboard', component: UserDashboardComponent, data: { title: 'My Dashboard' } },
       { path: 'sharedDashboards', component: SharedDashboardsComponent, data: { title: 'Shared Dashboards' } },
+      { path: 'devices', component: DevicesComponent, data: { title: 'Devices' } },
       { path: 'dataset', component: DatasetComponent, data: { title: 'Dataset' } },
       { path: 'alexa-help', component: AlexaHelpComponent, data: { title: 'Alexa Help' } },
       { path: 'alexa-feed', component: AlexaFeedComponent, data: { title: 'Alexa Feed' } },
