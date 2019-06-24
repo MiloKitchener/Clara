@@ -18,8 +18,8 @@
         </div>
       </div>
 
-      <form id="searchDataForm">
-        <input type="text" id="search" placeholder="Search">
+      <form name="searchDataForm" id="searchDataForm" (ngSubmit)="search()">
+        <input type="text" name="searchText" placeholder="Search">
         <input type="submit" name="searchSubmit" value="See All Results">
         <button>
           <img src="./assets/vectors/downArrow.svg" alt="">

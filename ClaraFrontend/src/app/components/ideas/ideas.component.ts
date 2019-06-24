@@ -95,6 +95,14 @@ export class IdeasComponent implements OnInit {
     });
   }
 
+  search() {
+    var searchForm = document.forms["searchDataForm"];
+    var queryString = searchForm.elements["searchText"].value;
+    if (queryString != "") {
+      alert(queryString);
+    }
+  }
+
   /************************************
    * Form Getters
    ***********************************/
