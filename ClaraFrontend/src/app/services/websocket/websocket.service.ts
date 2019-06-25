@@ -12,7 +12,7 @@ export class WebsocketService {
   constructor() { }
 
   async initSocket(url, formData) {
-    this.socket = await new WebSocket(environment.backendIPWS + 'ws/clara/');
+    this.socket = await new WebSocket(url);
     this.socket.onopen = () => {
       this.send(formData);
     };
