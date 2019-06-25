@@ -38,14 +38,18 @@
 ********************************/
 
 .searchPanel {
-  padding: 5%;
+  padding: 4%;
   color: white;
   background-image: linear-gradient(to left, #32CDFE, #00B2FF);
 }
 
 .searchPanel h1 {
-  font-size: 4.5vw;
+  font-size: 6vh;
   font-weight: 300;
+}
+
+#searchDataForm {
+  margin: 6% 0;
 }
 
 input, #searchDataForm button {
@@ -101,12 +105,12 @@ button img {
 
 h2 {
   font-weight: 400;
-  font-size: 2.8vw;
-  margin-top: 4%;
+  font-size: 4vh;
+  margin-top: 3%;
 }
 
 .datasetStats {
-  margin-top: 4%;
+  margin-top: 3%;
   margin-bottom: 4%;
   width: 100%;
   display: flex;
