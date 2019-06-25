@@ -94,6 +94,7 @@ The first step to setting up Clara on your local machine will be to download all
 <a name="alexaIntegration"></a>
 ## Alexa Integration ##
 To set up an Alexa skill [follow this tutorial](https://developer.amazon.com/docs/custom-skills/steps-to-build-a-custom-skill.html)
+
 *NOTE: if your skill is still not working on an alexa device and she is unsure of what you are trying to tell her ensure they both have the same language (may have to make the skill in en(US) or en(CA))*
 
 **Description:**
