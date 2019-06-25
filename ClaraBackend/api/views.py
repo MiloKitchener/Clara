@@ -52,7 +52,7 @@ class DatasetView(viewsets.ModelViewSet):
 
     # Get fields for dataset
     @action(detail=True)
-    def field_names(self, pk=None):
+    def field_names(self, request, pk=None):
         queryset = Field.objects.filter(dataset__pk=pk)
         return Response(queryset.values())
 
