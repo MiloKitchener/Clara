@@ -26,12 +26,7 @@
       <br>
       <label for="devices">Device</label>
       <br>
-<<<<<<< HEAD
-      <select formControlName="devices" id="devices">
-        <option selected="selected">None</option>
-=======
       <select formControlName="devices" id="devices" (ngModelChange)="onDeviceChange($event)">
->>>>>>> 7126d8488c3f078698b928b02d01a17923211135
         <option *ngFor="let device of devices" [ngValue]="device">
           {{device.deviceid}}
         </option>
