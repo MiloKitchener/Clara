@@ -28,7 +28,7 @@ Clara is a municipal machine learning and analytics platform,  providing ideas a
 - Alexa activity feed
 
 - Alexa skills/responses (canned responses):
-- Uv rating in kitchener
+- UV rating in kitchener
 - Events in kitchener today
 - Customer service information
 

@@ -1,34 +1,44 @@
 <!-- Top Bar -->
 <div class="topBar">
   <h1>Ideas</h1>
-
-  <div class="searchFilter">
-    <div class="dropdown">
-      <button class="dropbtn">Arrange By: {{ selectedFilter }}</button>
-      <div class="dropdown-content">
-        <ul>
-          <li *ngFor="let arrangedFilter of arrangedFilters">
-            <a (click)="selectFilter(arrangedFilter)">{{ arrangedFilter }}</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <form id="searchDataForm">
-      <input type="text" id="search" placeholder="Search">
-      <input type="submit" name="searchSubmit" value="See All Results">
-      <button>
-        <img src="./assets/vectors/downArrow.svg" alt="">
-      </button>
-    </form>
-  </div>
 </div>
-
-<button id="postButton" (click)="viewNewPost()">New Post</button>
 
 <!-- Posts Feed -->
 <div class="postedIdeas">
-  <ng-template appIdeaAnchor></ng-template>
+  <div>
+    <div class="searchPanel">
+      <div class="dropdown">
+        <button class="dropbtn">Arrange By: {{ selectedFilter }}</button>
+        <div class="dropdown-content">
+          <ul id="filterList">
+            <li *ngFor="let arrangedFilter of arrangedFilters">
+              <a (click)="selectFilter(arrangedFilter)">{{ arrangedFilter }}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <form name="searchDataForm" id="searchDataForm" (ngSubmit)="search()">
+        <input type="text" name="searchText" placeholder="Search">
+        <input type="submit" name="searchSubmit" value="See All Results">
+        <button>
+          <img src="./assets/vectors/downArrow.svg" alt="">
+        </button>
+      </form>
+    </div>
+    <ng-template appIdeaAnchor></ng-template>
+  </div>
+
+  <div class="sidepanel">
+    <button id="postButton" (click)="viewNewPost()">New Post</button>
+    <h2>Filters</h2>
+    <hr>
+    <ul>
+      <li *ngFor="let filter of filters">
+        <span>{{ filter }}</span>
+      </li>
+    </ul>
+  </div>
 </div>
 
 <!-- New Post Panel -->

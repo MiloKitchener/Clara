@@ -89,19 +89,15 @@ export class DatasetComponent implements OnInit {
     });
   }
 
-
-  // https://www.w3schools.com/howto/howto_js_filter_lists.asp
-
   // search function used by search form
-  search() {/*
+  search() {
     var input = this.searchForm.get('searchValue').value;
-    var filter = input.value.toUpperCase();
+    var filter = input.toUpperCase();
     var ul = document.getElementById("datasetsList");
     var li = ul.getElementsByTagName('li');
-    
-    var txtValue: string;
 
-    // Loop through all list items, and hide those who don't match the search query
+    var txtValue: string;
+    // Loop through all list items, and hide those that don't match the search query
     for (var i = 0; i < li.length; i++) {
       txtValue = li[i].innerHTML;
       if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -110,7 +106,7 @@ export class DatasetComponent implements OnInit {
       else {
         li[i].style.display = "none";
       }
-    }*/
+    }
   }
 
   // toggles the view of the dataset upload form

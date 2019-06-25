@@ -39,6 +39,10 @@ export class IdeasComponent implements OnInit {
       this.loadPosts();
     });
 
+    // Get variables from service
+    this.filters = this.ideasService.getFilters();
+    this.arrangedFilters = this.ideasService.getArrangedFilters();
+
     // instantiate instance variables
     this.newPostForm = this.fb.group({
       title: ['', Validators.required],
@@ -48,10 +52,6 @@ export class IdeasComponent implements OnInit {
     this.selectedFilter = 'None';
     this.toggleNewPostView = false;
     this.newPostSubmitted = false;
-
-    // Get variables from service
-    this.filters = this.ideasService.getFilters();
-    this.arrangedFilters = this.ideasService.getArrangedFilters();
   }
 
   // selects a filter
@@ -93,6 +93,14 @@ export class IdeasComponent implements OnInit {
         });
       });
     });
+  }
+
+  search() {
+    var searchForm = document.forms["searchDataForm"];
+    var queryString = searchForm.elements["searchText"].value;
+    if (queryString != "") {
+      alert(queryString);
+    }
   }
 
   /************************************
