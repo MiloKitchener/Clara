@@ -166,3 +166,44 @@ form {
 .dropdownPanels select{
   width: 100%;
 }
+
+select {
+  border: 0;
+  background-color: #32CDFE;
+  color: white;
+  padding: 7px 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition:color .2s ease-out, background 0.3s ease-in;
+}
+
+select:hover {
+  background-color: #00B2FF;
+  transition:color .2s ease-out, background 0.3s ease-in;
+}
+
+option {
+  background-color: white;
+  color: black;
+}
+
+input[type="submit"] {
+  text-align: center;
+  margin-top: 20px;
+  color: white;
+  background-color: #eb3b3b;
+  border: 1px solid transparent;
+  width: 95%;
+  padding: 3px;
+  font-size: 14px;
+  border-radius: 3px;
+  transition:color .2s ease-out, background 0.3s ease-in;
+}
+
+input[type="submit"]:hover {
+  background-color: #d51616;
+  transition:color .2s ease-out, background 0.3s ease-in;
+  cursor: pointer;
+}
