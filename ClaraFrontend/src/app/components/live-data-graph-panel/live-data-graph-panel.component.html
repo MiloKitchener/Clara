@@ -9,6 +9,7 @@
       <label for="datasets">Live Dataset</label>
       <br>
       <select formControlName="datasets" id="datasets" (ngModelChange)="onDatasetChange($event)">
+        <option selected="selected">None</option>
         <option *ngFor="let dataset of datasets" [ngValue]="dataset">
           {{dataset.name}}
         </option>
@@ -17,6 +18,7 @@
       <label for="fields">Field</label>
       <br>
       <select formControlName="fields" id="fields" (ngModelChange)="onFieldChange($event)">
+        <option selected="selected">None</option>
         <option *ngFor="let field of fields" [ngValue]="field">
           {{field}}
         </option>
@@ -25,10 +27,12 @@
       <label for="devices">Device</label>
       <br>
       <select formControlName="devices" id="devices">
+        <option selected="selected">None</option>
         <option *ngFor="let device of devices" [ngValue]="device">
           {{device}}
         </option>
       </select>
+      <input type="submit" value="Add Graph To Dashboard">
     </div>
   </form>
 </div>

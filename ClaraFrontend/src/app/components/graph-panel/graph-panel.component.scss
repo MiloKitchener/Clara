@@ -51,6 +51,7 @@ button {
 button:hover {
   background-color: #00B2FF;
   transition:color .2s ease-out, background 0.3s ease-in;
+  cursor: pointer;
 }
 
 button:focus {

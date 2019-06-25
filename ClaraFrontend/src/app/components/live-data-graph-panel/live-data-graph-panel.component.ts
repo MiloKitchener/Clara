@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { GraphDataService } from '../../services/graph-data/graph-data.service';
 
 @Component({
@@ -20,9 +20,9 @@ export class LiveDataGraphPanelComponent implements OnInit {
     private formBuilder: FormBuilder
   ) {
     this.liveDataForm = formBuilder.group({
-      datasets: ['None'],
-      fields: ['None'],
-      devices: ['None'],
+      datasets: ['None', Validators.required],
+      fields: ['None', Validators.required],
+      devices: ['None', Validators.required],
     });
   }
 
@@ -56,7 +56,15 @@ export class LiveDataGraphPanelComponent implements OnInit {
   }
 
   submit() {
-    // TODO: Submit POST request
+    // stop here if form is invalid
+    if (this.liveDataForm.invalid || this.liveDataForm.value.datasets == "None" || this.liveDataForm.value.fields == "None" || this.liveDataForm.value.devices == "None") {
+      alert("Please Make a Selection in all of The Fields");
+      return;
+    }
+    else {
+      // TODO: Submit POST request
+      alert("hi");
+    }
   }
 
   onDatasetChange(dataset) {
