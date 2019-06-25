@@ -1,25 +1,30 @@
-from channels.generic.websocket import AsyncWebsocketConsumer
+from channels.generic.websocket import WebsocketConsumer
 import websockets
 import json
 
 
-class ClaraConsumer(AsyncWebsocketConsumer):
-    async def connect(self):
-        await self.accept()
+class ClaraConsumer(WebsocketConsumer):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.websocket = None
 
-    async def disconnect(self, close_code):
-        pass
+    def connect(self):
+        self.accept()
 
-    async def receive(self, text_data=None, bytes_data=None):
+    def disconnect(self, close_code):
+        self.websocket.close()
+        self.close()
+
+    def receive(self, text_data=None, bytes_data=None):
         json_text_data = json.loads(text_data)
-        websocket = await websockets.connect(json_text_data['url'])
-        await self.receive_websocket(ws=websocket, field=json_text_data['field'])
+        self.websocket = websockets.connect(json_text_data['datasets']['api_url'])
+        self.websocket.send(text_data)
+        self.receive_websocket()
 
-    async def send_websocket(self, message):
-        await self.send(message)
+    def send_websocket(self, message):
+        self.send(message)
 
-    async def receive_websocket(self, ws, field):
+    async def receive_websocket(self):
         while True:
-            message = await ws.recv()
-            json_message = json.loads(message)
-            await self.send_websocket(message=json_message[field])
+            async for message in self.websocket:
+                await self.send_websocket(message=message)
