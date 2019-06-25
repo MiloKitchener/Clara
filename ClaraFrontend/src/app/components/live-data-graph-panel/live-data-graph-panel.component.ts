@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { GraphDataService } from '../../services/graph-data/graph-data.service';
-import {WebsocketService} from '../../services/websocket/websocket.service';
-import {Dataset} from '../../classes/dataset';
+import { WebsocketService } from '../../services/websocket/websocket.service';
+import { Dataset } from '../../classes/dataset';
 
 @Component({
   selector: 'app-live-data-graph-panel',
@@ -29,15 +29,9 @@ export class LiveDataGraphPanelComponent implements OnInit {
     private socketService: WebsocketService
   ) {
     this.liveDataForm = formBuilder.group({
-<<<<<<< HEAD
       datasets: ['None', Validators.required],
       fields: ['None', Validators.required],
       devices: ['None', Validators.required],
-=======
-      datasets: [''],
-      fields: [''],
-      devices: [''],
->>>>>>> 7126d8488c3f078698b928b02d01a17923211135
     });
   }
 
