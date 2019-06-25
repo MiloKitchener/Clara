@@ -12,7 +12,7 @@ class ClaraConsumer(AsyncWebsocketConsumer):
         await self.accept()
 
     async def disconnect(self, close_code):
-        self.websocket.close(self)
+        await self.close()
 
     async def receive(self, text_data=None, bytes_data=None):
         json_text_data = json.loads(text_data)
