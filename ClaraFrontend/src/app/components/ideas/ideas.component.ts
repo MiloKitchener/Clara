@@ -22,6 +22,7 @@ export class IdeasComponent implements OnInit {
   selectedFilter: string;
 
   newPostForm: FormGroup;
+  searchDataForm: FormGroup;
 
   toggleNewPostView: boolean;
   newPostSubmitted: boolean;
@@ -49,6 +50,11 @@ export class IdeasComponent implements OnInit {
       description: ['', Validators.required],
       tag: ['None', Validators.required]
     });
+
+    this.searchDataForm = this.fb.group({
+      searchText: ['', Validators.required]
+    });
+
     this.selectedFilter = 'None';
     this.toggleNewPostView = false;
     this.newPostSubmitted = false;
@@ -95,12 +101,25 @@ export class IdeasComponent implements OnInit {
     });
   }
 
+  // search function used by search form
   search() {
-    var searchForm = document.forms["searchDataForm"];
-    var queryString = searchForm.elements["searchText"].value;
-    if (queryString != "") {
-      alert(queryString);
-    }
+    var input = this.searchDataForm.get('searchText').value;
+    var filter = input.toUpperCase();
+    alert(filter);
+    /*var ul = document.getElementById("datasetsList");
+    var li = ul.getElementsByTagName('li');
+
+    var txtValue: string;
+    // Loop through all list items, and hide those that don't match the search query
+    for (var i = 0; i < li.length; i++) {
+      txtValue = li[i].innerHTML;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        li[i].style.display = "";
+      }
+      else {
+        li[i].style.display = "none";
+      }
+    }*/
   }
 
   /************************************
