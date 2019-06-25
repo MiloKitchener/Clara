@@ -78,6 +78,11 @@ export class LiveDataGraphPanelComponent implements OnInit {
   }
 
   onDatasetChange(dataset) {
+    // empty previous chart values
+    this.chartLabels = [];
+    this.chartData = [];
+    this.updateLiveChart();
+
     this.selectedDataset = dataset;
     this.graphDataService.getLiveFields(this.selectedDataset.parent_url).subscribe((res: any) => {
       this.fields = res;
@@ -88,6 +93,11 @@ export class LiveDataGraphPanelComponent implements OnInit {
   }
 
   onFieldChange(field) {
+    // empty previous chart values
+    this.chartLabels = [];
+    this.chartData = [];
+    this.updateLiveChart();
+
     this.selectedField = field;
     if (this.liveDataForm.controls.fields.value !== '' && this.liveDataForm.controls.devices.value !== '') {
       this.initIoConnection().then(() => {
@@ -97,6 +107,11 @@ export class LiveDataGraphPanelComponent implements OnInit {
   }
 
   onDeviceChange(device) {
+    // empty previous chart values
+    this.chartLabels = [];
+    this.chartData = [];
+    this.updateLiveChart();
+
     this.selectedDevice = device;
     if (this.liveDataForm.controls.fields.value !== '' && this.liveDataForm.controls.devices.value !== '') {
       this.initIoConnection().then(() => {
