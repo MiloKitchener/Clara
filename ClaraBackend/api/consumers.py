@@ -12,6 +12,7 @@ class ClaraConsumer(AsyncWebsocketConsumer):
         await self.accept()
 
     async def disconnect(self, close_code):
+        await self.websocket.close()
         await self.close()
 
     async def receive(self, text_data=None, bytes_data=None):
