@@ -70,8 +70,9 @@ export class UserDashboardComponent implements OnInit {
 
         var newCell = document.createElement("td");
         newCell.style.backgroundColor = "white";
-        newCell.style.borderRadius = "7px";
+        newCell.style.borderRadius = "5px";
         newCell.style.padding = "15px";
+        newCell.style.boxShadow = "0px 0px 46px -10px rgba(0,0,0,0.11)";
 
         var newChart = document.createElement("canvas")
         newChart.style.width = "450px";

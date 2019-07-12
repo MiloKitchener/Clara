@@ -2,16 +2,21 @@
   <i class=" fa fa-bars" (click)="toggleNav()"></i>
 </div>
 
+<div class="desktopTopBar">
+  <div id="profile">
+    <img [src]="user.pictureSrc" />
+    <div>
+      <h3>{{ user.name }}</h3>
+      <p>{{ user.title }}</p>
+    </div>
+  </div>
+</div>
+
 <div class="sidebarDiv" [ngClass]="{'show' : navDisplayed, 'hide' : !navDisplayed}">
+  <a routerLink="dashboardSplash">
+    <img src="/assets/images/clara-logo-lrg.png" alt="Clara" id="siteIcon">
+  </a>
   <ul>
-    <!-- Profile Info -->
-    <li class="noHover">
-      <div class="sidebar-user-panel">
-        <img [src]="user.pictureSrc" />
-        <h3>{{ user.name }}</h3>
-        <p>{{ user.title }}</p>
-      </div>
-    </li>
     <!-- Dashboards Nav -->
     <li routerLinkActive="active">
       <a routerLink="dashboardSplash">
@@ -94,10 +99,6 @@
       </a>
     </li>
   </ul>
-
-  <a routerLink="dashboardSplash">
-    <img src="/assets/images/clara-logo-lrg.png" alt="Clara" id="siteIcon">
-  </a>
 </div>
 
 <!-- Routed Elements -->

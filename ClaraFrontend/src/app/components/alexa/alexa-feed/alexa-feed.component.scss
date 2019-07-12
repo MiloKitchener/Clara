@@ -26,7 +26,8 @@ h3 {
 
 .feedPanel {
 	background: white;
-	border-radius: 7px;
+	border-radius: 5px;
+  box-shadow: 0px 0px 46px -10px rgba(0,0,0,0.11);
 	width: 65%;
 	margin-right: 3%;
 	padding: 3.5%;
@@ -72,7 +73,8 @@ li {
 .liveStatsPanel {
   color: white;
 	background-image: linear-gradient(to left, #32CDFE, #00B2FF);
-	border-radius: 7px;
+	border-radius: 5px;
+  box-shadow: 0px 0px 46px -10px rgba(0,0,0,0.11);
 	width: 35%;
   padding: 3.5%;
 }

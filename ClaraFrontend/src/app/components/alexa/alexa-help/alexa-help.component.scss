@@ -16,8 +16,9 @@
  
 .stats {
   padding: 4%;
-  border-radius: 7px;
-  background-color: white;
+  border-radius: 5px;
+	background-color: white;
+  box-shadow: 0px 0px 46px -10px rgba(0,0,0,0.11);
   width: 80%;
 	margin: auto;
 }
@@ -56,8 +57,9 @@ p, li {
 	width: 82%;
 	margin: auto;
 	background-color: white;
+  box-shadow: 0px 0px 46px -10px rgba(0,0,0,0.11);
 	padding: 3%;
-	border-radius: 7px;
+	border-radius: 5px;
 	margin-top: 4%;
 }
 
