@@ -6,6 +6,7 @@ import { ProfileService } from 'src/app/services/profile/profile.service';
 
 import { User } from 'src/app/classes/user';
 
+
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -17,6 +18,8 @@ export class MainComponent implements OnInit {
   // user profile vars
   user: User;
   navDisplayed: boolean; // for mobile class methods
+  dashboardDropdown: boolean;
+  alexaDropdown: boolean;
 
   constructor(
     private _profileService: ProfileService,
@@ -26,6 +29,9 @@ export class MainComponent implements OnInit {
   ngOnInit() {
     this.user = this._profileService.getUser();
     this.navDisplayed = false;
+    this.dashboardDropdown = false;
+    this.alexaDropdown = false;
+
     // checks if on mobile by topbar visibility, if so, hide navbar
     if (window.innerHeight > window.innerWidth) { // if portrait
       this.navDisplayed = false;
@@ -41,6 +47,26 @@ export class MainComponent implements OnInit {
     this.logoutService.logout();
     // Reload the current page without the browser cache
     location.reload(true);
+  }
+
+  // reveals dashboard dropdown menu
+  public dashboardDropDown() {
+    if (this.dashboardDropdown) {
+      this.dashboardDropdown = false;
+    }
+    else {
+      this.dashboardDropdown = true;
+    }
+  }
+
+  // reveals alexa dropdown menu
+  public alexaDropDown() {
+    if (this.alexaDropdown) {
+      this.alexaDropdown = false;
+    }
+    else {
+      this.alexaDropdown = true;
+    }
   }
 
   // returns state of router outlet (used for animations)
