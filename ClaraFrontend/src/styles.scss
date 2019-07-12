@@ -10,6 +10,46 @@ body {
   background-color: #FAFBFE;
 }
 
+h1 {
+	margin: 0;
+	padding: 5% 0;
+	color: white;
+	font-size: 7vh;
+	font-weight: 300;
+	background-image: linear-gradient(to left, #32CDFE, #00B2FF);
+}
+
+input[type="submit"], button {
+  border-radius: 5px;
+  font-size: 2vh;
+  padding: 1.3% 4%;
+  border: 0;
+  color: white;
+  background-color: #00B2FF;
+  transition:color .2s ease-out, background 0.3s ease-in;
+}
+
+input[type="submit"]:hover, button:hover {
+  background-color: #408DF7;
+  transition:color .2s ease-out, background 0.3s ease-in;
+  cursor: pointer;
+}
+
+input[type="text"], textarea {
+  font-family: 'Poppins', sans-serif;
+  border: none;
+  padding: 1.5vh 4vh;
+  border-radius: 7px;
+  background-color: #F6F6F6;
+  font-size: 2.2vh;
+  transition:color .2s ease-out, background 0.3s ease-in;
+}
+
+input[type="text"]:hover, textarea:hover {
+  background-color: #EFEFEF;
+  transition:color .2s ease-out, background 0.3s ease-in;
+}
+
 @media screen and (orientation: portrait) {
   body {
     -webkit-user-select: none;

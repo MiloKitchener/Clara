@@ -27,6 +27,11 @@
         </a>
         <ul class="dropdown" [ngStyle]="{'max-height': dashboardDropdown ? '100vh' : '0'}">
           <li routerLinkActive="active">
+            <a routerLink="dashboardSplash">
+              <span>Dashboard Guide</span>
+            </a>
+          </li>
+          <li routerLinkActive="active">
             <a routerLink="personalDashboard">
               <span>My Dashboard</span>
             </a>
@@ -104,6 +109,6 @@
 </div>
 
 <!-- Routed Elements -->
-<div class="mainContent" id="main" [@fadeAnimation]="o.isActivated ? o.activatedRoute : ''" (click)="hideNav()">
+<div class="mainContent" id="main" (click)="hideNav()">
   <router-outlet #o="outlet"></router-outlet>
 </div>

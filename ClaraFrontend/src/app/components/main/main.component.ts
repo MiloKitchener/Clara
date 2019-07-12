@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { fadeAnimation } from '../../animations/fade.animation';
 
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { ProfileService } from 'src/app/services/profile/profile.service';
@@ -11,7 +10,6 @@ import { User } from 'src/app/classes/user';
   selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss'],
-  animations: [fadeAnimation] // registers the animation
 })
 
 export class MainComponent implements OnInit {
@@ -67,11 +65,6 @@ export class MainComponent implements OnInit {
     else {
       this.alexaDropdown = true;
     }
-  }
-
-  // returns state of router outlet (used for animations)
-  public getRouterOutletState(outlet: any) {
-    return outlet.isActivated ? outlet.activatedRoute : '';
   }
 
   // toggles the mobile navigation bar
