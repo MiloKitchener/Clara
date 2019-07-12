@@ -22,15 +22,6 @@
 <div class=searchPanel>
 	<h1>Find a Dataset</h1>
 
-	<form id="searchDataForm" [formGroup]="searchForm" (ngSubmit)="search()">
-		<input type="text" id="search" formControlName="searchValue" placeholder="Search">
-		<input type="submit" name="searchSubmit" value="See All Results">
-		<button>
-			<img src="./assets/vectors/downArrow.svg" alt="">
-		</button>
-	</form>
-
-
 	<ul class="buttonsPanel">
 		<li>
 			<button (click)="setSelectedDataset('Open Data')">Open Datasets</button>
@@ -49,6 +40,14 @@
 
 <div class="container">
 	<h2>{{ selectedDataset }}</h2>
+
+
+
+	<form id="searchDataForm" [formGroup]="searchForm" (ngSubmit)="search()">
+		<input type="text" id="search" formControlName="searchValue" placeholder="Search">
+		<input type="submit" name="searchSubmit" value="See All Results">
+	</form>
+
 	<div class="datasetStats">
 		<div>
 			<h3 id="numOpen">{{ numSets }}</h3>
