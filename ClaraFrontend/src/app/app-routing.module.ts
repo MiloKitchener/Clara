@@ -26,10 +26,12 @@ import { IdeasComponent } from './components/ideas/ideas.component';
 import { LabServicesComponent } from './components/lab-services/lab-services.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { DevicesComponent } from './components/devices/devices.component';
+import { SplashComponent } from './components/splash/splash.component';
 
 // define routes
 const routes: Routes = [
-  { path: '', redirectTo: 'main', pathMatch: 'full' },
+  { path: '', redirectTo: 'splash', pathMatch: 'full' },
+  { path: 'splash', component: SplashComponent, data: { title: 'Welcome to Clara' } },
   { path: 'login', component: LoginComponent, data: { title: 'Log in' } },
   {
     path: 'main',

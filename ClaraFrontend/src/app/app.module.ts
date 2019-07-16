@@ -37,6 +37,7 @@ import { SharedHowToComponent } from './components/dashboards/shared-how-to/shar
 import { ProfileComponent } from './components/profile/profile.component';
 import { LiveDataGraphPanelComponent } from './components/live-data-graph-panel/live-data-graph-panel.component';
 import { DevicesComponent } from './components/devices/devices.component';
+import { SplashComponent } from './components/splash/splash.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { DevicesComponent } from './components/devices/devices.component';
     ProfileComponent,
     LiveDataGraphPanelComponent,
     DevicesComponent,
+    SplashComponent,
   ],
   imports: [
     BrowserModule,
