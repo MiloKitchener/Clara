@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-
-declare var $: any;
+import { Component, OnInit, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-splash',
@@ -9,25 +7,21 @@ declare var $: any;
 })
 
 export class SplashComponent implements OnInit {
+  whiteNavbar: boolean;
 
   constructor() { }
 
   ngOnInit() {
-    // get the value of the bottom of the #main element by adding the offset of that element plus its height, set it as a variable
-    var mainbottom = $('#top').offset().top + $('#top').height();
-
-    // on scroll, 
-    $(window).on('scroll',function() {
-      // we round here to reduce a little workload
-      var stop = Math.round($(window).scrollTop());
-
-      if (stop > mainbottom) {
-        $('.nav').addClass('past-main');
-      }
-      else {
-        $('.nav').removeClass('past-main');
-      }
-    });
+    this.whiteNavbar = false;
   }
 
+  @HostListener("window:scroll", [])
+  onWindowScroll() {
+    const number = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    if (number > 100) {
+      this.whiteNavbar = true;
+    } else if (number <= 100) {
+      this.whiteNavbar = false;
+    }
+  };
 }

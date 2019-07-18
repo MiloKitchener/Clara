@@ -1,4 +1,4 @@
-<nav>
+<nav [ngClass]="{'active':whiteNavbar === true}">
   <img src="./assets/images/claraIcon.png" alt="" id="thumbnail">
   
   <div class="navButtons">
@@ -18,7 +18,7 @@
 
 <div class="top" id="top">
   <!-- https://www.freepik.com/free-psd/laptop-mock-up-design_1053179.htm -->
-  <h1>Clara: A Muncipal Data Collection</h1>
+  <h1 id="navColorChange">Clara: A Muncipal Data Collection</h1>
   <h1>and Visualization Platform.</h1>
 
   <div class="deviceImageContainer">
@@ -26,7 +26,7 @@
   </div>
 </div>
 
-<div class="past-main">
+<div class="main">
   <h2>HI</h2>
 </div>
 

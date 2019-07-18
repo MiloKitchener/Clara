@@ -1,19 +1,22 @@
 nav {
   text-align: center;
   position: fixed;
-  padding: 20px;
   height: 60px;
-  margin-left: 10%;
-  width: 80%;
+  width: 100%;
+  padding-left: 10%;
+  z-index: 10;
+  transition:color .2s ease-out, background 0.3s ease-in;
 }
 
 nav img {
+  margin-top: 10px;
   height: 40px;
   float: left;
   filter: invert(1);
 }
 
 .navButtons {
+  margin-right: 20%; // 20% to offset 10% left padding on nav and provide 10% right padding
   float: right;
   display: flex;
 }
@@ -55,6 +58,20 @@ li a {
 li a:hover {
   background-color: rgba($color: #000000, $alpha: 0.1);
   transition:color .2s ease-out, background 0.3s ease-in;
+}
+
+.active {
+  background-color: white;
+  box-shadow: 0px 0px 46px -10px rgba(0,0,0,0.11);
+  transition:color .2s ease-out, background 0.3s ease-in;
+}
+
+.active img {
+  filter: none;
+}
+
+.active li a {
+  color: black;
 }
 
 .top {
