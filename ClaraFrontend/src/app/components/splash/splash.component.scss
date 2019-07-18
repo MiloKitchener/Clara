@@ -136,6 +136,48 @@ h1 {
   height: 200px;
 }
 
+.main {
+  margin-top: 100px;
+}
+
+.images {
+  display: flex;
+  margin: auto;
+  width: 90%;
+  margin-bottom: 40px;
+}
+
+.imageWithDefinition {
+  width: 240px;
+  height: 300px;
+  margin: auto;
+  text-align: center;
+}
+
+.imageWithDefinition img {
+  width: 50px;
+  z-index: 4;
+}
+
+.imageWithDefinition h3 {
+  font-weight: 400;
+  font-size: 16pt;
+}
+
+.imageWithDefinition p {
+  text-align: justify;
+  font-size: 11pt;
+  color: #424242;
+}
+
+.features {
+  background-color: #EFEFEF;
+  width: 95.55%;
+  text-align: center;
+  height: 400px;
+  padding: 30px;
+}
+
 /***********************
   Footer Style
 ************************/
@@ -143,7 +185,7 @@ h1 {
 footer {
   width: 100%;
   height: 50px;
-  margin-top: 300px;
+  margin-top: -50px;
   text-align: center;
   color: #8391A2;
   background-color: #313A46;
