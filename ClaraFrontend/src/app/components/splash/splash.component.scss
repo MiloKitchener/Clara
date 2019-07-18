@@ -170,12 +170,16 @@ h1 {
   color: #424242;
 }
 
+.rightArrow {
+  width: 35px;
+}
+
 .features {
-  background-color: #EFEFEF;
-  width: 95.55%;
+  background-color: #e1e1e4;
+  width: 100%;
   text-align: center;
   height: 400px;
-  padding: 30px;
+  padding-top: 30px;
 }
 
 /***********************
@@ -184,9 +188,25 @@ h1 {
 
 footer {
   width: 100%;
-  height: 50px;
-  margin-top: -50px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   text-align: center;
   color: #8391A2;
   background-color: #313A46;
+}
+
+.socialMediaIconsPanel {
+  display: inline;
+  margin: auto;
+}
+
+.socialMediaIconsPanel img {
+  width: 30px;
+  margin-left: 15px;
+  margin-right: 15px;
+  filter: invert(1) brightness(85%);
+}
+
+.socialMediaIconsPanel img:hover {
+  filter: invert(1);
 }
