@@ -1,4 +1,5 @@
 import { Component, OnInit, HostListener } from '@angular/core';
+import {Router} from "@angular/router"
 
 @Component({
   selector: 'app-splash',
@@ -9,10 +10,14 @@ import { Component, OnInit, HostListener } from '@angular/core';
 export class SplashComponent implements OnInit {
   whiteNavbar: boolean;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
     this.whiteNavbar = false;
+  }
+
+  public goToLogin() {
+    this.router.navigate(['/login'])
   }
 
   @HostListener("window:scroll", [])
