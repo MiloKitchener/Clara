@@ -7,10 +7,6 @@ nav {
   width: 80%;
 }
 
-.past-main {
-  background-color: black;
-}
-
 nav img {
   height: 40px;
   float: left;
@@ -67,6 +63,7 @@ li a:hover {
   text-align: center;
   height: 600px;
   border-radius: 0 0 50% 50%; /* top left, top right, bottom right, bottom left */
+  margin-bottom: 300px;
 }
 
 h1 {
@@ -74,6 +71,12 @@ h1 {
   margin: 30px;
   padding: 0;
   font-size: 6vh;
+  opacity: 0;
+  -webkit-animation: reveal 2s cubic-bezier(0, 1, 0.5, 1) 1 normal forwards;
+     -moz-animation: reveal 2s ease-in 1 normal forwards;
+       -o-animation: reveal 2s cubic-bezier(0, 1, 0.5, 1) 1 normal forwards;
+          animation: reveal 2s cubic-bezier(0, 1, 0.5, 1) 1 normal forwards;
+
 }
 
 .deviceImageContainer {
@@ -92,9 +95,10 @@ h1 {
 }
 
 footer {
-  background-color: #313A46;
-  position: fixed;
-  left: 0;
-  bottom: 0;
   width: 100%;
+  height: 50px;
+  margin-top: 300px;
+  text-align: center;
+  color: #8391A2;
+  background-color: #313A46;
 }
