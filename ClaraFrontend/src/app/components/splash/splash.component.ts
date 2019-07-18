@@ -20,6 +20,10 @@ export class SplashComponent implements OnInit {
     this.router.navigate(['/login'])
   }
 
+  public scroll(el: HTMLElement) {
+    el.scrollIntoView();
+  }
+
   @HostListener("window:scroll", [])
   onWindowScroll() {
     const number = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;

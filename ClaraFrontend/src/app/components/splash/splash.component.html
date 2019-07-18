@@ -7,16 +7,16 @@
   </div>
     
   <ul>
-    <li><a href="#top">Home</a></li>
-    <li><a href="#top">Features</a></li>
-    <li><a href="#top">Services</a></li>
-    <li><a href="#top">Clients</a></li>
-    <li><a href="#top">Pricing</a></li>
-    <li><a href="#top">Download</a></li>
+    <li><a (click)="scroll(top)">Home</a></li>
+    <li><a (click)="scroll(features)">Features</a></li>
+    <li><a (click)="scroll(services)">Services</a></li>
+    <li><a (click)="scroll(clients)">Clients</a></li>
+    <li><a (click)="scroll(pricing)">Pricing</a></li>
+    <li><a (click)="scroll(download)">Download</a></li>
   </ul>
 </nav>
 
-<div class="top" id="top">
+<div class="top" #top>
   <!-- https://www.freepik.com/free-psd/laptop-mock-up-design_1053179.htm -->
   <h1 id="navColorChange">Clara: A Muncipal Data Collection</h1>
   <h1>and Visualization Platform.</h1>
@@ -51,7 +51,7 @@
     </div>
   </div>
 
-  <div class="features">
+  <div class="features" #features>
     <h2>Features</h2>
   </div>
 </div>
