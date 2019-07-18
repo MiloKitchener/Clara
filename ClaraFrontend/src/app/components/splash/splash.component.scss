@@ -45,6 +45,8 @@ ul {
 }
 
 li {
+  margin-left: 5px;
+  margin-right: 5px;
   line-height: 40px;
   display: inline-block;
 }
@@ -102,7 +104,7 @@ li a:hover {
 
 .top {
   padding-top: 200px;
-  background: linear-gradient(174.87deg, #408DF7 0%, #00B2FF 225.84%);
+  background: linear-gradient(223.73deg, #00B2FF 15.73%, #32CDFE 100.01%);
   text-align: center;
   height: 600px;
   border-radius: 0 0 50% 50%; /* top left, top right, bottom right, bottom left */
