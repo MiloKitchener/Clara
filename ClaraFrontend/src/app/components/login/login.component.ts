@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -24,6 +25,7 @@ export class LoginComponent implements OnInit {
     private loginService: AuthService,
     private fb: FormBuilder,
     private route: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -125,6 +127,10 @@ export class LoginComponent implements OnInit {
     var forgotPWForm = document.getElementById("forgotPWForm")
     forgotPWForm.style.animation = "fadein 2s";
     forgotPWForm.style.display = "block";
+  }
+
+  toSplash() {
+    this.router.navigate(['/splash'])
   }
 
 
