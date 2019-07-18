@@ -23,9 +23,9 @@ export class SplashComponent implements OnInit {
   @HostListener("window:scroll", [])
   onWindowScroll() {
     const number = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-    if (number > 100) {
+    if (number > 150) {
       this.whiteNavbar = true;
-    } else if (number <= 100) {
+    } else if (number <= 150) {
       this.whiteNavbar = false;
     }
   };
