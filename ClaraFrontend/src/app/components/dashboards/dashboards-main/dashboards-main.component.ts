@@ -7,10 +7,15 @@ import { User } from 'src/app/classes/user';
   styleUrls: ['./dashboards-main.component.scss']
 })
 export class DashboardsMainComponent implements OnInit {
-  
+  dashboards = []
+
   constructor( ) { }
 
   ngOnInit() {
 
+  }
+
+  addDashboard() {
+    var name = prompt("What is the Dashboard's Name?");
   }
 }
