@@ -9,7 +9,7 @@ import { environment } from '../../../environments/environment';
 export class GraphDataService {
   // class variables
   private datasets: any;
-  private userCharts = [];
+  private userChartData = [];
   public userDataUpdate = new EventEmitter();
 
   constructor(private http: HttpClient) {
@@ -47,23 +47,16 @@ export class GraphDataService {
   }
 
   // GETS user charts from DB
-  async pullUserCharts() {
-    var charts = [];
+  pullUserCharts() {
     this.http.get(environment.backendIP + 'graphs/user_graphs/').subscribe((res: any[]) => {
-      charts = res;
+      this.userChartData = res;
+      this.userDataUpdate.emit(this.userChartData);
     });
-    for (var i = 0; i < charts.length; i++) {
-      // pull datapoints from chart
-      let datapoint = await this.getChartData(charts[i].field1, charts[i].field2, charts[i].dataset1, charts[i].dataset2).toPromise();
-      this.userCharts.push(datapoint);
-      console.log("Pushed chart");
-    }
-    this.userDataUpdate.emit(this.userCharts);
   }
 
   // Returns the chart data associated with a user
   getUserCharts() {
-    return this.userCharts;
+    return this.userChartData;
   }
 
   // adds a set of chart data to the userCharts list
@@ -73,9 +66,9 @@ export class GraphDataService {
     return this.http.post(environment.backendIP + 'graphs/', { name, dataset1, field1, dataset2, field2 }).subscribe(
       () => {
         // Add Chart To List
-        this.userCharts = null; // clear previous chart data
+        this.userChartData = null; // clear previous chart data
         this.pullUserCharts();
-        this.userDataUpdate.emit(this.userCharts);
+        this.userDataUpdate.emit(this.userChartData);
       }
     );
   }
