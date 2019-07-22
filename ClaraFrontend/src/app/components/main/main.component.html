@@ -1,102 +1,27 @@
-<div class="topBar" id="topBar">
-  <i class=" fa fa-bars" (click)="toggleNav()"></i>
-</div>
+<nav>
+  <img src="./assets/images/claraIcon.png" alt="">
 
-<div class="sidebarDiv" [ngClass]="{'show' : navDisplayed, 'hide' : !navDisplayed}">
-  <a routerLink="dashboardSplash">
-    <img src="/assets/images/clara-logo-lrg.png" alt="Clara" id="siteIcon">
-  </a>
-  <nav>
-    <ul>
-      <!-- Dashboards Nav -->
-      <li routerLinkActive="active" (click)="dashboardDropDown()">
-        <a>
-          <img src="/assets/vectors/dashboardIcon.svg">
-          <span>Dashboard</span>
-          <i class="fa fa-angle-down custom"></i>
-        </a>
-        <ul class="dropdown" [ngStyle]="{'max-height': dashboardDropdown ? '100vh' : '0'}">
-          <li routerLinkActive="active">
-            <a routerLink="dashboardSplash">
-              <span>Dashboard Guide</span>
-            </a>
-          </li>
-          <li routerLinkActive="active">
-            <a routerLink="personalDashboard">
-              <span>My Dashboard</span>
-            </a>
-          </li>
-          <li routerLinkActive="active">
-            <a routerLink="sharedDashboards">
-              <span>Shared Dashboards</span>
-            </a>
-          </li>
-        </ul>
-      </li>
-
-      <!-- Datasets Nav -->
-      <li routerLinkActive="active">
-        <a routerLink="dataset">
-          <img src="/assets/vectors/datasetsIcon.svg">
-          <span>Datasets</span>
-        </a>
-      </li>
-
-      <!-- Devices Nav -->
-      <li routerLinkActive="active">
-        <a routerLink="devices">
-          <img src="/assets/vectors/devicesIcon.svg">
-          <span>Devices</span>
-        </a>
-      </li>
-
-      <!-- Alexa Feed Nav -->
-      <li routerLinkActive="active" (click)="alexaDropDown()">
-        <a>
-          <img src="/assets/vectors/alexaFeedIcon.svg">
-          <span>Alexa: Ask Clara</span>
-          <i class="fa fa-angle-down custom"></i>
-        </a>
-        <ul class="dropdown" [ngStyle]="{'max-height': alexaDropdown ? '100vh' : '0'}">
-          <li routerLinkActive="active">
-            <a routerLink="alexa-help">
-              <span>Things You Can Ask</span>
-            </a>
-          </li>
-          <li routerLinkActive="active">
-            <a routerLink="alexa-feed">
-              <span>Status</span>
-            </a>
-          </li>
-        </ul>
-      </li>
-
-      <!-- Ideas Nav -->
-      <li routerLinkActive="active">
-        <a routerLink="ideas">
-          <img src="/assets/vectors/ideasIcon.svg">
-          <span>Ideas</span>
-        </a>
-      </li>
-
-      <!-- Lab Services Nav -->
-      <li routerLinkActive="active">
-        <a routerLink="lab-services">
-          <img src="/assets/vectors/labServicesIcon.svg">
-          <span>Lab Services</span>
-        </a>
-      </li>
-
-      <!-- Profile Nav -->
-      <li routerLinkActive="active">
-        <a routerLink="profile">
-          <img src="/assets/vectors/profileIcon.svg">
-          <span>Profile</span>
-        </a>
-      </li>
-    </ul>
-  </nav>
-</div>
+  <ul>
+    <!-- Dashboards Nav -->
+    <li routerLinkActive="active">
+      <a routerLink="dashboardsMain">
+        <span>Dashboards</span>
+      </a>
+    </li>
+    <!-- Devices Nav -->
+    <li routerLinkActive="active">
+      <a routerLink="devices">
+        <span>Devices</span>
+      </a>
+    </li>
+    <!-- Profile Nav -->
+    <li routerLinkActive="active">
+      <a routerLink="profile">
+        <span>Profile</span>
+      </a>
+    </li>
+  </ul>
+</nav>
 
 <!-- Routed Elements -->
 <div class="mainContent" id="main" (click)="hideNav()">
