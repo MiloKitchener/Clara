@@ -45,16 +45,6 @@ export class UserDashboardComponent implements OnInit {
 
   // method to populate the user graphs table
   async displayGraphs() {
-    /*var datapoints = [];
-    for (var i = 0; i < this.chartsData.length; i++) {
-      // pull datapoints from chart
-      let datapoint = await this._graphDataService.getChartData(this.chartsData[i].field1, this.chartsData[i].field2, this.chartsData[i].dataset1, this.chartsData[i].dataset2).toPromise();
-      datapoints.push(datapoint);
-    }*/
-
-    var datapoints = this._graphDataService.getUserCharts();
-
-
     // hide add graph panel if it was just used to add a new graph
     if (document.getElementById("graphContainer").style.display == "block") {
       removeGraphPanel();
@@ -66,8 +56,9 @@ export class UserDashboardComponent implements OnInit {
       table.innerHTML = "";
 
       var currentRow = null;
-      for (var i = 0; i < datapoints.length; i++) {
-
+      for (var i = 0; i < this.chartsData.length; i++) {
+        // pull datapoints from chart
+        let datapoints = await this._graphDataService.getChartData(this.chartsData[i].field1, this.chartsData[i].field2, this.chartsData[i].dataset1, this.chartsData[i].dataset2).toPromise();
         // every two elements, create new row
         if (i % 2 == 0) {
           if (currentRow != null) {
@@ -92,7 +83,7 @@ export class UserDashboardComponent implements OnInit {
           data: {
             datasets: [{
               label: 'Scatter Dataset',
-              data: datapoints[i],
+              data: datapoints,
               pointBackgroundColor: 'rgba(0, 178, 255, 0.2)',
               pointBorderColor: 'rgba(0, 178, 255, 0.2)'
             }]
