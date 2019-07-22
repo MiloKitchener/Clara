@@ -1,0 +1,106 @@
+/***********************************
+  Main Page Style
+***********************************/
+
+.sidebarDiv {
+  z-index: 5;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  margin-top: 60px;
+  width: 18%;
+  height: 100%;
+  background-color: #313A46;
+  position: fixed;
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 85%;
+  text-align: center;
+}
+
+li a {
+  padding: 6%;
+  padding-left: 10%;
+  text-align: left;
+  width: 100%;
+  display: block;
+  font-size: 2vh;
+  font-weight: 500;
+  text-decoration: none;
+  color: #8391A2;
+  transition:color .2s ease-out, background 0.3s ease-in;
+  width: 84%;
+  cursor: pointer;
+}
+
+li a img {
+  height: 20px;
+  margin-right: 10%;
+  margin-bottom: -3%;
+  max-width:13%; 
+  height:auto;
+  display: none;
+}
+
+i {
+  margin-top: 2%;
+}
+
+a:focus {
+  outline:none;
+}
+
+.active a {
+  color: white;
+  width: 84%;
+}
+
+.active img {
+ filter: invert(1);
+}
+
+i {
+  float: right;
+}
+
+li {
+  position: relative;
+}
+
+li:hover:not(.active) a {
+  color: #A7B1BD;
+  transition:color .2s ease-out, background 0.3s ease-in;
+}
+
+/***********************************
+  Main Content (Router-Outlet)
+***********************************/
+
+
+.mainContent {
+  margin-left: 18%;
+  text-align: center;
+  height: 100%;
+  width: 82%;
+}
+
+.mainContent>* {
+  display: block;
+}
+
+router-outlet {
+  position: relative; // allows animations
+  height: 100%;
+  width: 100%;
+}
+
+router-outlet ~ * {
+  position: absolute; // allows animations
+}

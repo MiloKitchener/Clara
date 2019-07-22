@@ -10,6 +10,7 @@ import { LoginComponent } from './components/login/login.component';
 import { MainComponent } from './components/main/main.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 
+import { DashboardsMainComponent } from './components/dashboards/dashboards-main/dashboards-main.component';
 import { DashboardSplashComponent } from './components/dashboards/dashboard-splash/dashboard-splash.component';
 import { UserDashboardComponent } from './components/dashboards/user-dashboard/user-dashboard.component';
 import { SharedDashboardsComponent } from './components/dashboards/shared-dashboards/shared-dashboards.component';
@@ -39,19 +40,26 @@ const routes: Routes = [
     data: { title: 'Clara' },
     canActivate: [AuthService],
     children: [
-      { path: '', redirectTo: 'dashboardSplash', pathMatch: 'full' },
-      {
-        path: 'dashboardSplash',
-        component: DashboardSplashComponent,
-        data: { title: 'Dashboard' },
+      { path: '', redirectTo: 'dashboardsMain', pathMatch: 'full' },
+      { path: 'dashboardsMain',
+        component: DashboardsMainComponent,
+        data: { title: 'Dashboards' },
         children: [
-          { path: '', redirectTo: 'personalExample', pathMatch: 'full' },
-          { path: 'personalExample', component: UserHowToComponent },
-          { path: 'sharedExample', component: SharedHowToComponent },
+          { path: '', redirectTo: 'dashboardSplash', pathMatch: 'full' },
+          {
+            path: 'dashboardSplash',
+            component: DashboardSplashComponent,
+            data: { title: 'Dashboard' },
+            children: [
+              { path: '', redirectTo: 'personalExample', pathMatch: 'full' },
+              { path: 'personalExample', component: UserHowToComponent },
+              { path: 'sharedExample', component: SharedHowToComponent },
+            ]
+          },
+          { path: 'personalDashboard', component: UserDashboardComponent, data: { title: 'My Dashboard' } },
+          { path: 'sharedDashboards', component: SharedDashboardsComponent, data: { title: 'Shared Dashboards' } },    
         ]
-      },
-      { path: 'personalDashboard', component: UserDashboardComponent, data: { title: 'My Dashboard' } },
-      { path: 'sharedDashboards', component: SharedDashboardsComponent, data: { title: 'Shared Dashboards' } },
+      }, 
       { path: 'devices', component: DevicesComponent, data: { title: 'Devices' } },
       { path: 'dataset', component: DatasetComponent, data: { title: 'Dataset' } },
       { path: 'alexa-help', component: AlexaHelpComponent, data: { title: 'Alexa Help' } },

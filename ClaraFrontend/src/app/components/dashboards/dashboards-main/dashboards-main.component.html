@@ -1,0 +1,27 @@
+<div class="sidebarDiv" [ngClass]="{'show' : navDisplayed, 'hide' : !navDisplayed}">
+    <nav>
+      <ul>
+      <!-- Dashboards Nav -->
+        <li routerLinkActive="active">
+          <a routerLink="dashboardSplash">
+            <span>Dashboard Guide</span>
+          </a>
+        </li>
+        <li routerLinkActive="active">
+          <a routerLink="personalDashboard">
+            <span>My Dashboard</span>
+          </a>
+        </li>
+        <li routerLinkActive="active">
+          <a routerLink="sharedDashboards">
+            <span>Shared Dashboards</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  
+  <!-- Routed Elements -->
+  <div class="mainContent" id="main" (click)="hideNav()">
+    <router-outlet #o="outlet"></router-outlet>
+  </div>
