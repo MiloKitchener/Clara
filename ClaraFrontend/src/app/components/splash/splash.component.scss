@@ -182,8 +182,38 @@ h1 {
   box-shadow: 0px 0px 46px -10px rgba(0,0,0,0.11);
   width: 100%;
   text-align: center;
-  height: 400px;
   padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+h2 {
+  font-size: 30pt;
+  margin-bottom: 50px;
+}
+
+.featuresPoint {
+  display: flex;
+  width: 90%;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 60px;
+  text-align: justify;
+}
+
+.featuresPoint h3 {
+  padding: 0;
+  margin: 0;
+  font-size: 16pt;
+  text-align: center;
+}
+
+.featuresPoint p {
+  padding: 30px;
+  font-size: 14pt;
+}
+
+.featuresPoint img {
+  width: 50%;
 }
 
 /***********************
