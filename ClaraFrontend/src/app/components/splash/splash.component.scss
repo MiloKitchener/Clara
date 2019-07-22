@@ -200,6 +200,14 @@ h2 {
   text-align: justify;
 }
 
+.featuresPoint img {
+  width: 50%;
+}
+
+.featuresPoint div {
+  width: 50%;
+}
+
 .featuresPoint h3 {
   padding: 0;
   margin: 0;
@@ -210,10 +218,6 @@ h2 {
 .featuresPoint p {
   padding: 30px;
   font-size: 14pt;
-}
-
-.featuresPoint img {
-  width: 50%;
 }
 
 /***********************
@@ -242,5 +246,6 @@ footer {
 }
 
 .socialMediaIconsPanel img:hover {
+  cursor: pointer;
   filter: invert(1);
 }
