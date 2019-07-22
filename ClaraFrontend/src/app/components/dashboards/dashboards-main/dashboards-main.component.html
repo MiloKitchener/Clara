@@ -12,9 +12,9 @@
             <span>My Dashboard</span>
           </a>
         </li>
-        <li routerLinkActive="active">
-          <a routerLink="sharedDashboards">
-            <span>Shared Dashboards</span>
+        <li *ngFor="let dashboard of dashboards" routerLinkActive="active">
+          <a routerLink="personalDashboard">
+            <span>{{ dashboard }}</span>
           </a>
         </li>
       </ul>

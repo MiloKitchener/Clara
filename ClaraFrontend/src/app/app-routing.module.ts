@@ -13,7 +13,6 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { DashboardsMainComponent } from './components/dashboards/dashboards-main/dashboards-main.component';
 import { DashboardSplashComponent } from './components/dashboards/dashboard-splash/dashboard-splash.component';
 import { UserDashboardComponent } from './components/dashboards/user-dashboard/user-dashboard.component';
-import { SharedDashboardsComponent } from './components/dashboards/shared-dashboards/shared-dashboards.component';
 import { UserHowToComponent } from './components/dashboards/user-how-to/user-how-to.component';
 import { SharedHowToComponent } from './components/dashboards/shared-how-to/shared-how-to.component';
 
@@ -56,8 +55,7 @@ const routes: Routes = [
               { path: 'sharedExample', component: SharedHowToComponent },
             ]
           },
-          { path: 'personalDashboard', component: UserDashboardComponent, data: { title: 'My Dashboard' } },
-          { path: 'sharedDashboards', component: SharedDashboardsComponent, data: { title: 'Shared Dashboards' } },    
+          { path: 'personalDashboard', component: UserDashboardComponent, data: { title: 'My Dashboard' } },   
         ]
       }, 
       { path: 'devices', component: DevicesComponent, data: { title: 'Devices' } },
