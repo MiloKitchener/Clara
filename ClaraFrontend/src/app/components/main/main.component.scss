@@ -93,6 +93,18 @@ li a:hover {
   transition:color .2s ease-out, background 0.3s ease-in;
 }
 
+#userIcon {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-left: 50px;
+}
+
+#userIcon:hover {
+  cursor: pointer;
+  filter: brightness(1.2);
+}
+
 /***********************************
   Main Content (Router-Outlet)
 ***********************************/
