@@ -195,19 +195,21 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 90%;
+  width: 85%;
   margin: auto;
   margin-top: 30px;
-  margin-bottom: 60px;
+  margin-bottom: 70px;
   text-align: justify;
 }
 
 .featuresPoint img {
-  width: 45%;
+  flex-basis: 45%;
 }
 
 .featuresPoint div {
-  width: 45%;
+  box-sizing: border-box;
+  padding: 30px;
+  flex-basis: 45%;
 }
 
 .featuresPoint h3 {
