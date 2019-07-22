@@ -13,6 +13,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { DashboardsMainComponent } from './components/dashboards/dashboards-main/dashboards-main.component';
 import { DashboardSplashComponent } from './components/dashboards/dashboard-splash/dashboard-splash.component';
 import { UserDashboardComponent } from './components/dashboards/user-dashboard/user-dashboard.component';
+import { DashboardComponent } from './components/dashboards/dashboard/dashboard.component';
 
 import { DatasetComponent } from './components/dataset/dataset.component';
 
@@ -43,7 +44,8 @@ const routes: Routes = [
         data: { title: 'Dashboards' },
         children: [
           { path: '', redirectTo: 'dashboardSplash', pathMatch: 'full' },
-          { path: 'dashboardSplash', component: DashboardSplashComponent, data: { title: 'Dashboard' } },
+          { path: 'dashboardSplash', component: DashboardSplashComponent, data: { title: 'Dashboard Splash' } },
+          { path: 'dashboard', component: DashboardComponent, data: { title: 'Dashboard' } },
           { path: 'personalDashboard', component: UserDashboardComponent, data: { title: 'My Dashboard' } },   
         ]
       }, 

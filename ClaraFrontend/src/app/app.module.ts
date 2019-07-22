@@ -36,6 +36,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { LiveDataGraphPanelComponent } from './components/live-data-graph-panel/live-data-graph-panel.component';
 import { DevicesComponent } from './components/devices/devices.component';
 import { SplashComponent } from './components/splash/splash.component';
+import { DashboardComponent } from './components/dashboards/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { SplashComponent } from './components/splash/splash.component';
     DevicesComponent,
     SplashComponent,
     DashboardsMainComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
