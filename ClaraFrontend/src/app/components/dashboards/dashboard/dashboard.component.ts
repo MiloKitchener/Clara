@@ -59,4 +59,9 @@ export class DashboardComponent implements OnInit {
     };
     this.dashboard = sampleJSONGetRes;
   }
+
+  // deletes a chart at a specified index
+  deleteChart(index: number) {
+    this.dashboard.charts.splice(index, 1);
+  }
 }
