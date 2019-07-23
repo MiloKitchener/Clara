@@ -3,7 +3,7 @@
   <ul>
     <li *ngFor="let chart of dashboard.charts; let i = index" [attr.data-index]="i">
       <!-- Chart Menu -->
-      <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+      <i class="material-icons">more_vert</i>
       <button (click)="deleteChart(i)">Delete</button>
 
       <!-- Chart Canvas -->

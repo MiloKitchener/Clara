@@ -1,6 +1,8 @@
 /* Font */
 @import url('https://fonts.googleapis.com/css?family=Nunito:200,300,400,500&display=swap');
 
+@import '~@angular/material/theming';
+
 body {
   font-family: 'Nunito Sans', sans-serif;
   margin: 0;

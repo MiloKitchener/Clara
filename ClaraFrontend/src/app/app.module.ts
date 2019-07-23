@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatStepperModule, MatExpansionModule, MatInputModule, MatTabsModule } from '@angular/material';
+import { MatStepperModule, MatExpansionModule, MatInputModule, MatTabsModule, MatIconModule } from '@angular/material';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { JwtInterceptorService } from './services/auth/jwt-interceptor.service';
@@ -68,6 +68,7 @@ import { DashboardComponent } from './components/dashboards/dashboard/dashboard.
     MatExpansionModule,
     MatStepperModule,
     MatInputModule,
+    MatIconModule,
     AppRoutingModule,
     FormsModule,
     MatTabsModule,

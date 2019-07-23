@@ -146,6 +146,7 @@ h1 {
 .images {
   display: flex;
   margin: auto;
+  align-items: center;
   width: 90%;
   margin-bottom: 40px;
 }
@@ -157,8 +158,8 @@ h1 {
   text-align: center;
 }
 
-.imageWithDefinition img {
-  width: 50px;
+.imageWithDefinition i {
+  font-size: 50px;
   z-index: 4;
 }
 
@@ -173,8 +174,9 @@ h1 {
   color: #424242;
 }
 
-.rightArrow {
-  width: 35px;
+#rightArrow {
+  margin-top: 30px;
+  font-size: 35px;
 }
 
 .features {
