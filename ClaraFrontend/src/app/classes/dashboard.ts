@@ -1,6 +1,6 @@
-import { Graph } from './graph';
+import { Chart } from './chart';
 
 export class Dashboard {
   name: string;
-  graphs: Graph[];
+  charts: Chart[];
 }

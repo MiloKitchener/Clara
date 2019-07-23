@@ -83,7 +83,7 @@ export class UserDashboardComponent implements OnInit {
           data: {
             datasets: [{
               label: 'Scatter Dataset',
-              data: datapoints,
+              //data: datapoints,
               pointBackgroundColor: 'rgba(0, 178, 255, 0.2)',
               pointBorderColor: 'rgba(0, 178, 255, 0.2)'
             }]
