@@ -1,18 +1,24 @@
 <h2> {{ name + " Dashboard" }} </h2>
-<div style="display: block">
-  <ul>
-    <li *ngFor="let chart of dashboard.charts; let i = index" [attr.data-index]="i">
-      <!-- Chart Menu -->
-      <i class="material-icons">more_vert</i>
-      <button (click)="deleteChart(i)">Delete</button>
 
-      <!-- Chart Canvas -->
-      <canvas baseChart
-        [datasets]="chart.data"
-        [labels]="chart.labels"
-        [chartType]="chart.type">
-      </canvas>
-      <!-- add options based on chart type (options getter function that is passed the chart.type value) -->
-    </li>
-  </ul>
+<div id="mainChart">
+  <!-- Main Chart Canvas -->
+  <canvas baseChart
+    [datasets]="dashboard.mainChart.data"
+    [labels]="dashboard.mainChart.labels"
+    [chartType]="dashboard.mainChart.type">
+  </canvas>
 </div>
+
+<ul>
+  <li *ngFor="let chart of dashboard.charts; let i = index" [attr.data-index]="i">
+    <!-- Chart Menu -->
+
+    <!-- Chart Canvas -->
+    <canvas baseChart
+      [datasets]="chart.data"
+      [labels]="chart.labels"
+      [chartType]="chart.type">
+    </canvas>
+    <!-- add options based on chart type (options getter function that is passed the chart.type value) -->
+  </li>
+</ul>

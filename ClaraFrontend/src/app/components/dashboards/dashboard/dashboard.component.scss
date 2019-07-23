@@ -2,10 +2,18 @@ h2 {
   margin: 50px;
 }
 
+#mainChart {
+  margin: 80px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0px 0px 46px -10px rgba(0,0,0,0.11);
+}
+
 ul {
   display: flex;
   width: 90%;
   margin: auto;
+  margin-bottom: 50px;
   padding: 0;
   list-style-type: none;
   justify-content: space-around;
