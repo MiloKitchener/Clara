@@ -13,6 +13,7 @@ import { Chart } from 'src/app/classes/chart';
 })
 
 export class DashboardComponent implements OnInit {
+  // class variables
   name: string;
   dashboard: Dashboard;
 
@@ -20,7 +21,6 @@ export class DashboardComponent implements OnInit {
     scaleShowVerticalLines: false,
     responsive: true
   };
-  public barChartLegend = true; 
 
   // inject the activatated route
   constructor(private route: ActivatedRoute) { }
@@ -46,10 +46,17 @@ export class DashboardComponent implements OnInit {
           type: "bar",
           labels: ['2006', '2007', '2008', '2009', '2010', '2011', '2012'],
           data: [{data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A'}, {data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B'}]
-        }, 
+        }, {
+          type: "bar",
+          labels: ['2006', '2007', '2008', '2009', '2010', '2011', '2012'],
+          data: [{data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A'}, {data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B'}]
+        }, {
+          type: "bar",
+          labels: ['2006', '2007', '2008', '2009', '2010', '2011', '2012'],
+          data: [{data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A'}, {data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B'}]
+        },
       ]
     };
-
     this.dashboard = sampleJSONGetRes;
   }
 }

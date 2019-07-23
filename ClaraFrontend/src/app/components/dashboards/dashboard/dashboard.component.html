@@ -1,15 +1,13 @@
 <h2> {{ name + " Dashboard" }} </h2>
-
-    <div style="display: block">
-      <ul>
-        <li *ngFor="let chart of dashboard.charts">
-            <canvas baseChart
-                    [datasets]="chart.data"
-                    [labels]="chart.labels"
-                    [options]="barChartOptions"
-                    [legend]="barChartLegend"
-                    [chartType]="chart.type">
-            </canvas>
-        </li>
-      </ul>
-    </div>
+<div style="display: block">
+  <ul>
+    <li *ngFor="let chart of dashboard.charts">
+      <!-- add options based on chart type (options getter function that is passed the chart.type value) -->
+      <canvas baseChart
+        [datasets]="chart.data"
+        [labels]="chart.labels"
+        [chartType]="chart.type">
+      </canvas>
+    </li>
+  </ul>
+</div>

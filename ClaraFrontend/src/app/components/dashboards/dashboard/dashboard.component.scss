@@ -1,0 +1,40 @@
+h2 {
+  margin: 50px;
+}
+
+ul {
+  display: flex;
+  width: 90%;
+  margin: auto;
+  padding: 0;
+  list-style-type: none;
+  justify-content: space-around;
+  align-content: space-around;
+  flex-flow: row wrap;
+}
+
+li {
+  width: auto;
+  height: auto;
+  margin: auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0px 0px 46px -10px rgba(0,0,0,0.11);
+}
+
+/* Medium screens */
+@media all and (max-width: 800px) {
+  .ul {
+    /* When on medium sized screens, we center it by evenly distributing empty space around items */
+    justify-content: space-around;
+  }
+}
+
+/* Small screens */
+@media all and (max-width: 500px) {
+  .ul {
+    /* On small screens, we are no longer using row direction but column */
+    flex-direction: column;
+  }
+}

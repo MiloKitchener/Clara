@@ -104,19 +104,20 @@ li:hover:not(.active) a {
   transition:color .2s ease-out, background 0.3s ease-in;
 }
 
+
 /***********************************
   Main Content (Router-Outlet)
 ***********************************/
 
 
-.mainContent {
+.main-content {
   margin-left: 15%;
   text-align: center;
   height: 100%;
   width: 85%;
 }
 
-.mainContent>* {
+.main-content>* {
   display: block;
 }
 
