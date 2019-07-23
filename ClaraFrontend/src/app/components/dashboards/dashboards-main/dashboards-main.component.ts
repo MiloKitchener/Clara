@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/classes/user';
 
 @Component({
   selector: 'app-dashboards-main',
@@ -9,12 +8,10 @@ import { User } from 'src/app/classes/user';
 export class DashboardsMainComponent implements OnInit {
   dashboards: string[];
 
-  constructor( ) {
-    this.dashboards = [];
-  }
+  constructor( ) { }
 
   ngOnInit() {
-  
+    this.dashboards = [];
   }
 
   addDashboard() {

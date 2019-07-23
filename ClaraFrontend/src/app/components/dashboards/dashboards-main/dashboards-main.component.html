@@ -1,24 +1,8 @@
 <div class="sidebarDiv" [ngClass]="{'show' : navDisplayed, 'hide' : !navDisplayed}">
     <nav>
       <ul>
-      <!-- Dashboards Nav -->
-        <li routerLinkActive="active">
-          <a routerLink="dashboardSplash">
-            <span>Dashboard Guide</span>
-          </a>
-        </li>
-        <li routerLinkActive="active">
-          <a routerLink="dashboard">
-            <span>Dashboard</span>
-          </a>
-        </li>
-        <li routerLinkActive="active">
-          <a routerLink="personalDashboard">
-            <span>My Dashboard</span>
-          </a>
-        </li>
         <li *ngFor="let dashboard of dashboards" routerLinkActive="active">
-          <a routerLink="personalDashboard">
+          <a>
             <span>{{ dashboard }}</span>
           </a>
         </li>
@@ -29,6 +13,6 @@
   </div>
   
   <!-- Routed Elements -->
-  <div class="mainContent" id="main" (click)="hideNav()">
-    <router-outlet #o="outlet"></router-outlet>
+  <div class="mainContent" id="main">
+    <router-outlet></router-outlet>
   </div>
