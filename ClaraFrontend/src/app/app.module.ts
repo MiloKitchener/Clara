@@ -3,16 +3,14 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatStepperModule, MatExpansionModule, MatInputModule, MatTabsModule, MatIconModule } from '@angular/material';
+import { MatStepperModule, MatExpansionModule, MatInputModule, MatTabsModule, MatIconModule, MatMenuModule } from '@angular/material';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+
 import { CookieService } from 'ngx-cookie-service';
 import { JwtInterceptorService } from './services/auth/jwt-interceptor.service';
 
 // import third party modules
 import { ChartsModule } from 'ng2-charts';
-
-// import services
-import { GraphDataService } from './services/graph-data/graph-data.service';
 
 // import components
 import { AppRoutingModule } from './app-routing.module';
@@ -69,6 +67,7 @@ import { DashboardComponent } from './components/dashboards/dashboard/dashboard.
     MatStepperModule,
     MatInputModule,
     MatIconModule,
+    MatMenuModule,
     AppRoutingModule,
     FormsModule,
     MatTabsModule,
