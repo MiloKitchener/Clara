@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-//import { Dashboard } from 'src/app/classes/dashboard';
+import { Dashboard } from 'src/app/classes/dashboard';
+import { Graph } from 'src/app/classes/graph';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,6 +13,7 @@ import { ActivatedRoute } from '@angular/router';
 export class DashboardComponent implements OnInit {
   //dashboard: Dashboard;
   name: string;
+  dashboard: Dashboard;
 
   // inject the activatated route
   constructor(private route: ActivatedRoute) { }
@@ -21,5 +23,15 @@ export class DashboardComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       this.name = params.get('id');
     });
+
+    // GET Dashboard
+    this.dashboard.name = this.name;
+
+    var graph: Graph;
+    graph.labels = ["Pending", "InProgress", "OnHold", "Complete", "Cancelled"];
+    graph.data = [21, 39, 10, 14, 16];
+    graph.type = 'pie';
+
+    this.dashboard.graphs.push(graph);
   }
 }
