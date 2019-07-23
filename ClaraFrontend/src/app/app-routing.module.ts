@@ -11,7 +11,6 @@ import { MainComponent } from './components/main/main.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 
 import { DashboardsMainComponent } from './components/dashboards/dashboards-main/dashboards-main.component';
-import { DashboardSplashComponent } from './components/dashboards/dashboard-splash/dashboard-splash.component';
 import { UserDashboardComponent } from './components/dashboards/user-dashboard/user-dashboard.component';
 import { DashboardComponent } from './components/dashboards/dashboard/dashboard.component';
 

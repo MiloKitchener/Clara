@@ -29,7 +29,6 @@ import { IdeaNodeComponent } from './components/idea-node/idea-node.component';
 import { GraphPanelComponent } from './components/graph-panel/graph-panel.component';
 import { AlexaFeedComponent } from './components/alexa/alexa-feed/alexa-feed.component';
 import { DashboardsMainComponent } from './components/dashboards/dashboards-main/dashboards-main.component';
-import { DashboardSplashComponent } from './components/dashboards/dashboard-splash/dashboard-splash.component';
 import { IdeaAnchorDirective } from './directives/idea-anchor.directive';
 import { AlexaHelpComponent } from './components/alexa/alexa-help/alexa-help.component';
 import { ProfileComponent } from './components/profile/profile.component';
@@ -51,7 +50,6 @@ import { DashboardComponent } from './components/dashboards/dashboard/dashboard.
     MainComponent,
     NotFoundComponent,
     AlexaFeedComponent,
-    DashboardSplashComponent,
     IdeaAnchorDirective,
     AlexaHelpComponent,
     ProfileComponent,
