@@ -1,18 +1,18 @@
-<div class="sidebarDiv" [ngClass]="{'show' : navDisplayed, 'hide' : !navDisplayed}">
-    <nav>
-      <ul>
-        <li *ngFor="let dashboard of dashboards" routerLinkActive="active">
-          <a>
-            <span>{{ dashboard }}</span>
-          </a>
-        </li>
-      </ul>
+<nav>
+  <img src="./assets/vectors/dashboard-icon.svg" alt="">
+  <h2>Dashboards</h2>
+  <ul>
+    <li *ngFor="let dashboard of dashboards" routerLinkActive="active">
+      <a>
+        <span>{{ dashboard }}</span>
+      </a>
+    </li>
+  </ul>
 
-      <button id="addDashboardBtn" (click)="addDashboard()">Add Dashboard</button>
-    </nav>
-  </div>
-  
-  <!-- Routed Elements -->
-  <div class="mainContent" id="main">
-    <router-outlet></router-outlet>
-  </div>
+  <button id="addDashboardBtn" (click)="addDashboard()">Add Dashboard</button>
+</nav>
+
+<!-- Routed Elements -->
+<div class="mainContent" id="main">
+  <router-outlet></router-outlet>
+</div>

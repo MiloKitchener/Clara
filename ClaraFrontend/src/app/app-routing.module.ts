@@ -43,10 +43,8 @@ const routes: Routes = [
         component: DashboardsMainComponent,
         data: { title: 'Dashboards' },
         children: [
-          { path: '', redirectTo: 'dashboardSplash', pathMatch: 'full' },
-          { path: 'dashboardSplash', component: DashboardSplashComponent, data: { title: 'Dashboard Splash' } },
-          { path: 'dashboard', component: DashboardComponent, data: { title: 'Dashboard' } },
-          { path: 'personalDashboard', component: UserDashboardComponent, data: { title: 'My Dashboard' } },   
+          //{ path: '', redirectTo: 'dashboard/:dashboardID', pathMatch: 'full' }, REDIRECT TO MAIN DASHBOARD
+          { path: 'dashboard/:dashboardID', component: DashboardComponent, data: { title: 'Dashboard' } }, 
         ]
       }, 
       { path: 'devices', component: DevicesComponent, data: { title: 'Devices' } },
