@@ -20,6 +20,11 @@ export class DashboardsMainComponent implements OnInit {
 
   addDashboard() {
     var name = prompt("What is the Dashboard's Name?");
-    this.dashboardNames.push(name);
+    if(name == null || name == "" || name == "Main") {
+      alert("Error: Invalid Name");
+    }
+    else {
+      this.dashboardNames.push(name);
+    }
   }
 }
