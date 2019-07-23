@@ -6,16 +6,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboards-main.component.scss']
 })
 export class DashboardsMainComponent implements OnInit {
-  dashboards: string[];
+  dashboardNames: string[];
 
   constructor( ) { }
 
   ngOnInit() {
-    this.dashboards = [];
+    this.dashboardNames = [
+      "Main",
+      "Road Dashboard",
+      "Civil Dashboard"
+    ];
   }
 
   addDashboard() {
     var name = prompt("What is the Dashboard's Name?");
-    this.dashboards.push(name);
+    this.dashboardNames.push(name);
   }
 }

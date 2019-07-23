@@ -42,10 +42,10 @@ const routes: Routes = [
         component: DashboardsMainComponent,
         data: { title: 'Dashboards' },
         children: [
-          //{ path: '', redirectTo: 'dashboard/:dashboardID', pathMatch: 'full' }, REDIRECT TO MAIN DASHBOARD
-          { path: 'dashboard/:dashboardID', component: DashboardComponent }, 
+          { path: '', redirectTo: 'dashboard/Main', pathMatch: 'full' },
+          { path: 'dashboard/:id', component: DashboardComponent },
         ]
-      }, 
+      },
       { path: 'devices', component: DevicesComponent, data: { title: 'Devices' } },
       { path: 'dataset', component: DatasetComponent, data: { title: 'Dataset' } },
       { path: 'alexa-help', component: AlexaHelpComponent, data: { title: 'Alexa Help' } },

@@ -19,11 +19,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     // subscribe to the parameters observable
     this.route.paramMap.subscribe(params => {
-      // TESTING
-      console.log(params.get('dashboardID'));
-
-
-      this.name = params.get('dashboardID');
+      this.name = params.get('id');
     });
   }
 }
