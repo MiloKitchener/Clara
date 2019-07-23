@@ -1,6 +1,8 @@
+// import angular dependencies
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
+// import classes
 import { Dashboard } from 'src/app/classes/dashboard';
 import { Chart } from 'src/app/classes/chart';
 
@@ -11,7 +13,6 @@ import { Chart } from 'src/app/classes/chart';
 })
 
 export class DashboardComponent implements OnInit {
-  //dashboard: Dashboard;
   name: string;
   dashboard: Dashboard;
 
@@ -19,13 +20,7 @@ export class DashboardComponent implements OnInit {
     scaleShowVerticalLines: false,
     responsive: true
   };
-  public barChartLabels = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
-  public barChartType = 'bar';
   public barChartLegend = true; 
-  public barChartData = [
-    {data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A'},
-    {data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B'}
-  ];
 
   // inject the activatated route
   constructor(private route: ActivatedRoute) { }
@@ -37,10 +32,24 @@ export class DashboardComponent implements OnInit {
     });
 
     // GET Dashboard
-    var chart: {labels: string[], data: any[], type: string;} = {labels: this.barChartLabels, data:this.barChartData, type:this.barChartType};
-    var charts = [];
-    charts.push(chart);
-    var tempDashboard: {name: string, charts: Chart[]} = {name: this.name, charts: charts};
-    this.dashboard = tempDashboard;
+    var sampleJSONGetRes = {
+      name: this.name,
+      charts: [ {
+          type: "bar",
+          labels: ['2006', '2007', '2008', '2009', '2010', '2011', '2012'],
+          data: [{data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A'}, {data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B'}]
+        }, {
+          type: "bar",
+          labels: ['2006', '2007', '2008', '2009', '2010', '2011', '2012'],
+          data: [{data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A'}, {data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B'}]
+        }, {
+          type: "bar",
+          labels: ['2006', '2007', '2008', '2009', '2010', '2011', '2012'],
+          data: [{data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A'}, {data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B'}]
+        }, 
+      ]
+    };
+
+    this.dashboard = sampleJSONGetRes;
   }
 }
