@@ -9,7 +9,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { JwtInterceptorService } from './services/auth/jwt-interceptor.service';
 
 // import third party modules
-import { ChartsModule } from 'ng2-charts/ng2-charts';
+import { ChartsModule } from 'ng2-charts';
 
 // import services
 import { GraphDataService } from './services/graph-data/graph-data.service';

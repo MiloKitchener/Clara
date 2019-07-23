@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { Dashboard } from 'src/app/classes/dashboard';
-import { Graph } from 'src/app/classes/graph';
+import { Chart } from 'src/app/classes/chart';
 
 @Component({
   selector: 'app-dashboard',
@@ -15,6 +15,18 @@ export class DashboardComponent implements OnInit {
   name: string;
   dashboard: Dashboard;
 
+  public barChartOptions = {
+    scaleShowVerticalLines: false,
+    responsive: true
+  };
+  public barChartLabels = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
+  public barChartType = 'bar';
+  public barChartLegend = true; 
+  public barChartData = [
+    {data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A'},
+    {data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B'}
+  ];
+
   // inject the activatated route
   constructor(private route: ActivatedRoute) { }
 
@@ -25,13 +37,10 @@ export class DashboardComponent implements OnInit {
     });
 
     // GET Dashboard
-    this.dashboard.name = this.name;
-
-    var graph: Graph;
-    graph.labels = ["Pending", "InProgress", "OnHold", "Complete", "Cancelled"];
-    graph.data = [21, 39, 10, 14, 16];
-    graph.type = 'pie';
-
-    this.dashboard.graphs.push(graph);
+    var chart: {labels: string[], data: any[], type: string;} = {labels: this.barChartLabels, data:this.barChartData, type:this.barChartType};
+    var charts = [];
+    charts.push(chart);
+    var tempDashboard: {name: string, charts: Chart[]} = {name: this.name, charts: charts};
+    this.dashboard = tempDashboard;
   }
 }

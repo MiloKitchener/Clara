@@ -1,1 +1,15 @@
 <h2> {{ name + " Dashboard" }} </h2>
+
+    <div style="display: block">
+      <ul>
+        <li *ngFor="let chart of dashboard.charts">
+            <canvas baseChart
+                    [datasets]="chart.data"
+                    [labels]="chart.labels"
+                    [options]="barChartOptions"
+                    [legend]="barChartLegend"
+                    [chartType]="chart.type">
+            </canvas>
+        </li>
+      </ul>
+    </div>
