@@ -4,7 +4,7 @@
   <ul>
     <li *ngFor="let id of dashboardNames" routerLinkActive="active">
       <a [routerLink]="['/main/dashboardsMain/dashboard', id]">
-        <span>{{ id }}</span>
+        <span>{{ id + " Dashboard"}}</span>
       </a>
     </li>
   </ul>

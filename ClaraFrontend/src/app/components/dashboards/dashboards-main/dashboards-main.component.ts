@@ -13,8 +13,8 @@ export class DashboardsMainComponent implements OnInit {
   ngOnInit() {
     this.dashboardNames = [
       "Main",
-      "Road Dashboard",
-      "Civil Dashboard"
+      "Road",
+      "Civil"
     ];
   }
 
