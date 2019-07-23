@@ -2,9 +2,9 @@
   <img src="./assets/vectors/dashboard-icon.svg" alt="">
   <h2>Dashboards</h2>
   <ul>
-    <li *ngFor="let dashboard of dashboards" routerLinkActive="active">
-      <a>
-        <span>{{ dashboard }}</span>
+    <li *ngFor="let dashboardID of dashboards" routerLinkActive="active">
+      <a [routerLink]="['/dashboard', dashboardID]">
+        <span>{{ dashboardID }}</span>
       </a>
     </li>
   </ul>

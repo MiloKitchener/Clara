@@ -43,7 +43,7 @@ const routes: Routes = [
         data: { title: 'Dashboards' },
         children: [
           //{ path: '', redirectTo: 'dashboard/:dashboardID', pathMatch: 'full' }, REDIRECT TO MAIN DASHBOARD
-          { path: 'dashboard/:dashboardID', component: DashboardComponent, data: { title: 'Dashboard' } }, 
+          { path: 'dashboard/:dashboardID', component: DashboardComponent }, 
         ]
       }, 
       { path: 'devices', component: DevicesComponent, data: { title: 'Devices' } },
