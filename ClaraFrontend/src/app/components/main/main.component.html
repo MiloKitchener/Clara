@@ -44,12 +44,6 @@
         </a>
       </div>
     </li>
-    <!-- Profile Nav -->
-    <li routerLinkActive="active">
-      <a routerLink="profile">
-        <span>Profile</span>
-      </a>
-    </li>
   </ul>
 
   <!-- Profile Settings -->
@@ -57,7 +51,11 @@
     <img id="userIcon" src="./assets/images/avatar.png" alt="">
   </button>
   <mat-menu #menu = "matMenu">
-    <button mat-menu-item>Edit Profile</button>
+    <button mat-menu-item>
+        <a routerLink="profile">
+          <span>Profile</span>
+        </a>
+      </button>
     <button mat-menu-item (click)="logout()">Log Out</button>
   </mat-menu>
 </nav>

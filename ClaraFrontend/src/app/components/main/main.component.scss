@@ -94,6 +94,11 @@ li a:hover {
   filter: brightness(1.2);
 }
 
+button a {
+  text-decoration: none;
+  color: white;
+}
+
 /***********************************
   Main Content (Router-Outlet)
 ***********************************/
