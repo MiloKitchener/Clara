@@ -3,9 +3,9 @@
   <h2>Dashboards</h2>
   <hr>
   <ul>
-    <li *ngFor="let id of _dashboardService.getDashboardNames()" routerLinkActive="active">
-      <a [routerLink]="['/main/dashboardsMain/dashboard', id]">
-        <span>{{ id + " Dashboard"}}</span>
+    <li *ngFor="let dashboard of _dashboardService.getDashboards()" routerLinkActive="active">
+      <a [routerLink]="['/main/dashboardsMain/dashboard', dashboard.name]">
+        <span>{{ dashboard.name + " Dashboard"}}</span>
       </a>
     </li>
   </ul>

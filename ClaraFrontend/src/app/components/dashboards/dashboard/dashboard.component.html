@@ -15,7 +15,7 @@
           <button mat-menu-item (click)="deleteChart(i)">Delete</button>
         </mat-menu>
         <mat-menu #moveChart = "matMenu">
-          <button mat-menu-item *ngFor="let dashboard of _dashboardService.getDashboardNames()">{{ dashboard }}</button>
+          <button mat-menu-item *ngFor="let dashboard of _dashboardService.getDashboards()">{{ dashboard.name }}</button>
         </mat-menu>
       </div>
     </div>
@@ -43,7 +43,7 @@
           <button mat-menu-item (click)="deleteChart(i)">Delete</button>
         </mat-menu>
         <mat-menu #moveChart = "matMenu">
-          <button mat-menu-item *ngFor="let dashboard of _dashboardService.getDashboardNames()">{{ dashboard }}</button>
+          <button mat-menu-item *ngFor="let dashboard of _dashboardService.getDashboards()">{{ dashboard.name }}</button>
         </mat-menu>
       </div>
     </div>

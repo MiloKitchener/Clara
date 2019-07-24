@@ -17,6 +17,6 @@ export class DashboardsMainComponent implements OnInit {
 
   addDashboard() {
     var name = prompt("What is the Dashboard's Name?");
-    this._dashboardService.addDashboardName(name);
+    this._dashboardService.addDashboard(name);
   }
 }

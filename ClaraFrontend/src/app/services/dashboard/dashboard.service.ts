@@ -8,17 +8,12 @@ import { Dashboard } from 'src/app/classes/dashboard';
 })
 
 export class DashboardService {
-  private dashboardNames: string[];
+  private dashboards: Dashboard[];
 
   constructor() {
     // GET Dashboard Names
-    this.dashboardNames = ["Main"];
-  }
-
-  getDashboard(dashboardName: string): Dashboard {
-    // GET Dashboard
-    var sampleJSONGetRes = {
-      name: dashboardName,
+    this.dashboards = [{
+      name: "Main",
       mainChart: {
         name: "Chart Main",
         type: "bar",
@@ -52,24 +47,24 @@ export class DashboardService {
           data: [{data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A'}, {data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B'}]
         },
       ]
-    };
-    return sampleJSONGetRes;
+    }];
   }
 
-  addDashboardName(name: string) {
-    if(name == null || name == "" || name == "Main") {
-      alert("Error: Invalid Name");
-    }
-    else { // valid name
-      this.dashboardNames.push(name);
-    }
+  getDashboard(dashboardName: string): Dashboard {
+    var dashboard = this.dashboards.find(o => o.name == dashboardName);
+    return dashboard;
   }
 
-  getDashboardNames() {
-    return this.dashboardNames;
+  getDashboards() {
+    return this.dashboards;
   }
 
   setAsPrimaryChart(index: number) {
     alert("Setting chart " + index + " as primary chart");
+  }
+
+  addDashboard(name: string) {
+    var newDashboard = new Dashboard(name);
+    this.dashboards.push(newDashboard);
   }
 }

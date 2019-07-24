@@ -34,8 +34,8 @@ export class DashboardComponent implements OnInit {
     // subscribe to the parameters observable
     this.route.paramMap.subscribe(params => {
       this.name = params.get('id');
+      this.dashboard = this._dashboardService.getDashboard(this.name);
     });
-    this.dashboard = this._dashboardService.getDashboard(this.name);
   }
 
   // deletes a chart at a specified index
