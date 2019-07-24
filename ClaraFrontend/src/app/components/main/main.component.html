@@ -46,6 +46,9 @@
     </li>
   </ul>
 
+  <i class="material-icons-round" (click)="toggleFullScreen()">{{ screenIcon }}</i>
+  <i class="material-icons-round">notifications</i>
+
   <!-- Profile Settings -->
   <button mat-button [matMenuTriggerFor] = "menu">
     <img id="userIcon" src="./assets/images/avatar.png" alt="">

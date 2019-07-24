@@ -15,9 +15,7 @@ import { User } from 'src/app/classes/user';
 export class MainComponent implements OnInit {
   // user profile vars
   user: User;
-  navDisplayed: boolean; // for mobile class methods
-  dashboardDropdown: boolean;
-  alexaDropdown: boolean;
+  screenIcon: string;
 
   constructor(
     private _profileService: ProfileService,
@@ -25,15 +23,8 @@ export class MainComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.screenIcon = "fullscreen";
     this.user = this._profileService.getUser();
-    this.navDisplayed = false;
-    this.dashboardDropdown = false;
-    this.alexaDropdown = false;
-
-    // checks if on mobile by topbar visibility, if so, hide navbar
-    if (window.innerHeight > window.innerWidth) { // if portrait
-      this.navDisplayed = false;
-    }
   }
 
   /*********************
@@ -45,5 +36,14 @@ export class MainComponent implements OnInit {
     this.logoutService.logout();
     // Reload the current page without the browser cache
     location.reload(true);
+  }
+
+  public toggleFullScreen() {
+    if(this.screenIcon == "fullscreen") {
+      this.screenIcon = "fullscreen_exit";
+    }
+    else {
+      this.screenIcon = "fullscreen";
+    }
   }
 }
