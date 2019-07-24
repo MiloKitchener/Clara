@@ -1,30 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 
+// import service
+import { DashboardService } from 'src/app/services/dashboard/dashboard.service';
+
 @Component({
   selector: 'app-dashboards-main',
   templateUrl: './dashboards-main.component.html',
   styleUrls: ['./dashboards-main.component.scss']
 })
+
 export class DashboardsMainComponent implements OnInit {
-  dashboardNames: string[];
 
-  constructor( ) { }
+  constructor( private _dashboardService: DashboardService ) { }
 
-  ngOnInit() {
-    this.dashboardNames = [
-      "Main",
-      "Road",
-      "Civil"
-    ];
-  }
+  ngOnInit() { }
 
   addDashboard() {
     var name = prompt("What is the Dashboard's Name?");
-    if(name == null || name == "" || name == "Main") {
-      alert("Error: Invalid Name");
-    }
-    else {
-      this.dashboardNames.push(name);
-    }
+    this._dashboardService.addDashboardName(name);
   }
 }

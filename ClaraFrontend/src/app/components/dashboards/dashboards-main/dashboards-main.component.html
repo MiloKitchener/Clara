@@ -3,7 +3,7 @@
   <h2>Dashboards</h2>
   <hr>
   <ul>
-    <li *ngFor="let id of dashboardNames" routerLinkActive="active">
+    <li *ngFor="let id of _dashboardService.getDashboardNames()" routerLinkActive="active">
       <a [routerLink]="['/main/dashboardsMain/dashboard', id]">
         <span>{{ id + " Dashboard"}}</span>
       </a>
