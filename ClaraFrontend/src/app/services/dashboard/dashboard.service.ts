@@ -58,13 +58,6 @@ export class DashboardService {
     return this.dashboards;
   }
 
-  setAsPrimaryChart(dashboard: Dashboard, index: number) {
-    var oldMainChart = dashboard.mainChart;
-    dashboard.mainChart = dashboard.charts[index];
-    dashboard.charts.splice(index, 1);
-    dashboard.charts.push(oldMainChart);
-  }
-
   addDashboard(name: string) {
     var newDashboard = new Dashboard(name);
     this.dashboards.push(newDashboard);

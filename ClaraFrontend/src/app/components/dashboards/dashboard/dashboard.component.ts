@@ -39,6 +39,13 @@ export class DashboardComponent implements OnInit {
     });
   }
 
+  setAsPrimaryChart(dashboard: Dashboard, index: number) {
+    var oldMainChart = dashboard.mainChart;
+    dashboard.mainChart = dashboard.charts[index];
+    dashboard.charts.splice(index, 1);
+    dashboard.charts.push(oldMainChart);
+  }
+
   // deletes a chart at a specified index
   deleteChart(index: number) {
     this.dashboard.charts.splice(index, 1);
