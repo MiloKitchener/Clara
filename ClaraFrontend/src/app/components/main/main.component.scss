@@ -30,17 +30,7 @@ li {
   display: inline-block;
 }
 
-/* Style The Dropdown Button */
-.dropbtn {
-  color: black;
-  background: none;
-  padding: 14px 16px;
-  transition:color .2s ease-out, background 0.3s ease-in;
-}
-
-.dropbtn:hover {
-  background: none;
-}
+/* Style The Dropdown */
 
 /* The container <div> - needed to position the dropdown content */
 .dropdown {
@@ -74,6 +64,7 @@ li {
 li a {
   color: black;
   padding: 14px 16px;
+  font-size: 12pt;
   background-color: none;
   text-align: center;
   text-decoration: none;

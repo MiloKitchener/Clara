@@ -2,6 +2,31 @@
   padding: 5%;
 }
 
+input {
+  border: 0;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: rgb(245, 245, 245);
+  transition:color .2s ease-out, background 0.3s ease-in;
+}
+
+input:hover {
+  background-color: #EFEFEF;
+  transition:color .2s ease-out, background 0.3s ease-in;
+}
+
+input[type="submit"] {
+  border: 0;
+  background-color: #00B2FF;
+  color: white;
+  transition:color .2s ease-out, background 0.3s ease-in;
+  box-shadow: 0;
+}
+
+input[type="submit"]:hover {
+  background-color: #408DF7;
+}
+
 .formContainer {
   width: 70%;
   margin: auto;
