@@ -1,6 +1,24 @@
 <h1> {{ name + " Dashboard" }} </h1>
 
 <div id="mainChart">
+    <div class="chart-top-panel">
+      <h2>{{ dashboard.mainChart.name }}</h2>
+      <div>
+        <!-- Chart Menu -->
+        <button mat-button [matMenuTriggerFor] = "menu">
+          <i class="material-icons">more_vert</i>
+        </button>
+        <mat-menu #menu = "matMenu">
+          <button mat-menu-item>Set as Primary</button>
+          <button mat-menu-item>Edit</button>
+          <button mat-menu-item [matMenuTriggerFor] = "moveChart">Move To</button>
+          <button mat-menu-item (click)="deleteChart(i)">Delete</button>
+        </mat-menu>
+        <mat-menu #moveChart = "matMenu">
+          <button mat-menu-item *ngFor="let dashboard of _dashboardService.getDashboardNames()">{{ dashboard }}</button>
+        </mat-menu>
+      </div>
+    </div>
   <!-- Main Chart Canvas -->
   <canvas baseChart
     [datasets]="dashboard.mainChart.data"
@@ -19,7 +37,7 @@
           <i class="material-icons">more_vert</i>
         </button>
         <mat-menu #menu = "matMenu">
-          <button mat-menu-item>Set as Primary</button>
+          <button mat-menu-item (click)="_dashboardService.setAsPrimaryChart(i)">Set as Primary</button>
           <button mat-menu-item>Edit</button>
           <button mat-menu-item [matMenuTriggerFor] = "moveChart">Move To</button>
           <button mat-menu-item (click)="deleteChart(i)">Delete</button>
