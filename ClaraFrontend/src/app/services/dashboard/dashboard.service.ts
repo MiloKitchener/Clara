@@ -69,8 +69,18 @@ export class DashboardService {
   }
 
   addDashboard(name: string) {
-    var newDashboard = new Dashboard(name);
-    this.dashboards.push(newDashboard);
+    if(name != null) { // if user didn't hit cancel
+      if(name == "") { // if name invalid
+        alert("Please Provide a Name For the Dashboard");
+      }
+      else if (false) { // if name taken
+        alert("Another Dashboard Already Has That Name");
+      }
+      else {
+        var newDashboard = new Dashboard(name);
+        this.dashboards.push(newDashboard);
+      }
+    }
   }
 
   // remove dashboard
