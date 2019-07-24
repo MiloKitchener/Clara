@@ -21,8 +21,7 @@ export class ProfileComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private _profileService: ProfileService,
-    private logoutService: AuthService
+    private _profileService: ProfileService
   ) { }
 
   ngOnInit() {
@@ -44,11 +43,5 @@ export class ProfileComponent implements OnInit {
     else {
       this._profileService.updateProfile();
     }
-  }
-
-  logout() {
-    this.logoutService.logout();
-    // Reload the current page without the browser cache
-    location.reload(true);
   }
 }

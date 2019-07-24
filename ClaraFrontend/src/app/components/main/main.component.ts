@@ -46,39 +46,4 @@ export class MainComponent implements OnInit {
     // Reload the current page without the browser cache
     location.reload(true);
   }
-
-  // reveals dashboard dropdown menu
-  public dashboardDropDown() {
-    if (this.dashboardDropdown) {
-      this.dashboardDropdown = false;
-    }
-    else {
-      this.dashboardDropdown = true;
-    }
-  }
-
-  // reveals alexa dropdown menu
-  public alexaDropDown() {
-    if (this.alexaDropdown) {
-      this.alexaDropdown = false;
-    }
-    else {
-      this.alexaDropdown = true;
-    }
-  }
-
-  // toggles the mobile navigation bar
-  public toggleNav() {
-    if (this.navDisplayed == false) { // shows nav
-      this.navDisplayed = true;
-    }
-    else { // hide
-      this.navDisplayed = false;
-    }
-  }
-
-  // hides mobile navigation bar
-  public hideNav() {
-    this.navDisplayed = false;
-  }
 }

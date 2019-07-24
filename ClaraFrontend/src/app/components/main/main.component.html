@@ -52,7 +52,14 @@
     </li>
   </ul>
 
-  <img id="userIcon" src="./assets/images/avatar.png" alt="">
+  <!-- Profile Settings -->
+  <button mat-button [matMenuTriggerFor] = "menu">
+    <img id="userIcon" src="./assets/images/avatar.png" alt="">
+  </button>
+  <mat-menu #menu = "matMenu">
+    <button mat-menu-item>Edit Profile</button>
+    <button mat-menu-item (click)="logout()">Log Out</button>
+  </mat-menu>
 </nav>
 
 <!-- Routed Elements -->
