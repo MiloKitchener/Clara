@@ -17,6 +17,7 @@ import { DashboardService } from 'src/app/services/dashboard/dashboard.service';
 export class DashboardComponent implements OnInit {
   // class variables
   name: string;
+  selectedDashboardIndex: number;
   dashboard: Dashboard;
 
   public barChartOptions = {

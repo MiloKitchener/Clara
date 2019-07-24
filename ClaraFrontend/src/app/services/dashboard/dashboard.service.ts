@@ -54,13 +54,15 @@ export class DashboardService {
     var dashboard = this.dashboards.find(o => o.name == dashboardName);
     return dashboard;
   }
-
   getDashboards() {
     return this.dashboards;
   }
 
-  setAsPrimaryChart(index: number) {
-    alert("Setting chart " + index + " as primary chart");
+  setAsPrimaryChart(dashboard: Dashboard, index: number) {
+    var oldMainChart = dashboard.mainChart;
+    dashboard.mainChart = dashboard.charts[index];
+    dashboard.charts.splice(index, 1);
+    dashboard.charts.push(oldMainChart);
   }
 
   addDashboard(name: string) {
