@@ -11,7 +11,7 @@
         <mat-menu #menu = "matMenu">
           <button mat-menu-item>Edit</button>
           <button mat-menu-item [matMenuTriggerFor] = "moveChart">Move To</button>
-          <button mat-menu-item (click)="deleteChart(i)">Delete</button>
+          <button mat-menu-item>Delete</button>
         </mat-menu>
         <mat-menu #moveChart = "matMenu">
           <button mat-menu-item *ngFor="let dashboard of _dashboardService.getDashboards()">{{ dashboard.name }}</button>
@@ -42,7 +42,11 @@
           <button mat-menu-item (click)="deleteChart(i)">Delete</button>
         </mat-menu>
         <mat-menu #moveChart = "matMenu">
-          <button mat-menu-item *ngFor="let dashboard of _dashboardService.getDashboards()">{{ dashboard.name }}</button>
+          <button mat-menu-item *ngFor="let dashboardNode of _dashboardService.getDashboards(); let dashboardIndex = index" [attr.data-index]="dashboardIndex"
+          (click)="_dashboardService.moveChartToDashboard(dashboard, dashboardIndex, i)">
+          <!-- WORK ON REMOVE BUTTON IF BELOW -->
+          <ng-container *ngIf="dashboardNode.name != dashboard.name">{{ dashboardNode.name }}</ng-container>
+        </button>
         </mat-menu>
       </div>
     </div>

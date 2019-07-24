@@ -54,8 +54,17 @@ export class DashboardService {
     var dashboard = this.dashboards.find(o => o.name == dashboardName);
     return dashboard;
   }
+
   getDashboards() {
     return this.dashboards;
+  }
+
+  moveChartToDashboard(originDashboard: Dashboard, dashboardIndex: number, chartindex: number) {
+    var chart = originDashboard.charts[chartindex];
+
+    originDashboard.charts.splice(chartindex, 1);
+
+    this.dashboards[dashboardIndex].charts.push(chart);
   }
 
   addDashboard(name: string) {
