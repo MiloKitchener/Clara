@@ -1,8 +1,6 @@
 /* Font */
 @import url('https://fonts.googleapis.com/css?family=Nunito:200,300,400,500&display=swap');
 
-@import '~@angular/material/theming';
-
 body {
   font-family: 'Nunito Sans', sans-serif;
   margin: 0;
@@ -19,7 +17,7 @@ h1 {
 	font-size: 7vh;
 	font-weight: 300;
 	background-image: linear-gradient(to left, #32CDFE, #00B2FF);
-}
+}/*
 
 input[type="submit"], button {
   border-radius: 5px;
@@ -50,7 +48,7 @@ input[type="text"], textarea {
 input[type="text"]:hover, textarea:hover {
   background-color: #EFEFEF;
   transition:color .2s ease-out, background 0.3s ease-in;
-}
+}*/
 
 @media screen and (orientation: portrait) {
   body {
@@ -389,3 +387,5 @@ input[type="text"]:hover, textarea:hover {
             transform: translateY(-100%);
   }
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

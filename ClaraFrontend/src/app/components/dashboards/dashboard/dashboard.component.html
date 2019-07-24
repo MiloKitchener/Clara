@@ -12,6 +12,18 @@
 <ul>
   <li *ngFor="let chart of dashboard.charts; let i = index" [attr.data-index]="i">
     <!-- Chart Menu -->
+    <button mat-button [matMenuTriggerFor] = "menu">
+      <i class="material-icons">more_vert</i>
+    </button>
+    <mat-menu #menu = "matMenu">
+       <button mat-menu-item>New</button>
+       <button mat-menu-item>Open</button>
+       <button mat-menu-item [matMenuTriggerFor] = "recent">Recent</button>
+    </mat-menu>
+    <mat-menu #recent = "matMenu">
+       <button mat-menu-item>File 1</button>
+       <button mat-menu-item>File 2</button>
+    </mat-menu>
 
     <!-- Chart Canvas -->
     <canvas baseChart
