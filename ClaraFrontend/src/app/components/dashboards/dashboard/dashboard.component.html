@@ -16,13 +16,12 @@
       <i class="material-icons">more_vert</i>
     </button>
     <mat-menu #menu = "matMenu">
-       <button mat-menu-item>New</button>
+       <button mat-menu-item (click)="deleteChart(i)">Delete</button>
        <button mat-menu-item>Open</button>
-       <button mat-menu-item [matMenuTriggerFor] = "recent">Recent</button>
+       <button mat-menu-item [matMenuTriggerFor] = "moveChart">Move To</button>
     </mat-menu>
-    <mat-menu #recent = "matMenu">
-       <button mat-menu-item>File 1</button>
-       <button mat-menu-item>File 2</button>
+    <mat-menu #moveChart = "matMenu">
+       <button mat-menu-item *ngFor="let dashboard of dashboards">{{ dashboard }}</button>
     </mat-menu>
 
     <!-- Chart Canvas -->

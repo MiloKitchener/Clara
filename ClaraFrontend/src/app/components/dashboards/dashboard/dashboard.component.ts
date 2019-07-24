@@ -17,6 +17,8 @@ export class DashboardComponent implements OnInit {
   name: string;
   dashboard: Dashboard;
 
+  dashboards = ["DB1", "DB2", "DB3"];
+
   public barChartOptions = {
     scaleShowVerticalLines: false,
     responsive: true
