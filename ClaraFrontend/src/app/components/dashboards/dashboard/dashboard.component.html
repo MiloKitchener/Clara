@@ -1,5 +1,9 @@
 <h1> {{ name + " Dashboard" }} </h1>
 
+<ng-container *ngIf="dashboard.name != 'Main'">
+  <button (click)="_dashboardService.removeDashboard(dashboard)">Delete Dashboard</button>
+</ng-container>
+
 <div id="mainChart">
     <div class="chart-top-panel">
       <h2>{{ dashboard.mainChart.name }}</h2>

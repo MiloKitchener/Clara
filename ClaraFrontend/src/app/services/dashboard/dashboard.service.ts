@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 // import classes
 import { Dashboard } from 'src/app/classes/dashboard';
@@ -10,7 +11,7 @@ import { Dashboard } from 'src/app/classes/dashboard';
 export class DashboardService {
   private dashboards: Dashboard[];
 
-  constructor() {
+  constructor( private router: Router ) {
     // GET Dashboard Names
     this.dashboards = [{
       name: "Main",
@@ -70,5 +71,12 @@ export class DashboardService {
   addDashboard(name: string) {
     var newDashboard = new Dashboard(name);
     this.dashboards.push(newDashboard);
+  }
+
+  // remove dashboard
+  removeDashboard(dashboard: Dashboard): void {
+    this.dashboards.splice(this.dashboards.indexOf(dashboard), 1);
+    // navigate back to main dashboard
+    this.router.navigateByUrl('/main')
   }
 }
