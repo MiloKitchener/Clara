@@ -11,7 +11,6 @@ import { MainComponent } from './components/main/main.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 
 import { DashboardsMainComponent } from './components/dashboards/dashboards-main/dashboards-main.component';
-import { UserDashboardComponent } from './components/dashboards/user-dashboard/user-dashboard.component';
 import { DashboardComponent } from './components/dashboards/dashboard/dashboard.component';
 
 import { DatasetComponent } from './components/dataset/dataset.component';
@@ -43,6 +42,7 @@ const routes: Routes = [
         data: { title: 'Dashboards' },
         children: [
           { path: '', redirectTo: 'dashboard/Main', pathMatch: 'full' },
+          { path: 'dashboard', redirectTo: 'dashboard/Main', pathMatch: 'full' },
           { path: 'dashboard/:id', component: DashboardComponent },
         ]
       },

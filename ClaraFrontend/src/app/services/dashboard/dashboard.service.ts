@@ -11,6 +11,7 @@ export class DashboardService {
   private dashboardNames: string[];
 
   constructor() {
+    // GET Dashboard Names
     this.dashboardNames = ["Main"];
   }
 
