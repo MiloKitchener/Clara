@@ -15,8 +15,7 @@ import { DashboardComponent } from './components/dashboards/dashboard/dashboard.
 
 import { DatasetComponent } from './components/dataset/dataset.component';
 
-import { AlexaFeedComponent } from './components/alexa/alexa-feed/alexa-feed.component';
-import { AlexaHelpComponent } from './components/alexa/alexa-help/alexa-help.component';
+import { AlexaFeedComponent } from './components/alexa-feed/alexa-feed.component';
 
 import { IdeasComponent } from './components/ideas/ideas.component';
 
@@ -48,7 +47,6 @@ const routes: Routes = [
       },
       { path: 'devices', component: DevicesComponent, data: { title: 'Devices' } },
       { path: 'dataset', component: DatasetComponent, data: { title: 'Dataset' } },
-      { path: 'alexa-help', component: AlexaHelpComponent, data: { title: 'Alexa Help' } },
       { path: 'alexa-feed', component: AlexaFeedComponent, data: { title: 'Alexa Feed' } },
       { path: 'ideas', component: IdeasComponent, data: { title: 'Ideas' } },
       { path: 'lab-services', component: LabServicesComponent, data: { title: 'Lab-Services' } },

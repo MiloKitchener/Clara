@@ -22,7 +22,6 @@ import { LoginComponent } from './components/login/login.component';
 import { MainComponent } from './components/main/main.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 
-import { UserDashboardComponent } from './components/dashboards/user-dashboard/user-dashboard.component';
 import { DatasetComponent } from './components/dataset/dataset.component';
 import { IdeasComponent } from './components/ideas/ideas.component';
 import { LabServicesComponent } from './components/lab-services/lab-services.component';
@@ -30,10 +29,9 @@ import { LabServicesComponent } from './components/lab-services/lab-services.com
 // import sub components
 import { IdeaNodeComponent } from './components/idea-node/idea-node.component';
 import { GraphPanelComponent } from './components/graph-panel/graph-panel.component';
-import { AlexaFeedComponent } from './components/alexa/alexa-feed/alexa-feed.component';
+import { AlexaFeedComponent } from './components/alexa-feed/alexa-feed.component';
 import { DashboardsMainComponent } from './components/dashboards/dashboards-main/dashboards-main.component';
 import { IdeaAnchorDirective } from './directives/idea-anchor.directive';
-import { AlexaHelpComponent } from './components/alexa/alexa-help/alexa-help.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { LiveDataGraphPanelComponent } from './components/live-data-graph-panel/live-data-graph-panel.component';
 import { DevicesComponent } from './components/devices/devices.component';
@@ -43,7 +41,6 @@ import { DashboardComponent } from './components/dashboards/dashboard/dashboard.
 @NgModule({
   declarations: [
     AppComponent,
-    UserDashboardComponent,
     IdeasComponent,
     IdeaNodeComponent,
     GraphPanelComponent,
@@ -54,7 +51,6 @@ import { DashboardComponent } from './components/dashboards/dashboard/dashboard.
     NotFoundComponent,
     AlexaFeedComponent,
     IdeaAnchorDirective,
-    AlexaHelpComponent,
     ProfileComponent,
     LiveDataGraphPanelComponent,
     DevicesComponent,
