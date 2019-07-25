@@ -11,6 +11,25 @@
   flex: 1;
 }
 
+#add-chart-btn {
+  border: 0;
+  padding: 0;
+  color: gray;
+  background-color: inherit;
+  transition:color .2s ease-out, background 0.3s ease-in;
+}
+
+#add-chart-btn:hover {
+  color: black;
+  transition:color .2s ease-out, background 0.3s ease-in;
+}
+
+.add-chart-panel {
+  z-index: 10;
+  margin-left: 20%;
+  position: fixed;
+}
+
 #mainChart {
   margin: 10px 80px;
   background-color: white;

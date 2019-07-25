@@ -18,11 +18,7 @@ export class DashboardComponent implements OnInit {
   // class variables
   name: string;
   dashboard: Dashboard;
-
-  public barChartOptions = {
-    scaleShowVerticalLines: false,
-    responsive: true
-  };
+  displayAddChartPanel: boolean;
 
   // inject the activatated route
   constructor(
@@ -36,13 +32,23 @@ export class DashboardComponent implements OnInit {
       this.name = params.get('id');
       this.dashboard = this._dashboardService.getDashboard(this.name);
     });
+    this.displayAddChartPanel = false;
+  }
+
+  toggleAddChartPanel(): void {
+    if(this.displayAddChartPanel) {
+      this.displayAddChartPanel = false;
+    }
+    else {
+      this.displayAddChartPanel = true;
+    }
   }
 
   setAsPrimaryChart(index: number) {
     var oldMainChart = this.dashboard.mainChart;
     this.dashboard.mainChart = this.dashboard.charts[index];
     this.dashboard.charts.splice(index, 1);
-    if(oldMainChart.data.length = 0) { // if dashboard had a main chart
+    if(oldMainChart.name != "") { // if dashboard had a main chart
       this.dashboard.charts.push(oldMainChart); 
     }
   }

@@ -91,13 +91,9 @@ li a:hover {
 
 #userIcon:hover {
   cursor: pointer;
-  filter: brightness(1.2);
+  filter: brightness(0.8);
 }
 
-button a {
-  text-decoration: none;
-  color: white;
-}
 
 /***********************************
   Main Content (Router-Outlet)
