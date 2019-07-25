@@ -1,8 +1,16 @@
-<h1> {{ name + " Dashboard" }} </h1>
-
-<ng-container *ngIf="dashboard.name != 'Main'">
-  <button (click)="_dashboardService.removeDashboard(dashboard)">Delete Dashboard</button>
-</ng-container>
+<div class="name-settings-panel">
+  <h1> {{ name + " Dashboard" }} </h1>
+  <!-- Dashboard Settings Menu -->
+  <ng-container *ngIf="dashboard.name != 'Main'">
+    <button mat-button [matMenuTriggerFor] = "settingsMenu">
+      <i class="material-icons-round">settings</i>
+    </button>
+    <mat-menu #settingsMenu = "matMenu">
+      <button mat-menu-item>Rename</button>
+      <button mat-menu-item (click)="_dashboardService.removeDashboard(dashboard)">Delete</button>
+    </mat-menu>
+  </ng-container>
+</div>
 
 <div id="mainChart">
   <div class="chart-top-panel">

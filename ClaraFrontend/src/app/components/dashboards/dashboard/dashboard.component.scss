@@ -1,11 +1,18 @@
 @import "~@angular/material/prebuilt-themes/purple-green.css";
 
-h1 {
-  margin: 50px;
+.name-settings-panel {
+  display: flex;
+  align-items: center;
+  margin: 10px 80px;
+}
+
+.name-settings-panel h1 {
+  text-align: left;
+  flex: 1;
 }
 
 #mainChart {
-  margin: 80px;
+  margin: 10px 80px;
   background-color: white;
   padding: 20px;
   border-radius: 5px;
@@ -16,7 +23,7 @@ ul {
   display: flex;
   width: 90%;
   margin: auto;
-  margin-bottom: 50px;
+  margin: 50px auto;
   padding: 0;
   list-style-type: none;
   justify-content: space-around;
@@ -28,7 +35,7 @@ li {
   width: auto;
   height: auto;
   margin: auto;
-  margin-bottom: 3%;
+  margin-top: 3%;
   padding: 20px;
   background-color: white;
   border-radius: 5px;
