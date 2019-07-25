@@ -42,7 +42,7 @@ export class DashboardComponent implements OnInit {
     var oldMainChart = this.dashboard.mainChart;
     this.dashboard.mainChart = this.dashboard.charts[index];
     this.dashboard.charts.splice(index, 1);
-    if(oldMainChart.name != "") { // if dashboard had a main chart
+    if(oldMainChart.data.length = 0) { // if dashboard had a main chart
       this.dashboard.charts.push(oldMainChart); 
     }
   }
