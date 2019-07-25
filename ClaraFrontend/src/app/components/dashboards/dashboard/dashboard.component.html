@@ -48,8 +48,8 @@
         <mat-menu #moveChart = "matMenu">
           <ng-container *ngFor="let dashboardNode of _dashboardService.getDashboards(); let dashboardIndex = index" [attr.data-index]="dashboardIndex">
               <button mat-menu-item *ngIf="dashboardNode.name != dashboard.name" (click)="_dashboardService.moveChartToDashboard(dashboard, dashboardIndex, i)">
-                  {{ dashboardNode.name }}
-                  </button>
+                {{ dashboardNode.name }}
+              </button>
           </ng-container>
         </mat-menu>
       </div>
