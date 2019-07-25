@@ -4,11 +4,11 @@
   display: flex;
   align-items: center;
   margin: 10px 80px;
-}
-
-.name-settings-panel h1 {
-  text-align: left;
-  flex: 1;
+  
+  h1 {
+    text-align: left;
+    flex: 1;
+  }
 }
 
 .add-chart-btn {
@@ -64,12 +64,12 @@ li {
 .chart-top-panel {
   display: flex;
   margin-top: -15px;
-}
 
-.chart-top-panel h2 {
-  width: 95%;
-  text-align: left;
-  font-weight: 500;
+  h2 {
+    width: 95%;
+    text-align: left;
+    font-weight: 500;
+  }
 }
 
 li button {

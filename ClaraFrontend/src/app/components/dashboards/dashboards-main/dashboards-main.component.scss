@@ -20,40 +20,40 @@ nav {
 .logo-container {
   background-color: #00B2FF;
   height: 60px;
-}
 
-.logo-container img {
-  height: 40px;
-  width: auto;
-  margin-top: 10px;
-  filter: invert(1);
+  img {
+    height: 40px;
+    width: auto;
+    margin-top: 10px;
+    filter: invert(1);
+  }
 }
 
 .profile-thumbnail {
   display: flex;
   align-items: center;
   padding: 40px 10px;
-}
 
-.profile-thumbnail img {
-  width: 30%;
-  height: 30%;
-  margin-right: 7px;
-  border-radius: 50%;
-}
+  img {
+    width: 30%;
+    height: 30%;
+    margin-right: 7px;
+    border-radius: 50%;
+  }
 
-.profile-thumbnail h5 {
-  color: white;
-  font-size: 12pt;
-  margin: 0;
-  padding: 0;
-}
+  h5 {
+    color: white;
+    font-size: 12pt;
+    margin: 0;
+    padding: 0;
+  }
 
-.profile-thumbnail p {
-  color: white;
-  font-size: 10pt;
-  margin: 0;
-  padding: 0;
+  p {
+    color: white;
+    font-size: 10pt;
+    margin: 0;
+    padding: 0;
+  }
 }
 
 ul {
@@ -67,22 +67,23 @@ ul {
   text-align: center;
 }
 
-li a {
-  margin-bottom: 15px;
-  padding: 6%;
-  padding-left: 15%;
-  text-align: left;
-  display: block;
-  font-size: 2vh;
-  font-weight: 500;
-  text-decoration: none;
-  color: white;
-  transition:color .2s ease-out, background 0.3s ease-in;
-  cursor: pointer;
-}
 
-i {
-  margin-top: 2%;
+li {
+  position: relative;
+  
+  a {
+    margin-bottom: 15px;
+    padding: 6%;
+    padding-left: 15%;
+    text-align: left;
+    display: block;
+    font-size: 2vh;
+    font-weight: 500;
+    text-decoration: none;
+    color: white;
+    transition:color .2s ease-out, background 0.3s ease-in;
+    cursor: pointer;
+  }
 }
 
 a:focus {
@@ -93,14 +94,6 @@ a:focus {
   color: white;
   background-color: rgba(0,0,0,0.2);
   border-left: 4px solid #00B2FF;
-}
-
-i {
-  float: right;
-}
-
-li {
-  position: relative;
 }
 
 li:hover:not(.active) a {

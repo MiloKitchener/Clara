@@ -1,0 +1,142 @@
+h1 {
+	margin: 0;
+	padding: 4% 0;
+	color: white;
+	font-size: 4vw;
+	font-weight: 300;
+	background-image: linear-gradient(to left, #32CDFE, #00B2FF);
+}
+
+h3 {
+	font-size: 2vw;
+	font-weight: 400;
+}
+
+.container {
+	text-align: center;
+	margin-top: 3%;
+}
+
+.subcontainer {
+	display: flex;
+	margin: auto;
+  width: 95%;
+  padding-bottom: 2%;
+}
+
+.feed-panel {
+	background: white;
+	border-radius: 5px;
+  box-shadow: 0px 0px 46px -10px rgba(0,0,0,0.11);
+	width: 65%;
+	margin-right: 3%;
+	padding: 3.5%;
+}
+
+.message-container {
+	text-align: left;
+	margin-top: 5%;
+	margin-left: 25%;
+}
+
+ul {
+	list-style-type: none;
+	width: 65%;
+  margin-right: 5%;
+  padding-right: 6%;
+  height: 36vh;
+	overflow-y: auto;
+}
+
+li:nth-child(1) { animation-delay: .5s }
+li:nth-child(2) { animation-delay: 1s }
+li:nth-child(3) { animation-delay: 1.5s }
+li:nth-child(4) { animation-delay: 2s }
+
+li {
+	opacity: 0;
+	border-radius: 30px 30px 30px 0;
+	padding: 5%;
+	color: white;
+	background-color: #00B2FF;
+  margin-bottom: 5%;
+  font-size: 1vw;
+	animation-name: msg1;
+  animation-duration: 8s;
+  animation-fill-mode: forwards;
+}
+
+.feed-panel img {
+	width: 15%;
+}
+
+.live-stats-panel {
+  color: white;
+	background-image: linear-gradient(to left, #32CDFE, #00B2FF);
+	border-radius: 5px;
+  box-shadow: 0px 0px 46px -10px rgba(0,0,0,0.11);
+	width: 35%;
+  padding: 3.5%;
+
+  hr {
+    background-color: white;
+    height: 2px;
+    border: 0;
+    margin-top: 0;
+    margin-bottom: 12%;
+  }
+
+  img {
+    width: 25%;
+    margin-bottom: 0;
+  }
+
+  h4 {
+    font-weight: 300;
+    font-size: 2vh;
+    margin-top: 0;
+  }
+}
+
+/***********************************
+  Mobile CSS
+***********************************/
+
+
+@media screen and (orientation: portrait) {
+  h1 {
+    padding: 8% 0;
+    font-size: 7vw;
+  }
+
+  .subcontainer {
+    margin-top: 5%;
+    display: block;
+    width: 100%;
+  }
+
+  .feedPanel {
+    width: 82%;
+    margin: auto;
+    margin-bottom: 5%;
+  }
+
+  h3 {
+    font-size: 3.5vw;
+  }
+
+  ul {
+    width: 60%;
+    height: 30vh;
+  }
+
+  li {
+    font-size: 2vw;
+    padding: 8%;
+  }
+
+  .live-stats-panel {
+    width: 82%;
+    margin: auto;
+  }
+}

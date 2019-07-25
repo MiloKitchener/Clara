@@ -1,0 +1,26 @@
+<h1>
+  Alexa: Ask Clara
+</h1>
+
+<div class="container">
+  <div class="subcontainer">
+    <div class="feed-panel">
+      <h3>Here's What Clara Has To Say:</h3>
+      <div class="message-container">
+        <ul>
+          <li *ngFor="let message of feedData">
+            {{ message.response }}
+          </li>
+        </ul>
+        <img src="assets/vectors/alexa-bot.svg">
+      </div>
+    </div>
+
+    <div class="live-stats-panel">
+      <h3>Live Stats</h3>
+      <hr>
+      <img [src]="imageSrc">
+      <h4>{{"It is currently " + statsData.weather.charAt(0).toUpperCase() + statsData.weather.slice(1)}}</h4>
+    </div>
+  </div>
+</div>
