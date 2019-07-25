@@ -1,6 +1,4 @@
-$main-box-shadow: 0px 0px 46px -10px rgba(0,0,0,0.11);
-$main-hover-transition: color .2s ease-out, background 0.3s ease-in;
-$blue: #00B2FF;
+@import "../../../variables.scss";
 
 /***********************
   Nav Style
@@ -88,18 +86,18 @@ li {
       background: none;
 
       &:hover {
-        color: $blue;
+        color: $color-primary;
       }
     }
   }
 
   button {
-    color: $blue;
-    background-color: rgba($color: $blue, $alpha: 0.2);
+    color: $color-primary;
+    background-color: rgba($color: $color-primary, $alpha: 0.2);
     transition: $main-hover-transition;
 
     &:hover {
-      background-color: rgba($color: $blue, $alpha: 0.4);
+      background-color: rgba($color: $color-primary, $alpha: 0.4);
       transition: $main-hover-transition;
     }
   }
@@ -112,7 +110,7 @@ li {
 
 .top {
   padding-top: 200px;
-  background: linear-gradient(223.73deg, $blue 15.73%, #32CDFE 100.01%);
+  background: linear-gradient(223.73deg, $color-primary 15.73%, #32CDFE 100.01%);
   text-align: center;
   height: 600px;
   border-radius: 0 0 50% 50%; /* top left, top right, bottom right, bottom left */

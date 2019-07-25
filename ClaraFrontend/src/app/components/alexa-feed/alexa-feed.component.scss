@@ -1,10 +1,12 @@
+@import "../../../variables.scss";
+
 h1 {
 	margin: 0;
 	padding: 4% 0;
 	color: white;
 	font-size: 4vw;
 	font-weight: 300;
-	background-image: linear-gradient(to left, #32CDFE, #00B2FF);
+	background-image: linear-gradient(to left, #32CDFE, $color-primary);
 }
 
 h3 {
@@ -27,7 +29,7 @@ h3 {
 .feed-panel {
 	background: white;
 	border-radius: 5px;
-  box-shadow: 0px 0px 46px -10px rgba(0,0,0,0.11);
+  box-shadow: $main-box-shadow;
 	width: 65%;
 	margin-right: 3%;
 	padding: 3.5%;
@@ -58,7 +60,7 @@ li {
 	border-radius: 30px 30px 30px 0;
 	padding: 5%;
 	color: white;
-	background-color: #00B2FF;
+	background-color: $color-primary;
   margin-bottom: 5%;
   font-size: 1vw;
 	animation-name: msg1;
@@ -72,9 +74,9 @@ li {
 
 .live-stats-panel {
   color: white;
-	background-image: linear-gradient(to left, #32CDFE, #00B2FF);
+	background-image: linear-gradient(to left, #32CDFE, $color-primary);
 	border-radius: 5px;
-  box-shadow: 0px 0px 46px -10px rgba(0,0,0,0.11);
+  box-shadow: $main-box-shadow;
 	width: 35%;
   padding: 3.5%;
 

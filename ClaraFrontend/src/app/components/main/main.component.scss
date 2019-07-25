@@ -1,3 +1,5 @@
+@import "../../../variables.scss";
+
 /***********************************
   Main Page Style
 ***********************************/
@@ -13,7 +15,7 @@ nav {
   position: fixed;
   display: flex;
   z-index: 100;
-  box-shadow: 0px 0px 46px -10px rgba(0,0,0,0.11);
+  box-shadow: $main-box-shadow;
 
   img {
     height: 40px;
@@ -39,19 +41,18 @@ li {
     font-size: 12pt;
     background-color: none;
     text-align: center;
-    transition:color .2s ease-out, background 0.3s ease-in;
+    transition: $main-hover-transition;
 
     &:hover {
-      color: #00B2FF;
-      transition:color .2s ease-out, background 0.3s ease-in;
-      cursor: pointer;
+      color: $color-primary;
+      transition: $main-hover-transition;
     }
   }
 }
 
 .active a {
-  color: #00B2FF;
-  transition:color .2s ease-out, background 0.3s ease-in;
+  color: $color-primary;
+  transition: $main-hover-transition;
 }
 
 .user-icon {
@@ -61,7 +62,6 @@ li {
   margin: 0 30px;
 
   &:hover {
-    cursor: pointer;
     filter: brightness(0.8);
   }
 }

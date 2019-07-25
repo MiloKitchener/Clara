@@ -1,3 +1,5 @@
+@import "../../../variables.scss";
+
 .graph-panel-container {
   filter: drop-shadow(0 0 30px rgb(212, 212, 212));
 }
@@ -45,11 +47,11 @@ button {
   height: 30px;
   background-color: #32CDFE;
   color: white;
-  transition:color .2s ease-out, background 0.3s ease-in;
+  transition: $main-hover-transition;
 
   &:hover {
-    background-color: #00B2FF;
-    transition:color .2s ease-out, background 0.3s ease-in;
+    background-color: $color-primary;
+    transition: $main-hover-transition;
     cursor: pointer;
   }
   
@@ -59,7 +61,7 @@ button {
 }
 
 .active {
-  background-color: #00B2FF;
+  background-color: $color-primary;
 }
 
 .graph {
@@ -78,11 +80,11 @@ button {
   padding: 3px;
   font-size: 14px;
   border-radius: 3px;
-  transition:color .2s ease-out, background 0.3s ease-in;
+  transition: $main-hover-transition;
   
   &:hover {
     background-color: #d51616;
-    transition:color .2s ease-out, background 0.3s ease-in;
+    transition: $main-hover-transition;
     cursor: pointer;
   }
 }

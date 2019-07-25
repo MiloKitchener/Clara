@@ -1,3 +1,5 @@
+@import "../../../variables.scss";
+
 h1 {
   font-weight: 400;
   background-image: none;
@@ -44,7 +46,6 @@ input, button {
 
 input::placeholder {
   color: #989898;
-  font-family: 'Poppins', sans-serif;
   font-size: 1.2vw;
 }
 
@@ -74,12 +75,12 @@ input:focus, button:focus {
 
 input[type="submit"], button {
   color: white;
-  background-image: linear-gradient(to bottom left, #00B2FF, #32CDFE);
+  background-image: linear-gradient(to bottom left, $color-primary, #32CDFE);
   width: 55%;
 }
 
 input[type="submit"]:hover, .sign-up-btn:hover {
-  background-image: linear-gradient(to bottom left, #0099FF, #0FC0FC);
+  background-image: linear-gradient(to bottom left, $color-primary, #0FC0FC);
   cursor: pointer;
 }
 
@@ -100,7 +101,7 @@ button {
 
 .text-btn {
   background: none;
-  color: #00B2FF;
+  color: $color-primary;
   padding: 0;
   margin: 4%;
   margin-right: 5%;

@@ -1,10 +1,12 @@
+@import "../../../variables.scss";
+
 .component-container {
   margin: 10px;
   text-align: left;
   padding: 30px;
   border-radius: 5px;
   background-color: white;
-  box-shadow: 0px 0px 46px -10px rgba(0,0,0,0.11);
+  box-shadow: $main-box-shadow;
   margin-bottom: 30px;
 }
 
@@ -83,13 +85,13 @@ polyline {
 
 .comment-btn {
   color: #408DF7;
-  transition:color .2s ease-out, background 0.3s ease-in;
+  transition: $main-hover-transition;
   margin-right: 80px;
 
   &:hover {
     font-weight: bold;
     color: #0f70f5;
-    transition:color .2s ease-out, background 0.3s ease-in;
+    transition: $main-hover-transition;
   }
 }
 
@@ -109,7 +111,7 @@ input {
   color: black;
   border-radius: 7px;
   padding: 10px 20px;
-  transition:color .2s ease-out, background 0.3s ease-in;
+  transition: $main-hover-transition;
 
   &[type="submit"] {
     margin-left: 20px;
@@ -118,13 +120,13 @@ input {
 
     &:hover {
       background-color: #0f70f5;
-      transition:color .2s ease-out, background 0.3s ease-in;
+      transition: $main-hover-transition;
     }
   }
 
   &[type="text"]:hover {
     background-color: #EAEAEA;
-    transition:color .2s ease-out, background 0.3s ease-in;
+    transition: $main-hover-transition;
   }
 }
 

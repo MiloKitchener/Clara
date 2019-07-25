@@ -1,3 +1,5 @@
+@import "../../../../variables.scss";
+
 /***********************************
   Main Page Style
 ***********************************/
@@ -18,7 +20,7 @@ nav {
 }
 
 .logo-container {
-  background-color: #00B2FF;
+  background-color: $color-primary;
   height: 60px;
 
   img {
@@ -81,7 +83,7 @@ li {
     font-weight: 500;
     text-decoration: none;
     color: white;
-    transition:color .2s ease-out, background 0.3s ease-in;
+    transition: $main-hover-transition;
     cursor: pointer;
     
     &:focus {
@@ -93,12 +95,12 @@ li {
 .active a {
   color: white;
   background-color: rgba(0,0,0,0.2);
-  border-left: 4px solid #00B2FF;
+  border-left: 4px solid $color-primary;
 }
 
 li:hover:not(.active) a {
   background-color: rgb(235, 235, 235);
-  transition:color .2s ease-out, background 0.3s ease-in;
+  transition: $main-hover-transition;
 }
 
 .add-dashboard-btn {
@@ -108,14 +110,14 @@ li:hover:not(.active) a {
   font-size: 2vh;
   font-weight: 500;
   background: none;
-  color: #00B2FF;
-  border: 2px solid #00B2FF;
-  transition:color .2s ease-out, background 0.3s ease-in;
+  color: $color-primary;
+  border: 2px solid $color-primary;
+  transition: $main-hover-transition;
 
   &:hover {
     color: white;
-    background-color: #00B2FF;
-    transition:color .2s ease-out, background 0.3s ease-in;
+    background-color: $color-primary;
+    transition: $main-hover-transition;
   }
 }
 
