@@ -17,11 +17,11 @@
   color: gray;
   background-color: inherit;
   transition:color .2s ease-out, background 0.3s ease-in;
-}
 
-.add-chart-btn:hover {
-  color: black;
-  transition:color .2s ease-out, background 0.3s ease-in;
+  &:hover {
+    color: black;
+    transition:color .2s ease-out, background 0.3s ease-in;
+  }
 }
 
 .add-chart-panel {
@@ -59,6 +59,13 @@ li {
   background-color: white;
   border-radius: 5px;
   box-shadow: 0px 0px 46px -10px rgba(0,0,0,0.11);
+
+
+  button {
+    margin-right: -30px;
+    margin-top: 15px;
+    padding: 0;
+  }
 }
 
 .chart-top-panel {
@@ -70,12 +77,6 @@ li {
     text-align: left;
     font-weight: 500;
   }
-}
-
-li button {
-  margin-right: -30px;
-  margin-top: 15px;
-  padding: 0;
 }
 
 /* Medium screens */

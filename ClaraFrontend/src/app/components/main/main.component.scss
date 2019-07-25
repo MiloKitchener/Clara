@@ -40,12 +40,12 @@ li {
     background-color: none;
     text-align: center;
     transition:color .2s ease-out, background 0.3s ease-in;
-  }
 
-  a:hover {
-    color: #00B2FF;
-    transition:color .2s ease-out, background 0.3s ease-in;
-    cursor: pointer;
+    &:hover {
+      color: #00B2FF;
+      transition:color .2s ease-out, background 0.3s ease-in;
+      cursor: pointer;
+    }
   }
 }
 
@@ -59,11 +59,11 @@ li {
   width: 40px;
   height: 40px;
   margin: 0 30px;
-}
 
-.user-icon:hover {
-  cursor: pointer;
-  filter: brightness(0.8);
+  &:hover {
+    cursor: pointer;
+    filter: brightness(0.8);
+  }
 }
 
 button a span {

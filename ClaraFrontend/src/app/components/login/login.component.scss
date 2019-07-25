@@ -105,12 +105,12 @@ button {
   margin: 4%;
   margin-right: 5%;
   width: 50%;
-}
 
-.text-btn:hover {
-  color: #0099FF;
-  transition: color 0.3s ease 0s;
-  cursor: pointer;
+  &:hover {
+    color: #0099FF;
+    transition: color 0.3s ease 0s;
+    cursor: pointer;
+  }
 }
 
 .right-container {
@@ -146,10 +146,10 @@ p {
   width: 12%;
   margin-left: 5%;
   margin-bottom: 5%;
-}
 
-.thumbnail:hover {
-  cursor: pointer;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .background {
@@ -215,15 +215,15 @@ p {
     margin: 5%;
     font-size: 5vw;
     width: 100%;
+
+    &::placeholder {
+      font-size: 5vw;
+    }
   }
 
   input[type="submit"], button {
     width: 110%;
     margin-top: 5%;
-    font-size: 5vw;
-  }
-
-  input::placeholder {
     font-size: 5vw;
   }
 

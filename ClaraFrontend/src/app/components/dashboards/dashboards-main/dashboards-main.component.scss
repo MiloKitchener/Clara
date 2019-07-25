@@ -83,11 +83,11 @@ li {
     color: white;
     transition:color .2s ease-out, background 0.3s ease-in;
     cursor: pointer;
+    
+    &:focus {
+      outline:none;
+    }
   }
-}
-
-a:focus {
-  outline:none;
 }
 
 .active a {
@@ -111,12 +111,12 @@ li:hover:not(.active) a {
   color: #00B2FF;
   border: 2px solid #00B2FF;
   transition:color .2s ease-out, background 0.3s ease-in;
-}
 
-.add-dashboard-btn:hover {
-  color: white;
-  background-color: #00B2FF;
-  transition:color .2s ease-out, background 0.3s ease-in;
+  &:hover {
+    color: white;
+    background-color: #00B2FF;
+    transition:color .2s ease-out, background 0.3s ease-in;
+  }
 }
 
 

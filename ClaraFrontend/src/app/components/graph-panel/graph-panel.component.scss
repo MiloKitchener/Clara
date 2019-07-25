@@ -46,16 +46,16 @@ button {
   background-color: #32CDFE;
   color: white;
   transition:color .2s ease-out, background 0.3s ease-in;
-}
 
-button:hover {
-  background-color: #00B2FF;
-  transition:color .2s ease-out, background 0.3s ease-in;
-  cursor: pointer;
-}
-
-button:focus {
-  outline: none;
+  &:hover {
+    background-color: #00B2FF;
+    transition:color .2s ease-out, background 0.3s ease-in;
+    cursor: pointer;
+  }
+  
+  &:focus {
+    outline: none;
+  }
 }
 
 .active {
@@ -79,12 +79,12 @@ button:focus {
   font-size: 14px;
   border-radius: 3px;
   transition:color .2s ease-out, background 0.3s ease-in;
-}
-
-.addBtn:hover {
-  background-color: #d51616;
-  transition:color .2s ease-out, background 0.3s ease-in;
-  cursor: pointer;
+  
+  &:hover {
+    background-color: #d51616;
+    transition:color .2s ease-out, background 0.3s ease-in;
+    cursor: pointer;
+  }
 }
 
 /* Style The Dropdown Button */

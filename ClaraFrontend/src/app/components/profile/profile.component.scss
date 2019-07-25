@@ -8,11 +8,11 @@ input {
   border-radius: 5px;
   background-color: rgb(245, 245, 245);
   transition:color .2s ease-out, background 0.3s ease-in;
-}
 
-input:hover {
-  background-color: #EFEFEF;
-  transition:color .2s ease-out, background 0.3s ease-in;
+  &:hover {
+    background-color: #EFEFEF;
+    transition:color .2s ease-out, background 0.3s ease-in;
+  }
 }
 
 input[type="submit"] {
@@ -21,10 +21,10 @@ input[type="submit"] {
   color: white;
   transition:color .2s ease-out, background 0.3s ease-in;
   box-shadow: 0;
-}
 
-input[type="submit"]:hover {
-  background-color: #408DF7;
+  &:hover {
+    background-color: #408DF7;
+  }
 }
 
 .form-container {

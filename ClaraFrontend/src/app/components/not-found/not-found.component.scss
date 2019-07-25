@@ -33,8 +33,8 @@ a {
   font-size: 16pt;
   color: white;
   background-image: linear-gradient(to bottom left, #32CDFE, #00B2FF);
-}
 
-a:hover {
-  background-image: linear-gradient(to bottom left, #0FC0FC, #0099FF);
+  &:hover {
+    background-image: linear-gradient(to bottom left, #0FC0FC, #0099FF);
+  }
 }
