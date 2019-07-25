@@ -18,20 +18,29 @@ img {
   width: 80%;
 }
 
-.idea-node-container h4 {
-  font-size: 20pt;
-  margin: 0;
-  margin-bottom: 10px;
-}
+.idea-node-container {
+  h4 {
+    font-size: 20pt;
+    margin: 0;
+    margin-bottom: 10px;
+  }
 
-.idea-node-container p {
-  text-align: justify;
-  max-height: 100px;
-  overflow-y: auto;
-  font-size: 10pt;
-  margin: 0;
-  margin-bottom: 20px;
-  padding: 10px;
+  p {
+    text-align: justify;
+    max-height: 100px;
+    overflow-y: auto;
+    font-size: 10pt;
+    margin: 0;
+    margin-bottom: 20px;
+    padding: 10px;
+  }
+
+  button {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+  }
 }
 
 .main-content {
@@ -48,19 +57,8 @@ button:hover {
   cursor: pointer;
 }
 
-button:focus {
-  outline: 0;
-}
-
 svg {
   transform: rotate(90deg);
-}
-
-.idea-node-container button {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  background: none;
 }
 
 polyline {
@@ -161,15 +159,17 @@ li {
     padding: 8%;
   }
 
-  .idea-node-container h4 {
-    text-align: center;
-    font-size: 5vw;
-  }
+  .idea-node-container {
+    h4 {
+      text-align: center;
+      font-size: 5vw;
+    }
 
-  .idea-node-container p {
-    text-align: justify;
-    font-size: 3vw;
-    padding: 0;
+    p {
+      text-align: justify;
+      font-size: 3vw;
+      padding: 0;
+    }
   }
 
   .vote-panel {

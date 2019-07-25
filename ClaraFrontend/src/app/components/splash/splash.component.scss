@@ -10,35 +10,35 @@ nav {
   padding-left: 10%;
   z-index: 10;
   transition:color .2s ease-out, background 0.3s ease-in;
-}
 
-nav img {
-  margin-top: 10px;
-  height: 40px;
-  float: left;
-  filter: invert(1);
+  img {
+    margin-top: 10px;
+    height: 40px;
+    float: left;
+    filter: invert(1);
+  }
 }
 
 .nav-buttons {
   margin-right: 20%; // 20% to offset 10% left padding on nav and provide 10% right padding
   float: right;
   display: flex;
-}
 
-.nav-buttons button {
-  color: white;
-  border: 0;
-  margin-top: 10px;
-  height: 40px;
-  width: 100px;
-  border-radius: 20px;
-  background-color: rgba($color: #FFFFFF, $alpha: 0.2);
-  transition:color .2s ease-out, background 0.3s ease-in;
-}
+  button {
+    color: white;
+    border: 0;
+    margin-top: 10px;
+    height: 40px;
+    width: 100px;
+    border-radius: 20px;
+    background-color: rgba($color: #FFFFFF, $alpha: 0.2);
+    transition:color .2s ease-out, background 0.3s ease-in;
+  }
 
-.nav-buttons button:hover {
-  background-color: rgba($color: #000000, $alpha: 0.1);
-  transition:color .2s ease-out, background 0.3s ease-in;
+  button:hover {
+    background-color: rgba($color: #000000, $alpha: 0.1);
+    transition:color .2s ease-out, background 0.3s ease-in;
+  }
 }
 
 ul {
@@ -51,52 +51,54 @@ li {
   margin-right: 5px;
   line-height: 40px;
   display: inline-block;
-}
 
-li a {
-  color: white;
-  border-radius: 20px;
-  background-color: none;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  transition:color .2s ease-out, background 0.3s ease-in;
-}
+  a {
+    color: white;
+    border-radius: 20px;
+    background-color: none;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition:color .2s ease-out, background 0.3s ease-in;
+  }
 
-li a:hover {
-  background-color: rgba($color: #000000, $alpha: 0.1);
-  transition:color .2s ease-out, background 0.3s ease-in;
-  cursor: pointer;
+  a:hover {
+    background-color: rgba($color: #000000, $alpha: 0.1);
+    transition:color .2s ease-out, background 0.3s ease-in;
+    cursor: pointer;
+  }
 }
 
 .active {
   background-color: white;
   box-shadow: 0px 0px 46px -10px rgba(0,0,0,0.11);
   transition:color .2s ease-out, background 0.3s ease-in;
-}
 
-.active img {
-  filter: none;
-}
+  img {
+    filter: none;
+  }
 
-.active li a {
-  color: black;
-  background: none;
-}
+  li {
+    a {
+      color: black;
+      background: none;
+    }
+  
+    a:hover {
+      color: #00B2FF;
+    }
+  }
 
-.active li a:hover {
-  color: #00B2FF;
-}
-
-.active button {
-  color: #00B2FF;
-  background-color: rgba($color: #00B2FF, $alpha: 0.2);
-  transition:color .2s ease-out, background 0.3s ease-in;
-}
-
-.active button:hover {
-  background-color: rgba($color: #00B2FF, $alpha: 0.4);
-  transition:color .2s ease-out, background 0.3s ease-in;
+  button {
+    color: #00B2FF;
+    background-color: rgba($color: #00B2FF, $alpha: 0.2);
+    transition:color .2s ease-out, background 0.3s ease-in;
+  }
+  
+  button:hover {
+    background-color: rgba($color: #00B2FF, $alpha: 0.4);
+    transition:color .2s ease-out, background 0.3s ease-in;
+  }
 }
 
 
@@ -135,11 +137,11 @@ h1 {
   margin-top: 150px;
   background-color: white;
   box-shadow: 0px 0px 46px -10px rgba(0,0,0,0.11);
-}
 
-.device-image-container img {
-  margin-top: 150px;
-  height: 200px;
+  img {
+    margin-top: 150px;
+    height: 200px;
+  }
 }
 
 .main {
@@ -159,22 +161,22 @@ h1 {
   height: 300px;
   margin: auto;
   text-align: center;
-}
 
-.image-with-definition i {
-  font-size: 50px;
-  z-index: 4;
-}
+  i {
+    font-size: 50px;
+    z-index: 4;
+  }
 
-.image-with-definition h3 {
-  font-weight: 400;
-  font-size: 16pt;
-}
+  h3 {
+    font-weight: 400;
+    font-size: 16pt;
+  }
 
-.image-with-definition p {
-  text-align: justify;
-  font-size: 11pt;
-  color: #424242;
+  p {
+    text-align: justify;
+    font-size: 11pt;
+    color: #424242;
+  }
 }
 
 .right-arrow {
@@ -205,28 +207,29 @@ h2 {
   margin-top: 30px;
   margin-bottom: 70px;
   text-align: justify;
+
+  img {
+    flex-basis: 45%;
+  }
+
+  div {
+    box-sizing: border-box;
+    padding: 30px;
+    flex-basis: 45%;
+  }
+
+  h3 {
+    padding: 0;
+    margin: 0;
+    font-size: 16pt;
+    text-align: center;
+  }
+  
+  p {
+    font-size: 14pt;
+  }
 }
 
-.features-point img {
-  flex-basis: 45%;
-}
-
-.features-point div {
-  box-sizing: border-box;
-  padding: 30px;
-  flex-basis: 45%;
-}
-
-.features-point h3 {
-  padding: 0;
-  margin: 0;
-  font-size: 16pt;
-  text-align: center;
-}
-
-.features-point p {
-  font-size: 14pt;
-}
 
 /***********************
   Footer Style
@@ -244,16 +247,16 @@ footer {
 .social-media-icons-panel {
   display: inline;
   margin: auto;
-}
 
-.social-media-icons-panel img {
-  width: 30px;
-  margin-left: 15px;
-  margin-right: 15px;
-  filter: invert(1) brightness(85%);
-}
-
-.social-media-icons-panel img:hover {
-  cursor: pointer;
-  filter: invert(1);
+  img {
+    width: 30px;
+    margin-left: 15px;
+    margin-right: 15px;
+    filter: invert(1) brightness(85%);
+  }
+  
+  img:hover {
+    cursor: pointer;
+    filter: invert(1);
+  }
 }

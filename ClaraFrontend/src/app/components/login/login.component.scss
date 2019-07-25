@@ -52,10 +52,10 @@ input::placeholder {
   width: 110%;
   display: flex;
   justify-content: center;
-}
 
-.btn-container input {
-  margin-right: 5%;
+  input {
+    margin-right: 5%;
+  }
 }
 
 input[type="text"], input[type="email"], input[type="password"] {
@@ -121,14 +121,14 @@ button {
   height: 100%;
   position: absolute;
   text-align: center;
-}
 
-.right-container img {
-  margin-top: 12%;
-  margin-bottom: 3%;
-  width: 50%;
-	transform: translatey(0px);
-	animation: float 3s ease-in-out infinite;
+  img {
+    margin-top: 12%;
+    margin-bottom: 3%;
+    width: 50%;
+    transform: translatey(0px);
+    animation: float 3s ease-in-out infinite;
+  }
 }
 
 p {
@@ -205,10 +205,10 @@ p {
   .btn-container {
     display: block;
     width: 100%;
-  }
 
-  .btn-container input {
-    margin: 0;
+    input {
+      margin: 0;
+    }
   }
 
   input {

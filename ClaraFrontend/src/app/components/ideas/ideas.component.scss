@@ -33,46 +33,48 @@ button:hover, input[type="submit"]:hover {
   width: 100%;
 }
 
-.search-data-form input, .search-data-form button {
-  border: 0;
-  padding: 1.5%;
-  background-color: white;
-  box-shadow: 0px 0px 46px -10px rgba(0,0,0,0.11);
-  font-size: 2vh;
-}
+.search-data-form {
+  input, button {
+    border: 0;
+    padding: 1.5%;
+    background-color: white;
+    box-shadow: 0px 0px 46px -10px rgba(0,0,0,0.11);
+    font-size: 2vh;
+  }
 
-.search-data-form input[type="text"] {
-  width: 50%;
-  border-radius: 10px 0 0 10px;
-  color: #32CDFE;
-}
+  input[type="text"] {
+    width: 50%;
+    border-radius: 10px 0 0 10px;
+    color: #32CDFE;
+  }
 
-.search-data-form input[type="submit"] {
-  border-radius: 0 10px 10px 0;
-  text-align: right;
-  color: white;
-  background-color: #00B2FF;
-  font-weight: bold;
-  transition:color .2s ease-out, background 0.3s ease-in;
-  box-shadow: 0px 0px 46px -10px rgba(0,0,0,0.11);
-}
+  input[type="submit"] {
+    border-radius: 0 10px 10px 0;
+    text-align: right;
+    color: white;
+    background-color: #00B2FF;
+    font-weight: bold;
+    transition:color .2s ease-out, background 0.3s ease-in;
+    box-shadow: 0px 0px 46px -10px rgba(0,0,0,0.11);
+  }
 
-.search-data-form input::placeholder {
-  color: #BBBBBB;
-}
+  input::placeholder {
+    color: #BBBBBB;
+  }
 
-.search-data-form input[type="submit"]:hover {
-  background-color: #408DF7;
-  transition:color .2s ease-out, background 0.3s ease-in;
-}
+  input[type="submit"]:hover {
+    background-color: #408DF7;
+    transition:color .2s ease-out, background 0.3s ease-in;
+  }
 
-.search-data-form button {
-  padding-left: 15px;
-  border-radius: 0 10px 10px 0;
-}
+  button {
+    padding-left: 15px;
+    border-radius: 0 10px 10px 0;
 
-.search-data-form button img {
-  height: 10px;
+    img {
+      height: 10px;
+    }
+  }
 }
 
 /*****************************
@@ -98,7 +100,18 @@ button:hover, input[type="submit"]:hover {
 .dropdown {
   position: relative;
   float: left;
-  width: 25%
+  width: 25%;
+
+  ul, li {
+    list-style-type: none;
+    margin-left: 0;
+    padding-left: 0;
+  }
+
+  ul {
+    max-height: 20vh;
+    overflow-y: auto;
+  }
 }
 
 /* Dropdown Content (Hidden by Default) */
@@ -110,37 +123,26 @@ button:hover, input[type="submit"]:hover {
   margin-left: 20%;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
+
+  a {
+    color: black;
+    padding: 10%;
+    text-decoration: none;
+    display: block;
+    font-size: 2vh;
+  }
+
+  a:hover {
+    background-color: #f1f1f1
+  }
 }
 
-/* Links inside the dropdown */
-.dropdown-content a {
-  color: black;
-  padding: 10%;
-  text-decoration: none;
-  display: block;
-  font-size: 2vh;
-}
-
-/* Change color of dropdown links on hover */
-.dropdown-content a:hover {
-  background-color: #f1f1f1
-}
 
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
   display: block;
 }
 
-.dropdown ul, .dropdown li {
-  list-style-type: none;
-  margin-left: 0;
-  padding-left: 0;
-}
-
-.dropdown ul {
-  max-height: 20vh;
-  overflow-y: auto;
-}
 
 /****************************
   Side Panel
@@ -160,19 +162,19 @@ button:hover, input[type="submit"]:hover {
   height: 400px;
   width: 30%;
   margin-left: 1%;
-}
 
-.side-panel h2 {
-  text-align: left;
-  font-weight: 500;
-  margin-bottom: 0;
-}
+  h2 {
+    text-align: left;
+    font-weight: 500;
+    margin-bottom: 0;
+  }
 
-.side-panel hr {
-  border: 0;
-  background-color: black;
-  height: 1px;
-  margin-top: 0;
+  hr {
+    border: 0;
+    background-color: black;
+    height: 1px;
+    margin-top: 0;
+  }
 }
 
 ul > li {
@@ -211,6 +213,11 @@ ul > li span {
   display: none;
   animation: fadein 0.5s;
   box-shadow: 0px 0px 26px 6px rgba(0,0,0,0.15);
+
+  input[type="submit"] {
+    padding: 7px 15px;
+    margin: 10px;
+  }
 }
 
 .close-new-post-panel-btn {
@@ -230,11 +237,6 @@ ul > li span {
   cursor: pointer;
   background-color: #CC1900;
   transition:color .2s ease-out, background 0.3s ease-in;
-}
-
-.new-post-panel input[type="submit"] {
-  padding: 7px 15px;
-  margin: 10px;
 }
 
 textarea {
