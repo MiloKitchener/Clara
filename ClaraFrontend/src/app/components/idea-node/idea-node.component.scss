@@ -1,4 +1,4 @@
-.componentContainer {
+.component-container {
   margin: 10px;
   text-align: left;
   padding: 30px;
@@ -14,17 +14,17 @@ img {
   margin-right: 20px;
 }
 
-.postText {
+.post-text {
   width: 80%;
 }
 
-.ideaNodeContainer h4 {
+.idea-node-container h4 {
   font-size: 20pt;
   margin: 0;
   margin-bottom: 10px;
 }
 
-.ideaNodeContainer p {
+.idea-node-container p {
   text-align: justify;
   max-height: 100px;
   overflow-y: auto;
@@ -34,11 +34,11 @@ img {
   padding: 10px;
 }
 
-#mainContent {
+.main-content {
   display: flex;
 }
 
-#votePanel {
+.vote-panel {
   text-align: center;
   margin-left: 40px;
   margin-top: 30px;
@@ -56,7 +56,7 @@ svg {
   transform: rotate(90deg);
 }
 
-.ideaNodeContainer button {
+.idea-node-container button {
   margin: 0;
   padding: 0;
   border: 0;
@@ -69,7 +69,7 @@ polyline {
   stroke: black;
 }
 
-.ideaNodeContainer h5 {
+.idea-node-container h5 {
   margin: 0;
   padding: 0;
 }
@@ -78,18 +78,18 @@ polyline {
   Comment / Tag Panel
 ************************/
 
-.bottomPanel {
+.bottom-panel {
   display: flex;
   justify-content: space-between;
 }
 
-.commentBtn {
+.comment-btn {
   color: #408DF7;
   transition:color .2s ease-out, background 0.3s ease-in;
   margin-right: 80px;
 }
 
-.commentBtn:hover {
+.comment-btn:hover {
   font-weight: bold;
   color: #0f70f5;
   transition:color .2s ease-out, background 0.3s ease-in;
@@ -149,30 +149,30 @@ li {
 ***********************************/
 
 @media screen and (orientation: portrait) {
-  #mainContent img, h5 {
+  .main-content img, h5 {
     display: none;
   }
 
-  .postText {
+  .post-text {
     width: 100%;
   }
 
-  .componentContainer {
+  .component-container {
     padding: 8%;
   }
 
-  .ideaNodeContainer h4 {
+  .idea-node-container h4 {
     text-align: center;
     font-size: 5vw;
   }
 
-  .ideaNodeContainer p {
+  .idea-node-container p {
     text-align: justify;
     font-size: 3vw;
     padding: 0;
   }
 
-  #votePanel {
+  .vote-panel {
     display: none;
   }
 }

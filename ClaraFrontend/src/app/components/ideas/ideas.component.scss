@@ -1,4 +1,4 @@
-.postedIdeas {
+.posted-ideas {
   padding: 5% 3%;
   padding-top: 0;
   display: flex;
@@ -22,7 +22,7 @@ button:hover, input[type="submit"]:hover {
 *****************************/
 
 
-.searchPanel {
+.search-panel {
   position: -webkit-sticky;
   position: sticky;
   top: 60px;
@@ -33,7 +33,7 @@ button:hover, input[type="submit"]:hover {
   width: 100%;
 }
 
-#searchDataForm input, #searchDataForm button {
+.search-data-form input, .search-data-form button {
   border: 0;
   padding: 1.5%;
   background-color: white;
@@ -41,13 +41,13 @@ button:hover, input[type="submit"]:hover {
   font-size: 2vh;
 }
 
-#searchDataForm input[type="text"] {
+.search-data-form input[type="text"] {
   width: 50%;
   border-radius: 10px 0 0 10px;
   color: #32CDFE;
 }
 
-#searchDataForm input[type="submit"] {
+.search-data-form input[type="submit"] {
   border-radius: 0 10px 10px 0;
   text-align: right;
   color: white;
@@ -57,21 +57,21 @@ button:hover, input[type="submit"]:hover {
   box-shadow: 0px 0px 46px -10px rgba(0,0,0,0.11);
 }
 
-#searchDataForm input::placeholder {
+.search-data-form input::placeholder {
   color: #BBBBBB;
 }
 
-#searchDataForm input[type="submit"]:hover {
+.search-data-form input[type="submit"]:hover {
   background-color: #408DF7;
   transition:color .2s ease-out, background 0.3s ease-in;
 }
 
-#searchDataForm button {
+.search-data-form button {
   padding-left: 15px;
   border-radius: 0 10px 10px 0;
 }
 
-#searchDataForm button img {
+.search-data-form button img {
   height: 10px;
 }
 
@@ -147,7 +147,7 @@ button:hover, input[type="submit"]:hover {
 ****************************/
 
 
-.sidepanel {
+.side-panel {
   position: -webkit-sticky;
   position: sticky;
   top: 11%;
@@ -162,13 +162,13 @@ button:hover, input[type="submit"]:hover {
   margin-left: 1%;
 }
 
-.sidepanel h2 {
+.side-panel h2 {
   text-align: left;
   font-weight: 500;
   margin-bottom: 0;
 }
 
-.sidepanel hr {
+.side-panel hr {
   border: 0;
   background-color: black;
   height: 1px;
@@ -186,7 +186,7 @@ ul > li span {
     color: black;
 }
 
-#postButton {
+.post-button {
   padding: 4.5% 10%;
 }
 
@@ -196,7 +196,7 @@ ul > li span {
 ****************************/
 
 
-.newPostPanel {
+.new-post-panel {
   position: fixed;
   top: 0;
   left: 50%;
@@ -213,7 +213,7 @@ ul > li span {
   box-shadow: 0px 0px 26px 6px rgba(0,0,0,0.15);
 }
 
-#closeNewPostPanelBtn {
+.close-new-post-panel-btn {
   float: right;
   border: 0;
   color: white;
@@ -226,13 +226,13 @@ ul > li span {
   transition:color .2s ease-out, background 0.3s ease-in;
 }
 
-#closeNewPostPanelBtn:hover {
+.close-new-post-panel-btn:hover {
   cursor: pointer;
   background-color: #CC1900;
   transition:color .2s ease-out, background 0.3s ease-in;
 }
 
-.newPostPanel input[type="submit"] {
+.new-post-panel input[type="submit"] {
   padding: 7px 15px;
   margin: 10px;
 }

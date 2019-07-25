@@ -2,13 +2,13 @@
   <form [formGroup]="liveDataForm" (ngSubmit)="submit()">
 
     <div class="graph">
-      <canvas id="liveChart" width="400" height="400"></canvas>
+      <canvas id="live-chart" width="400" height="400"></canvas>
     </div>
 
-    <div class="dropdownPanels">
+    <div class="dropdown-panels">
       <label for="datasets">Live Dataset</label>
       <br>
-      <select formControlName="datasets" id="datasets" (ngModelChange)="onDatasetChange($event)">
+      <select formControlName="datasets" (ngModelChange)="onDatasetChange($event)">
         <option selected="selected">None</option>
         <option *ngFor="let dataset of datasets" [ngValue]="dataset">
           {{dataset.name}}
@@ -17,7 +17,7 @@
       <br>
       <label for="fields">Field</label>
       <br>
-      <select formControlName="fields" id="fields" (ngModelChange)="onFieldChange($event)">
+      <select formControlName="fields" (ngModelChange)="onFieldChange($event)">
         <option selected="selected">None</option>
         <option *ngFor="let field of fields" [ngValue]="field">
           {{field}}
@@ -26,7 +26,7 @@
       <br>
       <label for="devices">Device</label>
       <br>
-      <select formControlName="devices" id="devices" (ngModelChange)="onDeviceChange($event)">
+      <select formControlName="devices" (ngModelChange)="onDeviceChange($event)">
         <option selected="selected">None</option>
         <option *ngFor="let device of devices" [ngValue]="device">
           {{device.deviceid}}

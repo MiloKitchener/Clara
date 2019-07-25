@@ -1,16 +1,16 @@
-<div class="componentContainer">
-  <div class="ideaNodeContainer">
-    <div id="mainContent">
+<div class="component-container">
+  <div class="idea-node-container">
+    <div class="main-content">
       <div>
         <img src="assets/images/avatar.png" alt="">
         <h5 style="margin-right:18px;text-align:center;">{{ post.author }}</h5>
       </div>
-      <div class="postText">
+      <div class="post-text">
         <h4>{{ post.title }}</h4>
         <p>{{ post.description }}</p>
       </div>
-      <div id="votePanel">
-        <button id="upButton" (click)="upvote()">
+      <div class="vote-panel">
+        <button (click)="upvote()">
           <svg width="22.5px" height="30px" viewBox="0 0 50 80" xml:space="preserve">
             <polyline [ngStyle]="{'stroke': voted === 1 ? '#40f7aa' : 'black'}" fill="none" stroke-width="3"
               stroke-linecap="round" stroke-linejoin="round" points="45.63,75.8 0.375,38.087 45.63,0.375 " />
@@ -18,7 +18,7 @@
         </button>
         <br>
         <h5 [ngStyle]="{'color': post.num_votes < 0 ? '#eb3b3b' : 'black'}">{{ post.num_votes }}</h5>
-        <button id="downButton" (click)="downvote()">
+        <button (click)="downvote()">
           <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="22.5px"
             height="30px" viewBox="0 0 50 80" xml:space="preserve">
             <polyline [ngStyle]="{'stroke': voted === 2 ? '#eb3b3b' : 'black'}" fill="none" stroke-width="3"
@@ -27,9 +27,9 @@
         </button>
       </div>
     </div>
-    <div class="bottomPanel">
+    <div class="bottom-panel">
       <h5>{{ post.tag }}</h5>
-      <button type="button" name="button" class="commentBtn" (click)="toggleComments()" style="float:left;">Comments
+      <button type="button" name="button" class="comment-btn" (click)="toggleComments()" style="float:left;">Comments
         ({{ post.comments.length }})</button>
     </div>
   </div>

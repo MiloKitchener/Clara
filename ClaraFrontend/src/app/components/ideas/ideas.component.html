@@ -2,13 +2,13 @@
 <h1>Ideas</h1>
 
 <!-- Posts Feed -->
-<div class="postedIdeas">
+<div class="posted-ideas">
   <div>
-    <div class="searchPanel">
+    <div class="search-panel">
       <div class="dropdown">
         <button class="dropbtn">Arrange By: {{ selectedFilter }}</button>
         <div class="dropdown-content">
-          <ul id="filterList">
+          <ul>
             <li *ngFor="let arrangedFilter of arrangedFilters">
               <a (click)="selectFilter(arrangedFilter)">{{ arrangedFilter }}</a>
             </li>
@@ -16,16 +16,16 @@
         </div>
       </div>
 
-      <form id="searchDataForm" (ngSubmit)="search()">
-        <input type="text" id="search" formControlName="searchValue" placeholder="Search">
+      <form class="search-data-form" [formGroup]="searchDataForm" (ngSubmit)="search()">
+        <input type="text" formControlName="searchValue" placeholder="Search">
         <input type="submit" name="searchSubmit" value="See All Results">
       </form>
     </div>
     <ng-template appIdeaAnchor></ng-template>
   </div>
 
-  <div class="sidepanel">
-    <button id="postButton" (click)="viewNewPost()">New Post</button>
+  <div class="side-panel">
+    <button class="post-button" (click)="viewNewPost()">New Post</button>
     <h2>Filters</h2>
     <hr>
     <ul>
@@ -37,8 +37,8 @@
 </div>
 
 <!-- New Post Panel -->
-<div class="newPostPanel" [ngStyle]="{'display': toggleNewPostView === true ? 'block' : 'none'}">
-  <button id="closeNewPostPanelBtn" (click)="closeNewPost()">x</button>
+<div class="new-post-panel" [ngStyle]="{'display': toggleNewPostView === true ? 'block' : 'none'}">
+  <button class="close-new-post-panel-btn" (click)="closeNewPost()">x</button>
 
   <form [formGroup]="newPostForm" (ngSubmit)="submitPost()">
     <h4>Title</h4>

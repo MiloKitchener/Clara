@@ -49,7 +49,7 @@ export class LiveDataGraphPanelComponent implements OnInit {
 
   // Updates the data in a the live line chart
   updateLiveChart() {
-    const canvas: any = document.getElementById('liveChart');
+    const canvas: any = document.getElementById('live-chart');
     const ctx = canvas.getContext('2d');
     this.chart = new Chart(ctx, {
       type: 'line',

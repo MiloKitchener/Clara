@@ -27,7 +27,7 @@ input[type="submit"]:hover {
   background-color: #408DF7;
 }
 
-.formContainer {
+.form-container {
   width: 70%;
   margin: auto;
 }
@@ -46,11 +46,11 @@ form {
   box-shadow: 0px 0px 46px -10px rgba(0,0,0,0.11);
 }
 
-.flexContainer {
+.flex-container {
   display: flex;
 }
 
-.imagePanel {
+.image-panel {
   width: 40%;
 }
 
@@ -59,12 +59,7 @@ img {
   border-radius: 50%;
 }
 
-#logoutBtn {
-  width: auto;
-  margin-left: 5%;
-}
-
-.postsPanel {
+.posts-panel {
   background-color: white;
   box-shadow: 0px 0px 46px -10px rgba(0,0,0,0.11);
   border-radius: 7px;

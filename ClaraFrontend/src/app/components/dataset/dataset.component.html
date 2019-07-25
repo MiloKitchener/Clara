@@ -1,28 +1,28 @@
-<div class="submitDatasetPanel" [ngStyle]="{'display': (datasetUploadView === true) ? 'block' : 'none'}">
+<div class="submit-dataset-panel" [ngStyle]="{'display': (datasetUploadView === true) ? 'block' : 'none'}">
 	<div [ngStyle]="{'display': uploadedDataset === null ? 'block' : 'none'}">
 		<form [formGroup]="uploadForm" (ngSubmit)="uploadDataset()">
 			<input type="text" formControlName="url" placeholder="Database URL">
 			<br>
 			<input type="submit" value="Upload Dataset">
 		</form>
-		<button id="closeDatasetPanelBtn" (click)="toggleDatasetUpload()">Cancel</button>
+		<button class="close-dataset-panel-btn" (click)="toggleDatasetUpload()">Cancel</button>
 	</div>
-	<div class="submitDatasetProceedPanel" [ngStyle]="{'display': uploadedDataset === null ? 'none' : 'block'}">
+	<div class="submit-dataset-proceed-panel" [ngStyle]="{'display': uploadedDataset === null ? 'none' : 'block'}">
 		<h3>{{ uploadedDatasetName }}</h3>
-		<ul class="datasetFields">
+		<ul class="dataset-fields">
 			<li *ngFor="let field of uploadedDatasetFields">
 				{{ field.field_name }}
 			</li>
 		</ul>
 		<button>Upload Dataset</button>
-		<button id="closeDatasetPanelBtn" (click)="toggleDatasetUpload();this.uploadedDataset=null;">Cancel</button>
+		<button class="closeDatasetPanelBtn" (click)="toggleDatasetUpload();this.uploadedDataset=null;">Cancel</button>
 	</div>
 </div>
 
-<div class=searchPanel>
+<div class=search-panel>
 	<h1>Find a Dataset</h1>
 
-	<ul class="buttonsPanel">
+	<ul class="buttons-panel">
 		<li>
 			<button (click)="setSelectedDataset('Open Data')">Open Datasets</button>
 		</li>
@@ -43,37 +43,37 @@
 
 
 
-	<form id="searchDataForm" [formGroup]="searchForm" (ngSubmit)="search()">
-		<input type="text" id="search" formControlName="searchValue" placeholder="Search">
+	<form class="search-data-form" [formGroup]="searchForm" (ngSubmit)="search()">
+		<input type="text" class="search" formControlName="searchValue" placeholder="Search">
 		<input type="submit" name="searchSubmit" value="See All Results">
 	</form>
 
-	<div class="datasetStats">
+	<div class="dataset-stats">
 		<div>
-			<h3 id="numOpen">{{ numSets }}</h3>
+			<h3 class="num-open">{{ numSets }}</h3>
 			<p>Datasets</p>
 		</div>
 		<div>
-			<h3 id="numAccepted">{{ numRecentlyUpdated }}</h3>
+			<h3 class="num-accepted">{{ numRecentlyUpdated }}</h3>
 			<p>Recently Updated</p>
 		</div>
 		<div>
-			<h3 id="numNotMapped">{{ numOutOfDate }}</h3>
+			<h3 class="num-not-mapped">{{ numOutOfDate }}</h3>
 			<p>Out of Date</p>
 		</div>
 		<div>
-			<h3 id="numUnderReview">{{ numUnderReview }}</h3>
+			<h3 class="num-under-review">{{ numUnderReview }}</h3>
 			<p>Under Review</p>
 		</div>
 	</div>
 
-	<ul id="datasetsList">
+	<ul class="datasets-list">
 		<li *ngFor="let dataset of datasets">
-			<div class="titleDesc">
+			<div class="title-desc">
 				<h3>{{ dataset.name }}</h3>
 				<p>{{ dataset.desc }}</p>
 			</div>
 		</li>
 	</ul>
-	<button class="datasetUploadBtn" (click)="toggleDatasetUpload()">Upload a Dataset</button>
+	<button class="dataset-upload-btn" (click)="toggleDatasetUpload()">Upload a Dataset</button>
 </div>

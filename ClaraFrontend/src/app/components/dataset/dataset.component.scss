@@ -4,19 +4,19 @@
   padding-top: 0;
 }
 
-.buttonsPanel {
+.buttons-panel {
   list-style-type: none;
   width: 100%;
   padding: 0;
   margin-top: 5%;
 }
 
-.buttonsPanel li {
+.buttons-panel li {
   display: inline;
   margin: 2.5%;
 }
 
-.buttonsPanel button {
+.buttons-panel button {
   border: 0;
   border-radius: 25px;
   padding: 1% 2%;
@@ -26,7 +26,7 @@
   transition:color .2s ease-out, background 0.3s ease-in;
 }
 
-.buttonsPanel button:hover {
+.buttons-panel button:hover {
   background-color: #EFEFEF;
   transition:color .2s ease-out, background 0.3s ease-in;
   cursor: pointer;
@@ -36,22 +36,22 @@
   Search Panel CSS
 ********************************/
 
-.searchPanel {
+.search-panel {
   padding: 4%;
   color: white;
   background-image: linear-gradient(to left, #32CDFE, #00B2FF);
 }
 
-.searchPanel h1 {
+.search-panel h1 {
   font-size: 6vh;
   font-weight: 300;
 }
 
-#searchDataForm {
+.search-data-form {
   margin: 6% 0;
 }
 
-input, #searchDataForm button {
+input, #search-data-form button {
   border: 0;
   background-color: white;
   padding: 1.3% 2%;
@@ -92,7 +92,7 @@ input[type="submit"]:hover {
   transition:color .2s ease-out, background 0.3s ease-in;
 }
 
-#searchDataForm button {
+.search-data-form button {
   padding-left: 1%;
   border-radius: 0 10px 10px 0;
 }
@@ -111,7 +111,7 @@ h2 {
   margin-top: 3%;
 }
 
-.datasetStats {
+.dataset-stats {
   margin-top: 3%;
   margin-bottom: 5%;
   width: 100%;
@@ -119,7 +119,7 @@ h2 {
   justify-content: space-between;
 }
 
-.datasetStats div {
+.dataset-stats div {
   background-color: white;
   border-radius: 5px;
   box-shadow: 0px 0px 46px -10px rgba(0,0,0,0.11);
@@ -127,27 +127,27 @@ h2 {
   padding: 1.7%;
 }
   
-.datasetStats h3 {
+.dataset-stats h3 {
   font-weight: 100;
   margin: 0;
   font-size: 4vw;
 }
 
-.datasetStats p {
+.dataset-stats p {
   margin: 0;
   margin-bottom: 5%;
   font-size: 1vw;
 }
   
-#numAccepted {
+.num-accepted {
   color: #38D900;
 }
   
-#numNotMapped {
+.num-not-mapped {
   color: #E80000;
 }
   
-#numUnderReview {
+.num-under-review {
   color: #F5CB35;
 }
 
@@ -155,13 +155,13 @@ h2 {
   Dataset List CSS
 ********************************/
 
-#datasetsList {
+.datasets-list {
   list-style-type: none;
   padding: 0;
   margin: 0;
 }
 
-#datasetsList li {
+.datasets-list li {
   margin-bottom: 2%;
   background-color: white;
   box-shadow: 0px 0px 46px -10px rgba(0,0,0,0.11);
@@ -170,7 +170,7 @@ h2 {
   height: 20%;
 }
 
-.titleDesc {
+.title-desc {
   min-width: 84%;
   margin-left: 0.7%;
   padding: 1.5%;
@@ -180,7 +180,7 @@ h2 {
   text-align: justify;
 }
   
-.titleDesc h3 {
+.title-desc h3 {
   margin: 0;
   font-weight: 500;
   font-size: 3vh;
@@ -190,7 +190,7 @@ p {
   font-weight: 400;
 }
 
-.datasetUploadBtn {
+.dataset-upload-btn {
   background-color: #00B2FF;
   color: white;
   border: 0;
@@ -200,7 +200,7 @@ p {
   transition:color .2s ease-out, background 0.3s ease-in;
 }
 
-.datasetUploadBtn:hover {
+.dataset-upload-btn:hover {
   background-color: #408DF7;
   cursor: pointer;
   transition:color .2s ease-out, background 0.3s ease-in;
@@ -210,7 +210,7 @@ p {
   Submit Dataset Panel CSS
 ********************************/
 
-.submitDatasetPanel {
+.submit-dataset-panel {
   position: fixed;
   top: 25%;
   left: 50%;
@@ -220,7 +220,7 @@ p {
   box-shadow: 0px 0px 26px 6px rgba(0,0,0,0.20);
 }
 
-.submitDatasetPanel input[type="text"] {
+.submit-dataset-panel input[type="text"] {
   border-radius: 7px;
   background-color: #EFEFEF;
   width: 100%;
@@ -229,7 +229,7 @@ p {
   text-indent: 10%;
 }
 
-.submitDatasetPanel input[type="submit"] {
+.submit-dataset-panel input[type="submit"] {
   width: 100%;
   background-color: #00B2FF;
   text-align: center;
@@ -242,13 +242,13 @@ p {
   transition:color .2s ease-out, background 0.3s ease-in;
 }
 
-.submitDatasetPanel input[type="submit"]:hover {
+.submit-dataset-panel input[type="submit"]:hover {
   background-color: #408DF7;
   cursor: pointer;
   transition:color .2s ease-out, background 0.3s ease-in;
 }
 
-#closeDatasetPanelBtn {
+.close-dataset-panel-btn {
   width: 100%;
   margin-top: 7%;
   color: white;
@@ -260,19 +260,19 @@ p {
   transition:color .2s ease-out, background 0.3s ease-in;
 }
 
-#closeDatasetPanelBtn:hover {
+.close-dataset-panel-btn:hover {
   background-color: #d51616;
   cursor: pointer;
   transition:color .2s ease-out, background 0.3s ease-in;
 }
 
-.datasetFields {
+.dataset-fields {
   list-style-type: none;
   height: 200px;
   overflow-y: auto;
 }
 
-.datasetFields li {
+.dataset-fields li {
   text-align: left;
 }
 
@@ -282,11 +282,11 @@ p {
 ***********************************/
 
 @media screen and (orientation: portrait) {
-  .titleDesc h3 {
+  .title-desc h3 {
     font-size: 3vw;
   }
 
-  .titleDesc p {
+  .title-desc p {
     font-size: 2vw;
   }
 }

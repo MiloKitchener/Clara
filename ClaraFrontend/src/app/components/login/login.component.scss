@@ -11,7 +11,7 @@ h1 {
           animation: reveal 2s cubic-bezier(0, 1, 0.5, 1) 1 normal forwards;
 }
 
-.leftContainer {
+.left-container {
   padding: 0;
   top: 0;
   left: 0;
@@ -22,7 +22,7 @@ h1 {
   width: 50%;
 }
 
-.loginContainer {
+.login-container {
   width: 60%;
   opacity: 0;
   -webkit-animation: reveal 2s cubic-bezier(0, 1, 0.5, 1) 1 normal forwards;
@@ -48,13 +48,13 @@ input::placeholder {
   font-size: 1.2vw;
 }
 
-.btnContainer {
+.btn-container {
   width: 110%;
   display: flex;
   justify-content: center;
 }
 
-.btnContainer input {
+.btn-container input {
   margin-right: 5%;
 }
 
@@ -78,7 +78,7 @@ input[type="submit"], button {
   width: 55%;
 }
 
-input[type="submit"]:hover, #signUpBtn:hover {
+input[type="submit"]:hover, .sign-up-btn:hover {
   background-image: linear-gradient(to bottom left, #0099FF, #0FC0FC);
   cursor: pointer;
 }
@@ -98,7 +98,7 @@ button {
   margin: 0;
 }
 
-.textBtn {
+.text-btn {
   background: none;
   color: #00B2FF;
   padding: 0;
@@ -107,13 +107,13 @@ button {
   width: 50%;
 }
 
-.textBtn:hover {
+.text-btn:hover {
   color: #0099FF;
   transition: color 0.3s ease 0s;
   cursor: pointer;
 }
 
-.rightContainer {
+.right-container {
   padding: 0;
   top: 0;
   right: 0;
@@ -123,7 +123,7 @@ button {
   text-align: center;
 }
 
-.rightContainer img {
+.right-container img {
   margin-top: 12%;
   margin-bottom: 3%;
   width: 50%;
@@ -139,7 +139,7 @@ p {
   font-weight: 500;
 }
 
-#thumbnail {
+.thumbnail {
   bottom: 0;
   left: 0;
   position: fixed;
@@ -148,7 +148,7 @@ p {
   margin-bottom: 5%;
 }
 
-#thumbnail:hover {
+.thumbnail:hover {
   cursor: pointer;
 }
 
@@ -163,11 +163,11 @@ p {
   Form Visibility / Animations
 ******************************/
 
-#signUpForm {
+#sign-up-form {
   display: none;
 }
 
-#forgotPWForm {
+#forgot-pw-form {
   display: none;
 }
 
@@ -178,7 +178,7 @@ p {
 
 @media screen and (orientation: portrait) {
 
-  .rightContainer {
+  .right-container {
     display: none;
   }
 
@@ -186,7 +186,7 @@ p {
     display: none;
   }
 
-  .leftContainer {
+  .left-container {
     width: 84%;
     padding: 4%;
     text-align: center;
@@ -198,16 +198,16 @@ p {
     margin: 10%;
   }
 
-  .loginContainer {
+  .login-container {
     width: 100%;
   }
 
-  .btnContainer {
+  .btn-container {
     display: block;
     width: 100%;
   }
 
-  .btnContainer input {
+  .btn-container input {
     margin: 0;
   }
 
@@ -232,7 +232,7 @@ p {
     margin-right: -5%;
   }
 
-  #thumbnail {
+  .thumbnail {
     display: none;
   }
 }

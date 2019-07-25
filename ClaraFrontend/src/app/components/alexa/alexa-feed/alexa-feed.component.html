@@ -4,9 +4,9 @@
 
 <div class="container">
   <div class="subcontainer">
-    <div class="feedPanel">
+    <div class="feed-panel">
       <h3>Here's What Clara Has To Say:</h3>
-      <div class="messageContainer">
+      <div class="message-container">
         <ul>
           <li *ngFor="let message of feedData">
             {{ message.response }}
@@ -16,7 +16,7 @@
       </div>
     </div>
 
-    <div class="liveStatsPanel">
+    <div class="live-stats-panel">
       <h3>Live Stats</h3>
       <hr>
       <img [src]="imageSrc">

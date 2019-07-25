@@ -1,78 +1,78 @@
-<div class="graphPanelContainer">
-  <div class="mainContainer">
-    <!-- Tab links -->
-    <div class="tab">
-      <button class="tablinks" id="openDataTab" (click)="openTab('Open Data')">Open Data</button>
-      <button class="tablinks" id="liveDataTab" (click)="openTab('Live Data')">Live Data</button>
-    </div>
-    <hr>
-    <div class="main">
-      <!-- Tab content -->
-      <div id="openData" class="tabcontent">
-        <div class="controls">
-          <!-- Y Axis Selection -->
-          <h4>Y Axis</h4>
-          <br>
-          <div class="dropdown">
-            <button class="dropbtn">{{ yAxisTitle }}</button>
-            <div class="dropdown-content">
-              <ul>
-                <li *ngFor="let dataset of datasets">
-                  <a (click)="setYAxis(dataset.name)">{{ dataset.name }}</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <br>
-          <br>
-          <div class="dropdown">
-            <button class="dropbtn">{{ yField }}</button>
-            <div class="dropdown-content">
-              <ul>
-                <li *ngFor="let field of yFields">
-                  <a (click)="selectYField(field.name)">{{ field.name }}</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <br>
-          <br>
-
-          <!-- X Axis Selection -->
-          <h4>X Axis</h4>
-          <br>
-          <div class="dropdown">
-            <button class="dropbtn">{{ xAxisTitle }}</button>
-            <div class="dropdown-content">
-              <ul>
-                <li *ngFor="let dataset of datasets">
-                  <a (click)="setXAxis(dataset.name)">{{ dataset.name }}</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <br>
-          <br>
-          <div class="dropdown">
-            <button class="dropbtn">{{ xField }}</button>
-            <div class="dropdown-content">
-              <ul>
-                <li *ngFor="let field of xFields">
-                  <a (click)="selectXField(field.name)">{{ field.name }}</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="graph">
-          <canvas id="myChart" width="400" height="400"></canvas>
-          <button class="addBtn" (click)="addGraph()">Add Graph to Dashboard</button>
-        </div>
+<div class="graph-panel-container">
+    <div class="main-container">
+      <!-- Tab links -->
+      <div class="tab">
+        <button class="tablinks" id="openDataTab" (click)="openTab('Open Data')">Open Data</button>
+        <button class="tablinks" id="liveDataTab" (click)="openTab('Live Data')">Live Data</button>
       </div>
-      <div id="liveData" class="tabcontent">
-        <app-live-data-graph-panel></app-live-data-graph-panel>
+      <hr>
+      <div class="main">
+        <!-- Tab content -->
+        <div id="openData" class="tabcontent">
+          <div class="controls">
+            <!-- Y Axis Selection -->
+            <h4>Y Axis</h4>
+            <br>
+            <div class="dropdown">
+              <button class="dropbtn">{{ yAxisTitle }}</button>
+              <div class="dropdown-content">
+                <ul>
+                  <li *ngFor="let dataset of datasets">
+                    <a (click)="setYAxis(dataset.name)">{{ dataset.name }}</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <br>
+            <br>
+            <div class="dropdown">
+              <button class="dropbtn">{{ yField }}</button>
+              <div class="dropdown-content">
+                <ul>
+                  <li *ngFor="let field of yFields">
+                    <a (click)="selectYField(field.name)">{{ field.name }}</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+  
+            <br>
+            <br>
+  
+            <!-- X Axis Selection -->
+            <h4>X Axis</h4>
+            <br>
+            <div class="dropdown">
+              <button class="dropbtn">{{ xAxisTitle }}</button>
+              <div class="dropdown-content">
+                <ul>
+                  <li *ngFor="let dataset of datasets">
+                    <a (click)="setXAxis(dataset.name)">{{ dataset.name }}</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <br>
+            <br>
+            <div class="dropdown">
+              <button class="dropbtn">{{ xField }}</button>
+              <div class="dropdown-content">
+                <ul>
+                  <li *ngFor="let field of xFields">
+                    <a (click)="selectXField(field.name)">{{ field.name }}</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="graph">
+            <canvas id="myChart" width="400" height="400"></canvas>
+            <button class="addBtn" (click)="addGraph()">Add Graph to Dashboard</button>
+          </div>
+        </div>
+        <div id="liveData" class="tabcontent">
+          <app-live-data-graph-panel></app-live-data-graph-panel>
+        </div>
       </div>
     </div>
   </div>
-</div>

@@ -96,9 +96,9 @@ export class LoginComponent implements OnInit {
     this.signUpSubmitted = false;
     this.forgotPWSubmitted = false;
 
-    document.getElementById("signUpForm").style.display = "none";
-    document.getElementById("forgotPWForm").style.display = "none";
-    var loginForm = document.getElementById("loginForm");
+    document.getElementById("sign-up-form").style.display = "none";
+    document.getElementById("forgo-pw-form").style.display = "none";
+    var loginForm = document.getElementById("login-form");
     loginForm.style.animation = "fadein 2s";
     loginForm.style.display = "block";
   }
@@ -110,8 +110,8 @@ export class LoginComponent implements OnInit {
     this.signUpSubmitted = false;
     this.forgotPWSubmitted = false;
 
-    document.getElementById("loginForm").style.display = "none";
-    var signupForm = document.getElementById("signUpForm");
+    document.getElementById("loginform").style.display = "none";
+    var signupForm = document.getElementById("sign-up-form");
     signupForm.style.animation = "fadein 2s";
     signupForm.style.display = "block";
   }
@@ -123,8 +123,8 @@ export class LoginComponent implements OnInit {
     this.signUpSubmitted = false;
     this.forgotPWSubmitted = false;
 
-    document.getElementById("loginForm").style.display = "none";
-    var forgotPWForm = document.getElementById("forgotPWForm")
+    document.getElementById("login-form").style.display = "none";
+    var forgotPWForm = document.getElementById("forgot-pw-form")
     forgotPWForm.style.animation = "fadein 2s";
     forgotPWForm.style.display = "block";
   }

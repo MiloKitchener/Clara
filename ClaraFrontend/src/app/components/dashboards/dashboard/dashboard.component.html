@@ -1,6 +1,6 @@
 <div class="name-settings-panel">
   <h1> {{ name + " Dashboard" }} </h1>
-  <button id="add-chart-btn" (click)="toggleAddChartPanel()">
+  <button class="add-chart-btn" (click)="toggleAddChartPanel()">
     <i class="material-icons-round">add_circle</i>
   </button>
 
@@ -20,7 +20,7 @@
   <app-graph-panel></app-graph-panel>
 </div>
 
-<div id="mainChart">
+<div class="main-chart">
   <div class="chart-top-panel">
     <h2>{{ dashboard.mainChart.name }}</h2>
     <div>

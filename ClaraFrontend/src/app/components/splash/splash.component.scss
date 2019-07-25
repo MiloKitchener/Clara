@@ -19,13 +19,13 @@ nav img {
   filter: invert(1);
 }
 
-.navButtons {
+.nav-buttons {
   margin-right: 20%; // 20% to offset 10% left padding on nav and provide 10% right padding
   float: right;
   display: flex;
 }
 
-.navButtons button {
+.nav-buttons button {
   color: white;
   border: 0;
   margin-top: 10px;
@@ -36,7 +36,7 @@ nav img {
   transition:color .2s ease-out, background 0.3s ease-in;
 }
 
-.navButtons button:hover {
+.nav-buttons button:hover {
   background-color: rgba($color: #000000, $alpha: 0.1);
   transition:color .2s ease-out, background 0.3s ease-in;
 }
@@ -127,7 +127,7 @@ h1 {
 
 }
 
-.deviceImageContainer {
+.device-image-container {
   width: 500px;
   height: 500px;
   border-radius: 250px;
@@ -137,7 +137,7 @@ h1 {
   box-shadow: 0px 0px 46px -10px rgba(0,0,0,0.11);
 }
 
-.deviceImageContainer img {
+.device-image-container img {
   margin-top: 150px;
   height: 200px;
 }
@@ -154,30 +154,30 @@ h1 {
   margin-bottom: 40px;
 }
 
-.imageWithDefinition {
+.image-with-definition {
   width: 240px;
   height: 300px;
   margin: auto;
   text-align: center;
 }
 
-.imageWithDefinition i {
+.image-with-definition i {
   font-size: 50px;
   z-index: 4;
 }
 
-.imageWithDefinition h3 {
+.image-with-definition h3 {
   font-weight: 400;
   font-size: 16pt;
 }
 
-.imageWithDefinition p {
+.image-with-definition p {
   text-align: justify;
   font-size: 11pt;
   color: #424242;
 }
 
-#rightArrow {
+.right-arrow {
   margin-top: 30px;
   font-size: 35px;
 }
@@ -196,7 +196,7 @@ h2 {
   margin: 70px auto;
 }
 
-.featuresPoint {
+.features-point {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -207,24 +207,24 @@ h2 {
   text-align: justify;
 }
 
-.featuresPoint img {
+.features-point img {
   flex-basis: 45%;
 }
 
-.featuresPoint div {
+.features-point div {
   box-sizing: border-box;
   padding: 30px;
   flex-basis: 45%;
 }
 
-.featuresPoint h3 {
+.features-point h3 {
   padding: 0;
   margin: 0;
   font-size: 16pt;
   text-align: center;
 }
 
-.featuresPoint p {
+.features-point p {
   font-size: 14pt;
 }
 
@@ -241,19 +241,19 @@ footer {
   background-color: #313A46;
 }
 
-.socialMediaIconsPanel {
+.social-media-icons-panel {
   display: inline;
   margin: auto;
 }
 
-.socialMediaIconsPanel img {
+.social-media-icons-panel img {
   width: 30px;
   margin-left: 15px;
   margin-right: 15px;
   filter: invert(1) brightness(85%);
 }
 
-.socialMediaIconsPanel img:hover {
+.social-media-icons-panel img:hover {
   cursor: pointer;
   filter: invert(1);
 }

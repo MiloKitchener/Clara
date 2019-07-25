@@ -24,7 +24,7 @@ h3 {
   padding-bottom: 2%;
 }
 
-.feedPanel {
+.feed-panel {
 	background: white;
 	border-radius: 5px;
   box-shadow: 0px 0px 46px -10px rgba(0,0,0,0.11);
@@ -33,7 +33,7 @@ h3 {
 	padding: 3.5%;
 }
 
-.messageContainer {
+.message-container {
 	text-align: left;
 	margin-top: 5%;
 	margin-left: 25%;
@@ -66,11 +66,11 @@ li {
   animation-fill-mode: forwards;
 }
 
-.feedPanel img {
+.feed-panel img {
 	width: 15%;
 }
 
-.liveStatsPanel {
+.live-stats-panel {
   color: white;
 	background-image: linear-gradient(to left, #32CDFE, #00B2FF);
 	border-radius: 5px;
@@ -79,7 +79,7 @@ li {
   padding: 3.5%;
 }
 
-.liveStatsPanel hr {
+.live-stats-panel hr {
   background-color: white;
   height: 2px;
   border: 0;
@@ -87,12 +87,12 @@ li {
   margin-bottom: 12%;
 }
 
-.liveStatsPanel img {
+.live-stats-panel img {
   width: 25%;
   margin-bottom: 0;
 }
 
-.liveStatsPanel h4 {
+.live-stats-panel h4 {
   font-weight: 300;
   font-size: 2vh;
   margin-top: 0;
@@ -136,7 +136,7 @@ li {
     padding: 8%;
   }
 
-  .liveStatsPanel {
+  .live-stats-panel {
     width: 82%;
     margin: auto;
   }

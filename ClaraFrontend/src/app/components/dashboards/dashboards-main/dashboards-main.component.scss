@@ -108,7 +108,7 @@ li:hover:not(.active) a {
   transition:color .2s ease-out, background 0.3s ease-in;
 }
 
-#addDashboardBtn {
+.add-dashboard-btn {
   border-radius: 3px;
   width: 85%;
   padding: 5%;
@@ -120,7 +120,7 @@ li:hover:not(.active) a {
   transition:color .2s ease-out, background 0.3s ease-in;
 }
 
-#addDashboardBtn:hover {
+.add-dashboard-btn:hover {
   color: white;
   background-color: #00B2FF;
   transition:color .2s ease-out, background 0.3s ease-in;

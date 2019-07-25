@@ -51,7 +51,7 @@
 
   <!-- Profile Settings -->
   <button mat-button [matMenuTriggerFor] = "menu">
-    <img id="userIcon" src="./assets/images/avatar.png" alt="">
+    <img class="user-icon" src="./assets/images/avatar.png" alt="">
   </button>
   <mat-menu #menu = "matMenu">
     <button mat-menu-item>
@@ -64,6 +64,6 @@
 </nav>
 
 <!-- Routed Elements -->
-<div class="mainContent" id="main" (click)="hideNav()">
+<div class="main-content" (click)="hideNav()">
   <router-outlet #o="outlet"></router-outlet>
 </div>
