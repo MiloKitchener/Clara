@@ -1,4 +1,5 @@
 <nav>
+  <!-- Clara Icon -->
   <img src="./assets/images/clara_icon.png" alt="">
 
   <ul>
@@ -50,11 +51,17 @@
   <mat-menu #menu = "matMenu">
     <button mat-menu-item>
         <a routerLink="profile">
-          <span><i class="material-icons-round">account_box</i>Profile</span>
+          <span>
+            <i class="material-icons-round">account_box</i>
+            Profile
+          </span>
         </a>
       </button>
     <button mat-menu-item (click)="logout()">
-      <i class="material-icons-round">exit_to_app</i>Log Out
+      <span>
+        <i class="material-icons-round">exit_to_app</i>
+        Log Out
+      </span>
     </button>
   </mat-menu>
 </nav>
