@@ -75,12 +75,12 @@ input:focus, button:focus {
 
 input[type="submit"], button {
   color: white;
-  background-image: linear-gradient(to bottom left, $color-primary, #32CDFE);
+  background-image: $blue-gradient;
   width: 55%;
 }
 
 input[type="submit"]:hover, .sign-up-btn:hover {
-  background-image: linear-gradient(to bottom left, $color-primary, #0FC0FC);
+  filter: brightness(0.95);
   cursor: pointer;
 }
 
@@ -108,7 +108,7 @@ button {
   width: 50%;
 
   &:hover {
-    color: #0099FF;
+    color: $color-primary-dark;
     transition: color 0.3s ease 0s;
     cursor: pointer;
   }

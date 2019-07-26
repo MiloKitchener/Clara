@@ -6,7 +6,7 @@ h1 {
 	color: white;
 	font-size: 4vw;
 	font-weight: 300;
-	background-image: linear-gradient(to left, #32CDFE, $color-primary);
+	background-image: $blue-gradient;
 }
 
 h3 {
@@ -74,7 +74,7 @@ li {
 
 .live-stats-panel {
   color: white;
-	background-image: linear-gradient(to left, #32CDFE, $color-primary);
+	background-image: $blue-gradient;
 	border-radius: 5px;
   box-shadow: $main-box-shadow;
 	width: 35%;

@@ -1,3 +1,12 @@
 $main-box-shadow: 0px 0px 46px -10px rgba(0,0,0,0.11);
+$dark-box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+
 $main-hover-transition: color .2s ease-out, background 0.3s ease-in;
+
 $color-primary: #00B2FF;
+$color-primary-dark: #0099FF;
+$color-secondary: #32CDFE;
+
+$color-nav: #2e353d;
+
+$blue-gradient: linear-gradient(to bottom left, $color-secondary, $color-primary);

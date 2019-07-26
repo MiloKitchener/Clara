@@ -84,13 +84,13 @@ polyline {
 }
 
 .comment-btn {
-  color: #408DF7;
+  color: $color-primary;
   transition: $main-hover-transition;
   margin-right: 80px;
 
   &:hover {
     font-weight: bold;
-    color: #0f70f5;
+    color: $color-primary-dark;
     transition: $main-hover-transition;
   }
 }
@@ -115,11 +115,11 @@ input {
 
   &[type="submit"] {
     margin-left: 20px;
-    background-color: #408DF7;
+    background-color: $color-primary;
     color: white;
 
     &:hover {
-      background-color: #0f70f5;
+      background-color: $color-primary-dark;
       transition: $main-hover-transition;
     }
   }

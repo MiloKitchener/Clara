@@ -41,7 +41,7 @@
 .search-panel {
   padding: 4%;
   color: white;
-  background-image: linear-gradient(to left, #32CDFE, $color-primary);
+  background-image: $blue-gradient;
 
   h1 {
     font-size: 6vh;
@@ -81,13 +81,13 @@ input {
     border-radius: 0 10px 10px 0;
     text-align: right;
     color: white;
-    background-color: #00B2FF;
+    background-color: $color-primary;
     font-weight: bold;
     transition: $main-hover-transition;
     box-shadow: $main-box-shadow;
 
     &:hover {
-      background-color: #408DF7;
+      background-color: $color-primary-dark;
       transition: $main-hover-transition;
     }
   }
@@ -209,7 +209,7 @@ p {
   transition: $main-hover-transition;
 
   &:hover {
-    background-color: #408DF7;
+    background-color: $color-primary-dark;
     cursor: pointer;
     transition: $main-hover-transition;
   }
@@ -251,7 +251,7 @@ p {
       transition: $main-hover-transition;
   
       &:hover {
-        background-color: #408DF7;
+        background-color: $color-primary-dark;
         cursor: pointer;
         transition: $main-hover-transition;
       }

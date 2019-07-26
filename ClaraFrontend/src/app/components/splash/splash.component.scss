@@ -110,7 +110,7 @@ li {
 
 .top {
   padding-top: 200px;
-  background: linear-gradient(223.73deg, $color-primary 15.73%, #32CDFE 100.01%);
+  background: $blue-gradient;
   text-align: center;
   height: 600px;
   border-radius: 0 0 50% 50%; /* top left, top right, bottom right, bottom left */

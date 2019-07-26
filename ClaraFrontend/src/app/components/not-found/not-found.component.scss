@@ -8,7 +8,7 @@ h1 {
   margin-bottom: 0;
   font-weight: 600;
   font-size: 130pt;
-  background: -webkit-linear-gradient(#32CDFE, $color-primary);
+  background: $blue-gradient;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -34,9 +34,9 @@ a {
   font-weight: 600;
   font-size: 16pt;
   color: white;
-  background-image: linear-gradient(to bottom left, #32CDFE, $color-primary);
+  background-image: $blue-gradient;
 
   &:hover {
-    background-image: linear-gradient(to bottom left, #0FC0FC, $color-primary);
+    filter: brightness(0.95);
   }
 }

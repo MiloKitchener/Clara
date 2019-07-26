@@ -12,12 +12,12 @@ button {
   padding: 7px 15px;
   width: 150px;
   height: 30px;
-  background-color: #32CDFE;
+  background-color: $color-primary;
   color: white;
   transition: $main-hover-transition;
 
   &:hover {
-    background-color: $color-primary;
+    background-color: $color-primary-dark;
     transition: $main-hover-transition;
   }
 }
@@ -44,7 +44,7 @@ form {
 select {
   margin-bottom: 20px;
   border: 0;
-  background-color: #32CDFE;
+  background-color: $color-primary;
   color: white;
   padding: 7px 15px;
   font-size: 16px;
@@ -54,7 +54,7 @@ select {
   transition: $main-hover-transition;
 
   &:hover {
-    background-color: $color-primary;
+    background-color: $color-primary-dark;
     transition: $main-hover-transition;
   }
 }

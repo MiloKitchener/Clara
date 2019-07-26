@@ -25,7 +25,7 @@ input[type="submit"] {
   box-shadow: 0;
 
   &:hover {
-    background-color: #408DF7;
+    background-color: $color-primary-dark;
   }
 }
 
