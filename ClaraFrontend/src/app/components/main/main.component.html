@@ -50,10 +50,12 @@
   <mat-menu #menu = "matMenu">
     <button mat-menu-item>
         <a routerLink="profile">
-          <span>Profile</span>
+          <span><i class="material-icons-round">account_box</i>Profile</span>
         </a>
       </button>
-    <button mat-menu-item (click)="logout()">Log Out</button>
+    <button mat-menu-item (click)="logout()">
+      <i class="material-icons-round">exit_to_app</i>Log Out
+    </button>
   </mat-menu>
 </nav>
 
