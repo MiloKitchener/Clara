@@ -1,5 +1,13 @@
 @import "../../../variables.scss";
 
+h1 {
+  margin: 0;
+  padding: 50px 80px;
+  background: $blue-gradient;
+  font-weight: 500;
+  color: white;
+}
+
 .upcoming {
     margin-top: 40px;
     margin-left: 150px;

@@ -1,12 +1,11 @@
 @import "../../../variables.scss";
 
 h1 {
-	margin: 0;
-	padding: 4% 0;
-	color: white;
-	font-size: 4vw;
-	font-weight: 300;
-	background-image: $blue-gradient;
+  margin: 0;
+  padding: 50px 80px;
+  background: $blue-gradient;
+  font-weight: 500;
+  color: white;
 }
 
 h3 {

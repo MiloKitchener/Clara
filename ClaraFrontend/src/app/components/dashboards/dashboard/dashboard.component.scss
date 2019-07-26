@@ -4,23 +4,26 @@
 .name-settings-panel {
   display: flex;
   align-items: center;
-  margin: 10px 80px;
+  padding: 20px 80px;
+  background: $blue-gradient;
+  color: white;
   
   h1 {
     text-align: left;
     flex: 1;
+    font-weight: 500;
   }
 }
 
 .add-chart-btn {
   border: 0;
   padding: 0;
-  color: gray;
+  color: white;
   background-color: inherit;
   transition: $main-hover-transition;
 
   &:hover {
-    color: black;
+    color: #EFEFEF;
     transition: $main-hover-transition;
   }
 }
@@ -32,7 +35,7 @@
 }
 
 .main-chart {
-  margin: 10px 80px;
+  margin: 40px 80px;
   background-color: white;
   padding: 20px;
   border-radius: 5px;
@@ -43,7 +46,7 @@ ul {
   display: flex;
   width: 90%;
   margin: auto;
-  margin: 50px auto;
+  margin: 20px auto;
   padding: 0;
   list-style-type: none;
   justify-content: space-around;
