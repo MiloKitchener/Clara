@@ -60,13 +60,6 @@ li {
   background-color: white;
   border-radius: 5px;
   box-shadow: $main-box-shadow;
-
-
-  button {
-    margin-right: -30px;
-    margin-top: 15px;
-    padding: 0;
-  }
 }
 
 .chart-top-panel {
@@ -78,7 +71,19 @@ li {
     text-align: left;
     font-weight: 500;
   }
+
+  > div {
+    display: flex;
+    align-items: center;
+    margin-top: -20px;
+    margin-right: -20px;
+  }
 }
+
+.fullscreen-button {
+  cursor: pointer;
+}
+
 
 /* Medium screens */
 @media all and (max-width: 800px) {

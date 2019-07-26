@@ -19,6 +19,10 @@ export class DashboardComponent implements OnInit {
   name: string;
   dashboard: Dashboard;
   displayAddChartPanel: boolean;
+  screenIcon: string;
+
+  fullscreenChartHeight: string;
+  fullscreenChartWidth: string;
 
   // inject the activatated route
   constructor(
@@ -33,6 +37,10 @@ export class DashboardComponent implements OnInit {
       this.dashboard = this._dashboardService.getDashboard(this.name);
     });
     this.displayAddChartPanel = false;
+    this.screenIcon = "fullscreen";
+
+    this.fullscreenChartHeight = "0";
+    this.fullscreenChartWidth = "0";
   }
 
   toggleAddChartPanel(): void {
@@ -56,5 +64,59 @@ export class DashboardComponent implements OnInit {
   // deletes a chart at a specified index
   deleteChart(index: number) {
     this.dashboard.charts.splice(index, 1);
+  }
+
+  // toggles chart in fullscreen
+  public toggleFullScreen(index: number): void {
+
+    // Trigger fullscreen
+    if(this.screenIcon == "fullscreen") {
+      var fullscreenChart = (<HTMLElement[]><any>document.getElementsByClassName("charts"))[index];
+
+      // save previous size
+      this.fullscreenChartWidth = fullscreenChart.style.width;
+      this.fullscreenChartHeight = fullscreenChart.style.height;
+
+      const docElmWithBrowsersFullScreenFunctions = fullscreenChart as HTMLElement & {
+        mozRequestFullScreen(): Promise<void>;
+        webkitRequestFullscreen(): Promise<void>;
+        msRequestFullscreen(): Promise<void>;
+      };
+    
+      if (docElmWithBrowsersFullScreenFunctions.requestFullscreen) {
+        docElmWithBrowsersFullScreenFunctions.requestFullscreen();
+      } else if (docElmWithBrowsersFullScreenFunctions.mozRequestFullScreen) { /* Firefox */
+        docElmWithBrowsersFullScreenFunctions.mozRequestFullScreen();
+      } else if (docElmWithBrowsersFullScreenFunctions.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+        docElmWithBrowsersFullScreenFunctions.webkitRequestFullscreen();
+      } else if (docElmWithBrowsersFullScreenFunctions.msRequestFullscreen) { /* IE/Edge */
+        docElmWithBrowsersFullScreenFunctions.msRequestFullscreen();
+      }
+      this.screenIcon = "fullscreen_exit";
+    }
+
+    // close fullscreen
+    else {
+      const docWithBrowsersExitFunctions = document as Document & {
+        mozCancelFullScreen(): Promise<void>;
+        webkitExitFullscreen(): Promise<void>;
+        msExitFullscreen(): Promise<void>;
+      };
+      if (docWithBrowsersExitFunctions.exitFullscreen) {
+        docWithBrowsersExitFunctions.exitFullscreen();
+      } else if (docWithBrowsersExitFunctions.mozCancelFullScreen) { /* Firefox */
+        docWithBrowsersExitFunctions.mozCancelFullScreen();
+      } else if (docWithBrowsersExitFunctions.webkitExitFullscreen) { /* Chrome, Safari and Opera */
+        docWithBrowsersExitFunctions.webkitExitFullscreen();
+      } else if (docWithBrowsersExitFunctions.msExitFullscreen) { /* IE/Edge */
+        docWithBrowsersExitFunctions.msExitFullscreen();
+      }
+      this.screenIcon = "fullscreen"
+
+      // return chart to normal size
+      var fullscreenChart = (<HTMLElement[]><any>document.getElementsByClassName("charts"))[index];
+      fullscreenChart.style.width = this.fullscreenChartWidth;
+      fullscreenChart.style.height = this.fullscreenChartHeight;
+    }
   }
 }

@@ -47,10 +47,12 @@
 </div>
 
 <ul>
-  <li *ngFor="let chart of dashboard.charts; let i = index" [attr.data-index]="i">
+  <li *ngFor="let chart of dashboard.charts; let i = index" [attr.data-index]="i" class="charts">
     <div class="chart-top-panel">
       <h2>{{ chart.name }}</h2>
       <div>
+        <!-- Fullscreen Button -->
+        <i class="material-icons-round fullscreen-button" (click)="toggleFullScreen(i)">{{ screenIcon }}</i>
         <!-- Chart Menu -->
         <button mat-button [matMenuTriggerFor] = "menu">
           <i class="material-icons">more_vert</i>
