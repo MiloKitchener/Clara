@@ -13,6 +13,8 @@ routers.register(r'ask_clara_feed', views.AskClaraFeedView)
 routers.register(r'posts', views.PostView)
 routers.register(r'comments', views.CommentView)
 routers.register(r'APICredentials', views.APICredentialsView)
+routers.register(r'ARModels', views.ARModelView)
+routers.register(r'ARData', views.ARDataView)
 
 
 urlpatterns = [

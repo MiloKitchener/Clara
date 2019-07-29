@@ -37,6 +37,7 @@ import { LiveDataGraphPanelComponent } from './components/live-data-graph-panel/
 import { DevicesComponent } from './components/devices/devices.component';
 import { SplashComponent } from './components/splash/splash.component';
 import { DashboardComponent } from './components/dashboards/dashboard/dashboard.component';
+import { ArUploadComponent } from './components/ar-upload/ar-upload.component';
 
 @NgModule({
   declarations: [
@@ -57,12 +58,12 @@ import { DashboardComponent } from './components/dashboards/dashboard/dashboard.
     SplashComponent,
     DashboardsMainComponent,
     DashboardComponent,
+    ArUploadComponent,
   ],
   imports: [
     BrowserModule,
-    
-    MatMenuModule, MatButtonModule,
-    
+    MatMenuModule,
+    MatButtonModule,
     BrowserAnimationsModule,
     MatExpansionModule,
     AppRoutingModule,

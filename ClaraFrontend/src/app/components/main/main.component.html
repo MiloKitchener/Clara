@@ -38,6 +38,12 @@
         <span>Alexa</span>
       </a>
     </li>
+    <!-- Data AR Nav -->
+    <li routerLinkActive="active">
+      <a routerLink="data-ar">
+        <span>Data AR</span>
+      </a>
+    </li>
   </ul>
 
   <i class="material-icons-round" (click)="toggleFullScreen()">{{ screenIcon }}</i>
@@ -58,6 +64,6 @@
 </nav>
 
 <!-- Routed Elements -->
-<div class="main-content" (click)="hideNav()">
+<div class="main-content" ><!--(click)="hideNav()">-->
   <router-outlet #o="outlet"></router-outlet>
 </div>
