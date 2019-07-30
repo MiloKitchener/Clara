@@ -20,30 +20,38 @@
   <app-graph-panel></app-graph-panel>
 </div>
 
-<div class="main-chart">
-  <div class="chart-top-panel">
-    <h2>{{ dashboard.mainChart.name }}</h2>
-    <div>
-      <!-- Chart Menu -->
-      <button mat-button [matMenuTriggerFor] = "menu">
-        <i class="material-icons">more_vert</i>
-      </button>
-      <mat-menu #menu = "matMenu">
-        <button mat-menu-item>Edit</button>
-        <button mat-menu-item [matMenuTriggerFor] = "moveChart">Move To</button>
-        <button mat-menu-item>Delete</button>
-      </mat-menu>
-      <mat-menu #moveChart = "matMenu">
-        <button mat-menu-item *ngFor="let dashboard of _dashboardService.getDashboards()">{{ dashboard.name }}</button>
-      </mat-menu>
+<div class="top-container">
+  <div class="main-chart">
+    <div class="chart-top-panel">
+      <h2>{{ dashboard.mainChart.name }}</h2>
+      <div>
+        <!-- Chart Menu -->
+        <button mat-button [matMenuTriggerFor] = "menu">
+          <i class="material-icons">more_vert</i>
+        </button>
+        <mat-menu #menu = "matMenu">
+          <button mat-menu-item>Edit</button>
+          <button mat-menu-item [matMenuTriggerFor] = "moveChart">Move To</button>
+          <button mat-menu-item>Delete</button>
+        </mat-menu>
+        <mat-menu #moveChart = "matMenu">
+          <button mat-menu-item *ngFor="let dashboard of _dashboardService.getDashboards()">{{ dashboard.name }}</button>
+        </mat-menu>
+      </div>
     </div>
+    <!-- Main Chart Canvas -->
+    <canvas baseChart
+      [datasets]="dashboard.mainChart.data"
+      [labels]="dashboard.mainChart.labels"
+      [chartType]="dashboard.mainChart.type">
+    </canvas>
   </div>
-  <!-- Main Chart Canvas -->
-  <canvas baseChart
-    [datasets]="dashboard.mainChart.data"
-    [labels]="dashboard.mainChart.labels"
-    [chartType]="dashboard.mainChart.type">
-  </canvas>
+
+  <div class="desc-container">
+    <p>
+      {{ dashboard.desc }}
+    </p>
+  </div>
 </div>
 
 <ul>

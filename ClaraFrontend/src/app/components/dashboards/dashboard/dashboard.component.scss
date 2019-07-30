@@ -34,13 +34,33 @@
   position: fixed;
 }
 
-.main-chart {
-  background-color: white;
-  padding: 20px;
-  width: 65%;
+.top-container {
+  width: 90%;
   margin: 50px auto;
-  border-radius: 5px;
-  box-shadow: $main-box-shadow;
+  display: flex;
+  align-items: stretch;
+  
+  .desc-container {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    padding: 40px;
+
+    p {
+      text-align: justify;
+      font-weight: 400;
+      font-size: 14pt;
+    }
+  }
+
+  .main-chart {
+    background-color: white;
+    width: 70%;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: $main-box-shadow;
+  }
+
 }
 
 ul {
