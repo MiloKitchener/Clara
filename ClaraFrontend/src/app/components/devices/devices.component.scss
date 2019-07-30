@@ -7,3 +7,34 @@ h1 {
   font-weight: 500;
   color: white;
 }
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  margin: auto;
+  margin-top: 30px;
+
+  .devices_list {
+    flex-basis: 46%;
+    background-color: white;
+    height: 300px;
+    border-radius: 5px;
+    padding: 22px;
+    box-shadow: $main-box-shadow;
+
+    li {
+      text-align: left;
+    }
+  }
+
+  .map {
+    flex-basis: 46%;
+    background-color: white;
+    height: 300px;
+    border-radius: 5px;
+    padding: 22px;
+    box-shadow: $main-box-shadow;
+  }
+}
