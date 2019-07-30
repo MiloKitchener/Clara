@@ -15,6 +15,7 @@ export class DashboardService {
     // GET Dashboard Names
     this.dashboards = [{
       name: "Main",
+      desc: "This is the main dashboard! Descriptions are cool.",
       mainChart: {
         name: "Chart Main",
         type: "bar",
