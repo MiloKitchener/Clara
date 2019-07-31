@@ -24,16 +24,24 @@
 
 	<ul class="buttons-panel">
 		<li>
-			<button (click)="setSelectedDataset('Open Data')">Open Datasets</button>
+			<button (click)="setSelectedDataset('Open Data')" [ngStyle]="{'color': selectedDataset === 'Open Data' ? '#00B2FF': 'black'}">
+				Open Datasets
+			</button>
 		</li>
 		<li>
-			<button (click)="setSelectedDataset('Live Data')">Live Data</button>
+			<button (click)="setSelectedDataset('Live Data')" [ngStyle]="{'color': selectedDataset === 'Live Data' ? '#00B2FF': 'black'}">
+				Live Data
+			</button>
 		</li>
 		<li>
-			<button (click)="setSelectedDataset('Imported Data')">Imported Data</button>
+			<button (click)="setSelectedDataset('Imported Data')"  [ngStyle]="{'color': selectedDataset === 'Imported Data' ? '#00B2FF': 'black'}">
+				Imported Data
+			</button>
 		</li>
 		<li>
-			<button (click)="setSelectedDataset('Authenticated API Data')">Authenticated API Data</button>
+			<button (click)="setSelectedDataset('Authenticated API Data')" [ngStyle]="{'color': selectedDataset === 'Authenticated API Data' ? '#00B2FF': 'black'}">
+				Authenticated API Data
+			</button>
 		</li>
 	</ul>
 </div>
