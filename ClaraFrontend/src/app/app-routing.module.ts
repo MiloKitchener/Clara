@@ -10,8 +10,7 @@ import { LoginComponent } from './components/login/login.component';
 import { MainComponent } from './components/main/main.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 
-import { DashboardsMainComponent } from './components/dashboards/dashboards-main/dashboards-main.component';
-import { DashboardComponent } from './components/dashboards/dashboard/dashboard.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 import { DatasetComponent } from './components/dataset/dataset.component';
 
@@ -35,16 +34,9 @@ const routes: Routes = [
     data: { title: 'Clara' },
     canActivate: [AuthService],
     children: [
-      { path: '', redirectTo: 'dashboardsMain', pathMatch: 'full' },
-      { path: 'dashboardsMain',
-        component: DashboardsMainComponent,
-        data: { title: 'Dashboards' },
-        children: [
-          { path: '', redirectTo: 'dashboard/Main', pathMatch: 'full' },
-          { path: 'dashboard', redirectTo: 'dashboard/Main', pathMatch: 'full' },
-          { path: 'dashboard/:id', component: DashboardComponent },
-        ]
-      },
+      { path: '', redirectTo: 'dashboard/Main', pathMatch: 'full' },
+      { path: 'dashboard', redirectTo: 'dashboard/Main', pathMatch: 'full' },
+      { path: 'dashboard/:id', component: DashboardComponent },
       { path: 'devices', component: DevicesComponent, data: { title: 'Devices' } },
       { path: 'dataset', component: DatasetComponent, data: { title: 'Dataset' } },
       { path: 'alexa-feed', component: AlexaFeedComponent, data: { title: 'Alexa Feed' } },

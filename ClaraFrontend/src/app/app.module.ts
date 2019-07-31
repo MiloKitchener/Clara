@@ -30,13 +30,12 @@ import { LabServicesComponent } from './components/lab-services/lab-services.com
 import { IdeaNodeComponent } from './components/idea-node/idea-node.component';
 import { GraphPanelComponent } from './components/graph-panel/graph-panel.component';
 import { AlexaFeedComponent } from './components/alexa-feed/alexa-feed.component';
-import { DashboardsMainComponent } from './components/dashboards/dashboards-main/dashboards-main.component';
 import { IdeaAnchorDirective } from './directives/idea-anchor.directive';
 import { ProfileComponent } from './components/profile/profile.component';
 import { LiveDataGraphPanelComponent } from './components/live-data-graph-panel/live-data-graph-panel.component';
 import { DevicesComponent } from './components/devices/devices.component';
 import { SplashComponent } from './components/splash/splash.component';
-import { DashboardComponent } from './components/dashboards/dashboard/dashboard.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +54,6 @@ import { DashboardComponent } from './components/dashboards/dashboard/dashboard.
     LiveDataGraphPanelComponent,
     DevicesComponent,
     SplashComponent,
-    DashboardsMainComponent,
     DashboardComponent,
   ],
   imports: [

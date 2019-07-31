@@ -1,14 +1,43 @@
-<nav>
-  <!-- Clara Icon -->
-  <img src="./assets/images/clara_icon.png" alt="">
+<div class="top-bar">
 
+  <i class="material-icons-round" (click)="toggleFullScreen()">{{ screenIcon }}</i>
+  <i class="material-icons-round">notifications</i>
+
+  <!-- Profile Settings -->
+  <button mat-button [matMenuTriggerFor] = "menu">
+    <img class="user-icon" src="./assets/images/avatar.png" alt="">
+  </button>
+  <mat-menu #menu = "matMenu">
+    <button mat-menu-item>
+        <a routerLink="profile">
+          <span>
+            <i class="material-icons-round">account_box</i>
+            Profile
+          </span>
+        </a>
+      </button>
+    <button mat-menu-item (click)="logout()">
+      <span>
+        <i class="material-icons-round">exit_to_app</i>
+        Log Out
+      </span>
+    </button>
+  </mat-menu>
+</div>
+
+<nav>
   <ul>
     <!-- Dashboards Nav -->
-    <li routerLinkActive="active">
-      <a routerLink="dashboardsMain">
-        <span>Dashboards</span>
+    <li *ngFor="let dashboard of _dashboardService.getDashboards()" routerLinkActive="active">
+      <a [routerLink]="['dashboard', dashboard.name]">
+        <span>{{ dashboard.name + " Dashboard"}}</span>
       </a>
-    </li>
+    </li> 
+    <button class="add-dashboard-btn" (click)="addDashboard()">Add Dashboard</button>
+
+    <hr>
+
+
     <!-- Devices Nav -->
     <li routerLinkActive="active">
       <a routerLink="devices">
@@ -40,30 +69,6 @@
       </a>
     </li>
   </ul>
-
-  <i class="material-icons-round" (click)="toggleFullScreen()">{{ screenIcon }}</i>
-  <i class="material-icons-round">notifications</i>
-
-  <!-- Profile Settings -->
-  <button mat-button [matMenuTriggerFor] = "menu">
-    <img class="user-icon" src="./assets/images/avatar.png" alt="">
-  </button>
-  <mat-menu #menu = "matMenu">
-    <button mat-menu-item>
-        <a routerLink="profile">
-          <span>
-            <i class="material-icons-round">account_box</i>
-            Profile
-          </span>
-        </a>
-      </button>
-    <button mat-menu-item (click)="logout()">
-      <span>
-        <i class="material-icons-round">exit_to_app</i>
-        Log Out
-      </span>
-    </button>
-  </mat-menu>
 </nav>
 
 <!-- Routed Elements -->

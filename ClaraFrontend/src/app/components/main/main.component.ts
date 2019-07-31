@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { ProfileService } from 'src/app/services/profile/profile.service';
+import { DashboardService } from 'src/app/services/dashboard/dashboard.service';
 
 import { User } from 'src/app/classes/user';
 
@@ -19,7 +20,8 @@ export class MainComponent implements OnInit {
 
   constructor(
     private _profileService: ProfileService,
-    private logoutService: AuthService
+    private logoutService: AuthService,
+    private _dashboardService: DashboardService
   ) { }
 
   ngOnInit() {
@@ -78,5 +80,12 @@ export class MainComponent implements OnInit {
       }
       this.screenIcon = "fullscreen";
     }
+  }
+
+
+
+  addDashboard() {
+    var name = prompt("What is the Dashboard's Name?");
+    this._dashboardService.addDashboard(name);
   }
 }

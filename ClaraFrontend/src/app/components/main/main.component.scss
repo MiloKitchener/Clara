@@ -5,78 +5,50 @@
   Main Page Style
 ***********************************/
 
+a {
+  text-decoration: none;
+  color: white;
+}
 
-nav {
+
+.top-bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   text-align: center;
-  width: 100%;
-  height: 60px;
-  background-color: $color-nav;
+  margin-left: $nav-bar-width;
+  width: 100% - $nav-bar-width;
+  height: $top-bar-height;
+  background-color: white;
   position: fixed;
   display: flex;
   z-index: 100;
   box-shadow: $main-box-shadow;
 
-  > img {
+  .user-icon {
+    border-radius: 50%;
+    width: 40px;
     height: 40px;
     margin: 0 30px;
-    filter: invert(1);
-  }
-}
-
-a {
-  text-decoration: none;
-}
-
-ul {
-  flex: 3;
-  list-style-type: none;
-}
-
-li {
-  display: inline-block;
   
-  a {
-    color: white;
-    padding: 14px 16px;
-    font-size: 12pt;
-    background-color: none;
-    text-align: center;
-    transition: $main-hover-transition;
-
     &:hover {
-      color: $color-primary;
-      transition: $main-hover-transition;
+      filter: brightness(0.8);
     }
   }
 }
 
-.active a {
-  color: $color-primary;
-  transition: $main-hover-transition;
-}
 
-i {
-  color: white;
-  cursor: pointer;
-}
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 16%;
+  height: 100%;
+  background-color: $color-nav;
 
-.user-icon {
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  margin: 0 30px;
-
-  &:hover {
-    filter: brightness(0.8);
-  }
-}
-
-button a {
-  span {
-    color: white;
+  ul {
+    list-style-type: none;
+    padding: 0;
   }
 }
 
@@ -87,10 +59,11 @@ button a {
 
 
 .main-content {
-  margin-top: 60px;
+  margin-top: $top-bar-height;
+  margin-left: $nav-bar-width;
   text-align: center;
   height: 100%;
-  width: 100%;
+  width: 100% - $nav-bar-width;
 }
 
 .main-content>* {
