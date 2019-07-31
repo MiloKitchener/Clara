@@ -75,6 +75,9 @@ export class DashboardService {
         },
       ]
     }];
+
+    var mobileDashboard = new Dashboard("Mobile");
+    this.dashboards.push(mobileDashboard);;
   }
 
   getDashboard(dashboardName: string): Dashboard {
