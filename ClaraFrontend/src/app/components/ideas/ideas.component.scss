@@ -67,7 +67,7 @@ button:hover, input[type="submit"]:hover {
       box-shadow: $main-box-shadow;
 
       &:hover {
-        background-color: #408DF7;
+        background-color: $color-primary-dark;
         transition: $main-hover-transition;
       }
     }
@@ -100,7 +100,7 @@ button:hover, input[type="submit"]:hover {
 /* Style The Dropdown Button */
 .dropbtn {
   background-color: white;
-  color: #32CDFE;
+  color: $color-secondary;
   box-shadow: $main-box-shadow;
   font-weight: bold;
   padding: 6%;
@@ -108,7 +108,11 @@ button:hover, input[type="submit"]:hover {
   text-align: left;
   border: none;
   border-radius: 10px;
-  cursor: pointer;
+  
+  &:hover {
+    color: $color-primary-dark;
+    background-color: white;
+  }
 }
 
 /* The container <div> - needed to position the dropdown content */
@@ -174,9 +178,15 @@ button:hover, input[type="submit"]:hover {
   background-color: white;
   box-shadow: $main-box-shadow;
   border-radius: 5px;
-  height: 400px;
+  height: 500px;
   width: 30%;
   margin-left: 1%;
+
+  button {
+    padding: 4.5% 10%;
+    font-size: 14pt;
+    font-weight: 500;
+  }
 
   h2 {
     text-align: left;
@@ -190,21 +200,20 @@ button:hover, input[type="submit"]:hover {
     height: 1px;
     margin-top: 0;
   }
-}
 
-ul > li {
-  text-align: left;
-  margin: 6%;
-  margin-left: -15%;
-  color: $color-primary;
-}
+  ul {
+    padding: 0;
 
-ul > li span {
-    color: black;
-}
+    > li {
+      text-align: left;
+      margin: 6%;
+      color: $color-primary;
 
-.post-button {
-  padding: 4.5% 10%;
+      span {
+        color: black;
+      }
+    }
+  }
 }
 
 
