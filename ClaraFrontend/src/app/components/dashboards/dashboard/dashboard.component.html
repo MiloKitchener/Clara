@@ -68,6 +68,7 @@
         <mat-menu #menu = "matMenu">
           <button mat-menu-item (click)="setAsPrimaryChart(i)">Set as Primary</button>
           <button mat-menu-item>Edit</button>
+          <button mat-menu-item [matMenuTriggerFor] = "sizeChart">Adjust Size</button>
           <button mat-menu-item [matMenuTriggerFor] = "moveChart">Move To</button>
           <button mat-menu-item (click)="deleteChart(i)">Delete</button>
         </mat-menu>
@@ -77,6 +78,10 @@
                 {{ dashboardNode.name }}
               </button>
           </ng-container>
+        </mat-menu>
+        <mat-menu #sizeChart = "matMenu">
+            <button mat-menu-item (click)="increaseSize(i)">Increase</button>
+            <button mat-menu-item (click)="decreaseSize(i)">Decrease</button>
         </mat-menu>
       </div>
     </div>

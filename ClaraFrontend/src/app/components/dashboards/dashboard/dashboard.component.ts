@@ -21,9 +21,6 @@ export class DashboardComponent implements OnInit {
   displayAddChartPanel: boolean;
   screenIcon: string;
 
-  fullscreenChartHeight: string;
-  fullscreenChartWidth: string;
-
   // inject the activatated route
   constructor(
     private route: ActivatedRoute,
@@ -38,9 +35,6 @@ export class DashboardComponent implements OnInit {
     });
     this.displayAddChartPanel = false;
     this.screenIcon = "fullscreen";
-
-    this.fullscreenChartHeight = "0";
-    this.fullscreenChartWidth = "0";
   }
 
   toggleAddChartPanel(): void {
@@ -66,6 +60,16 @@ export class DashboardComponent implements OnInit {
     this.dashboard.charts.splice(index, 1);
   }
 
+  increaseSize(index: number) {
+    var chart = (<HTMLElement[]><any>document.getElementsByClassName("charts"))[index];
+    chart.style.width = "100vw";
+  }
+
+  decreaseSize(index: number) {
+    var chart = (<HTMLElement[]><any>document.getElementsByClassName("charts"))[index];
+    chart.style.width = "20vw";
+  }
+
   // toggles chart in fullscreen
   public toggleFullScreen(index: number): void {
 
@@ -73,9 +77,7 @@ export class DashboardComponent implements OnInit {
     if(this.screenIcon == "fullscreen") {
       var fullscreenChart = (<HTMLElement[]><any>document.getElementsByClassName("charts"))[index];
 
-      // save previous size
-      this.fullscreenChartWidth = fullscreenChart.style.width;
-      this.fullscreenChartHeight = fullscreenChart.style.height;
+      fullscreenChart.style.padding = "100px";
 
       const docElmWithBrowsersFullScreenFunctions = fullscreenChart as HTMLElement & {
         mozRequestFullScreen(): Promise<void>;
@@ -115,8 +117,7 @@ export class DashboardComponent implements OnInit {
 
       // return chart to normal size
       var fullscreenChart = (<HTMLElement[]><any>document.getElementsByClassName("charts"))[index];
-      fullscreenChart.style.width = this.fullscreenChartWidth;
-      fullscreenChart.style.height = this.fullscreenChartHeight;
+      fullscreenChart.style.padding = "20px";
     }
   }
 }
