@@ -26,11 +26,10 @@
 </div>
 
 <nav>
-
   <div class="nav-top">
     <div class="top-icon-button-container">
         <img class="clara-icon" src="./assets/images/clara_icon.png" alt="">
-        <i class="material-icons-round">dehaze</i>
+        <i class="material-icons-round">menu</i>
     </div>
 
     <div class="profile-thumbnail">
@@ -50,22 +49,23 @@
 
     <li *ngFor="let dashboard of _dashboardService.getDashboards()" routerLinkActive="active">
       <a [routerLink]="['dashboard', dashboard.name]">
+        <i class="material-icons-outlined">dashboard</i>
         <span>{{ dashboard.name + " Dashboard"}}</span>
       </a>
     </li> 
-
-
 
     <h5 class="nav-header">DEVICES & DATASETS</h5>
     <!-- Devices Nav -->
     <li routerLinkActive="active">
       <a routerLink="devices">
+        <i class="material-icons-round">devices</i>
         <span>Devices</span>
       </a>
     </li>
     <!-- Datasets Nav -->
     <li routerLinkActive="active">
       <a routerLink="dataset">
+        <i class="material-icons-round">data_usage</i>
         <span>Datasets</span>
       </a>
     </li>
@@ -75,18 +75,21 @@
     <!-- Ideas Nav -->
     <li routerLinkActive="active">
       <a routerLink="ideas">
+        <i class="material-icons-outlined">highlight</i>
         <span>Ideas</span>
       </a>
     </li>
     <!-- Datasets Nav -->
     <li routerLinkActive="active">
       <a routerLink="lab-services">
+        <i class="material-icons-round">calendar_today</i>
         <span>Lab Services</span>
       </a>
     </li>
     <!-- Alexa Nav -->
     <li routerLinkActive="active">
       <a routerLink="alexa-feed">
+          <i class="material-icons-round">sentiment_satisfied</i>
         <span>Alexa</span>
       </a>
     </li>

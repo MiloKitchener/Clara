@@ -129,8 +129,9 @@ nav {
 
     li {
       a {
+        display: flex;
+        align-items: center;
         padding: 10px $nav-item-side-padding * 2;
-        display: block;
         color: #F5F5F5;
         font-size: 1.6vh;
         text-decoration: none;
@@ -143,6 +144,11 @@ nav {
 
         &:focus {
           outline: none;
+        }
+
+        i {
+          color: #F5F5F5;
+          margin-right: 10px;
         }
       }
     }
