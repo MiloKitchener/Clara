@@ -26,6 +26,19 @@
 </div>
 
 <nav>
+
+  <div class="nav-top">
+    <div class="top-icon-button-container">
+        <img class="clara-icon" src="./assets/images/clara_icon.png" alt="">
+        <i class="material-icons-round">dehaze</i>
+    </div>
+
+    <div class="profile-thumbnail">
+      <h3> {{user.name}} </h3>
+      <h5> {{user.title}} </h5>
+    </div>
+  </div>
+
   <ul>
     <!-- Dashboards Nav -->
     <li *ngFor="let dashboard of _dashboardService.getDashboards()" routerLinkActive="active">

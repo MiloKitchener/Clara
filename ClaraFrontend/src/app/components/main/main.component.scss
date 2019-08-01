@@ -20,10 +20,14 @@ a {
   width: 100% - $nav-bar-width;
   height: $top-bar-height;
   background-color: white;
-  position: fixed;
   display: flex;
   z-index: 100;
+  border-bottom: 3px solid $color-primary;
   box-shadow: $main-box-shadow;
+
+  i:first-child {
+  margin-left: auto;
+  }
 
   .user-icon {
     border-radius: 50%;
@@ -33,6 +37,46 @@ a {
   
     &:hover {
       filter: brightness(0.8);
+    }
+  }
+
+  i:hover {
+    cursor: pointer;
+  }
+}
+
+
+.nav-top {
+  background-color: $color-nav-top;
+  text-align: center;
+  color: #F5F5F5;
+  padding: 15px;
+
+  .top-icon-button-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .clara-icon {
+      height: 2.5vh;
+      filter: invert(0.65);
+    }
+
+    i {
+      color: rgb(179, 179, 179);
+    }
+  }
+
+  .profile-thumbnail {
+    margin: 35px 0;
+
+    h3, h5 {
+      font-weight: 400;
+      margin: 5px;
+    }
+
+    h5 {
+      color: #8E8F93;
     }
   }
 }
@@ -59,7 +103,6 @@ nav {
 
 
 .main-content {
-  margin-top: $top-bar-height;
   margin-left: $nav-bar-width;
   text-align: center;
   height: 100%;
