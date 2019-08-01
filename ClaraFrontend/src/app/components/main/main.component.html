@@ -4,17 +4,17 @@
   <i class="material-icons-round">notifications</i>
 
   <!-- Profile Settings -->
-  <button mat-button [matMenuTriggerFor] = "menu">
+  <button mat-button [matMenuTriggerFor]="menu">
     <img class="user-icon" src="./assets/images/avatar.png" alt="">
+    {{ user.name }}
+    <i class="material-icons-round">keyboard_arrow_down</i>
   </button>
   <mat-menu #menu = "matMenu">
     <button mat-menu-item>
-        <a routerLink="profile">
-          <span>
-            <i class="material-icons-round">account_box</i>
-            Profile
-          </span>
-        </a>
+        <span>
+          <i class="material-icons-round">account_box</i>
+          Profile
+        </span>
       </button>
     <button mat-menu-item (click)="logout()">
       <span>
