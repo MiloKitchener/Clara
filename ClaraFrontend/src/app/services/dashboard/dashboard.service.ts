@@ -16,6 +16,7 @@ export class DashboardService {
     this.dashboards = [{
       name: "Main",
       desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt ut enim ac egestas. Quisque sit amet odio ornare, congue dui sit amet, ultricies nibh. Maecenas convallis ullamcorper efficitur. Aliquam blandit enim metus, quis tincidunt eros venenatis et. Vivamus sollicitudin tellus ac hendrerit volutpat. Fusce porta nunc risus, vestibulum fringilla velit pharetra at. Phasellus id urna quis lorem accumsan mollis.",
+      tags: ["Digital", "Smart City", "Innovation", "Co-op Student", "Main"],
       mainChart: {
         name: "Chart Main",
         type: "bar",

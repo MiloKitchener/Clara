@@ -5,6 +5,7 @@ export class Dashboard {
   desc: string;
   mainChart: Chart;
   charts: Chart[];
+  tags: string[];
 
   constructor(name: string) {
     this.name = name;

@@ -21,6 +21,20 @@
 </div>
 
 <div class="top-container">
+  <!-- Dashboard Info -->
+  <div class="desc-container">
+    <h5>William McKinnon</h5>
+    <h5>Smart City Developer</h5>
+    <h5>Innovation Lab</h5>
+    <hr>
+    <p>
+      {{ dashboard.desc }}
+    </p>
+    <ul class="tags">
+      <li *ngFor="let tag of dashboard.tags">{{ tag }}</li>
+    </ul>
+  </div>
+
   <div class="main-chart">
     <div class="chart-top-panel">
       <h2>{{ dashboard.mainChart.name }}</h2>
@@ -46,21 +60,15 @@
       [chartType]="dashboard.mainChart.type">
     </canvas>
   </div>
-
-  <div class="desc-container">
-    <p>
-      {{ dashboard.desc }}
-    </p>
-  </div>
 </div>
 
-<ul>
+<ul class="charts-container">
   <li *ngFor="let chart of dashboard.charts; let i = index" [attr.data-index]="i" class="charts">
     <div class="chart-top-panel">
       <h2>{{ chart.name }}</h2>
       <div>
         <!-- Fullscreen Button -->
-        <i class="material-icons-round fullscreen-button" (click)="toggleFullScreen(i)">{{ screenIcon }}</i>
+        <i class="material-icons-round" (click)="toggleFullScreen(i)">{{ screenIcon }}</i>
         <!-- Chart Menu -->
         <button mat-button [matMenuTriggerFor] = "menu">
           <i class="material-icons">more_vert</i>

@@ -37,51 +37,52 @@
   width: 90%;
   margin: 50px auto;
   display: flex;
-  align-items: stretch;
+  justify-content: space-between;
+  align-items: center;
   
   .desc-container {
     width: 30%;
-    display: flex;
-    align-items: center;
-    padding: 40px;
+    text-align: left;
+
+    h5 {
+      margin: 0;
+      font-weight: 400;
+      font-size: 1.5vh;
+    }
 
     p {
       text-align: justify;
       font-weight: 400;
-      font-size: 14pt;
+      font-size: 1.3vh;
+    }
+
+    .tags {
+      list-style-type: none;
+      padding: 0;
+      width: 100%;
+      
+      li {
+        padding: 8px 16px;
+        color: white;
+        background-color: $color-primary;
+        display: inline-block;
+        margin-bottom: $tag-spacing;
+        border-radius: 7px;
+
+        &:not(:last-child) {
+          margin-right: $tag-spacing;
+        }
+      }
     }
   }
 
   .main-chart {
     background-color: white;
-    width: 70%;
+    width: 62%;
     padding: 20px;
     border-radius: 5px;
     box-shadow: $main-box-shadow;
   }
-
-}
-
-ul {
-  display: flex;
-  padding: 0;
-  width: 95%;
-  margin: auto;
-  list-style-type: none;
-  justify-content: space-around;
-  align-content: space-around;
-  flex-flow: row wrap;
-}
-
-li {
-  width: auto;
-  height: auto;
-  margin: auto;
-  margin-bottom: 3%;
-  padding: 20px;
-  background-color: white;
-  border-radius: 5px;
-  box-shadow: $main-box-shadow;
 }
 
 .chart-top-panel {
@@ -102,12 +103,30 @@ li {
   }
 }
 
-.charts {
-  width: 20vw;
-}
+.charts-container {
+  display: flex;
+  padding: 0;
+  width: 95%;
+  margin: auto;
+  list-style-type: none;
+  justify-content: space-around;
+  align-content: space-around;
+  flex-flow: row wrap;
 
-.fullscreen-button {
-  cursor: pointer;
+  li {
+    width: auto;
+    height: auto;
+    margin: auto;
+    margin-bottom: 3%;
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: $main-box-shadow;
+
+    i {
+      cursor: pointer;
+    }
+  }
 }
 
 
