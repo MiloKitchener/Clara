@@ -5,7 +5,7 @@
   </button>
 
   <!-- Dashboard Settings Menu -->
-  <ng-container *ngIf="dashboard.name != 'Main'">
+  <ng-container *ngIf="dashboard.name != 'Main' && dashboard.name != 'Mobile'">
     <button mat-button [matMenuTriggerFor] = "settingsMenu">
       <i class="material-icons-round">settings</i>
     </button>
