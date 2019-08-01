@@ -44,7 +44,9 @@
   background-color: $color-nav-top;
   text-align: center;
   color: #F5F5F5;
-  padding: 15px;
+  padding: 1.5vh;
+  margin-bottom: 3vh;
+  height: 17.5vh;
 
   .top-icon-button-container {
     display: flex;
@@ -62,15 +64,24 @@
   }
 
   .profile-thumbnail {
-    margin: 35px 0;
+    margin: 4vh 0;
 
     h3, h5 {
       font-weight: 400;
-      margin: 5px;
+      font-size: 1.8vh;
+      margin: 0.8vh;
     }
 
     h5 {
+      font-size: 1.4vh;
       color: #8E8F93;
+    }
+
+    img {
+      margin-top: 2vh;
+      width: 35%;
+      border-radius: 50%;
+      border: 1vh solid  $color-nav;
     }
   }
 }
@@ -131,7 +142,7 @@ nav {
       a {
         display: flex;
         align-items: center;
-        padding: 10px $nav-item-side-padding * 2;
+        padding: 10px $nav-item-side-padding;
         color: #F5F5F5;
         font-size: 1.6vh;
         text-decoration: none;
