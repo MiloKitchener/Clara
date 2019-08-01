@@ -41,16 +41,22 @@
 
   <ul>
     <!-- Dashboards Nav -->
+    <div class="dashboard-header">
+      <h5 class="nav-header">DASHBOARDS</h5>
+      <button class="add-dashboard-btn" (click)="addDashboard()">
+        <i class="material-icons-round">add_circle</i>
+      </button>
+    </div>
+
     <li *ngFor="let dashboard of _dashboardService.getDashboards()" routerLinkActive="active">
       <a [routerLink]="['dashboard', dashboard.name]">
         <span>{{ dashboard.name + " Dashboard"}}</span>
       </a>
     </li> 
-    <button class="add-dashboard-btn" (click)="addDashboard()">Add Dashboard</button>
-
-    <hr>
 
 
+
+    <h5 class="nav-header">DEVICES & DATASETS</h5>
     <!-- Devices Nav -->
     <li routerLinkActive="active">
       <a routerLink="devices">
@@ -63,6 +69,9 @@
         <span>Datasets</span>
       </a>
     </li>
+
+
+    <h5 class="nav-header">COMMUNICATION</h5>
     <!-- Ideas Nav -->
     <li routerLinkActive="active">
       <a routerLink="ideas">
