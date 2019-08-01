@@ -37,6 +37,10 @@ import { LiveDataGraphPanelComponent } from './components/live-data-graph-panel/
 import { DevicesComponent } from './components/devices/devices.component';
 import { SplashComponent } from './components/splash/splash.component';
 import { DashboardComponent } from './components/dashboards/dashboard/dashboard.component';
+import {environment} from '../environments/environment.mock';
+import {HttpMockInterceptor} from './classes/http-mock-interceptor';
+
+export const isMock = environment.mock;
 
 @NgModule({
   declarations: [
@@ -60,9 +64,8 @@ import { DashboardComponent } from './components/dashboards/dashboard/dashboard.
   ],
   imports: [
     BrowserModule,
-    
-    MatMenuModule, MatButtonModule,
-    
+    MatMenuModule,
+    MatButtonModule,
     BrowserAnimationsModule,
     MatExpansionModule,
     AppRoutingModule,
@@ -73,10 +76,16 @@ import { DashboardComponent } from './components/dashboards/dashboard/dashboard.
     ChartsModule
   ],
   providers: [
-    CookieService, {
+    CookieService,
+    {
       provide: HTTP_INTERCEPTORS,
       useClass: JwtInterceptorService,
       multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: isMock ? HttpMockInterceptor : null,
+      multi: true
     }
   ],
   bootstrap: [AppComponent],

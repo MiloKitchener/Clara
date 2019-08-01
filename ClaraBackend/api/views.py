@@ -113,6 +113,7 @@ class PermissionView(viewsets.ModelViewSet):
     queryset = Permission.objects.all()
     serializer_class = PermissionSerializer
 
+
 class APICredentialsView(viewsets.ModelViewSet):
 
     #authenticate the user
@@ -134,8 +135,6 @@ class APICredentialsView(viewsets.ModelViewSet):
     def user_credentials(self, request):
         queryset = APICredentials.objects.filter(user__id=request.user.id)
         return Response(queryset.values())
-
-
 
 
 # API endpoint that allows graphs to be viewed or edited
@@ -166,22 +165,60 @@ class GraphView(viewsets.ModelViewSet):
         field1 = data['field1']
 
         # Get the dataset api url
-        queryset = Dataset.objects.filter(name=dataset1)
-        url1 = queryset[0].api_url
-
+        url1 = Dataset.objects.filter(id=dataset1)[0].api_url
+        field_name = Field.objects.filter(id=field1)[0].name
         # Get the data from this dataset
-        data1 = fetch_data(url1, 'x', field1)
+        data1 = fetch_data(url1, 'x', field_name)
 
         dataset2 = data['dataset2']
         field2 = data['field2']
 
         # Get the dataset api url
-        queryset = Dataset.objects.filter(name=dataset2)
-        url2 = queryset[0].api_url
-
+        url2 = Dataset.objects.filter(id=dataset2)[0].api_url
+        field_name = Field.objects.filter(id=field2)[0].name
         # Get the data from this dataset
-        data2 = fetch_data(url2, 'y', field2)
+        data2 = fetch_data(url2, 'y', field_name)
         return Response(combine_data_list(data1, data2))
+
+
+# API endpoint that allows datasets to be viewed or edited
+class DashboardView(viewsets.ModelViewSet):
+    # Authenticate the user
+    # permission_classes = (IsAuthenticated,)
+
+    # Select all datasets
+    queryset = Dashboard.objects.all()
+    serializer_class = DashboardSerializer
+
+    # def create(self, request, **kwargs):
+        # Before the Dashboard object is created, fill in the user field
+        # request.data['user'] = reverse('user-detail', kwargs={'pk': request.user.id})
+        # return super(DashboardView, self).create(request)
+
+    @action(detail=False)
+    def get_dashboards(self, request):
+        queryset = Dashboard.objects.filter(user__id=request.user.id)
+        return Response(queryset.values())
+
+
+# API endpoint that allows datasets to be viewed or edited
+class ChartView(viewsets.ModelViewSet):
+    # Authenticate the user
+    # permission_classes = (IsAuthenticated,)
+
+    # Select all datasets
+    queryset = Chart.objects.all()
+    serializer_class = ChartSerializer
+
+
+# API endpoint that allows datasets to be viewed or edited
+class ChartRankingView(viewsets.ModelViewSet):
+    # Authenticate the user
+    # permission_classes = (IsAuthenticated,)
+
+    # Select all datasets
+    queryset = ChartRanking.objects.all()
+    serializer_class = ChartRankingSerializer
 
 
 # API endpoint that allows Ask Clara queries to be viewed or edited

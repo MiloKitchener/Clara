@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-// import service
+// Import service
 import { DashboardService } from 'src/app/services/dashboard/dashboard.service';
+import {Dashboard} from '../../../classes/dashboard';
 
 @Component({
   selector: 'app-dashboards-main',
@@ -11,12 +12,18 @@ import { DashboardService } from 'src/app/services/dashboard/dashboard.service';
 
 export class DashboardsMainComponent implements OnInit {
 
-  constructor( private _dashboardService: DashboardService ) { }
+  public dashboards: Dashboard[] = [];
 
-  ngOnInit() { }
+  constructor(private dashboardService: DashboardService) { }
+
+  ngOnInit() {
+    this.dashboardService.getDashboards().subscribe( data => {
+      this.dashboards = data;
+    });
+  }
 
   addDashboard() {
-    var name = prompt("What is the Dashboard's Name?");
-    this._dashboardService.addDashboard(name);
+    const name = prompt('What is the Dashboard\'s Name?');
+    this.dashboardService.addDashboard(this.dashboards, name);
   }
 }
