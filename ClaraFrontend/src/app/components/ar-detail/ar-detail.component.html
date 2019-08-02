@@ -2,11 +2,11 @@
   <h2>{{arModel.name | uppercase}} Details</h2>
   <form [formGroup]="updateARModelForm" (ngSubmit)="onSubmit()">
     <label>Name:
-      <input placeholder="name" formControlName="name"/>
+      <input type="text" formControlName="name"/>
     </label>
     <br/>
     <label>Scale:
-      <input placeholder="scale" formControlName="scale"/>
+      <input type="text" formControlName="scale">
     </label>
      <button type="submit">Save</button>
   </form>

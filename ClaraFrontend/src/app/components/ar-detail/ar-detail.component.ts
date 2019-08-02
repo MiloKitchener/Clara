@@ -16,8 +16,8 @@ export class ArDetailComponent implements OnInit {
 
   ngOnInit() {
     this.updateARModelForm = this.fb.group({
-      name: ['', Validators.required],
-      scale: ['', Validators.required]
+      name: [this.arModel.name, Validators.required],
+      scale: [this.arModel.scale, Validators.required]
     });
   }
 
