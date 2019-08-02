@@ -40,6 +40,10 @@ import { DashboardComponent } from './components/dashboards/dashboard/dashboard.
 import { ArUploadComponent } from './components/ar-upload/ar-upload.component';
 import { ArComponent } from './components/ar/ar.component';
 import { ArDetailComponent } from './components/ar-detail/ar-detail.component';
+import {environment} from '../environments/environment.mock';
+import {HttpMockInterceptor} from './classes/http-mock-interceptor';
+
+export const isMock = environment.mock;
 
 @NgModule({
   declarations: [
@@ -78,10 +82,16 @@ import { ArDetailComponent } from './components/ar-detail/ar-detail.component';
     ChartsModule
   ],
   providers: [
-    CookieService, {
+    CookieService,
+    {
       provide: HTTP_INTERCEPTORS,
       useClass: JwtInterceptorService,
       multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: isMock ? HttpMockInterceptor : null,
+      multi: true
     }
   ],
   bootstrap: [AppComponent],

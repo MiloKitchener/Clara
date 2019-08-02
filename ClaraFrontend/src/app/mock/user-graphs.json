@@ -1,0 +1,65 @@
+[
+  {
+    "id":1,
+    "name":"Shape__Length V AADT_YEAR",
+    "user_id":1,
+    "dataset1":"Traffic Volumes",
+    "field1":"Shape__Length",
+    "dataset2":"Traffic Volumes",
+    "field2":"AADT_YEAR"
+  },
+  {
+    "id":2,
+    "name":"AADT_YEAR V Shape__Length",
+    "user_id":1,
+    "dataset1":"Traffic Volumes",
+    "field1":"AADT_YEAR",
+    "dataset2":"Traffic Volumes",
+    "field2":"Shape__Length"
+  },
+  {
+    "id":3,
+    "name":"AADT V SPEED_LIMIT",
+    "user_id":1,
+    "dataset1":"Traffic Volumes",
+    "field1":"AADT",
+    "dataset2":"Traffic Volumes",
+    "field2":"SPEED_LIMIT"
+  },
+  {
+    "id":11,
+    "name":"Shape__Area V Shape__Length",
+    "user_id":1,
+    "dataset1":"Wards",
+    "field1":"Shape__Length",
+    "dataset2":"Wards",
+    "field2":"Shape__Area"
+  },
+  {
+    "id":12,
+    "name":"X_COORD V Y_COORD",
+    "user_id":1,
+    "dataset1":"Addresses",
+    "field1":"Y_COORD",
+    "dataset2":"Addresses",
+    "field2":"X_COORD"
+  },
+  {
+    "id":13,
+    "name":"AADT V SPEED_LIMIT",
+    "user_id":1,
+    "dataset1":"Traffic Volumes",
+    "field1":"SPEED_LIMIT",
+    "dataset2":"Traffic Volumes",
+    "field2":"AADT"
+  },
+  {
+    "id":14,
+    "name":"WARD V X_COORD",
+    "user_id":1,
+    "dataset1":"Addresses",
+    "field1":"X_COORD",
+    "dataset2":"Addresses",
+    "field2":"WARD"
+  }
+]

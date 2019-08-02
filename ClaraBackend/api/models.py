@@ -54,6 +54,37 @@ class Graph(models.Model):
         return self.name
 
 
+class Dashboard(models.Model):
+    name = models.CharField(max_length=255, null=False)
+    user = models.ForeignKey(User, related_name='dashboards', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name
+
+
+class Chart(models.Model):
+    name = models.CharField(max_length=255, null=False)
+    type = models.CharField(max_length=255, null=False, default="scatter")
+    # A chart can be put on multiple dashboards and a dashboard has multiple charts -> ManyToManyField
+    dashboard = models.ManyToManyField(Dashboard, related_name='charts')
+    dataset1 = models.CharField(max_length=255, null=False)
+    field1 = models.CharField(max_length=255, null=False)
+    dataset2 = models.CharField(max_length=255, null=False)
+    field2 = models.CharField(max_length=255, null=False)
+
+    def __str__(self):
+        return self.name
+
+
+class ChartRanking(models.Model):
+    ranking = models.IntegerField(null=False)
+    chart = models.ForeignKey(Chart, related_name='ranking', on_delete=models.CASCADE)
+    dashboard = models.ForeignKey(Dashboard, related_name='dashboard', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.ranking
+
+
 class AskClaraFeed(models.Model):
     response = models.CharField(max_length=255, null=False)
     datetime = models.DateTimeField(default=timezone.now, null=True)

@@ -63,6 +63,22 @@ def create_datasets(url):
         create_dataset_fields(url, table['name'])
 
 
+def fetch_data_single(url, field_name):
+    # Add on the field we wish to search
+    url = url + 'query?where=1%3D1&returnGeometry=false&f=json' + "&outFields=" + field_name
+    # Request the api url and get the response in JSON
+    r = requests.post(url)
+    json_response = json.loads(r.text)
+
+    # Pull out the values for the field
+    data_list = []
+    for attribute in json_response['features']:
+        data = attribute['attributes'].pop(field_name)
+        # Assign the values to a new variable
+        data_list.append(data)
+    return data_list
+
+
 def fetch_data(url, replace_name, field_name):
     # Add on the field we wish to search
     url = url + 'query?where=1%3D1&returnGeometry=false&f=json' + "&outFields=" + field_name

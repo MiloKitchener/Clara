@@ -1,0 +1,29 @@
+[
+  {
+    "url": "http://localhost:8000/datasets/5/?format=json",
+    "name": "Mock Addresses",
+    "desc": "Civic addresses by property, Some properties have more than one address.",
+    "api_url": "https://services1.arcgis.com/qAo1OsXi67t7XgmS/arcgis/rest/services/Addresses/FeatureServer/0/",
+    "parent_url": "https://services1.arcgis.com/qAo1OsXi67t7XgmS/arcgis/rest/services/Addresses/FeatureServer/",
+    "type": "Open DataFeature Layer",
+    "datetime_updated": "2019-06-12T19:28:18.656748Z"
+  },
+  {
+    "url": "http://localhost:8000/datasets/2/?format=json",
+    "name": "Mock ParkingData__2018",
+    "desc": "",
+    "api_url": "https://services6.arcgis.com/hM5ymMLbxIyWTjn2/ArcGIS/rest/services/ParkingData__2018/FeatureServer/0/",
+    "parent_url": "https://services6.arcgis.com/hM5ymMLbxIyWTjn2/ArcGIS/rest/services/ParkingData__2018/FeatureServer/",
+    "type": "Open DataTable",
+    "datetime_updated": "2019-05-30T16:24:07.147907Z"
+  },
+  {
+    "url": "http://localhost:8000/datasets/1/?format=json",
+    "name": "Mock Traffic Volumes",
+    "desc": "Contains Annual Average Daily Traffic (AADT) volumes for all city-owned streets This layer had address ranges associated with it.",
+    "api_url": "https://services1.arcgis.com/qAo1OsXi67t7XgmS/arcgis/rest/services/Traffic_Volumes/FeatureServer/0/",
+    "parent_url": "https://services1.arcgis.com/qAo1OsXi67t7XgmS/arcgis/rest/services/Traffic_Volumes/FeatureServer/",
+    "type": "Open DataFeature Layer",
+    "datetime_updated": "2019-05-30T16:23:51.963290Z"
+  }
+]

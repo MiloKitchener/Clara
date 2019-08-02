@@ -10,11 +10,13 @@
     </div>
   </div>
   <ul>
-    <li *ngFor="let dashboard of _dashboardService.getDashboards()" routerLinkActive="active">
-      <a [routerLink]="['/main/dashboardsMain/dashboard', dashboard.name]">
-        <span>{{ dashboard.name + " Dashboard"}}</span>
-      </a>
-    </li>
+    <ng-container *ngFor="let dashboard of dashboards">
+      <li routerLinkActive="active">
+        <a [routerLink]="['/main/dashboardsMain/dashboard', dashboard.name]">
+          <span>{{ dashboard.name + " Dashboard"}}</span>
+        </a>
+      </li>
+    </ng-container>
   </ul>
   <button class="add-dashboard-btn" (click)="addDashboard()">Add Dashboard</button>
 </nav>

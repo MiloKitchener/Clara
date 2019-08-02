@@ -32,6 +32,33 @@ class GraphSerializer(serializers.HyperlinkedModelSerializer):
         fields = '__all__'
 
 
+class ChartRankingSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ChartRanking
+        fields = ['ranking', 'chart', 'dashboard']
+
+
+class ChartSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Chart
+        fields = ['id', 'name', 'dashboard', 'type', 'dataset1', 'field1', 'dataset2', 'field2']
+
+
+class DashboardSerializer(serializers.ModelSerializer):
+    charts = ChartSerializer(many=True)
+
+    class Meta:
+        model = Dashboard
+        fields = ['id', 'user', 'name', 'charts']
+
+    def create(self, validated_data):
+        charts = validated_data.pop('charts')
+        dashboard = Dashboard.objects.create(**validated_data)
+        for chart in charts:
+            Chart.objects.create(dashboard=dashboard, **chart)
+        return dashboard
+
+
 class AskClaraFeedSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = AskClaraFeed
