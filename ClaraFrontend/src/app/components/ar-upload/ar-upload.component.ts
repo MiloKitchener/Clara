@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ArService} from '../../services/ar/ar.service';
 
@@ -14,13 +14,13 @@ export class ArUploadComponent implements OnInit {
   uploadForm: FormGroup;
 
   constructor(private fb: FormBuilder,
-              private cd: ChangeDetectorRef,
               private arService: ArService
   ) { }
 
   ngOnInit() {
      this.uploadForm = this.fb.group({
-       file: [null, Validators.required]
+       file: [null, Validators.required],
+       scale: ['', Validators.required]
     });
   }
 

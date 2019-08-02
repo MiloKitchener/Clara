@@ -38,6 +38,8 @@ import { DevicesComponent } from './components/devices/devices.component';
 import { SplashComponent } from './components/splash/splash.component';
 import { DashboardComponent } from './components/dashboards/dashboard/dashboard.component';
 import { ArUploadComponent } from './components/ar-upload/ar-upload.component';
+import { ArComponent } from './components/ar/ar.component';
+import { ArDetailComponent } from './components/ar-detail/ar-detail.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +61,8 @@ import { ArUploadComponent } from './components/ar-upload/ar-upload.component';
     DashboardsMainComponent,
     DashboardComponent,
     ArUploadComponent,
+    ArComponent,
+    ArDetailComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import {environment} from '../../../environments/environment';
 import {HttpClient} from '@angular/common/http';
+import {Observable, of} from 'rxjs';
+import {ARModel} from '../../classes/ar-model';
+import {ARMODELS} from '../../mock/ar-models';
 
 @Injectable({
   providedIn: 'root'
@@ -18,5 +21,9 @@ export class ArService {
       },
       error => console.log('Error', error)
     );
+  }
+
+  getARModels(): Observable<ARModel[]> {
+    return of(ARMODELS);
   }
 }

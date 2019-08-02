@@ -1,4 +1,8 @@
 <form [formGroup]="uploadForm" novalidate (ngSubmit)="onSubmit()">
   <input type="file" (change)="onFileChange($event)"/>
+  <label>
+    Scale
+    <input type="text" formControlName="scale">
+  </label>
   <button type="submit">Submit</button>
 </form>
