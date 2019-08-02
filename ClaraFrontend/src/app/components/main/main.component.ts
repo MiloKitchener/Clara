@@ -21,7 +21,7 @@ export class MainComponent implements OnInit {
   constructor(
     private _profileService: ProfileService,
     private logoutService: AuthService,
-    private _dashboardService: DashboardService
+    public _dashboardService: DashboardService
   ) { }
 
   ngOnInit() {

@@ -24,7 +24,7 @@ export class DashboardComponent implements OnInit {
   // inject the activatated route
   constructor(
     private route: ActivatedRoute,
-    private _dashboardService: DashboardService
+    public _dashboardService: DashboardService
   ) { }
 
   ngOnInit() {
