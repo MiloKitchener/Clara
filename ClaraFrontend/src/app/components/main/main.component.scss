@@ -204,27 +204,41 @@ router-outlet ~ * {
 
 
 .mobile {
-  .main-content {
-    margin-left: 0;
-    width: 100%;
-    transition: margin-left .5s;
-  }
-
   .top-bar {
+    position: fixed;
     margin-left: 0;
     width: 100%;
+    display: block;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.08);
 
     i:first-child {
       margin-left: 0;
+      margin: 10px;
+      float: left;
     }
 
     i:not(:first-child) {
       display: none;
+    }
+    
+    button {
+      float: right;
+      
+      p {
+        display: none;
+      }
     }
   }
 
   nav {
     width: 0;
     transition:  .5s;
+  }
+
+  .main-content {
+    margin-left: 0;
+    padding-top: $top-bar-height;
+    width: 100%;
+    transition: margin-left .5s;
   }
 }
