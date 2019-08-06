@@ -21,20 +21,7 @@
 </div>
 
 <div class="top-container">
-  <!-- Dashboard Info -->
-  <div class="desc-container">
-    <h5>William McKinnon</h5>
-    <h5>Smart City Developer</h5>
-    <h5>Innovation Lab</h5>
-    <hr>
-    <p>
-      {{ dashboard.desc }}
-    </p>
-    <ul class="tags">
-      <li *ngFor="let tag of dashboard.tags">{{ tag }}</li>
-    </ul>
-  </div>
-
+  <!-- Main Chart -->
   <div class="main-chart">
     <div class="chart-top-panel">
       <h2>{{ dashboard.mainChart.name }}</h2>
@@ -60,6 +47,20 @@
       [chartType]="dashboard.mainChart.type">
     </canvas>
   </div>
+  
+  <!-- Dashboard Info -->
+  <div class="desc-container">
+      <h5>William McKinnon</h5>
+      <h5>Smart City Developer</h5>
+      <h5>Innovation Lab</h5>
+      <hr>
+      <p>
+        {{ dashboard.desc }}
+      </p>
+      <ul class="tags">
+        <li *ngFor="let tag of dashboard.tags">{{ tag }}</li>
+      </ul>
+    </div>
 </div>
 
 <ul class="charts-container">

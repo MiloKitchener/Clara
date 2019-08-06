@@ -41,6 +41,7 @@
   align-items: center;
   
   .desc-container {
+    order: 1;
     width: 30%;
     text-align: left;
 
@@ -77,6 +78,7 @@
   }
 
   .main-chart {
+    order: 2;
     background-color: white;
     width: 62%;
     padding: 20px;
@@ -135,6 +137,23 @@
   .ul {
     /* When on medium sized screens, we center it by evenly distributing empty space around items */
     justify-content: space-around;
+  }
+}
+
+
+@media all and (max-width: 750px) {
+  .top-container {
+    display: block;
+
+    .desc-container {
+      width: 100%;
+    }
+
+    .main-chart {
+      margin: auto;
+      margin-bottom: 30px;
+      width: 90%;
+    }
   }
 }
 
