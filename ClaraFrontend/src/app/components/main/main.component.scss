@@ -18,7 +18,7 @@
   box-shadow: $main-box-shadow;
 
   i:first-child {
-  margin-left: auto;
+    margin-left: auto;
   }
 
   i:hover {
@@ -91,6 +91,7 @@ nav {
   width: 16%;
   height: 100%;
   background-color: $color-nav;
+  overflow-x: hidden;
 
   i {
     color: #8E8F93;
@@ -194,4 +195,36 @@ router-outlet {
 
 router-outlet ~ * {
   position: absolute; // allows animations
+}
+
+
+/***********************************
+  Mobile CSS
+***********************************/
+
+
+.mobile {
+  .main-content {
+    margin-left: 0;
+    width: 100%;
+    transition: margin-left .5s;
+  }
+
+  .top-bar {
+    margin-left: 0;
+    width: 100%;
+
+    i:first-child {
+      margin-left: 0;
+    }
+
+    i:not(:first-child) {
+      display: none;
+    }
+  }
+
+  nav {
+    width: 0;
+    transition:  .5s;
+  }
 }

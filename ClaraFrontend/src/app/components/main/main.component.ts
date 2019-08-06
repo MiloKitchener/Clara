@@ -14,9 +14,11 @@ import { User } from 'src/app/classes/user';
 })
 
 export class MainComponent implements OnInit {
-  // user profile vars
+  
   user: User;
   screenIcon: string;
+  mobile: boolean;
+  sideNav: boolean;
 
   constructor(
     private _profileService: ProfileService,
@@ -27,6 +29,8 @@ export class MainComponent implements OnInit {
   ngOnInit() {
     this.screenIcon = "fullscreen";
     this.user = this._profileService.getUser();
+    this.mobile = detectmob();
+    this.sideNav = false;
   }
 
   /*********************
@@ -34,10 +38,29 @@ export class MainComponent implements OnInit {
    ********************/
 
   // logs user out of the site, returns to login page
-  public logout() {
+  public logout(): void {
     this.logoutService.logout();
     // Reload the current page without the browser cache
     location.reload(true);
+  }
+
+  public toggleSideNav(): void {
+    if(this.sideNav == false) {
+      // open nav
+      document.getElementById("side-navigation").style.width = "250px";
+      document.getElementById("top-bar").style.marginLeft = "250px";
+      document.getElementById("main").style.marginLeft = "250px";
+      document.getElementById("toggle-nav-btn").style.display = "none";
+      this.sideNav = true;
+    }
+    else {
+      // close nav
+      document.getElementById("side-navigation").style.width = "0";
+      document.getElementById("top-bar").style.marginLeft = "0";
+      document.getElementById("main").style.marginLeft = "0";
+      document.getElementById("toggle-nav-btn").style.display = "block";
+      this.sideNav = false;
+    }
   }
 
   // toggles fullscreen
@@ -82,10 +105,24 @@ export class MainComponent implements OnInit {
     }
   }
 
-
-
   addDashboard() {
     var name = prompt("What is the Dashboard's Name?");
     this._dashboardService.addDashboard(name);
   }
 }
+
+function detectmob() { 
+  if( navigator.userAgent.match(/Android/i)
+  || navigator.userAgent.match(/webOS/i)
+  || navigator.userAgent.match(/iPhone/i)
+  || navigator.userAgent.match(/iPad/i)
+  || navigator.userAgent.match(/iPod/i)
+  || navigator.userAgent.match(/BlackBerry/i)
+  || navigator.userAgent.match(/Windows Phone/i)
+  ){
+     return true;
+   }
+  else {
+     return false;
+   }
+ }
