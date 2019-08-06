@@ -7,6 +7,7 @@ import { Dashboard } from 'src/app/classes/dashboard';
 
 // import service
 import { DashboardService } from 'src/app/services/dashboard/dashboard.service';
+import { GraphDataService } from 'src/app/services/graph-data/graph-data.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -24,7 +25,8 @@ export class DashboardComponent implements OnInit {
   // inject the activatated route
   constructor(
     private route: ActivatedRoute,
-    public _dashboardService: DashboardService
+    public _dashboardService: DashboardService,
+    private _graphDataService: GraphDataService
   ) { }
 
   ngOnInit() {
@@ -35,6 +37,13 @@ export class DashboardComponent implements OnInit {
     });
     this.displayAddChartPanel = false;
     this.screenIcon = "fullscreen";
+
+    // hide graph panel when its closed button is pressed
+    this._graphDataService.closePanel.subscribe(
+      (userChartData: any) => {
+        this.toggleAddChartPanel();
+      }
+    );
   }
 
   toggleAddChartPanel(): void {

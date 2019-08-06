@@ -11,6 +11,7 @@ export class GraphDataService {
   private datasets: any;
   private userChartData = [];
   public userDataUpdate = new EventEmitter();
+  public closePanel = new EventEmitter();
 
   constructor(private http: HttpClient) {
     // GET datasets
@@ -71,5 +72,10 @@ export class GraphDataService {
         this.userDataUpdate.emit(this.userChartData);
       }
     );
+  }
+
+  // emits message to hide graph panel
+  closeGraphPanel() {
+    this.closePanel.emit();
   }
 }
