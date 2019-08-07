@@ -24,7 +24,7 @@ import { DevicesComponent } from './components/devices/devices.component';
 import { SplashComponent } from './components/splash/splash.component';
 import {ArComponent} from './components/ar/ar.component';
 import {ArDetailComponent} from './components/ar-detail/ar-detail.component';
-import {ArUploadComponent} from "./components/ar-upload/ar-upload.component";
+import {ArUploadComponent} from './components/ar-upload/ar-upload.component';
 
 // define routes
 const routes: Routes = [
@@ -44,7 +44,7 @@ const routes: Routes = [
       { path: 'dataset', component: DatasetComponent, data: { title: 'Dataset' } },
       { path: 'alexa-feed', component: AlexaFeedComponent, data: { title: 'Alexa Feed' } },
       { path: 'data-ar', component: ArComponent, data: { title: 'Data AR' } },
-      { path: 'data-ar/:id', component: ArDetailComponent },
+      // { path: 'data-ar/:id', component: ArDetailComponent },
       { path: 'data-ar/upload', component: ArUploadComponent, data: { title: 'Upload Model' } },
       { path: 'ideas', component: IdeasComponent, data: { title: 'Ideas' } },
       { path: 'lab-services', component: LabServicesComponent, data: { title: 'Lab-Services' } },

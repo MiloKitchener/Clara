@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {HTTP_INTERCEPTORS, HttpClientModule, HttpInterceptor} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 
 
 import { MatMenuModule, MatButtonModule } from '@angular/material';
@@ -35,8 +35,6 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { LiveDataGraphPanelComponent } from './components/live-data-graph-panel/live-data-graph-panel.component';
 import { DevicesComponent } from './components/devices/devices.component';
 import { SplashComponent } from './components/splash/splash.component';
-import {environment} from '../environments/environment.mock';
-import { DashboardComponent } from './components/dashboards/dashboard/dashboard.component';
 import { ArUploadComponent } from './components/ar-upload/ar-upload.component';
 import { ArComponent } from './components/ar/ar.component';
 import { ArDetailComponent } from './components/ar-detail/ar-detail.component';
