@@ -81,3 +81,15 @@ class APICredentialsSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = APICredentials
         fields = '__all__'
+
+
+class ARModelSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ARModel
+        fields = '__all__'
+
+
+class ARDataSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ARData
+        fields = '__all__'

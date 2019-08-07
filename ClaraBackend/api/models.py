@@ -112,3 +112,13 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.comment
+
+
+class ARModel(models.Model):
+    name = models.CharField(max_length=255, null=False)
+    scale = models.FloatField(null=False, default=1.0)
+
+
+class ARData(models.Model):
+    url = models.CharField(max_length=255, null=False)
+    model = models.ForeignKey(ARModel, on_delete=models.CASCADE)

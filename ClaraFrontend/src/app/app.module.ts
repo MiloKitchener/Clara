@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule, HttpInterceptor} from '@angular/common/http';
 
 
 import { MatMenuModule, MatButtonModule } from '@angular/material';
@@ -36,8 +36,15 @@ import { LiveDataGraphPanelComponent } from './components/live-data-graph-panel/
 import { DevicesComponent } from './components/devices/devices.component';
 import { SplashComponent } from './components/splash/splash.component';
 import {environment} from '../environments/environment.mock';
+import { DashboardComponent } from './components/dashboards/dashboard/dashboard.component';
+import { ArUploadComponent } from './components/ar-upload/ar-upload.component';
+import { ArComponent } from './components/ar/ar.component';
+import { ArDetailComponent } from './components/ar-detail/ar-detail.component';
+import {environment} from '../environments/environment';
 import {HttpMockInterceptor} from './classes/http-mock-interceptor';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import {HttpRequestInterceptor} from './classes/http-request-interceptor';
+import {FileSelectDirective} from 'ng2-file-upload';
 
 export const isMock = environment.mock;
 
@@ -59,6 +66,10 @@ export const isMock = environment.mock;
     DevicesComponent,
     SplashComponent,
     DashboardComponent,
+    ArUploadComponent,
+    ArComponent,
+    ArDetailComponent,
+    FileSelectDirective
   ],
   imports: [
     BrowserModule,
@@ -82,7 +93,7 @@ export const isMock = environment.mock;
     },
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: isMock ? HttpMockInterceptor : null,
+      useClass: isMock ? HttpMockInterceptor : HttpRequestInterceptor,
       multi: true
     }
   ],

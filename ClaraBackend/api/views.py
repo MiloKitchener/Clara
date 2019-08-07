@@ -1,5 +1,7 @@
+from botocore.exceptions import ClientError
 from rest_framework.pagination import LimitOffsetPagination
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.status import HTTP_200_OK
 from rest_framework.views import APIView
 from django.http import HttpResponse
 from rest_framework.response import Response
@@ -14,6 +16,9 @@ from rest_framework.decorators import action
 from rest_framework.reverse import reverse
 import requests
 import pandas as pd
+import boto3
+import os
+
 
 @csrf_exempt
 def signup(request):
@@ -48,6 +53,7 @@ class DatasetView(viewsets.ModelViewSet):
         if data_type is not None:
             queryset = queryset.filter(type=data_type)
         return queryset
+
     serializer_class = DatasetSerializer
 
     # Get fields for dataset
@@ -115,19 +121,18 @@ class PermissionView(viewsets.ModelViewSet):
 
 
 class APICredentialsView(viewsets.ModelViewSet):
-
-    #authenticate the user
-  #  permission_classes = (IsAuthenticated,)
+    # authenticate the user
+    #  permission_classes = (IsAuthenticated,)
 
     queryset = APICredentials.objects.all()
     serializer_class = APICredentialsSerializer
 
     def create(self, request, **kwargs):
         # verify if the credentials are correct
-        #before new credentials are created add in the user's id
+        # before new credentials are created add in the user's id
 
         # TODO: uncomment the below code when front end for 3rd Party API is done
-        #request.data['user'] = reverse('user-detail', kwargs={'pk': request.user.id})
+        # request.data['user'] = reverse('user-detail', kwargs={'pk': request.user.id})
         return super(APICredentialsView, self).create(request)
 
     # Get permissions for user
@@ -191,9 +196,9 @@ class DashboardView(viewsets.ModelViewSet):
     serializer_class = DashboardSerializer
 
     # def create(self, request, **kwargs):
-        # Before the Dashboard object is created, fill in the user field
-        # request.data['user'] = reverse('user-detail', kwargs={'pk': request.user.id})
-        # return super(DashboardView, self).create(request)
+    # Before the Dashboard object is created, fill in the user field
+    # request.data['user'] = reverse('user-detail', kwargs={'pk': request.user.id})
+    # return super(DashboardView, self).create(request)
 
     @action(detail=False)
     def get_dashboards(self, request):
@@ -269,34 +274,63 @@ class CommentView(viewsets.ModelViewSet):
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
 
+
+class ARModelView(viewsets.ModelViewSet):
+    queryset = ARModel.objects.all()
+    serializer_class = ARModelSerializer
+
+    @action(detail=False, methods=['post'])
+    def generate_presigned_url(self, request):
+        s3_client = boto3.client('s3')
+        try:
+            response = s3_client.generate_presigned_url(
+                'put_object',
+                Params={
+                    'Bucket': 'clara-data-ar',
+                    'Key': request.data['name'],
+                    'ACL': 'public-read'
+                }
+            )
+        except ClientError as e:
+            print(e)
+            return None
+
+        # The response contains the presigned URL
+        return Response(response)
+
+
+class ARDataView(viewsets.ModelViewSet):
+    queryset = ARData.objects.all()
+    serializer_class = ARDataSerializer
+
+
 # return list of {latitude, longitude, device ID} objects
 # list will be used to add location pins to a map object
 def map_pins(request):
-
     # TODO: Change this back to post after response is verifies
     if request.method == 'GET':
-       # data = json.loads(request.body)
+        # data = json.loads(request.body)
         # list of values to be returned
         ret_list = []
         # hard coded
         url = 'https://slv.prod03.ssn.ssnsgs.net:8443/reports'
         type = 'third_party'
         # TODO: test this after hard coding works
-        #type = data.get('type')
-        #url =  data.get('api_url')
+        # type = data.get('type')
+        # url =  data.get('api_url')
 
         if type == 'third_party':
             # third party dataset
 
             # TODO: Think of ways to make this modular and not hard coded.
-            #payload = {
+            # payload = {
             #    'latMin': '43.4513',
             #    'latMax': '43.4513',
             #    'lngMin': '80.4981',
             #    'lngMax': '80.4981',
             #    'maxDevices': '10',
             #    'ser': 'json'
-            #}
+            # }
             # kitchener geozone id: 5760
             payload = {
                 'geozoneId': '5760',
@@ -305,9 +339,9 @@ def map_pins(request):
                 'ser': 'json'
             }
 
-            url =  'https://slv.prod03.ssn.ssnsgs.net: 8443/reports/api/asset/getGeoZoneDevices?geoZoneId=6638&ser=json&slvSystemServiceRequestTime=1560523889116'
+            url = 'https://slv.prod03.ssn.ssnsgs.net: 8443/reports/api/asset/getGeoZoneDevices?geoZoneId=6638&ser=json&slvSystemServiceRequestTime=1560523889116'
             device_list = requests.post(url, auth=('*****', '*****'))
-            #device_list = requests.post(url + "/api/asset/getGeozoneDevices", data=payload, auth=('*****', '*****!'))
+            # device_list = requests.post(url + "/api/asset/getGeozoneDevices", data=payload, auth=('*****', '*****!'))
             # json_list = json.dumps(device_list.content.decode('utf8'))
             print(device_list.text)
             df_devices = pd.read_json(device_list.content.decode('utf8'))
@@ -324,6 +358,7 @@ def map_pins(request):
 
     else:
         return 'err'
+
 
 def channels(request):
     return render(request, 'templates/api/channels.html')

@@ -1,0 +1,14 @@
+<h2>AR Models</h2>
+<a routerLink="/upload">
+  <span>Add AR Model</span>
+</a>
+<ul class="models">
+  <!-- Adds selected to class of li if the model is selected -->
+  <li *ngFor="let model of arModels"
+    [class.selected]="model === selectedARModel"
+    (click)="onSelect(model)">
+    <span class="badge">{{model.id}}</span> {{model.name}}
+  </li>
+</ul>
+
+<app-ar-detail [arModel]="selectedARModel"></app-ar-detail>
