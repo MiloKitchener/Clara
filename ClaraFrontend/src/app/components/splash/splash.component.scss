@@ -201,23 +201,18 @@ h2 {
 }
 
 .features-point {
-  display: flex;
+  display: inline-flex;
   justify-content: space-between;
   align-items: center;
-  width: 85%;
-  margin: auto;
-  margin-top: 30px;
-  margin-bottom: 70px;
-  text-align: justify;
+  width: 90%;
+  margin: 30px auto;
 
   img {
-    flex-basis: 45%;
+    width: 45%;
   }
 
   div {
-    box-sizing: border-box;
-    padding: 30px;
-    flex-basis: 45%;
+    width: 45%;
   }
 
   h3 {
@@ -229,6 +224,7 @@ h2 {
   
   p {
     font-size: 14pt;
+    text-align: justify;
   }
 }
 
