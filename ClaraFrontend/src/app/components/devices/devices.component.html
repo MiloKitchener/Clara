@@ -1,5 +1,18 @@
 <h1>Devices</h1>
 
 <div class="container">
-	<p>Sample Element</p>
+  <div class="devices_list">
+    <ul>
+      <li *ngFor="let device of devices">
+        {{ device.name }}
+        <ul>
+          <li *ngFor="let sensor of device.sensors">
+            {{ sensor }}
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="map"></div>
 </div>

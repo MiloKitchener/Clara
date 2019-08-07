@@ -1,0 +1,166 @@
+@import "../../../variables.scss";
+
+.name-settings-panel {
+  display: flex;
+  align-items: center;
+  padding: 20px 80px;
+  background: $blue-gradient;
+  color: white;
+  
+  h1 {
+    text-align: left;
+    flex: 1;
+    font-weight: 500;
+  }
+}
+
+.add-chart-btn {
+  border: 0;
+  padding: 0;
+  color: white;
+  background-color: inherit;
+  transition: $main-hover-transition;
+
+  &:hover {
+    color: #EFEFEF;
+    transition: $main-hover-transition;
+  }
+}
+
+.add-chart-panel {
+  z-index: 10;
+  margin-left: 20%;
+  position: fixed;
+}
+
+.top-container {
+  width: 90%;
+  margin: 50px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  .desc-container {
+    order: 1;
+    width: 30%;
+    text-align: left;
+
+    h5 {
+      margin: 0;
+      font-weight: 400;
+      font-size: 1.5vh;
+    }
+
+    p {
+      text-align: justify;
+      font-weight: 400;
+      font-size: 1.3vh;
+    }
+
+    .tags {
+      list-style-type: none;
+      padding: 0;
+      width: 100%;
+      
+      li {
+        padding: 8px 16px;
+        color: white;
+        background-color: $color-primary;
+        display: inline-block;
+        margin-bottom: $tag-spacing;
+        border-radius: 7px;
+
+        &:not(:last-child) {
+          margin-right: $tag-spacing;
+        }
+      }
+    }
+  }
+
+  .main-chart {
+    order: 2;
+    background-color: white;
+    width: 62%;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: $main-box-shadow;
+  }
+}
+
+.chart-top-panel {
+  display: flex;
+  margin-top: -15px;
+
+  h2 {
+    width: 95%;
+    text-align: left;
+    font-weight: 500;
+  }
+
+  > div {
+    display: flex;
+    align-items: center;
+    margin-top: -20px;
+    margin-right: -20px;
+  }
+}
+
+.charts-container {
+  display: flex;
+  padding: 0;
+  width: 95%;
+  margin: auto;
+  list-style-type: none;
+  justify-content: space-around;
+  align-content: space-around;
+  flex-flow: row wrap;
+
+  li {
+    width: auto;
+    height: auto;
+    margin: auto;
+    margin-bottom: 3%;
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: $main-box-shadow;
+
+    i {
+      cursor: pointer;
+    }
+  }
+}
+
+
+/* Medium screens */
+@media all and (max-width: 800px) {
+  .ul {
+    /* When on medium sized screens, we center it by evenly distributing empty space around items */
+    justify-content: space-around;
+  }
+}
+
+
+@media all and (max-width: 750px) {
+  .top-container {
+    display: block;
+
+    .desc-container {
+      width: 100%;
+    }
+
+    .main-chart {
+      margin: auto;
+      margin-bottom: 30px;
+      width: 90%;
+    }
+  }
+}
+
+/* Small screens */
+@media all and (max-width: 500px) {
+  .ul {
+    /* On small screens, we are no longer using row direction but column */
+    flex-direction: column;
+  }
+}

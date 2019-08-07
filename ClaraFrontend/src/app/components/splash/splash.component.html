@@ -1,3 +1,4 @@
+<!-- Nav Bar -->
 <nav [ngClass]="{'active':whiteNavbar === true}">
   <img src="./assets/images/clara_icon.png" alt="" id="thumbnail">
   
@@ -9,15 +10,16 @@
   <ul>
     <li><a (click)="scroll(top)">Home</a></li>
     <li><a (click)="scroll(features)">Features</a></li>
-    <li><a (click)="scroll(services)">Services</a></li>
-    <li><a (click)="scroll(clients)">Clients</a></li>
-    <li><a (click)="scroll(pricing)">Pricing</a></li>
-    <li><a (click)="scroll(download)">Download</a></li>
+    <li><a>Services</a></li>
+    <li><a>Clients</a></li>
+    <li><a>Pricing</a></li>
+    <li><a>Download</a></li>
   </ul>
 </nav>
 
+
+<!-- Header with Product Image -->
 <div class="top" #top>
-  <!-- https://www.freepik.com/free-psd/laptop-mock-up-design_1053179.htm -->
   <h1>Clara: A Muncipal Data Collection</h1>
   <h1>and Visualization Platform.</h1>
 
@@ -26,6 +28,7 @@
   </div>
 </div>
 
+<!-- Steps -->
 <div class="main">
   <div class="images">
     <div class="image-with-definition">
@@ -42,7 +45,6 @@
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent aliquet congue sem nec luctus. Vivamus dictum, risus nec imperdiet fringilla, orci tellus dignissim felis, eu vulputate est nisi sed purus.</p>
     </div>
     
-    
     <i class="material-icons-round right-arrow">arrow_forward_ios</i>
     
     <div class="image-with-definition">
@@ -52,6 +54,7 @@
     </div>
   </div>
 
+  <!-- Features -->
   <div class="features" #features>
     <h2>Features</h2>
     <div class="features-point">
@@ -78,6 +81,7 @@
   </div>
 </div>
 
+<!-- Footer -->
 <footer>
   <p>Digital Kitchener Innovation Lab</p>
   <div class="social-media-icons-panel">

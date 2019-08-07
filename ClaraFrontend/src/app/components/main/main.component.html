@@ -1,72 +1,108 @@
-<nav>
-  <!-- Clara Icon -->
-  <img src="./assets/images/clara_icon.png" alt="">
+<div [ngClass]="{'mobile': mobile}">
+  <div class="top-bar" id="top-bar">
+    <ng-container *ngIf="mobile === true">
+      <i class="material-icons-round" (click)="toggleSideNav()" id="toggle-nav-btn">menu</i>
+    </ng-container>
 
-  <ul>
-    <!-- Dashboards Nav -->
-    <li routerLinkActive="active">
-      <a routerLink="dashboardsMain">
-        <span>Dashboards</span>
-      </a>
-    </li>
-    <!-- Devices Nav -->
-    <li routerLinkActive="active">
-      <a routerLink="devices">
-        <span>Devices</span>
-      </a>
-    </li>
-    <!-- Datasets Nav -->
-    <li routerLinkActive="active">
-      <a routerLink="dataset">
-        <span>Datasets</span>
-      </a>
-    </li>
-    <!-- Ideas Nav -->
-    <li routerLinkActive="active">
-      <a routerLink="ideas">
-        <span>Ideas</span>
-      </a>
-    </li>
-    <!-- Datasets Nav -->
-    <li routerLinkActive="active">
-      <a routerLink="lab-services">
-        <span>Lab Services</span>
-      </a>
-    </li>
-    <!-- Alexa Nav -->
-    <li routerLinkActive="active">
-      <a routerLink="alexa-feed">
-        <span>Alexa</span>
-      </a>
-    </li>
-  </ul>
+    <i class="material-icons-round" (click)="toggleFullScreen()">{{ screenIcon }}</i>
+    <i class="material-icons-round">notifications</i>
 
-  <i class="material-icons-round" (click)="toggleFullScreen()">{{ screenIcon }}</i>
-  <i class="material-icons-round">notifications</i>
-
-  <!-- Profile Settings -->
-  <button mat-button [matMenuTriggerFor] = "menu">
-    <img class="user-icon" src="./assets/images/avatar.png" alt="">
-  </button>
-  <mat-menu #menu = "matMenu">
-    <button mat-menu-item>
-        <a routerLink="profile">
-          <span>
-            <i class="material-icons-round">account_box</i>
+    <!-- Profile Settings -->
+    <button mat-button [matMenuTriggerFor]="menu">
+      <img class="user-icon" src="./assets/images/avatar.png" alt="">
+      <span>{{ user.name }}</span>
+      <i class="material-icons-round">keyboard_arrow_down</i>
+    </button>
+    <mat-menu #menu = "matMenu">
+      <button mat-menu-item>
+        <span>
+          <i class="material-icons-round">account_box</i>
             Profile
           </span>
-        </a>
+        </button>
+      <button mat-menu-item (click)="logout()">
+        <span>
+          <i class="material-icons-round">exit_to_app</i>
+          Log Out
+        </span>
       </button>
-    <button mat-menu-item (click)="logout()">
-      <span>
-        <i class="material-icons-round">exit_to_app</i>
-        Log Out
-      </span>
-    </button>
-  </mat-menu>
-</nav>
+    </mat-menu>
+  </div>
 
-<!-- Routed Elements -->
-<div class="main-content"> <!--(click)="hideNav()">-->
-  <router-outlet #o="outlet"></router-outlet>
+  <nav id="side-navigation">
+    <div class="nav-top">
+      <div class="top-icon-button-container">
+        <img class="clara-icon" src="./assets/images/clara_icon.png" alt="">
+        <ng-container *ngIf="mobile === true">
+          <i class="material-icons-round" (click)="toggleSideNav()">menu</i>
+        </ng-container>
+      </div>
+      <div class="profile-thumbnail">
+        <h3> {{user.name}} </h3>
+        <h5> {{user.title}} </h5>
+        <img src="./assets/images/avatar.png" alt="">
+      </div>
+    </div>
+
+    <ul>
+      <!-- Dashboards Nav -->
+      <div class="dashboard-header">
+        <h5 class="nav-header">DASHBOARDS</h5>
+        <button class="add-dashboard-btn" (click)="addDashboard()">
+          <i class="material-icons-round">add_circle</i>
+        </button>
+      </div>
+
+      <li *ngFor="let dashboard of _dashboardService.getDashboards()" routerLinkActive="active">
+        <a [routerLink]="['dashboard', dashboard.name]">
+          <i class="material-icons-outlined">dashboard</i>
+          <span>{{ dashboard.name + " Dashboard"}}</span>
+        </a>
+      </li>
+
+      <h5 class="nav-header">DEVICES & DATASETS</h5>
+      <!-- Devices Nav -->
+      <li routerLinkActive="active">
+        <a routerLink="devices">
+          <i class="material-icons-round">devices</i>
+          <span>Devices</span>
+        </a>
+      </li>
+      <!-- Datasets Nav -->
+      <li routerLinkActive="active">
+        <a routerLink="dataset">
+          <i class="material-icons-round">data_usage</i>
+          <span>Datasets</span>
+        </a>
+      </li>
+
+      <h5 class="nav-header">COMMUNICATION</h5>
+      <!-- Ideas Nav -->
+      <li routerLinkActive="active">
+        <a routerLink="ideas">
+          <i class="material-icons-outlined">highlight</i>
+          <span>Ideas</span>
+        </a>
+      </li>
+      <!-- Datasets Nav -->
+      <li routerLinkActive="active">
+        <a routerLink="lab-services">
+          <i class="material-icons-round">calendar_today</i>
+          <span>Lab Services</span>
+        </a>
+      </li>
+      <!-- Alexa Nav -->
+      <li routerLinkActive="active">
+        <a routerLink="alexa-feed">
+            <i class="material-icons-round">sentiment_satisfied</i>
+          <span>Alexa</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Routed Elements -->
+  <div class="main-content" id="main">
+    <router-outlet #o="outlet"></router-outlet>
+  </div>
 </div>

@@ -7,6 +7,7 @@ import { Dashboard } from 'src/app/classes/dashboard';
 
 // Import service
 import { DashboardService } from 'src/app/services/dashboard/dashboard.service';
+import { GraphDataService } from 'src/app/services/graph-data/graph-data.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -20,18 +21,15 @@ export class DashboardComponent implements OnInit {
   dashboard: Dashboard = new Dashboard('');
   displayAddChartPanel: boolean;
   screenIcon: string;
-
-  fullscreenChartHeight: string;
-  fullscreenChartWidth: string;
   options = {
     responsive: true
   };
-
   public dashboards: Dashboard[] = [];
 
-  // Inject the activated route
+  // Inject the activatated route
   constructor(
     private route: ActivatedRoute,
+    private _graphDataService: GraphDataService
     private dashboardService: DashboardService
   ) { }
 
@@ -60,8 +58,12 @@ export class DashboardComponent implements OnInit {
     this.displayAddChartPanel = false;
     this.screenIcon = 'fullscreen';
 
-    this.fullscreenChartHeight = '0';
-    this.fullscreenChartWidth = '0';
+    // hide graph panel when its closed button is pressed
+    this._graphDataService.closePanel.subscribe(
+      (userChartData: any) => {
+        this.toggleAddChartPanel();
+      }
+    );
   }
 
   toggleAddChartPanel(): void {
@@ -82,6 +84,16 @@ export class DashboardComponent implements OnInit {
     this.dashboard.charts.splice(index, 1);
   }
 
+  increaseSize(index: number) {
+    var chart = (<HTMLElement[]><any>document.getElementsByClassName("charts"))[index];
+    chart.style.width = "100vw";
+  }
+
+  decreaseSize(index: number) {
+    var chart = (<HTMLElement[]><any>document.getElementsByClassName("charts"))[index];
+    chart.style.width = "20vw";
+  }
+
   // toggles chart in fullscreen
   public toggleFullScreen(index: number): void {
 
@@ -89,9 +101,7 @@ export class DashboardComponent implements OnInit {
     if (this.screenIcon === 'fullscreen') {
       const fullscreenChart = (document.getElementsByClassName('charts') as any as HTMLElement[])[index];
 
-      // save previous size
-      this.fullscreenChartWidth = fullscreenChart.style.width;
-      this.fullscreenChartHeight = fullscreenChart.style.height;
+      fullscreenChart.style.padding = "100px";
 
       const docElmWithBrowsersFullScreenFunctions = fullscreenChart as HTMLElement & {
         mozRequestFullScreen(): Promise<void>;
@@ -127,9 +137,8 @@ export class DashboardComponent implements OnInit {
       this.screenIcon = 'fullscreen';
 
       // return chart to normal size
-      const fullscreenChart = (document.getElementsByClassName('charts') as any as HTMLElement[])[index];
-      fullscreenChart.style.width = this.fullscreenChartWidth;
-      fullscreenChart.style.height = this.fullscreenChartHeight;
+      var fullscreenChart = (<HTMLElement[]><any>document.getElementsByClassName("charts"))[index];
+      fullscreenChart.style.padding = "20px";
     }
   }
 }

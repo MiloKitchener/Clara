@@ -93,6 +93,11 @@ The first step to setting up Clara on your local machine will be to download all
 6. Run “python manage.py runserver” to start a server up
 7. Navigate to the backend using the URL: http://localhost:8000
 
+### Electron: ###
+1. Navigate to ClaraFrontend
+2. Run `npm install`
+3. Run `npm run electron`
+
 <a name="alexaIntegration"></a>
 ## Alexa Integration ##
 To set up an Alexa skill [follow this tutorial](https://developer.amazon.com/docs/custom-skills/steps-to-build-a-custom-skill.html)

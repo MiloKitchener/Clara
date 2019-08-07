@@ -189,4 +189,8 @@ export class GraphPanelComponent implements OnInit {
     document.getElementById(idTabContent).style.display = 'flex';
     document.getElementById(idTab).className += ' active';
   }
+
+  closeGraphPanel() {
+    this.graphDataService.closeGraphPanel();
+  }
 }

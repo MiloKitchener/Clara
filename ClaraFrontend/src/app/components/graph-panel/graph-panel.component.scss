@@ -155,3 +155,16 @@ ul {
 .tabcontent {
   display: none;
 }
+
+.close-btn {
+  float: right;
+  padding: 0 10px;
+  width: auto;
+  background-color: #eb3b3b;
+  transition: $main-hover-transition;
+
+  &:hover {
+    background-color: #d51616;
+    transition: $main-hover-transition;
+  }
+}

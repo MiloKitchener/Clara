@@ -12,21 +12,22 @@ import {HttpClient} from '@angular/common/http';
 
 export class DashboardService {
 
-  constructor(private http: HttpClient, private router: Router) {
-    // GET Dashboards
-
-  /* [{
-      name: 'Main',
+  constructor( private router: Router ) {
+    // GET Dashboard Names
+    this.dashboards = [{
+      name: "Main",
+      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt ut enim ac egestas. Quisque sit amet odio ornare, congue dui sit amet, ultricies nibh. Maecenas convallis ullamcorper efficitur. Aliquam blandit enim metus, quis tincidunt eros venenatis et. Vivamus sollicitudin tellus ac hendrerit volutpat. Fusce porta nunc risus, vestibulum fringilla velit pharetra at. Phasellus id urna quis lorem accumsan mollis.",
+      tags: ["Digital", "Smart City", "Innovation", "Co-op Student", "Main"],
       charts: [
         {
-          name: 'Chart Main',
-          type: 'bar',
+          name: "Chart Main",
+          type: "bar",
           labels: ['2006', '2007', '2008', '2009', '2010', '2011', '2012'],
           data: [{data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A'}, {data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B'}]
         },
         {
-          name: 'Chart 1',
-          type: 'bar',
+          name: "Chart 1",
+          type: "bar",
           labels: ['2006', '2007', '2008', '2009', '2010', '2011', '2012'],
           data: [{data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A'}, {data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B'}]
         }, {
@@ -76,7 +77,10 @@ export class DashboardService {
             }]
         },
       ]
-    }];*/
+    }];
+
+    var mobileDashboard = new Dashboard("Mobile");
+    this.dashboards.push(mobileDashboard);;
   }
 
   getDashboard(dashboards: Dashboard[], dashboardName: string): Dashboard {
