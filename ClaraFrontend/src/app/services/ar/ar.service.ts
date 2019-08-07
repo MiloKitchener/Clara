@@ -1,29 +1,32 @@
 import { Injectable } from '@angular/core';
 import {environment} from '../../../environments/environment';
 import {HttpClient} from '@angular/common/http';
-import {Observable, of} from 'rxjs';
 import {ARModel} from '../../classes/ar-model';
-import {ARMODELS} from '../../mock/ar-models';
+import {Observable} from 'rxjs';
+import {FileUploader} from 'ng2-file-upload';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ArService {
 
-  private uploadURL: string = environment.backendIP + 'ARModels/upload_model/';
+  public uploader: FileUploader = new FileUploader({disableMultipart: true});
 
   constructor(private http: HttpClient) { }
 
-  upload(uploadForm) {
-    return this.http.post(this.uploadURL, uploadForm.values).subscribe(
-      response => {
-        // File upload successful
-      },
-      error => console.log('Error', error)
-    );
+  generatePresignedURL(name: string, fileType: string): Observable<string> {
+    return this.http.post<string>(environment.backendIP + 'ARModels/generate_presigned_url/', {name, file_type: fileType});
+  }
+
+  createARModel(arModel: ARModel) {
+    return this.http.post(environment.backendIP + 'ARModels/', arModel);
   }
 
   getARModels(): Observable<ARModel[]> {
-    return of(ARMODELS);
+    return this.http.get<ARModel[]>(environment.backendIP + 'ARModels/');
+  }
+
+  updateARModels(arModel: ARModel) {
+    return this.http.put(environment.backendIP + 'ARModels/' + arModel.id + '/', arModel);
   }
 }

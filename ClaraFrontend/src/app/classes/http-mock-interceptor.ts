@@ -4,6 +4,8 @@ import { Observable, of } from 'rxjs';
 import {environment} from '../../environments/environment';
 // @ts-ignore
 import * as datasets from '../mock/datasets.json';
+// @ts-ignore
+import * as arModels from '../mock/ar-models.json';
 
 const urls = [
     {
@@ -11,8 +13,8 @@ const urls = [
         json: datasets
     },
     {
-        url: environment.backendIP + 'datasets/',
-        json: datasets
+        url: environment.backendIP + 'ARModels/',
+        json: arModels
     }
 ];
 

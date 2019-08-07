@@ -1,12 +1,8 @@
 <div *ngIf="arModel">
   <h2>{{arModel.name | uppercase}} Details</h2>
-  <form [formGroup]="updateARModelForm" (ngSubmit)="onSubmit()">
-    <label>Name:
-      <input type="text" formControlName="name"/>
-    </label>
-    <br/>
+  <form [formGroup]="updateARModelForm" (ngSubmit)="onSave()">
     <label>Scale:
-      <input type="text" formControlName="scale">
+      <input type="text" formControlName="scale" [value]="arModel.scale">
     </label>
      <button type="submit">Save</button>
   </form>

@@ -1,3 +1,4 @@
+from botocore.exceptions import ClientError
 from rest_framework.pagination import LimitOffsetPagination
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.status import HTTP_200_OK
@@ -16,6 +17,7 @@ from rest_framework.reverse import reverse
 import requests
 import pandas as pd
 import boto3
+import os
 
 
 @csrf_exempt
@@ -140,8 +142,6 @@ class APICredentialsView(viewsets.ModelViewSet):
         return Response(queryset.values())
 
 
-
-
 # API endpoint that allows graphs to be viewed or edited
 class GraphView(viewsets.ModelViewSet):
     # Authenticate the user
@@ -196,9 +196,9 @@ class DashboardView(viewsets.ModelViewSet):
     serializer_class = DashboardSerializer
 
     # def create(self, request, **kwargs):
-        # Before the Dashboard object is created, fill in the user field
-        # request.data['user'] = reverse('user-detail', kwargs={'pk': request.user.id})
-        # return super(DashboardView, self).create(request)
+    # Before the Dashboard object is created, fill in the user field
+    # request.data['user'] = reverse('user-detail', kwargs={'pk': request.user.id})
+    # return super(DashboardView, self).create(request)
 
     @action(detail=False)
     def get_dashboards(self, request):
@@ -280,17 +280,23 @@ class ARModelView(viewsets.ModelViewSet):
     serializer_class = ARModelSerializer
 
     @action(detail=False, methods=['post'])
-    def upload_model(self, request):
+    def generate_presigned_url(self, request):
+        s3_client = boto3.client('s3')
+        try:
+            response = s3_client.generate_presigned_url(
+                'put_object',
+                Params={
+                    'Bucket': 'clara-data-ar',
+                    'Key': request.data['name'],
+                    'ACL': 'public-read'
+                }
+            )
+        except ClientError as e:
+            print(e)
+            return None
 
-        print(request)
-        return Response("File successfully uploaded", status=HTTP_200_OK)
-        # Create an S3 client
-        # s3 = boto3.client('s3')
-        # s3.Object('mybucket', 'hello.txt').put(Body=request.FILES[0])
-        # filename = 'file.txt'
-
-        # Uploads the given file using splitting up large files automatically and upload parts in parallel
-        # s3.upload_file(filename, 'clara-data-ar', filename)
+        # The response contains the presigned URL
+        return Response(response)
 
 
 class ARDataView(viewsets.ModelViewSet):

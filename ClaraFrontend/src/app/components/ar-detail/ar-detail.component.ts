@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ARModel} from '../../classes/ar-model';
+import {ArService} from '../../services/ar/ar.service';
 
 @Component({
   selector: 'app-ar-detail',
@@ -12,16 +13,16 @@ export class ArDetailComponent implements OnInit {
   updateARModelForm: FormGroup;
   @Input() arModel: ARModel;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private arService: ArService) { }
 
   ngOnInit() {
     this.updateARModelForm = this.fb.group({
-      name: [this.arModel.name, Validators.required],
-      scale: [this.arModel.scale, Validators.required]
+      scale: ['', Validators.required]
     });
   }
 
-    onSubmit() {
-    // TODO: Submit form
+  onSave() {
+    this.arModel.scale = this.updateARModelForm.get('scale').value;
+    this.arService.updateARModels(this.arModel).subscribe();
   }
 }

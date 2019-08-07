@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {ARModel} from '../../classes/ar-model';
-import {ARMODELS} from '../../mock/ar-models';
 import {ArService} from '../../services/ar/ar.service';
 
 @Component({
@@ -10,14 +9,14 @@ import {ArService} from '../../services/ar/ar.service';
 })
 export class ArComponent implements OnInit {
 
-  arModels: ARModel[] = ARMODELS;
+  arModels: ARModel[] = [];
   selectedARModel: ARModel;
 
   constructor(private arService: ArService) { }
 
   ngOnInit() {
-    this.arService.getARModels().subscribe(models => {
-      this.arModels = models;
+    this.arService.getARModels().subscribe(arModels => {
+      this.arModels = arModels;
     });
   }
 
