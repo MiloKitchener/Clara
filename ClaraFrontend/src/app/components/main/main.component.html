@@ -48,12 +48,12 @@
       <!-- Dashboards Nav -->
       <div class="dashboard-header">
         <h5 class="nav-header">DASHBOARDS</h5>
-        <button class="add-dashboard-btn" (click)="addDashboard()">
+        <button class="add-dashboard-btn" (click)="addDashboard(this.dashboards)">
           <i class="material-icons-round">add_circle</i>
         </button>
       </div>
 
-      <li *ngFor="let dashboard of _dashboardService.getDashboards()" routerLinkActive="active">
+      <li *ngFor="let dashboard of this.dashboards" routerLinkActive="active">
         <a [routerLink]="['dashboard', dashboard.name]">
           <i class="material-icons-outlined">dashboard</i>
           <span>{{ dashboard.name + " Dashboard"}}</span>
@@ -69,6 +69,13 @@
         </a>
       </li>
       <!-- Datasets Nav -->
+      <li routerLinkActive="active">
+        <a routerLink="dataset">
+          <i class="material-icons-round">data_usage</i>
+          <span>Datasets</span>
+        </a>
+      </li>
+
       <li routerLinkActive="active">
         <a routerLink="dataset">
           <i class="material-icons-round">data_usage</i>

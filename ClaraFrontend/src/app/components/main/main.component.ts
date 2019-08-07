@@ -5,6 +5,7 @@ import { ProfileService } from 'src/app/services/profile/profile.service';
 import { DashboardService } from 'src/app/services/dashboard/dashboard.service';
 
 import { User } from 'src/app/classes/user';
+import {Dashboard} from '../../classes/dashboard';
 
 
 @Component({
@@ -14,23 +15,27 @@ import { User } from 'src/app/classes/user';
 })
 
 export class MainComponent implements OnInit {
-  
+
   user: User;
   screenIcon: string;
   mobile: boolean;
   sideNav: boolean;
+  dashboards: Dashboard[];
 
   constructor(
-    private _profileService: ProfileService,
+    private profileService: ProfileService,
     private logoutService: AuthService,
-    public _dashboardService: DashboardService
+    public dashboardService: DashboardService
   ) { }
 
   ngOnInit() {
-    this.screenIcon = "fullscreen";
-    this.user = this._profileService.getUser();
+    this.screenIcon = 'fullscreen';
+    this.user = this.profileService.getUser();
     this.mobile = detectmob();
     this.sideNav = false;
+    this.dashboardService.getDashboards().subscribe(data => {
+      this.dashboards = data;
+    });
   }
 
   /*********************
@@ -45,20 +50,19 @@ export class MainComponent implements OnInit {
   }
 
   public toggleSideNav(): void {
-    if(this.sideNav == false) {
+    if (this.sideNav === false) {
       // open nav
-      document.getElementById("side-navigation").style.width = "250px";
-      document.getElementById("top-bar").style.marginLeft = "250px";
-      document.getElementById("main").style.marginLeft = "250px";
-      document.getElementById("toggle-nav-btn").style.display = "none";
+      document.getElementById('side-navigation').style.width = '250px';
+      document.getElementById('top-bar').style.marginLeft = '250px';
+      document.getElementById('main').style.marginLeft = '250px';
+      document.getElementById('toggle-nav-btn').style.display = 'none';
       this.sideNav = true;
-    }
-    else {
+    } else {
       // close nav
-      document.getElementById("side-navigation").style.width = "0";
-      document.getElementById("top-bar").style.marginLeft = "0";
-      document.getElementById("main").style.marginLeft = "0";
-      document.getElementById("toggle-nav-btn").style.display = "block";
+      document.getElementById('side-navigation').style.width = '0';
+      document.getElementById('top-bar').style.marginLeft = '0';
+      document.getElementById('main').style.marginLeft = '0';
+      document.getElementById('toggle-nav-btn').style.display = 'block';
       this.sideNav = false;
     }
   }
@@ -66,13 +70,13 @@ export class MainComponent implements OnInit {
   // toggles fullscreen
   public toggleFullScreen(): void {
     // Trigger fullscreen
-    if(this.screenIcon == "fullscreen") {
+    if (this.screenIcon === 'fullscreen') {
       const docElmWithBrowsersFullScreenFunctions = document.documentElement as HTMLElement & {
         mozRequestFullScreen(): Promise<void>;
         webkitRequestFullscreen(): Promise<void>;
         msRequestFullscreen(): Promise<void>;
       };
-    
+
       if (docElmWithBrowsersFullScreenFunctions.requestFullscreen) {
         docElmWithBrowsersFullScreenFunctions.requestFullscreen();
       } else if (docElmWithBrowsersFullScreenFunctions.mozRequestFullScreen) { /* Firefox */
@@ -82,11 +86,8 @@ export class MainComponent implements OnInit {
       } else if (docElmWithBrowsersFullScreenFunctions.msRequestFullscreen) { /* IE/Edge */
         docElmWithBrowsersFullScreenFunctions.msRequestFullscreen();
       }
-      this.screenIcon = "fullscreen_exit";
-    }
-
-    // close fullscreen
-    else {
+      this.screenIcon = 'fullscreen_exit';
+    } else {
       const docWithBrowsersExitFunctions = document as Document & {
         mozCancelFullScreen(): Promise<void>;
         webkitExitFullscreen(): Promise<void>;
@@ -101,28 +102,22 @@ export class MainComponent implements OnInit {
       } else if (docWithBrowsersExitFunctions.msExitFullscreen) { /* IE/Edge */
         docWithBrowsersExitFunctions.msExitFullscreen();
       }
-      this.screenIcon = "fullscreen";
+      this.screenIcon = 'fullscreen';
     }
   }
 
-  addDashboard() {
-    var name = prompt("What is the Dashboard's Name?");
-    this._dashboardService.addDashboard(name);
+  addDashboard(dashboards: Dashboard[]) {
+    const name = prompt('What is the Dashboard\'s Name?');
+    this.dashboardService.addDashboard(dashboards, name);
   }
 }
 
-function detectmob() { 
-  if( navigator.userAgent.match(/Android/i)
-  || navigator.userAgent.match(/webOS/i)
-  || navigator.userAgent.match(/iPhone/i)
-  || navigator.userAgent.match(/iPad/i)
-  || navigator.userAgent.match(/iPod/i)
-  || navigator.userAgent.match(/BlackBerry/i)
-  || navigator.userAgent.match(/Windows Phone/i)
-  ){
-     return true;
-   }
-  else {
-     return false;
-   }
+function detectmob() {
+  return !!(navigator.userAgent.match(/Android/i)
+    || navigator.userAgent.match(/webOS/i)
+    || navigator.userAgent.match(/iPhone/i)
+    || navigator.userAgent.match(/iPad/i)
+    || navigator.userAgent.match(/iPod/i)
+    || navigator.userAgent.match(/BlackBerry/i)
+    || navigator.userAgent.match(/Windows Phone/i));
  }

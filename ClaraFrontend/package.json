@@ -9,7 +9,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "start:mock": "ng serve --configuration=mock"
+    "start:mock": "ng serve --configuration=mock",
     "electron": "ng build --base-href ./ && electron .",
     "electron-aot": "ng build --prod --base-href ./ && electron ."
   },

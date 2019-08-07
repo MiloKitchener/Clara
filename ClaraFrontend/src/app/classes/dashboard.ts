@@ -8,7 +8,7 @@ export class Dashboard {
 
   constructor(name: string) {
     this.name = name;
-    this.desc = "";
+    this.desc = '';
     this.charts = [];
   }
 }

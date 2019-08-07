@@ -57,6 +57,7 @@ class Graph(models.Model):
 class Dashboard(models.Model):
     name = models.CharField(max_length=255, null=False)
     user = models.ForeignKey(User, related_name='dashboards', on_delete=models.CASCADE)
+    desc = models.CharField(max_length=255, null=False, default="A basic dashboard")
 
     def __str__(self):
         return self.name

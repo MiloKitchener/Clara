@@ -49,7 +49,7 @@ class DashboardSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Dashboard
-        fields = ['id', 'user', 'name', 'charts']
+        fields = ['id', 'user', 'name', 'charts', 'desc']
 
     def create(self, validated_data):
         charts = validated_data.pop('charts')

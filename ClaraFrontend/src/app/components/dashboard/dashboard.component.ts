@@ -29,7 +29,7 @@ export class DashboardComponent implements OnInit {
   // Inject the activatated route
   constructor(
     private route: ActivatedRoute,
-    private _graphDataService: GraphDataService
+    private graphDataService: GraphDataService,
     private dashboardService: DashboardService
   ) { }
 
@@ -54,12 +54,14 @@ export class DashboardComponent implements OnInit {
         }
       });
     });
+    const mobileDashboard = new Dashboard('Mobile');
+    this.dashboards.push(mobileDashboard);
 
     this.displayAddChartPanel = false;
     this.screenIcon = 'fullscreen';
 
     // hide graph panel when its closed button is pressed
-    this._graphDataService.closePanel.subscribe(
+    this.graphDataService.closePanel.subscribe(
       (userChartData: any) => {
         this.toggleAddChartPanel();
       }
@@ -85,13 +87,13 @@ export class DashboardComponent implements OnInit {
   }
 
   increaseSize(index: number) {
-    var chart = (<HTMLElement[]><any>document.getElementsByClassName("charts"))[index];
-    chart.style.width = "100vw";
+    const chart = (document.getElementsByClassName('charts') as any as HTMLElement[])[index];
+    chart.style.width = '100vw';
   }
 
   decreaseSize(index: number) {
-    var chart = (<HTMLElement[]><any>document.getElementsByClassName("charts"))[index];
-    chart.style.width = "20vw";
+    const chart = (document.getElementsByClassName('charts') as any as HTMLElement[])[index];
+    chart.style.width = '20vw';
   }
 
   // toggles chart in fullscreen
@@ -101,7 +103,7 @@ export class DashboardComponent implements OnInit {
     if (this.screenIcon === 'fullscreen') {
       const fullscreenChart = (document.getElementsByClassName('charts') as any as HTMLElement[])[index];
 
-      fullscreenChart.style.padding = "100px";
+      fullscreenChart.style.padding = '100px';
 
       const docElmWithBrowsersFullScreenFunctions = fullscreenChart as HTMLElement & {
         mozRequestFullScreen(): Promise<void>;
@@ -137,8 +139,8 @@ export class DashboardComponent implements OnInit {
       this.screenIcon = 'fullscreen';
 
       // return chart to normal size
-      var fullscreenChart = (<HTMLElement[]><any>document.getElementsByClassName("charts"))[index];
-      fullscreenChart.style.padding = "20px";
+      const fullscreenChart = (document.getElementsByClassName('charts') as any as HTMLElement[])[index];
+      fullscreenChart.style.padding = '20px';
     }
   }
 }

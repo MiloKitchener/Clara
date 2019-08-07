@@ -35,7 +35,6 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { LiveDataGraphPanelComponent } from './components/live-data-graph-panel/live-data-graph-panel.component';
 import { DevicesComponent } from './components/devices/devices.component';
 import { SplashComponent } from './components/splash/splash.component';
-import { DashboardComponent } from './components/dashboards/dashboard/dashboard.component';
 import {environment} from '../environments/environment.mock';
 import {HttpMockInterceptor} from './classes/http-mock-interceptor';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
