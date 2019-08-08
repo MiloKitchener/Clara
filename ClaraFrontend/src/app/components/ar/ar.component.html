@@ -1,14 +1,20 @@
-<h2>AR Models</h2>
-<a routerLink="upload">
-  <span>Add AR Model</span>
-</a>
-<ul class="models">
-  <!-- Adds selected to class of li if the model is selected -->
-  <li *ngFor="let model of arModels"
-    [class.selected]="model === selectedARModel"
-    (click)="onSelect(model)">
-    <span class="badge">{{model.id}}</span> {{model.name}}
-  </li>
-</ul>
+<h1>AR Models</h1>
 
-<app-ar-detail [arModel]="selectedARModel"></app-ar-detail>
+<div class="model-selection">
+  <div class="model-list-container">
+    <ul class="models">
+      <!-- Adds selected to class of li if the model is selected -->
+      <li *ngFor="let model of arModels" [class.selected]="model === selectedARModel" (click)="onSelect(model)">
+        {{ model.name }}
+      </li>
+    </ul>
+
+    <button routerLink="upload" class="upload-btn">
+      <span>Add AR Model</span>
+    </button>
+  </div>
+  
+  <div class="model-info-container">
+    <app-ar-detail [arModel]="selectedARModel"></app-ar-detail>
+  </div>
+</div>

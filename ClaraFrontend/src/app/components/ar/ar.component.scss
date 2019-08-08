@@ -1,44 +1,79 @@
-.models {
-  margin: 0 0 2em 0;
-  list-style-type: none;
-  padding: 0;
-  width: 15em;
+@import "../../../variables.scss";
 
-  li {
-    cursor: pointer;
-    position: relative;
-    left: 0;
-    background-color: #EEE;
-    margin: .5em;
-    padding: .3em 0;
-    height: 1.6em;
-    border-radius: 4px;
-    .selected {
-      background-color: #CFD8DC;
-      color: white;
-      &:hover {
-        background-color: #BBD8DC;
-        color: white;
-      }
-    }
-    &:hover {
-      color: #607D8B;
-      background-color: #DDD;
-      left: .1em;
-    }
+h1 {
+  margin: 0;
+  padding: $header-padding;
+  background: $blue-gradient;
+  font-weight: $header-font-weight;
+  color: white;
+}
+
+.upload-btn {
+  margin-top: 30px;
+  border: 0;
+  border-radius: 5px;
+  padding: 8px 20px;
+  color: white;
+  background-color: $color-primary;
+  transition: $main-hover-transition;
+
+  &:hover {
+    background-color: $color-primary-dark;
+    transition: $main-hover-transition;
   }
 }
-.models .badge {
-  display: inline-block;
-  font-size: small;
-  color: white;
-  padding: 0.8em 0.7em 0 0.7em;
-  background-color:#405061;
-  line-height: 1em;
-  position: relative;
-  left: -1px;
-  top: -4px;
-  height: 1.8em;
-  margin-right: .8em;
-  border-radius: 4px 0 0 4px;
+
+.model-selection {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px;
+
+  .model-list-container {
+    flex: 1;
+    padding-right: 20px;
+
+    .models {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      height: 450px;
+      overflow-y: auto;
+      overflow-x: hidden;
+  
+      li {
+        margin: 0 40px;
+        padding: 15px;
+        border-left: 7px solid $color-primary;
+        border-radius: 7px;
+        text-align: left;
+        background-color: white;
+        box-shadow:  $main-box-shadow;
+        transition: $main-hover-transition;
+  
+        &:not(:first-child) {
+          margin-top: 10px;
+        }
+  
+        &:hover {
+          cursor: pointer;
+          color: $color-primary;
+          transition: $main-hover-transition;
+        }
+      }
+  
+      .selected {
+        color: $color-primary;
+      }
+    }
+  }
+
+  .model-info-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    border-radius: 7px;
+    background-color: white;
+    box-shadow: $main-box-shadow;
+  }
 }
