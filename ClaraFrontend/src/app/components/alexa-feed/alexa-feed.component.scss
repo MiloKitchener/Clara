@@ -2,9 +2,9 @@
 
 h1 {
   margin: 0;
-  padding: 50px 80px;
+  padding: $header-padding;
   background: $blue-gradient;
-  font-weight: 500;
+  font-weight: $header-font-weight;
   color: white;
 }
 
