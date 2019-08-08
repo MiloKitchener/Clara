@@ -1,0 +1,34 @@
+@import "../../../variables.scss";
+
+$label-border-radius: 5px;
+
+label {
+	background-color: #F0F0F0;
+	padding: 5px;
+	border-radius: $label-border-radius;
+	transition: $main-hover-transition;
+
+	&:hover {
+		background-color: #E0E0E0;
+		transition: $main-hover-transition;
+	}
+}
+
+input {
+	background: none;
+	border: none;
+
+	&[type="submit"] {
+		padding: 5px 13px;
+		margin-left: 10px;
+		color: white;
+		background-color: $color-primary;
+		border-radius: $label-border-radius;
+		transition: $main-hover-transition;
+
+		&:hover {
+			background-color: $color-primary-dark;
+			transition: $main-hover-transition;
+		}
+	}
+}
