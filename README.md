@@ -96,8 +96,9 @@ The first step to setting up Clara on your local machine will be to download all
 
 ### Electron: ###
 1. Navigate to ClaraFrontend
-2. Run `npm install`
-3. Run `npm run electron`
+2. If it hasn't been done already, run `npm install`
+3. Run `ng build --prod`
+4. Run `npm run electron`
 
 
 
