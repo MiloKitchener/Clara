@@ -16,14 +16,17 @@ export class SplashComponent implements OnInit {
     this.whiteNavbar = false;
   }
 
+  // routes user to login component
   public goToLogin() {
     this.router.navigate(['/login'])
   }
 
+  // scrolls page to element in function argument
   public scroll(el: HTMLElement) {
     el.scrollIntoView();
   }
 
+  // scroll event listener
   @HostListener("window:scroll", [])
   onWindowScroll() {
     const number = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;

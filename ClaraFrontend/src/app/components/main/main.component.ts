@@ -49,6 +49,7 @@ export class MainComponent implements OnInit {
     location.reload(true);
   }
 
+  // toggles the side navbar (used for mobile viewing)
   public toggleSideNav(): void {
     if (this.sideNav === false) {
       // open nav
@@ -112,6 +113,7 @@ export class MainComponent implements OnInit {
   }
 }
 
+// detects if site is being viewed on a mobile device
 function detectmob() {
   return !!(navigator.userAgent.match(/Android/i)
     || navigator.userAgent.match(/webOS/i)

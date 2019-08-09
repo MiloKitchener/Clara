@@ -4,35 +4,11 @@
   padding: 5%;
 }
 
-input {
-  border: 0;
-  padding: 10px;
-  border-radius: 5px;
-  background-color: rgb(245, 245, 245);
-  transition: $main-hover-transition;
-
-  &:hover {
-    background-color: #EFEFEF;
-    transition: $main-hover-transition;
-  }
-}
-
-input[type="submit"] {
-  border: 0;
-  background-color: $color-primary;
-  color: white;
-  transition: $main-hover-transition;
-  box-shadow: 0;
-
-  &:hover {
-    background-color: $color-primary-dark;
-  }
-}
-
 .form-container {
   width: 70%;
   margin: auto;
 }
+
 
 h2 {
   font-weight: 500;
@@ -46,6 +22,31 @@ form {
   text-align: center;
   background-color: white;
   box-shadow: $main-box-shadow;
+
+  input {
+    border: 0;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: rgb(245, 245, 245);
+    transition: $main-hover-transition;
+
+    &:hover {
+      background-color: #EFEFEF;
+      transition: $main-hover-transition;
+    }
+
+    &[type="submit"] {
+      border: 0;
+      background-color: $color-primary;
+      color: white;
+      transition: $main-hover-transition;
+      box-shadow: 0;
+    
+      &:hover {
+        background-color: $color-primary-dark;
+      }
+    }
+  }
 }
 
 .flex-container {

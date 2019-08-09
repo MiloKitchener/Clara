@@ -1,5 +1,6 @@
 <h1>Profile</h1>
 <div class="container">
+  <!-- Edit Profile Form -->
   <div class="form-container">
     <h2>Edit Profile</h2>
     <form [formGroup]="updateUserForm" (ngSubmit)="updateProfile()">
@@ -24,6 +25,7 @@
     </form>
   </div>
 
+  <!-- User Posts Feed -->
   <div class="posts-panel">
     <h2> {{ postsHeadingTxt }} </h2>
   </div>

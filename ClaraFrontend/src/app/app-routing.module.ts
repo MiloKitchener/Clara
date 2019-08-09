@@ -9,21 +9,16 @@ import { AuthService } from './services/auth/auth.service';
 import { LoginComponent } from './components/login/login.component';
 import { MainComponent } from './components/main/main.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-
 import { DatasetComponent } from './components/dataset/dataset.component';
-
 import { AlexaFeedComponent } from './components/alexa-feed/alexa-feed.component';
-
 import { IdeasComponent } from './components/ideas/ideas.component';
-
 import { LabServicesComponent } from './components/lab-services/lab-services.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { DevicesComponent } from './components/devices/devices.component';
 import { SplashComponent } from './components/splash/splash.component';
-import {ArComponent} from './components/ar/ar.component';
-import {ArUploadComponent} from './components/ar-upload/ar-upload.component';
+import { ArComponent } from './components/ar/ar.component';
+import { ArUploadComponent } from './components/ar-upload/ar-upload.component';
 
 // define routes
 const routes: Routes = [

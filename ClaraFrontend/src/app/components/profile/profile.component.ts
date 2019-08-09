@@ -14,9 +14,7 @@ import { User } from 'src/app/classes/user';
 
 export class ProfileComponent implements OnInit {
   user: User
-
   postsHeadingTxt: string;
-
   updateUserForm: FormGroup;
 
   constructor(
@@ -28,6 +26,7 @@ export class ProfileComponent implements OnInit {
     this.postsHeadingTxt = "You Haven't Made Any Posts Yet!"
     this.user = this._profileService.getUser();
 
+    // user form variable
     this.updateUserForm = this.fb.group({
       name: ['', Validators.required],
       title: ['', Validators.required],
@@ -35,6 +34,7 @@ export class ProfileComponent implements OnInit {
     });
   }
 
+  // updates user profile
   updateProfile() {
     // stop if form is invalid
     if (this.updateUserForm.invalid) {
