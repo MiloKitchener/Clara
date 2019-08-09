@@ -8,7 +8,8 @@ https://www.dashboard.askclara.ca
 1. [Introduction](#introduction)
 2. [Features](#features)
 3. [Requirements](#requirements)
-4. [Local Deployment](#deployment)
+4. [Local Deployment](#local-deployment)
+5. [Production Deployment](#prod-deployment)
 5. [Alexa Integration](#alexaIntegration)
 
 <a name="introduction"></a>
@@ -74,7 +75,7 @@ The first step to setting up Clara on your local machine will be to download all
    - https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
 
 
-<a name="deployment"></a>
+<a name="local-deployment"></a>
 ## Local Deployment ##
 ### Frontend: ###
 1. Install all of the required programs, found under **setup**
@@ -97,6 +98,18 @@ The first step to setting up Clara on your local machine will be to download all
 1. Navigate to ClaraFrontend
 2. Run `npm install`
 3. Run `npm run electron`
+
+
+
+<a name="prod-deployment"></a>
+## Production Deployment ##
+### Frontend: ###
+1. Navigate to ClaraFrontend
+2. Run `ng build --prod`
+3. Upload the contents of the `dist` folder in the project root directory to the AWS s3
+
+### Backend: ###
+1. TBD
 
 <a name="alexaIntegration"></a>
 ## Alexa Integration ##
