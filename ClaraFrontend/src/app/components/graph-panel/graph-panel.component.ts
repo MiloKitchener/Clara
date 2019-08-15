@@ -9,6 +9,8 @@ import { Field } from 'src/app/classes/field';
 import { DashboardService } from 'src/app/services/dashboard/dashboard.service';
 
 
+import { environment } from '../../../environments/environment';
+
 @Component({
   selector: 'app-graph-panel',
   templateUrl: './graph-panel.component.html',
@@ -71,8 +73,10 @@ export class GraphPanelComponent implements OnInit {
     this.newChartData = null;
     this.updateChart();
 
+    console.log(this.yDataset);
+
     // get fields
-    this.graphDataService.getFields(this.selectDataset(this.yDataset.name).url).subscribe((res: any[]) => {
+    this.graphDataService.getFields(this.yDataset.id.toString()).subscribe((res: any[]) => {
       this.yFields = res;
     });
   }
@@ -86,7 +90,7 @@ export class GraphPanelComponent implements OnInit {
     this.updateChart();
 
     // get fields
-    this.graphDataService.getFields(this.selectDataset(this.xDataset.name).url).subscribe((res: any[]) => {
+    this.graphDataService.getFields(this.xDataset.id.toString()).subscribe((res: any[]) => {
       this.xFields = res;
     });
   }
@@ -108,17 +112,6 @@ export class GraphPanelComponent implements OnInit {
 
     if (this.yField !== null) { // both fields selected
       this.queryTable();
-    }
-  }
-
-
-  // returns a specified dataset from the list
-  selectDataset(datasetTitle: string): Dataset {
-    // TODO: ADD FASTER SEARCH ALGORITHM, DATASETS ARE IN ALPHABETICAL ORDER)
-    for (const dataset of this.datasets) {
-      if (dataset.name === datasetTitle) {
-        return dataset;
-      }
     }
   }
 

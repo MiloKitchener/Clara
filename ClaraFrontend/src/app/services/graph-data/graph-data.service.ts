@@ -31,8 +31,8 @@ export class GraphDataService {
   }
 
   // Returns a list of fields corresponding to a database parameter
-  getFields(url: string) {
-    return this.http.get(url + 'field_names/');
+  getFields(id: string) {
+    return this.http.get(environment.backendIP + 'datasets/' + id + '/field_names/');
   }
 
   getLiveFields(url: string) {
