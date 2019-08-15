@@ -43,6 +43,7 @@ import {HttpMockInterceptor} from './classes/http-mock-interceptor';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import {HttpRequestInterceptor} from './classes/http-request-interceptor';
 import {FileSelectDirective} from 'ng2-file-upload';
+import { GraphQLModule } from './graphql.module';
 
 export const isMock = environment.mock;
 
@@ -80,7 +81,8 @@ export const isMock = environment.mock;
     MatTabsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    ChartsModule
+    ChartsModule,
+    GraphQLModule
   ],
   providers: [
     CookieService,

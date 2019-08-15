@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-// import classes
 import { Device } from 'src/app/classes/device';
 
 @Component({
@@ -16,11 +15,11 @@ export class DevicesComponent implements OnInit {
   ngOnInit() {
     this.devices = [
       {
-        name: "Clara Mobile 1",
-        sensors: ["Soil Moisture", "Humidity"]
+        uuid: 'Clara Mobile 1',
+        deviceid: 'Soil Moisture'
       }, {
-        name: "Clara Hub 1",
-        sensors: ["Co2", "UV", "Temperature"]
+        uuid: 'Clara Hub 1',
+        deviceid: 'UV'
       }
     ];
   }
