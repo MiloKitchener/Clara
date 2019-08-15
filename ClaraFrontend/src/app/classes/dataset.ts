@@ -1,4 +1,5 @@
 export class Dataset {
+  id: number;
   url: string;
   name: string;
   desc: string;
