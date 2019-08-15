@@ -1,5 +1,5 @@
-import {Label} from "ng2-charts";
-import {ChartDataSets, ChartType} from "chart.js";
+import { Label } from "ng2-charts";
+import { ChartType } from "chart.js";
 
 export class Chart {
   name: string;
