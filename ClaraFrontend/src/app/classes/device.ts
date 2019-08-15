@@ -1,4 +1,4 @@
 export class Device {
-  name: string;
-  sensors: string[];
+  uuid: string;
+  deviceid: string;
 }

@@ -4,6 +4,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { GraphDataService } from '../../services/graph-data/graph-data.service';
 import { WebsocketService } from '../../services/websocket/websocket.service';
 import { Dataset } from '../../classes/dataset';
+import {Apollo} from 'apollo-angular';
+import gql from 'graphql-tag';
+import {Device} from '../../classes/device';
 
 @Component({
   selector: 'app-live-data-graph-panel',
@@ -18,7 +21,7 @@ export class LiveDataGraphPanelComponent implements OnInit {
   selectedDataset: Dataset;
   fields = [];
   private selectedField;
-  devices = [];
+  devices: Device[] = [];
   private selectedDevice;
   ioConnection: any;
   private chart: any;
@@ -26,7 +29,8 @@ export class LiveDataGraphPanelComponent implements OnInit {
   constructor(
     private graphDataService: GraphDataService,
     private formBuilder: FormBuilder,
-    private socketService: WebsocketService
+    private socketService: WebsocketService,
+    private apollo: Apollo
   ) {
     this.liveDataForm = formBuilder.group({
       datasets: ['None', Validators.required],
@@ -41,6 +45,31 @@ export class LiveDataGraphPanelComponent implements OnInit {
       res.forEach((dataset) => {
         this.datasets.push(dataset);
       });
+    });
+
+    this.apollo.watchQuery({
+        query: gql`
+          {
+            listDevices {
+              items {
+                uuid,
+                deviceid
+                ts
+                ... on ArduinoMoisture {
+                  battery
+                  moisture
+                  uptime
+                }
+              }
+            }
+          }
+        `,
+      })
+      .valueChanges.subscribe((result: any) => {
+        this.devices = result.data.listDevices.items;
+        if (this.devices) {
+          this.selectedDevice = this.devices[0];
+        }
     });
 
     // Populates initial empty charts
@@ -67,29 +96,18 @@ export class LiveDataGraphPanelComponent implements OnInit {
 
   submit() {
     // stop here if form is invalid
-    if (this.liveDataForm.invalid || this.liveDataForm.value.datasets == "None" || this.liveDataForm.value.fields == "None" || this.liveDataForm.value.devices == "None") {
-      alert("Please Make a Selection in all of The Fields");
+    if (
+      this.liveDataForm.invalid ||
+      this.liveDataForm.value.datasets === 'None' ||
+      this.liveDataForm.value.fields === 'None' ||
+      this.liveDataForm.value.devices === 'None'
+    ) {
+      alert('Please Make a Selection in all of The Fields');
       return;
-    }
-    else {
+    } else {
       // TODO: Submit POST request
-      alert("hi");
+      alert('hi');
     }
-  }
-
-  onDatasetChange(dataset) {
-    // empty previous chart values
-    this.chartLabels = [];
-    this.chartData = [];
-    this.updateLiveChart();
-
-    this.selectedDataset = dataset;
-    this.graphDataService.getLiveFields(this.selectedDataset.parent_url).subscribe((res: any) => {
-      this.fields = res;
-    });
-    this.graphDataService.getLiveDevices(this.selectedDataset.parent_url).subscribe((res: any) => {
-      this.devices = res;
-    });
   }
 
   onFieldChange(field) {
@@ -112,8 +130,15 @@ export class LiveDataGraphPanelComponent implements OnInit {
     this.chartData = [];
     this.updateLiveChart();
 
-    this.selectedDevice = device;
-    if (this.liveDataForm.controls.fields.value !== '' && this.liveDataForm.controls.devices.value !== '') {
+    this.selectedDevice = this.liveDataForm.get('devices').value;
+
+    // Update fields
+    this.fields.push(this.selectedDevice.moisture);
+    // this.fields = [];
+    // for (const key of device) {
+    //   this.fields.push(key);
+    // }
+    if (this.liveDataForm.controls.fields.value !== 'None' && this.liveDataForm.controls.devices.value !== 'None') {
       this.initIoConnection().then(() => {
         console.log('Connected to and configured websocket');
       });

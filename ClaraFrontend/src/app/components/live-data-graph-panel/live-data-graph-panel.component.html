@@ -6,30 +6,19 @@
     </div>
 
     <div class="dropdown-panels">
-      <label for="datasets">Live Dataset</label>
-      <br>
-      <select formControlName="datasets" (ngModelChange)="onDatasetChange($event)">
-        <option selected="selected">None</option>
-        <option *ngFor="let dataset of datasets" [ngValue]="dataset">
-          {{dataset.name}}
-        </option>
-      </select>
-      <br>
-      <label for="fields">Field</label>
-      <br>
-      <select formControlName="fields" (ngModelChange)="onFieldChange($event)">
-        <option selected="selected">None</option>
-        <option *ngFor="let field of fields" [ngValue]="field">
-          {{field}}
-        </option>
-      </select>
-      <br>
-      <label for="devices">Device</label>
+      <label>Device</label>
       <br>
       <select formControlName="devices" (ngModelChange)="onDeviceChange($event)">
-        <option selected="selected">None</option>
         <option *ngFor="let device of devices" [ngValue]="device">
-          {{device.deviceid}}
+          {{device.uuid}}
+        </option>
+      </select>
+      <br>
+      <label>Field</label>
+      <br>
+      <select formControlName="fields" (ngModelChange)="onFieldChange($event)">
+        <option *ngFor="let field of fields">
+          {{field}}
         </option>
       </select>
       <input type="submit" value="Add Graph To Dashboard">
