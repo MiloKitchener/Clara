@@ -6,6 +6,9 @@ import { GraphDataService } from 'src/app/services/graph-data/graph-data.service
 import { Dataset } from 'src/app/classes/dataset';
 import { Field } from 'src/app/classes/field';
 
+import { DashboardService } from 'src/app/services/dashboard/dashboard.service';
+
+
 @Component({
   selector: 'app-graph-panel',
   templateUrl: './graph-panel.component.html',
@@ -18,29 +21,34 @@ export class GraphPanelComponent implements OnInit {
   datasets: Dataset[];
   yFields: Field[];
   xFields: Field[];
+
+  yDataset: Dataset;
+  xDataset: Dataset;
+  yField: Field;
+  xField: Field;
+
   newChartData = [];
 
   graphTitle: string;
-  yAxisTitle: string;
-  xAxisTitle: string;
-  yField: string;
-  xField: string;
 
-  constructor(private graphDataService: GraphDataService) {
+  constructor(
+    private graphDataService: GraphDataService,
+    private dashboardService: DashboardService
+  ) { }
+
+  ngOnInit() {
     // instantiate instance variables
     this.datasets = null;
     this.yFields = null;
     this.xFields = null;
+    this.yDataset = null;
+    this.xDataset = null;
+    this.yField = null;
+    this.xField = null;
     this.newChartData = null;
 
     this.graphTitle = 'Y-Axis V X-Axis';
-    this.yAxisTitle = 'None';
-    this.xAxisTitle = 'None';
-    this.yField = 'Field';
-    this.xField = 'Field';
-  }
 
-  ngOnInit() {
     // GET datasets
     this.graphDataService.getDatasets().subscribe((res: any[]) => {
       this.datasets = res;
@@ -57,50 +65,48 @@ export class GraphPanelComponent implements OnInit {
 
 
   // sets the y axis
-  setYAxis(title: string) {
-    this.yAxisTitle = title;
-    this.graphTitle = this.yAxisTitle + ' V ' + this.xAxisTitle;
-    this.yField = 'Field';
+  setYAxis(index: number) {
+    this.yDataset = this.datasets[index];
+    this.yField = null;
     this.newChartData = null;
     this.updateChart();
 
     // get fields
-    this.graphDataService.getFields(this.selectDataset(this.yAxisTitle).url).subscribe((res: any[]) => {
+    this.graphDataService.getFields(this.selectDataset(this.yDataset.name).url).subscribe((res: any[]) => {
       this.yFields = res;
     });
   }
 
 
   // sets the x axis
-  setXAxis(title: string) {
-    this.xAxisTitle = title;
-    this.graphTitle = this.yAxisTitle + ' V ' + this.xAxisTitle;
-    this.xField = 'Field';
+  setXAxis(index: number) {
+    this.xDataset = this.datasets[index];
+    this.xField = null;
     this.newChartData = null;
     this.updateChart();
 
     // get fields
-    this.graphDataService.getFields(this.selectDataset(this.xAxisTitle).url).subscribe((res: any[]) => {
+    this.graphDataService.getFields(this.selectDataset(this.xDataset.name).url).subscribe((res: any[]) => {
       this.xFields = res;
     });
   }
 
 
   // sets the y field
-  selectYField(title: string) {
-    this.yField = title;
+  selectYField(index: number) {
+    this.yField = this.yFields[index];
 
-    if (this.xField !== 'Field') { // both fields selected
+    if (this.xField !== null) { // both fields selected
       this.queryTable();
     }
   }
 
 
   // sets the x field
-  selectXField(title: string) {
-    this.xField = title;
+  selectXField(index: number) {
+    this.xField = this.xFields[index];
 
-    if (this.yField !== 'Field') { // both fields selected
+    if (this.yField !== null) { // both fields selected
       this.queryTable();
     }
   }
@@ -108,10 +114,10 @@ export class GraphPanelComponent implements OnInit {
 
   // returns a specified dataset from the list
   selectDataset(datasetTitle: string): Dataset {
-    // search for dataset (ADD FASTER SEARCH ALGORITHM, DATASETS WILL BE IN ALPHABETICAL ORDER)
-    for (let i = 0; i < this.datasets.length; i++) {
-      if (this.datasets[i].name === datasetTitle) {
-        return this.datasets[i];
+    // TODO: ADD FASTER SEARCH ALGORITHM, DATASETS ARE IN ALPHABETICAL ORDER)
+    for (const dataset of this.datasets) {
+      if (dataset.name === datasetTitle) {
+        return dataset;
       }
     }
   }
@@ -119,17 +125,22 @@ export class GraphPanelComponent implements OnInit {
 
   // adds the graph to the user's dashboard
   addGraph() {
-    if (this.yField === 'Field' || this.xField === 'Field' || this.newChartData == null) {
+    if (this.yField === null || this.xField === null || this.newChartData == null) {
       alert('Please Specify X / Y Axis Values');
     } else { // add graph data to user charts
-      this.graphDataService.addUserChart(this.newChartData, this.xAxisTitle, this.xField, this.yAxisTitle, this.yField);
+      this.graphDataService.addUserChart(this.newChartData, this.xDataset.name, this.xField.name, this.yDataset.name, this.yField.name);
     }
   }
 
 
   // queries database for new chart data, updates chart accordingly
   queryTable() {
-    this.graphDataService.getChartData(this.xField, this.yField, this.xAxisTitle, this.yAxisTitle).subscribe((res: any[]) => {
+    this.dashboardService.getData({
+      field1: this.xField.id.toString(),
+      dataset1: this.xDataset.id.toString(),
+      field2: this.yField.id.toString(),
+      dataset2: this.yDataset.id.toString()
+    }).subscribe(res => {
       this.newChartData = res;
       this.updateChart(); // update chart
     });
@@ -159,10 +170,11 @@ export class GraphPanelComponent implements OnInit {
     });
   }
 
-  openTab(tabName) {
+
+  openTab(tabName: string) {
     // Declare all variables
-    let tabcontent;
-    let tablinks;
+    let tabcontent: any;
+    let tablinks: any;
 
     // Get all elements with class="tabcontent" and hide them
     tabcontent = document.getElementsByClassName('tabcontent');

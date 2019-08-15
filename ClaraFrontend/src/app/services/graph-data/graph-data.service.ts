@@ -2,6 +2,7 @@ import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -43,8 +44,8 @@ export class GraphDataService {
   }
 
   // Returns the chart data associated with two fields
-  getChartData(field1: string, field2: string, dataset1: string, dataset2: string) {
-    return this.http.post(environment.backendIP + 'graphs/request_graph/', { field1, field2, dataset1, dataset2, name: 'hardcoded' });
+  getChartData(params: any) {
+    return this.http.post<[]>(environment.backendIP + 'graphs/request_graph/', params);
   }
 
   // GETS user charts from DB
