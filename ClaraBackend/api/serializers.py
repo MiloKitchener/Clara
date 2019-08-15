@@ -3,7 +3,7 @@ from .models import *
 from django.contrib.auth.models import Permission
 
 
-class DatasetSerializer(serializers.HyperlinkedModelSerializer):
+class DatasetSerializer(serializers.ModelSerializer):
     class Meta:
         model = Dataset
         fields = '__all__'
