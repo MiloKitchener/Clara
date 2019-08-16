@@ -121,7 +121,7 @@ export class GraphPanelComponent implements OnInit {
     if (this.yField === null || this.xField === null || this.newChartData == null) {
       alert('Please Specify X / Y Axis Values');
     } else { // add graph data to user charts
-      this.graphDataService.addUserChart(this.newChartData, this.xDataset.name, this.xField.name, this.yDataset.name, this.yField.name);
+      alert("adding chart");
     }
   }
 

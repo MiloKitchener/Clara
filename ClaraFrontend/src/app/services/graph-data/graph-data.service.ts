@@ -17,8 +17,6 @@ export class GraphDataService {
   constructor(private http: HttpClient) {
     // GET datasets
     this.datasets = this.http.get(environment.backendIP + 'datasets/');
-    // GET User Charts
-    this.pullUserCharts();
   }
 
   // Returns a list of datasets from the database
@@ -46,33 +44,6 @@ export class GraphDataService {
   // Returns the chart data associated with two fields
   getChartData(params: any) {
     return this.http.post<[]>(environment.backendIP + 'graphs/request_graph/', params);
-  }
-
-  // GETS user charts from DB
-  pullUserCharts() {
-    this.http.get(environment.backendIP + 'graphs/user_graphs/').subscribe((res: any[]) => {
-      this.userChartData = res;
-      this.userDataUpdate.emit(this.userChartData);
-    });
-  }
-
-  // Returns the chart data associated with a user
-  getUserCharts() {
-    return this.userChartData;
-  }
-
-  // adds a set of chart data to the userCharts list
-  addUserChart(chartData: any, dataset1: string, field1: string, dataset2: string, field2: string) {
-    // POST user chart changes
-    const name: string = field2 + ' V ' + field1;
-    return this.http.post(environment.backendIP + 'graphs/', { name, dataset1, field1, dataset2, field2 }).subscribe(
-      () => {
-        // Add Chart To List
-        this.userChartData = null; // clear previous chart data
-        this.pullUserCharts();
-        this.userDataUpdate.emit(this.userChartData);
-      }
-    );
   }
 
   // emits message to hide graph panel
