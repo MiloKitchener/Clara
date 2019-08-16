@@ -79,7 +79,16 @@
           </div>
         </div>
         <div class="graph">
-          <canvas id="myChart" width="400" height="400"></canvas>
+          <canvas baseChart
+            width="400"
+            height="400"
+            [datasets]="[{
+              label: 'Series A',
+              data: chart.data
+            }]"
+            [chartType]="chart.type"
+            [options]="options">
+          </canvas>
           <button class="addBtn" (click)="addGraph()">Add Graph to Dashboard</button>
         </div>
       </div>

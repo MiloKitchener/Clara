@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Chart } from 'chart.js';
 
+import { Chart } from 'src/app/classes/chart';
 import { Dataset } from 'src/app/classes/dataset';
 import { Field } from 'src/app/classes/field';
 
@@ -15,18 +15,22 @@ import { DashboardService } from 'src/app/services/dashboard/dashboard.service';
 export class GraphPanelComponent implements OnInit {
 
   // instance variables
-  datasets: Dataset[];
-  yFields: Field[];
-  xFields: Field[];
+  private chart: Chart;
 
-  yDataset: Dataset;
-  xDataset: Dataset;
-  yField: Field;
-  xField: Field;
+  private datasets: Dataset[];
+  private yDataset: Dataset;
+  private xDataset: Dataset;
 
-  newChartData = [];
+  private yFields: Field[];
+  private xFields: Field[];
+  private yField: Field;
+  private xField: Field;
 
-  graphTitle: string;
+  private graphTitle: string;
+
+  private options = {
+    responsive: true
+  };
 
   constructor(
     private dashboardService: DashboardService
@@ -34,6 +38,7 @@ export class GraphPanelComponent implements OnInit {
 
   ngOnInit() {
     // instantiate instance variables
+    this.chart = new Chart();
     this.datasets = null;
     this.yFields = null;
     this.xFields = null;
@@ -41,7 +46,6 @@ export class GraphPanelComponent implements OnInit {
     this.xDataset = null;
     this.yField = null;
     this.xField = null;
-    this.newChartData = null;
 
     this.graphTitle = 'Y-Axis V X-Axis';
 
@@ -49,9 +53,6 @@ export class GraphPanelComponent implements OnInit {
     this.dashboardService.getDatasets().subscribe((res: any[]) => {
       this.datasets = res;
     });
-
-    // Populates initial empty charts
-    this.updateChart();
   }
 
 
@@ -64,8 +65,7 @@ export class GraphPanelComponent implements OnInit {
   setYAxis(index: number) {
     this.yDataset = this.datasets[index];
     this.yField = null;
-    this.newChartData = null;
-    this.updateChart();
+    this.chart.data = [];
 
     console.log(this.yDataset);
 
@@ -80,8 +80,7 @@ export class GraphPanelComponent implements OnInit {
   setXAxis(index: number) {
     this.xDataset = this.datasets[index];
     this.xField = null;
-    this.newChartData = null;
-    this.updateChart();
+    this.chart.data = [];
 
     // get fields
     this.dashboardService.getFields(this.xDataset.id.toString()).subscribe((res: any[]) => {
@@ -112,10 +111,11 @@ export class GraphPanelComponent implements OnInit {
 
   // adds the graph to the user's dashboard
   addGraph() {
-    if (this.yField === null || this.xField === null || this.newChartData == null) {
+    if (this.yField === null || this.xField === null || this.chart.data.length === 0) {
       alert('Please Specify X / Y Axis Values');
-    } else { // add graph data to user charts
-      alert('adding chart');
+    } else { // close panel and add graph data to user charts
+      this.dashboardService.addChart();
+      this.closeGraphPanel();
     }
   }
 
@@ -128,32 +128,7 @@ export class GraphPanelComponent implements OnInit {
       field2: this.yField.id.toString(),
       dataset2: this.yDataset.id.toString()
     }).subscribe(res => {
-      this.newChartData = res;
-      this.updateChart(); // update chart
-    });
-  }
-
-
-  // updates the data in a the scatter chart
-  updateChart() {
-    const canvas: any = document.getElementById('myChart');
-    const ctx = canvas.getContext('2d');
-    const scatterChart = new Chart(ctx, {
-      type: 'scatter',
-      data: {
-        datasets: [{
-          label: 'Scatter Dataset',
-          data: this.newChartData
-        }]
-      },
-      options: {
-        scales: {
-          xAxes: [{
-            type: 'linear',
-            position: 'bottom'
-          }]
-        }
-      }
+      this.chart.data = res;
     });
   }
 
