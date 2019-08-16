@@ -13,8 +13,7 @@ import { DashboardService } from 'src/app/services/dashboard/dashboard.service';
 })
 
 export class GraphPanelComponent implements OnInit {
-
-  // instance variables
+  // class variables
   private chart: Chart;
 
   private datasets: Dataset[];
@@ -26,12 +25,7 @@ export class GraphPanelComponent implements OnInit {
   private yField: Field;
   private xField: Field;
 
-  private graphTitle: string;
-
-  private options = {
-    responsive: true
-  };
-
+  // constructor
   constructor(
     private dashboardService: DashboardService
   ) { }
@@ -46,8 +40,6 @@ export class GraphPanelComponent implements OnInit {
     this.xDataset = null;
     this.yField = null;
     this.xField = null;
-
-    this.graphTitle = 'Y-Axis V X-Axis';
 
     // GET datasets
     this.dashboardService.getDatasets().subscribe((res: any[]) => {
@@ -114,7 +106,7 @@ export class GraphPanelComponent implements OnInit {
     if (this.yField === null || this.xField === null || this.chart.data.length === 0) {
       alert('Please Specify X / Y Axis Values');
     } else { // close panel and add graph data to user charts
-      this.dashboardService.addChart();
+      this.dashboardService.addChart(this.chart);
       this.closeGraphPanel();
     }
   }

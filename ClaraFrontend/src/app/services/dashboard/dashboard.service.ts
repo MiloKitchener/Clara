@@ -4,12 +4,15 @@ import { HttpClient } from '@angular/common/http';
 import { Dashboard } from 'src/app/classes/dashboard';
 import { environment } from './../../../environments/environment';
 
+import { Chart } from 'src/app/classes/chart';
+
 @Injectable({
   providedIn: 'root'
 })
 
 export class DashboardService {
   // class variables
+  private currentDashboard: Dashboard;
   private datasets: any;
   public closePanel = new EventEmitter();
 
@@ -17,6 +20,11 @@ export class DashboardService {
   constructor( private router: Router, private http: HttpClient ) {
     // GET datasets
     this.datasets = this.http.get(environment.backendIP + 'datasets/');
+  }
+
+  // setter for current dashboard
+  setCurrentDashboard(dashboard: Dashboard): void {
+    this.currentDashboard = dashboard;
   }
 
   // GET specific dashboard from list
@@ -94,7 +102,8 @@ export class DashboardService {
     this.closePanel.emit();
   }
 
-  addChart() {
-    alert('adding chart');
+  // add chart to currently opened dashboard
+  addChart(chart: Chart) {
+    this.currentDashboard.charts.push(chart);
   }
 }

@@ -39,6 +39,7 @@ export class DashboardComponent implements OnInit {
       this.route.paramMap.subscribe(params => {
         this.name = params.get('id');
         this.dashboard = this.dashboardService.getDashboard(this.dashboards, this.name);
+        this.dashboardService.setCurrentDashboard(this.dashboard);
         for (const chart of this.dashboard.charts) {
           if (chart.type === 'scatter') {
             this.dashboardService.getData({
