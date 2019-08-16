@@ -7,7 +7,6 @@ import { Dashboard } from 'src/app/classes/dashboard';
 
 // Import service
 import { DashboardService } from 'src/app/services/dashboard/dashboard.service';
-import { GraphDataService } from 'src/app/services/graph-data/graph-data.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -29,7 +28,6 @@ export class DashboardComponent implements OnInit {
   // Inject the activatated route
   constructor(
     private route: ActivatedRoute,
-    private graphDataService: GraphDataService,
     private dashboardService: DashboardService
   ) { }
 
@@ -61,7 +59,7 @@ export class DashboardComponent implements OnInit {
     this.screenIcon = 'fullscreen';
 
     // hide graph panel when its closed button is pressed
-    this.graphDataService.closePanel.subscribe(
+    this.dashboardService.closePanel.subscribe(
       (userChartData: any) => {
         this.toggleAddChartPanel();
       }

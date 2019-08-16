@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { GraphDataService } from '../../services/graph-data/graph-data.service';
+import { DashboardService } from '../../services/dashboard/dashboard.service';
 import { WebsocketService } from '../../services/websocket/websocket.service';
 import { Dataset } from '../../classes/dataset';
 import {Apollo} from 'apollo-angular';
@@ -27,7 +27,7 @@ export class LiveDataGraphPanelComponent implements OnInit {
   private chart: any;
 
   constructor(
-    private graphDataService: GraphDataService,
+    private dashboardService: DashboardService,
     private formBuilder: FormBuilder,
     private socketService: WebsocketService,
     private apollo: Apollo
@@ -41,7 +41,7 @@ export class LiveDataGraphPanelComponent implements OnInit {
 
   ngOnInit() {
     // Get all the live datasets
-    this.graphDataService.getLiveDatasets().subscribe((res) => {
+    this.dashboardService.getLiveDatasets().subscribe((res) => {
       res.forEach((dataset) => {
         this.datasets.push(dataset);
       });

@@ -1,15 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
 
-import { GraphDataService } from 'src/app/services/graph-data/graph-data.service';
-
 import { Dataset } from 'src/app/classes/dataset';
 import { Field } from 'src/app/classes/field';
 
 import { DashboardService } from 'src/app/services/dashboard/dashboard.service';
-
-
-import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-graph-panel',
@@ -34,7 +29,6 @@ export class GraphPanelComponent implements OnInit {
   graphTitle: string;
 
   constructor(
-    private graphDataService: GraphDataService,
     private dashboardService: DashboardService
   ) { }
 
@@ -52,7 +46,7 @@ export class GraphPanelComponent implements OnInit {
     this.graphTitle = 'Y-Axis V X-Axis';
 
     // GET datasets
-    this.graphDataService.getDatasets().subscribe((res: any[]) => {
+    this.dashboardService.getDatasets().subscribe((res: any[]) => {
       this.datasets = res;
     });
 
@@ -76,7 +70,7 @@ export class GraphPanelComponent implements OnInit {
     console.log(this.yDataset);
 
     // get fields
-    this.graphDataService.getFields(this.yDataset.id.toString()).subscribe((res: any[]) => {
+    this.dashboardService.getFields(this.yDataset.id.toString()).subscribe((res: any[]) => {
       this.yFields = res;
     });
   }
@@ -90,7 +84,7 @@ export class GraphPanelComponent implements OnInit {
     this.updateChart();
 
     // get fields
-    this.graphDataService.getFields(this.xDataset.id.toString()).subscribe((res: any[]) => {
+    this.dashboardService.getFields(this.xDataset.id.toString()).subscribe((res: any[]) => {
       this.xFields = res;
     });
   }
@@ -121,7 +115,7 @@ export class GraphPanelComponent implements OnInit {
     if (this.yField === null || this.xField === null || this.newChartData == null) {
       alert('Please Specify X / Y Axis Values');
     } else { // add graph data to user charts
-      alert("adding chart");
+      alert('adding chart');
     }
   }
 
@@ -196,6 +190,6 @@ export class GraphPanelComponent implements OnInit {
   }
 
   closeGraphPanel() {
-    this.graphDataService.closeGraphPanel();
+    this.dashboardService.closeGraphPanel();
   }
 }

@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 
-import { GraphDataService } from 'src/app/services/graph-data/graph-data.service';
+import { DashboardService } from 'src/app/services/dashboard/dashboard.service';
 
 import { Dataset } from 'src/app/classes/dataset';
 import { DatasetConfirmation } from 'src/app/classes/dataset-confirmation';
@@ -38,7 +38,7 @@ export class DatasetComponent implements OnInit {
 
   constructor(
     private http: HttpClient,
-    private datasetService: GraphDataService,
+    private datasetService: DashboardService,
     private fb: FormBuilder
   ) { }
 
