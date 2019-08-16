@@ -72,33 +72,39 @@ export class DashboardService {
   }
 
 
-
-
-
   // Returns a list of datasets from the database
   getDatasets() {
     return this.datasets;
   }
 
+
+  // GET live datasets
   getLiveDatasets() {
     return this.http.get<any>(environment.backendIP + 'datasets/?type=live');
   }
+
 
   // Returns a list of fields corresponding to a database parameter
   getFields(id: string) {
     return this.http.get(environment.backendIP + 'datasets/' + id + '/field_names/');
   }
 
+
+  // GET live dataset fields
   getLiveFields(url: string) {
     return this.http.get(url + 'matrix_info/get_fields/');
   }
 
+
+  // GET live devices
   getLiveDevices(url: string) {
     return this.http.get(url + 'devices/');
   }
+
 
   // emits message to hide graph panel
   closeGraphPanel() {
     this.closePanel.emit();
   }
+
 }
