@@ -16,13 +16,14 @@ import { DashboardService } from 'src/app/services/dashboard/dashboard.service';
 
 export class DashboardComponent implements OnInit {
   // class variables
-  name: string;
-  dashboard: Dashboard = new Dashboard('');
-  displayAddChartPanel: boolean;
-  screenIcon: string;
-  options = {
+  private name: string;
+  private dashboard: Dashboard = new Dashboard('');
+  private displayAddChartPanel: boolean;
+  private screenIcon: string;
+  private options = {
     responsive: true
   };
+
   public dashboards: Dashboard[] = [];
 
   // Inject the activatated route
@@ -66,10 +67,12 @@ export class DashboardComponent implements OnInit {
     );
   }
 
+  // toggles the add chart panel
   toggleAddChartPanel(): void {
     this.displayAddChartPanel = !this.displayAddChartPanel;
   }
 
+  // sets a new chart as the primary
   setAsPrimaryChart(index: number) {
     const oldMainChart = this.dashboard.charts[0];
     this.dashboard.charts[0] = this.dashboard.charts[index];
@@ -84,11 +87,15 @@ export class DashboardComponent implements OnInit {
     this.dashboard.charts.splice(index, 1);
   }
 
+  // increases size of chart
+  // CURRENTLY NOT WORKING
   increaseSize(index: number) {
     const chart = (document.getElementsByClassName('charts') as any as HTMLElement[])[index];
     chart.style.width = '100vw';
   }
 
+  // decreases size of chart
+  // CURRENTLY NOT WORKING
   decreaseSize(index: number) {
     const chart = (document.getElementsByClassName('charts') as any as HTMLElement[])[index];
     chart.style.width = '20vw';
