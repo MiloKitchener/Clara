@@ -12,7 +12,6 @@ import { HttpClient } from '@angular/common/http';
 
 export class DashboardService {
   // class variables
-  //private dashboards: Dashboard[];
   private datasets: any;
   public closePanel = new EventEmitter();
 
