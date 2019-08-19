@@ -52,14 +52,13 @@ export class DashboardService {
   }
 
   // adds a dashboard
-  addDashboard(dashboards: Dashboard[], name: string) {
+  addDashboard(name: string) {
     if (name != null) { // if user didn't hit cancel
       if (name === '') { // if name invalid
         alert('Please Provide a Name For the Dashboard');
       } else {
-        // TODO: Add dashboard to database
         const newDashboard = new Dashboard(name);
-        dashboards.push(newDashboard);
+        // need to add dashboard via backend
       }
     }
   }

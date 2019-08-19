@@ -49,6 +49,7 @@ export class MainComponent implements OnInit {
     location.reload();
   }
 
+
   // toggles the side navbar (used for mobile viewing)
   public toggleSideNav(): void {
     if (this.sideNav === false) {
@@ -67,6 +68,7 @@ export class MainComponent implements OnInit {
       this.sideNav = false;
     }
   }
+
 
   // toggles fullscreen
   public toggleFullScreen(): void {
@@ -107,10 +109,13 @@ export class MainComponent implements OnInit {
     }
   }
 
-  addDashboard(dashboards: Dashboard[]) {
+
+  // creates a dashboard with a specified name
+  public addDashboard() {
     const name = prompt('What is the Dashboard\'s Name?');
-    this.dashboardService.addDashboard(dashboards, name);
+    this.dashboardService.addDashboard(name);
   }
+
 }
 
 // detects if site is being viewed on a mobile device
