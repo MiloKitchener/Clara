@@ -46,7 +46,7 @@ export class MainComponent implements OnInit {
   public logout(): void {
     this.logoutService.logout();
     // Reload the current page without the browser cache
-    location.reload(true);
+    location.reload();
   }
 
   // toggles the side navbar (used for mobile viewing)
