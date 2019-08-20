@@ -126,6 +126,7 @@ export class GraphPanelComponent implements OnInit {
   }
 
 
+  // controls tab switching functionality
   openTab(tabName: string) {
     // Declare all variables
     let tabcontent: any;
@@ -158,6 +159,7 @@ export class GraphPanelComponent implements OnInit {
   }
 
 
+  // sends signal to close graph panel
   closeGraphPanel() {
     this.dashboardService.closeGraphPanel();
   }
