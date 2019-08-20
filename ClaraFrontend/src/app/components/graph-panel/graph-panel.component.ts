@@ -106,6 +106,7 @@ export class GraphPanelComponent implements OnInit {
     if (this.yField === null || this.xField === null || this.chart.data.length === 0) {
       alert('Please Specify X / Y Axis Values');
     } else { // close panel and add graph data to user charts
+      this.chart.name = this.yField.name + ' V ' + this.xField.name;
       this.dashboardService.addChart(this.chart);
       this.closeGraphPanel();
     }
@@ -155,6 +156,7 @@ export class GraphPanelComponent implements OnInit {
     document.getElementById(idTabContent).style.display = 'flex';
     document.getElementById(idTab).className += ' active';
   }
+
 
   closeGraphPanel() {
     this.dashboardService.closeGraphPanel();

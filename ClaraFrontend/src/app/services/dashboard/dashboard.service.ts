@@ -101,8 +101,11 @@ export class DashboardService {
     this.closePanel.emit();
   }
 
-  // add chart to currently opened dashboard
+  // add chart to currently opened dashboard, create copy of chart to avoid pointer related bugs
   addChart(chart: Chart) {
-    this.currentDashboard.charts.push(chart);
+    let toAdd: Chart;
+    toAdd = new Chart(chart);
+    // TODO: Upload to backend
+    this.currentDashboard.charts.push(toAdd);
   }
 }
