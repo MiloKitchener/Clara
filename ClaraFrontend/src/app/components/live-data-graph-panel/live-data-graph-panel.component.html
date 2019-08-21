@@ -8,7 +8,7 @@
     <div class="dropdown-panels">
       <label>Device</label>
       <br>
-      <select formControlName="devices" (ngModelChange)="onDeviceChange($event)">
+      <select formControlName="devices" (ngModelChange)="onDeviceChange()">
         <option *ngFor="let device of devices" [ngValue]="device">
           {{device.uuid}}
         </option>

@@ -2,11 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DashboardService } from '../../services/dashboard/dashboard.service';
-import { WebsocketService } from '../../services/websocket/websocket.service';
-import { Dataset } from '../../classes/dataset';
-import {Apollo} from 'apollo-angular';
-import gql from 'graphql-tag';
 import {Device} from '../../classes/device';
+import {AppsyncService} from '../../services/appsync/appsync.service';
 
 @Component({
   selector: 'app-live-data-graph-panel',
@@ -17,60 +14,31 @@ export class LiveDataGraphPanelComponent implements OnInit {
   private chartData = [];
   private chartLabels = [];
   liveDataForm: FormGroup;
-  datasets = [];
-  selectedDataset: Dataset;
   fields = [];
   private selectedField;
   devices: Device[] = [];
   private selectedDevice;
-  ioConnection: any;
   private chart: any;
+  data;
 
   constructor(
     private dashboardService: DashboardService,
     private formBuilder: FormBuilder,
-    private socketService: WebsocketService,
-    private apollo: Apollo
+    private appsync: AppsyncService
   ) {
     this.liveDataForm = formBuilder.group({
-      datasets: ['None', Validators.required],
       fields: ['None', Validators.required],
       devices: ['None', Validators.required],
     });
   }
 
   ngOnInit() {
-    // Get all the live datasets
-    this.dashboardService.getLiveDatasets().subscribe((res) => {
-      res.forEach((dataset) => {
-        this.datasets.push(dataset);
-      });
-    });
-
-    this.apollo.watchQuery({
-        query: gql`
-          {
-            listDevices {
-              items {
-                uuid,
-                deviceid
-                ts
-                ... on ArduinoMoisture {
-                  battery
-                  moisture
-                  uptime
-                }
-              }
-            }
+    this.dashboardService.getLiveDevices().subscribe((result: any) => {
+          this.devices = result.data.listDevices.items;
+          if (this.devices) {
+            this.selectedDevice = this.devices[0];
           }
-        `,
-      })
-      .valueChanges.subscribe((result: any) => {
-        this.devices = result.data.listDevices.items;
-        if (this.devices) {
-          this.selectedDevice = this.devices[0];
-        }
-    });
+      });
 
     // Populates initial empty charts
     this.updateLiveChart();
@@ -98,7 +66,6 @@ export class LiveDataGraphPanelComponent implements OnInit {
     // stop here if form is invalid
     if (
       this.liveDataForm.invalid ||
-      this.liveDataForm.value.datasets === 'None' ||
       this.liveDataForm.value.fields === 'None' ||
       this.liveDataForm.value.devices === 'None'
     ) {
@@ -118,46 +85,85 @@ export class LiveDataGraphPanelComponent implements OnInit {
 
     this.selectedField = field;
     if (this.liveDataForm.controls.fields.value !== '' && this.liveDataForm.controls.devices.value !== '') {
-      this.initIoConnection().then(() => {
-        console.log('Connected to and configured websocket');
-      });
+      this.subscribeToDevice(this.selectedDevice.uuid);
     }
   }
 
-  onDeviceChange(device) {
-    // empty previous chart values
+  onDeviceChange() {
+    // Empty previous chart values
     this.chartLabels = [];
     this.chartData = [];
     this.updateLiveChart();
+    // Empty previous field values
+    this.fields = [];
 
     this.selectedDevice = this.liveDataForm.get('devices').value;
 
     // Update fields
-    this.fields.push(this.selectedDevice.moisture);
-    // this.fields = [];
-    // for (const key of device) {
-    //   this.fields.push(key);
-    // }
-    if (this.liveDataForm.controls.fields.value !== 'None' && this.liveDataForm.controls.devices.value !== 'None') {
-      this.initIoConnection().then(() => {
-        console.log('Connected to and configured websocket');
-      });
+    const keys = Object.keys(this.selectedDevice);
+    for (const key of keys) {
+      // Remove unusable fields
+      if (key !== 'uuid' && key !== 'deviceid' && key !== 'ts' && key !== '__typename') {
+        this.fields.push(key);
+      }
+    }
+    if (this.liveDataForm.controls.fields.value !== '' && this.liveDataForm.controls.devices.value !== '') {
+      this.subscribeToDevice(this.selectedDevice.uuid);
     }
   }
 
-  private async initIoConnection() {
-    if (this.socketService.isOpen()) {
-      await this.socketService.close();
-    }
-    await this.socketService.initSocket(this.selectedDataset.api_url, JSON.stringify(this.liveDataForm.value));
-
-    this.ioConnection = await this.socketService.onMessage()
-      .subscribe((message) => {
-        console.log(message);
-        const jsonMessage = JSON.parse(message);
-        this.chartData.push(jsonMessage.y);
-        this.chartLabels.push(jsonMessage.x);
-        this.chart.update();
+  private subscribeToDevice(uuid: string) {
+    this.appsync.hc().then(client => {
+      const observable = client.watchQuery({
+        query: this.dashboardService.ARDUINO_MOISTURE_QUERY,
+        variables: {uuid}
       });
+
+      observable.subscribe(({data}) => {
+        // if (!data) {
+        //   return console.log('getAllUsers - no data');
+        // }
+        // this.data = _(data.allUser).sortBy('username').reject(['id', this._user.id]).value();
+        // console.log('getAllUsers - Got data', this.data);
+        // this.no_user = (this.users.length === 0);
+      });
+
+      // observable.subscribeToMore({
+      //   document: this.dashboardService.ARDUINO_MOISTURE_SUB,
+      //   updateQuery: (prev: UsersQuery, {subscriptionData: {data: {notifyArduinoMoisture: data }}}) => {
+      //     console.log('updateQuery on convo subscription', data, prev);
+      //     return this._user.ts === data.ts ? prev : addUser(prev, user);
+      //   }
+      // });
+    });
+      // this.data = this.dataQuery.valueChanges;
+
+      // this.dataQuery.subscribeToMore({
+      // document: this.dashboardService.ARDUINO_MOISTURE_SUB,
+      // variables: {uuid},
+      // updateQuery: (prev, { subscriptionData }) => {
+      //     if (!subscriptionData.data) {
+      //       return prev;
+      //     }
+      //
+      //     const newData = subscriptionData.data.commentAdded;
+      //     console.log(newData);
+      //
+      //     return {
+      //       ...prev,
+      //       items: {
+      //         data: [newData, ...prev.items.data]
+      //       }
+      //     };
+      //   }
+      // });
+      // this.dashboardService.getLiveMoisture(uuid).subscribe(message => {
+      //   if (message.data.notifyArduinoMoisture) {
+      //     console.log(message.data.notifyArduinoMoisture);
+      //   }
+        // this.chartData.push(jsonMessage.y);
+        // this.chartLabels.push(message.ts);
+        // this.chart.update();
+      // });
   }
 }

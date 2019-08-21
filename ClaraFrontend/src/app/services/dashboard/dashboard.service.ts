@@ -2,25 +2,59 @@ import { Injectable, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Dashboard } from 'src/app/classes/dashboard';
-import { environment } from './../../../environments/environment';
+import { environment } from '../../../environments/environment';
 
 import { Chart } from 'src/app/classes/chart';
+import gql from 'graphql-tag';
+import {Apollo} from 'apollo-angular';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class DashboardService {
+
+  // constructor
+  constructor(
+    private router: Router,
+    private http: HttpClient,
+    private apollo: Apollo
+  ) {
+    // GET datasets
+    this.datasets = this.http.get(environment.backendIP + 'datasets/');
+  }
   // class variables
   private currentDashboard: Dashboard;
   private datasets: any;
   public closePanel = new EventEmitter();
 
-  // constructor
-  constructor( private router: Router, private http: HttpClient ) {
-    // GET datasets
-    this.datasets = this.http.get(environment.backendIP + 'datasets/');
-  }
+  public ARDUINO_MOISTURE_QUERY = gql`
+     query getArduinoMoistures($uuid: ID!) {
+      getArduinoMoistures(uuid: $uuid) {
+        items {
+          uuid
+          ts
+          deviceid
+          battery
+          moisture
+          uptime
+        }
+      }
+    }
+  `;
+
+  public ARDUINO_MOISTURE_SUB = gql`
+      subscription NotifyArduinoMoisture($uuid: ID!) {
+        notifyArduinoMoisture(uuid: $uuid) {
+          uuid
+          ts
+          deviceid
+          battery
+          moisture
+          uptime
+        }
+      }
+    `;
 
   // setter for current dashboard
   setCurrentDashboard(dashboard: Dashboard): void {
@@ -76,24 +110,54 @@ export class DashboardService {
     return this.datasets;
   }
 
-  // GET live datasets
-  getLiveDatasets() {
-    return this.http.get<any>(environment.backendIP + 'datasets/?type=live');
-  }
-
   // Returns a list of fields corresponding to a database parameter
   getFields(id: string) {
     return this.http.get(environment.backendIP + 'datasets/' + id + '/field_names/');
   }
 
-  // GET live dataset fields
-  getLiveFields(url: string) {
-    return this.http.get(url + 'matrix_info/get_fields/');
+  getSubscription(query) {
+    return this.apollo.subscribe({
+      query
+    });
   }
 
-  // GET live devices
-  getLiveDevices(url: string) {
-    return this.http.get(url + 'devices/');
+  getWatchQuery(query, variables) {
+    return this.apollo.watchQuery({
+      query,
+      variables
+    });
+  }
+
+  getLiveDevices() {
+    return this.apollo.watchQuery({
+        query: gql`
+          query ListDevices {
+            listDevices {
+              items {
+                uuid,
+                deviceid
+                ts
+                ... on ArduinoMoisture {
+                  battery
+                  moisture
+                  uptime
+                }
+                ... on ArduinoCO2 {
+                  battery
+                  Co2
+                  uptime
+                }
+                ... on ArduinoPH {
+                  battery
+                  pH
+                  uptime
+                }
+              }
+            }
+          }
+        `,
+      })
+      .valueChanges;
   }
 
   // emits message to hide graph panel
