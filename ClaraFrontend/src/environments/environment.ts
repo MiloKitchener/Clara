@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  backendIP: 'http://localhost:8000/',
+  backendIP: 'http://35.182.196.173/',
   graphqlEndpoint: 'https://a3uudq4ib5cindzxe47x47ffrq.appsync-api.us-east-1.amazonaws.com/graphql',
   graphqlAPIKey: 'da2-nstn2sgtifeotgeaon27ktqix4',
   appsyncRegion: 'us-east-1',
