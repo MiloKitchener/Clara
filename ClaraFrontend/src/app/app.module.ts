@@ -42,7 +42,7 @@ import {environment} from '../environments/environment';
 import {HttpMockInterceptor} from './classes/http-mock-interceptor';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import {HttpRequestInterceptor} from './classes/http-request-interceptor';
-import {FileSelectDirective} from 'ng2-file-upload';
+import {FileUploadModule} from 'ng2-file-upload';
 import { GraphQLModule } from './graphql.module';
 
 export const isMock = environment.mock;
@@ -68,7 +68,6 @@ export const isMock = environment.mock;
     ArUploadComponent,
     ArComponent,
     ArDetailComponent,
-    FileSelectDirective
   ],
   imports: [
     BrowserModule,
@@ -82,7 +81,8 @@ export const isMock = environment.mock;
     HttpClientModule,
     ReactiveFormsModule,
     ChartsModule,
-    GraphQLModule
+    GraphQLModule,
+    FileUploadModule
   ],
   providers: [
     CookieService,

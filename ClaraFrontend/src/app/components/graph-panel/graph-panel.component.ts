@@ -14,16 +14,16 @@ import { DashboardService } from 'src/app/services/dashboard/dashboard.service';
 
 export class GraphPanelComponent implements OnInit {
   // class variables
-  private chart: Chart;
+  public chart: Chart;
 
-  private datasets: Dataset[];
-  private yDataset: Dataset;
-  private xDataset: Dataset;
+  public datasets: Dataset[];
+  public yDataset: Dataset;
+  public xDataset: Dataset;
 
-  private yFields: Field[];
-  private xFields: Field[];
-  private yField: Field;
-  private xField: Field;
+  public yFields: Field[];
+  public xFields: Field[];
+  public yField: Field;
+  public xField: Field;
 
   // constructor
   constructor(

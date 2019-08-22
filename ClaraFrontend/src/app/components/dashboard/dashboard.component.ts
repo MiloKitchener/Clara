@@ -16,10 +16,10 @@ import { DashboardService } from 'src/app/services/dashboard/dashboard.service';
 
 export class DashboardComponent implements OnInit {
   // class variables
-  private name: string;
-  private dashboard: Dashboard = new Dashboard('');
-  private displayAddChartPanel: boolean;
-  private screenIcon: string;
+  public name: string;
+  public dashboard: Dashboard = new Dashboard('');
+  public displayAddChartPanel: boolean;
+  public screenIcon: string;
   private options = {
     responsive: true
   };
