@@ -14,6 +14,7 @@ import {Apollo} from 'apollo-angular';
 
 export class DashboardService {
 
+
   // constructor
   constructor(
     private router: Router,
@@ -55,6 +56,12 @@ export class DashboardService {
         }
       }
     `;
+
+
+  /************************
+    Class Methods
+   ***********************/
+
 
   // setter for current dashboard
   setCurrentDashboard(dashboard: Dashboard): void {
@@ -104,6 +111,7 @@ export class DashboardService {
     this.router.navigateByUrl('/main');
     // TODO: push changes to database
   }
+
 
   // Returns a list of datasets from the database
   getDatasets() {
@@ -160,13 +168,18 @@ export class DashboardService {
       .valueChanges;
   }
 
+
   // emits message to hide graph panel
   closeGraphPanel() {
     this.closePanel.emit();
   }
 
-  // add chart to currently opened dashboard
+
+  // add chart to currently opened dashboard, create copy of chart to avoid pointer related bugs
   addChart(chart: Chart) {
-    this.currentDashboard.charts.push(chart);
+    let toAdd: Chart;
+    toAdd = new Chart(chart);
+    // TODO: Upload to backend
+    this.currentDashboard.charts.push(toAdd);
   }
 }

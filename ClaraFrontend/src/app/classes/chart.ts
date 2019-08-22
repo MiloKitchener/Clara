@@ -11,10 +11,11 @@ export class Chart {
   labels: Label[];
   data: [];
 
-  constructor() {
-    this.name = '';
-    this.type = 'scatter';
-    this.labels = [];
-    this.data = [];
+  // constructor can act as empty constructor or copy constructor
+  constructor(chart?: Chart) {
+    this.name = chart && chart.name || '';
+    this.type = chart && chart.type || 'scatter';
+    this.labels = chart && chart.labels || [];
+    this.data = chart && chart.data || [];
   }
 }
