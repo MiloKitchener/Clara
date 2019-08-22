@@ -11,14 +11,14 @@ export class AppsyncService {
    hydratedClient;
 
    constructor() {
-     this.hydratedClient = new AWSAppSyncClient({
-       url: environment.graphqlEndpoint,
-       region: environment.appsyncRegion,
-       auth: {
-         type: AUTH_TYPE.API_KEY,
-         apiKey: environment.graphqlAPIKey
-       }
-     });
+     // this.hydratedClient = new AWSAppSyncClient({
+     //   url: environment.graphqlEndpoint,
+     //   region: environment.appsyncRegion,
+     //   auth: {
+     //     type: AUTH_TYPE.API_KEY,
+     //     apiKey: environment.graphqlAPIKey
+     //   }
+     // });
    }
 
    hc() {

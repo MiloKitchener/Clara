@@ -23,12 +23,12 @@ export function createApollo(httpLink: HttpLink) {
 
   const http = httpLink.create({ uri });
 
-  const ws = new WebSocketLink({
-    uri,
-    options: {
-      reconnect: true,
-    },
-  });
+  // const ws = new WebSocketLink({
+  //   uri,
+  //   options: {
+  //     reconnect: true,
+  //   },
+  // });
 
   const link = split(
     // Split based on operation type
@@ -36,7 +36,7 @@ export function createApollo(httpLink: HttpLink) {
       const { kind, operation } = getMainDefinition(query);
       return kind === 'OperationDefinition' && operation === 'subscription';
     },
-    ws,
+    // ws,
     http,
   );
 

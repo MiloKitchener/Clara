@@ -14,8 +14,8 @@ export class ArService {
 
   constructor(private http: HttpClient) { }
 
-  generatePresignedURL(name: string, fileType: string): Observable<string> {
-    return this.http.post<string>(environment.backendIP + 'ARModels/generate_presigned_url/', {name, file_type: fileType});
+  generatePresignedURL(name: string): Observable<string> {
+    return this.http.post<string>(environment.backendIP + 'ARModels/generate_presigned_url/', {name});
   }
 
   createARModel(arModel: ARModel) {

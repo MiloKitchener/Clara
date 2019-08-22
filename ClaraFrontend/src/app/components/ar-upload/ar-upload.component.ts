@@ -39,11 +39,11 @@ export class ArUploadComponent implements OnInit {
       // Upload all the files to S3
       for (const item of this.arService.uploader.queue) {
         // Get presigned S3 url
-        this.arService.generatePresignedURL(item.file.name, item.file.rawFile).subscribe(url => {
+        this.arService.generatePresignedURL(item.file.name).subscribe(url => {
           // Set the upload object
           item.url = url;
           item.method = 'PUT';
-          item.headers =  [{name: 'Content-Type', value: item.file.type}];
+          item.headers =  [{name: 'Content-Type', value: 'text/plain;charset=UTF-8'}];
           item.withCredentials = false;
           // Upload the file
           item.upload();

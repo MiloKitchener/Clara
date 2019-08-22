@@ -288,6 +288,7 @@ class ARModelView(viewsets.ModelViewSet):
                 Params={
                     'Bucket': 'clara-data-ar',
                     'Key': request.data['name'],
+                    'ContentType': 'text/plain;charset=UTF-8',
                     'ACL': 'public-read'
                 }
             )
