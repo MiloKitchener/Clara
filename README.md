@@ -139,7 +139,8 @@ To set up an Alexa skill [follow this tutorial](https://developer.amazon.com/doc
 - If the install freezes restart the pi and run the “bash ./setup.sh ./config.json” command again to resume the install 
 - Run `sudo su` to use the root user
 - Change the `~/.asoundrc` file to the following content (change the playback settings to match your device if using bluetooth speaker, else change it for your audio output device)
-```pcm.!default
+```
+pcm.!default
 {
 type asym
 playback.pcm {
@@ -156,7 +157,8 @@ capture.pcm {
   card 2
   device 0
 }
-}```
+}
+```
 
 
 **Startup:**
