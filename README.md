@@ -100,7 +100,11 @@ The first step to setting up Clara on your local machine will be to download all
 3. Run `ng build --prod`
 4. Run `npm run electron`
 
-
+### Ionic: ###
+1. Navigate to `ionic`
+2. run `npm install`
+3. run `ionic serve`
+4. Navigate to the website using the URL: http://localhost:8100/
 
 <a name="prod-deployment"></a>
 ## Production Deployment ##
