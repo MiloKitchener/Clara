@@ -79,14 +79,14 @@ The first step to setting up Clara on your local machine will be to download all
 ## Local Deployment ##
 ### Frontend: ###
 1. Install all of the required programs, found under **setup**
-2. Navigate to ClaraFrontend
+2. Navigate to `site-frontend`
 3. Run `npm install`
 4. Run `ng serve`
 5. Navigate to the website using the URL: http://localhost:4200/
 6. If backend is also being run locally, navigate to ClaraFrontend->src->environments->environment.ts and change the `backendIP` value to `http://localhost:8000/`, then change the `backendIPWS` to `ws://localhost:8000/`
 
 ### Backend: ###
-1. Navigate to ClaraBackend 
+1. Navigate to `backend` 
 2. Install the python 3 dependencies using pip
 3. Manage the database settings in base.py
 4. Run ”python manage.py makemigrations” and “python manage.py migrate” to set up database
@@ -95,7 +95,7 @@ The first step to setting up Clara on your local machine will be to download all
 7. Navigate to the backend using the URL: http://localhost:8000
 
 ### Electron: ###
-1. Navigate to ClaraFrontend
+1. Navigate to `site-frontend`
 2. If it hasn't been done already, run `npm install`
 3. Run `ng build --prod`
 4. Run `npm run electron`
