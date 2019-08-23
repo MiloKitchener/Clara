@@ -5,12 +5,26 @@
 </ion-header>
 
 <ion-content>
-  <div class="chart">
-    <canvas baseChart
-      [datasets]="radarChartData"
-      [options]="radarChartOptions"
-      [labels]="radarChartLabels"
-      [chartType]="radarChartType">
-    </canvas>
-  </div>
+  <ul>
+    <li>
+      <div class="chart">
+        <canvas baseChart
+          [datasets]="radarChartData"
+          [options]="radarChartOptions"
+          [labels]="radarChartLabels"
+          [chartType]="radarChartType">
+        </canvas>
+      </div>
+    </li>
+    <li>
+      <div class="chart">
+        <canvas baseChart
+          [datasets]="radarChartData"
+          [options]="radarChartOptions"
+          [labels]="radarChartLabels"
+          [chartType]="radarChartType">
+        </canvas>
+      </div>
+    </li>
+  </ul>
 </ion-content>
