@@ -105,6 +105,9 @@ The first step to setting up Clara on your local machine will be to download all
 2. run `npm install`
 3. run `ionic serve`
 4. Navigate to the website using the URL: http://localhost:8100/
+5. If desired, change the web layout to a mobile responsive layout 
+   1. [Firefox How To](https://developer.mozilla.org/en-US/docs/Tools/Responsive_Design_Mode)
+   2. [Chrome How To](https://developers.google.com/web/tools/chrome-devtools/device-mode/)
 
 <a name="prod-deployment"></a>
 ## Production Deployment ##
