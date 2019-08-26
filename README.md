@@ -125,7 +125,7 @@ The first step to setting up Clara on your local machine will be to download all
 https://medium.com/how-to-electron/a-complete-guide-to-packaging-your-electron-app-1bdc717d739f
 
 ### Ionic: ###
-http://www.nikola-breznjak.com/blog/javascript/ionic/build-an-app-for-distribution-with-ionic-package/
+https://ionicframework.com/docs/v1/guide/publishing.html
 
 <a name="alexaIntegration"></a>
 ## Alexa Integration ##
