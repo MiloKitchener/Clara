@@ -1,12 +1,16 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
+// import services
+import { AuthService } from './services/auth/auth.service';
+
 const routes: Routes = [
   {
     path: '',
+    canActivate: [AuthService],
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
   },
-  { path: 'datasets', loadChildren: './datasets/datasets.module#DatasetsPageModule' }
+  { path: 'login', loadChildren: './login/login.module#LoginPageModule' }
 ];
 @NgModule({
   imports: [
