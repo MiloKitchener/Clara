@@ -5,26 +5,20 @@
 </ion-header>
 
 <ion-content>
-  <ul>
-    <li>
-      <div class="chart">
-        <canvas baseChart
-          [datasets]="radarChartData"
-          [options]="radarChartOptions"
-          [labels]="radarChartLabels"
-          [chartType]="radarChartType">
-        </canvas>
-      </div>
-    </li>
-    <li>
-      <div class="chart">
-        <canvas baseChart
-          [datasets]="radarChartData"
-          [options]="radarChartOptions"
-          [labels]="radarChartLabels"
-          [chartType]="radarChartType">
-        </canvas>
-      </div>
-    </li>
-  </ul>
+    <ng-container *ngIf="selectedDashboard">
+      <ul>
+        <li *ngFor="let chart of selectedDashboard.charts; let i = index">
+          <!-- Chart Canvas -->
+          <div *ngIf="chart.data">
+            <canvas baseChart
+              [datasets]="[{
+                  label: 'Series A',
+                  data: chart.data
+                }]"
+              [chartType]="chart.type">
+            </canvas>
+          </div>
+        </li>
+      </ul>
+    </ng-container>
 </ion-content>
