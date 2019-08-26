@@ -5,5 +5,18 @@
 </ion-header>
 
 <ion-content>
-
+  <!-- Log In Form -->
+  <form [formGroup]="loginForm" (ngSubmit)="signIn()">
+    <ion-item>
+      <ion-label>username</ion-label>
+      <ion-input type="text" formControlName="username"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label>password</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="submit"></ion-input>
+    </ion-item>
+  </form>
 </ion-content>
