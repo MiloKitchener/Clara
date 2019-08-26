@@ -1,10 +1,10 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>login</ion-title>
-  </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <!-- Clara Avatar -->
+  <img src="../../assets/clara-cat.svg" alt="">
+
   <!-- Log In Form -->
   <form [formGroup]="loginForm" (ngSubmit)="signIn()">
     <ion-item>
@@ -16,7 +16,7 @@
       <ion-input type="password" formControlName="password"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input type="submit"></ion-input>
+      <ion-input type="submit" value="Login"></ion-input>
     </ion-item>
   </form>
 </ion-content>

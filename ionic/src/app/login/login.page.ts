@@ -28,7 +28,7 @@ export class LoginPage implements OnInit {
     });
 
     // Grabs where the user came from if they were kicked out of a page before
-    this.returnUrl = this.route.snapshot.queryParams.returnUrl || 'main';
+    this.returnUrl = this.route.snapshot.queryParams.returnUrl || 'tabs';
   }
 
   signIn() {
