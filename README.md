@@ -73,6 +73,8 @@ The first step to setting up Clara on your local machine will be to download all
    - https://git-scm.com/downloads
 8. Putty
    - https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
+9. Cordova (Needed for Ionic Deployment)
+   - https://cordova.apache.org/
 
 
 <a name="local-deployment"></a>
