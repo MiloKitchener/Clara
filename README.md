@@ -85,7 +85,7 @@ The first step to setting up Clara on your local machine will be to download all
 3. Run `npm install`
 4. Run `ng serve`
 5. Navigate to the website using the URL: http://localhost:4200/
-6. If backend is also being run locally, navigate to ClaraFrontend->src->environments->environment.ts and change the `backendIP` value to `http://localhost:8000/`, then change the `backendIPWS` to `ws://localhost:8000/`
+6. If backend is also being run locally, navigate to site-frontend->src->environments->environment.ts and change the `backendIP` value to `http://localhost:8000/`, then change the `backendIPWS` to `ws://localhost:8000/`
 
 ### Backend: ###
 1. Navigate to `backend` 
