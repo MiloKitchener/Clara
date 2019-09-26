@@ -1,27 +1,38 @@
 <div class="controls">
   <form [formGroup]="liveDataForm" (ngSubmit)="submit()">
-
     <div class="graph">
       <canvas id="live-chart" width="400" height="400"></canvas>
     </div>
 
-    <div class="dropdown-panels">
-      <label>Device</label>
-      <br>
-      <select formControlName="devices" (ngModelChange)="onDeviceChange()">
-        <option *ngFor="let device of devices" [ngValue]="device">
+    <br>
+    <!--  Device Selection   -->
+    <mat-form-field>
+      <mat-label>Device</mat-label>
+      <mat-select
+        id="deviceSelect"
+        formControlName="device"
+        (selectionChange)="selectChange($event)">
+        <mat-option *ngFor="let device of devices" [value]="device">
           {{device.uuid}}
-        </option>
-      </select>
-      <br>
-      <label>Field</label>
-      <br>
-      <select formControlName="fields" (ngModelChange)="onFieldChange($event)">
-        <option *ngFor="let field of fields">
-          {{field}}
-        </option>
-      </select>
-      <input type="submit" value="Add Graph To Dashboard">
-    </div>
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+
+    <!--  Y Axis Selection   -->
+    <mat-form-field>
+      <mat-label>Field</mat-label>
+      <mat-select
+        id="fieldSelect"
+        formControlName="field"
+        (selectionChange)="selectChange($event)">
+        <ng-container *ngIf="selectedDevice">
+          <mat-option *ngFor="let field of selectedDevice.fields.items" [value]="field">
+            {{field.name}}
+          </mat-option>
+        </ng-container>
+      </mat-select>
+    </mat-form-field>
+    <input type="submit" value="Add Graph To Dashboard">
   </form>
 </div>

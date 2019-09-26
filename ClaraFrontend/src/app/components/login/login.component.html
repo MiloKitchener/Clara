@@ -1,68 +1,8 @@
 <div class="left-container">
-  <h1>Welcome to Clara.</h1>
+  <h1>Welcome to Clara</h1>
 
   <div class="login-container">
-    <!-- Log In Form -->
-    <form [formGroup]="loginForm" (ngSubmit)="signIn()" id="login-form">
-      <input type="text" formControlName="username" placeholder="username">
-      <div *ngIf="loginSubmitted && loginF.username.errors" class="invalid-feedback">
-        <div *ngIf="loginF.username.errors.required">username is required</div>
-      </div>
-      <br>
-      <input type="password" formControlName="password" placeholder="password" style="margin-bottom:5%;">
-      <div *ngIf="loginSubmitted && loginF.password.errors" class="invalid-feedback">
-        <div *ngIf="loginF.password.errors.required">password is required</div>
-      </div>
-      <br>
-      <div class="btn-container">
-        <input type="submit" value="Sign in">
-        <button class="sign-up-btn" (click)="goToSignup()">Sign Up</button>
-      </div>
-      <button class="text-btn" (click)="goToForgotPW()">forgot my password</button>
-    </form>
-
-    <!-- Sign Up Form -->
-    <form [formGroup]="signUpForm" (ngSubmit)="signUp()" id="sign-up-form">
-      <input type="text" formControlName="username" placeholder="name">
-      <div *ngIf="signUpSubmitted && signUpF.username.errors" class="invalid-feedback">
-        <div *ngIf="signUpF.username.errors.required">username is required</div>
-      </div>
-      <br>
-      <input type="email" formControlName="email" placeholder="email">
-      <div *ngIf="signUpSubmitted && signUpF.email.errors" class="invalid-feedback">
-        <div *ngIf="signUpF.email.errors.required">email is required</div>
-      </div>
-      <br>
-      <input type="password" formControlName="password1" placeholder="password">
-      <div *ngIf="signUpSubmitted && signUpF.password1.errors" class="invalid-feedback">
-        <div *ngIf="signUpF.password1.errors.required">password is required</div>
-        <div *ngIf="signUpF.password1.errors.minlength">Password must be at least 6 characters</div>
-      </div>
-      <br>
-      <input type="password" formControlName="password2" placeholder="repeat password">
-      <div *ngIf="signUpSubmitted && signUpF.password2.errors" class="invalid-feedback">
-        <div *ngIf="signUpF.password2.errors.required">password is required</div>
-        <div *ngIf="signUpF.password2.errors.minlength">Password must be at least 6 characters</div>
-      </div>
-      <br>
-      <div class="btn-container">
-        <input type="submit" value="Sign Up">
-        <button class="sign-up-btn" (click)="goToLogin()">Return</button>
-      </div>
-    </form>
-
-    <!-- Forgot PW Form -->
-    <form [formGroup]="forgotPWForm" (ngSubmit)="forgotPW()" id="forgot-pw-form">
-      <input type="text" formControlName="email" placeholder="email" required>
-      <div *ngIf="forgotPWSubmitted && forgotPWF.email.errors" class="invalid-feedback">
-        <div *ngIf="forgotPWF.email.errors.required">email is required</div>
-      </div>
-      <br>
-      <div class="btn-container">
-        <input type="submit" value="Resend Password" style="margin-right:5%;">
-        <button class="sign-up-btn" (click)="goToLogin()">Return</button>
-      </div>
-    </form>
+     <amplify-authenticator [signUpConfig]="signUpConfig"></amplify-authenticator>
   </div>
 
   <img src="./assets/images/clara_icon.png" class="thumbnail" (click)="toSplash()">

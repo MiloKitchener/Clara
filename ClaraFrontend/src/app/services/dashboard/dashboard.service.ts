@@ -1,12 +1,12 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { Dashboard } from 'src/app/classes/dashboard';
-import { environment } from '../../../environments/environment';
+import { Dashboard } from 'src/app/interfaces/dashboard';
 
-import { Chart } from 'src/app/classes/chart';
+import { Chart } from 'src/app/interfaces/chart';
 import gql from 'graphql-tag';
 import {Apollo} from 'apollo-angular';
+import {APIService} from '../../API.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,19 +14,13 @@ import {Apollo} from 'apollo-angular';
 
 export class DashboardService {
 
-
-  // constructor
   constructor(
     private router: Router,
     private http: HttpClient,
-    private apollo: Apollo
-  ) {
-    // GET datasets
-    this.datasets = this.http.get(environment.backendIP + 'datasets/');
-  }
-  // class variables
-  private currentDashboard: Dashboard;
-  private datasets: any;
+    private apollo: Apollo,
+    private apiService: APIService
+  ) { }
+
   public closePanel = new EventEmitter();
 
   public ARDUINO_MOISTURE_QUERY = gql`
@@ -62,65 +56,47 @@ export class DashboardService {
     Class Methods
    ***********************/
 
-
-  // setter for current dashboard
-  setCurrentDashboard(dashboard: Dashboard): void {
-    this.currentDashboard = dashboard;
-  }
-
   // GET specific dashboard from list
-  // replace with function in dashboard.component.ts?
-  getDashboard(dashboards: Dashboard[], dashboardName: string): Dashboard {
-    return dashboards.find(o => o.name === dashboardName);
+  getDashboard(name: string) {
+    return this.getDashboards().then(dashboards => {
+      return dashboards.items.find(dashboard => dashboard.name === name);
+    });
   }
 
   // GET Dashboards
   getDashboards() {
-    return this.http.get<Dashboard[]>(environment.backendIP + 'dashboards/');
+    return this.apiService.ListDashboards();
   }
 
-  // GET the datapoints from a chart specified in the parameters
-  getData(params: any) {
-    return this.http.post<[]>(environment.backendIP + 'graphs/request_graph/', params);
+  // GET the datapoints for a field specified in the parameters
+  getARCGISData(dataset, field) {
+    return this.apiService.GetArcgisData(dataset, field);
   }
 
   // moves a chart from one dashboard to another
-  moveChartToDashboard(dashboards: Dashboard[], originDashboard: Dashboard, dashboardIndex: number, chartIndex: number) {
+  moveChartToDashboard(originDashboard: Dashboard, dashboardIndex: number, chartIndex: number) {
     const chart = originDashboard.charts[chartIndex];
     originDashboard.charts.splice(chartIndex, 1);
-    dashboards[dashboardIndex].charts.push(chart);
+    // dashboards[dashboardIndex].charts.push(chart);
     // TODO: push changes to database
   }
 
-  // adds a dashboard
-  addDashboard(name: string) {
-    if (name != null) { // if user didn't hit cancel
-      if (name === '') { // if name invalid
-        alert('Please Provide a Name For the Dashboard');
-      } else {
-        const newDashboard = new Dashboard(name);
-        // need to add dashboard via backend
-      }
-    }
+  // Add a dashboard
+  addDashboard(name: string, desc: string) {
+    return this.apiService.CreateDashboard({name, desc, tags: []});
   }
 
   // Remove dashboard
-  removeDashboard(dashboards: Dashboard[], dashboard: Dashboard): void {
-    dashboards.splice(dashboards.indexOf(dashboard), 1);
+  removeDashboard(dashboard: Dashboard) {
+    // dashboards.splice(dashboards.indexOf(dashboard), 1);
     // Navigate back to main dashboard after deletion
-    this.router.navigateByUrl('/main');
+    this.router.navigateByUrl('/main').then();
     // TODO: push changes to database
-  }
-
-
-  // Returns a list of datasets from the database
-  getDatasets() {
-    return this.datasets;
   }
 
   // Returns a list of fields corresponding to a database parameter
   getFields(id: string) {
-    return this.http.get(environment.backendIP + 'datasets/' + id + '/field_names/');
+    return this.apiService.ListFields();
   }
 
   getSubscription(query) {
@@ -169,17 +145,17 @@ export class DashboardService {
   }
 
 
-  // emits message to hide graph panel
+  // Emits message to hide graph panel
   closeGraphPanel() {
     this.closePanel.emit();
   }
 
 
-  // add chart to currently opened dashboard, create copy of chart to avoid pointer related bugs
+  // Add chart to currently opened dashboard, create copy of chart to avoid pointer related bugs
   addChart(chart: Chart) {
     let toAdd: Chart;
     toAdd = new Chart(chart);
     // TODO: Upload to backend
-    this.currentDashboard.charts.push(toAdd);
+    // this.currentDashboard.charts.push(toAdd);
   }
 }

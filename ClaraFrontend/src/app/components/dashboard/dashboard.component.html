@@ -1,116 +1,77 @@
-<div class="name-settings-panel">
-  <h1> {{ name + " Dashboard" }} </h1>
-  <button class="add-chart-btn" (click)="toggleAddChartPanel()">
-    <i class="material-icons-round">add_circle</i>
-  </button>
-
-  <!-- Dashboard Settings Menu -->
-  <ng-container *ngIf="dashboard.name != 'Main' && dashboard.name != 'Mobile'">
-    <button mat-button [matMenuTriggerFor] = "settingsMenu">
-      <i class="material-icons-round">settings</i>
+<div *ngIf="dashboard">
+  <div class="name-settings-panel">
+    <h1> {{ dashboard.name + " Dashboard"}} </h1>
+    <button class="add-chart-btn" (click)="toggleAddChartPanel()">
+      <i class="material-icons-round">add_circle</i>
     </button>
-    <mat-menu #settingsMenu = "matMenu">
-      <button mat-menu-item>Rename</button>
-      <button mat-menu-item (click)="dashboardService.removeDashboard(dashboards, dashboard)">Delete</button>
-    </mat-menu>
-  </ng-container>
-</div>
 
-<div class="add-chart-panel" [ngStyle]="{'display':displayAddChartPanel === false ? 'none' : 'block'}">
-  <app-graph-panel></app-graph-panel>
-</div>
-
-<div class="top-container">
-  <!-- Main Chart -->
-  <div *ngIf="dashboard.charts[0]" class="main-chart">
-    <div class="chart-top-panel">
-      <h2>{{ dashboard.charts[0].name }}</h2>
-      <div>
-        <!-- Chart Menu -->
-        <button mat-button [matMenuTriggerFor] = "menu">
-          <i class="material-icons">more_vert</i>
-        </button>
-        <mat-menu #menu = "matMenu">
-          <button mat-menu-item>Edit</button>
-          <button mat-menu-item [matMenuTriggerFor] = "moveChart">Move To</button>
-          <button mat-menu-item>Delete</button>
-        </mat-menu>
-        <mat-menu #moveChart = "matMenu">
-          <ng-container *ngFor="let dashboard of dashboards">
-            <button mat-menu-item>{{ dashboard.name }}</button>
-          </ng-container>
-        </mat-menu>
-      </div>
-    </div>
-    <!-- Main Chart Canvas -->
-     <canvas *ngIf="dashboard.charts[0].data" baseChart
-    [datasets]="[{
-      label:'Series A',
-      data: dashboard.charts[0].data
-    }]"
-    [chartType]="dashboard.charts[0].type"
-    [options]="options">
-  </canvas>
+    <!-- Dashboard Settings Menu -->
+    <ng-container *ngIf="dashboard.name != 'Main' && dashboard.name != 'Mobile'">
+      <button mat-button [matMenuTriggerFor] = "settingsMenu">
+        <i class="material-icons-round">settings</i>
+      </button>
+      <mat-menu #settingsMenu = "matMenu">
+        <button mat-menu-item>Rename</button>
+        <button mat-menu-item (click)="dashboardService.removeDashboard(dashboard)">Delete</button>
+      </mat-menu>
+    </ng-container>
   </div>
 
-  <!-- Dashboard Info -->
-  <div class="desc-container">
-      <h5>William McKinnon</h5>
-      <h5>Smart City Developer</h5>
-      <h5>Innovation Lab</h5>
-      <hr>
-      <p>
-        {{ dashboard.desc }}
-      </p>
-      <ul class="tags">
-        <li *ngFor="let tag of dashboard.tags">{{ tag }}</li>
-      </ul>
-    </div>
+  <div class="add-chart-panel" [ngStyle]="{'display':displayAddChartPanel === false ? 'none' : 'block'}">
+    <app-graph-panel></app-graph-panel>
+  </div>
+
+  <div class="top-container">
+    <!-- Main Chart -->
+<!--    <div *ngIf="dashboard.charts[0]" class="main-chart">-->
+<!--      <div class="chart-top-panel">-->
+<!--        <h2>{{ dashboard.charts[0].name }}</h2>-->
+<!--        <div>-->
+<!--          &lt;!&ndash; Chart Menu &ndash;&gt;-->
+<!--          <button mat-button [matMenuTriggerFor] = "menu">-->
+<!--            <i class="material-icons">more_vert</i>-->
+<!--          </button>-->
+<!--          <mat-menu #menu = "matMenu">-->
+<!--            <button mat-menu-item>Edit</button>-->
+<!--            <button mat-menu-item [matMenuTriggerFor] = "moveChart">Move To</button>-->
+<!--            <button mat-menu-item>Delete</button>-->
+<!--          </mat-menu>-->
+<!--          <mat-menu #moveChart = "matMenu">-->
+<!--  &lt;!&ndash;          <ng-container *ngFor="let dashboard of dashboards">&ndash;&gt;-->
+<!--  &lt;!&ndash;            <button mat-menu-item>{{ dashboard.name }}</button>&ndash;&gt;-->
+<!--  &lt;!&ndash;          </ng-container>&ndash;&gt;-->
+<!--          </mat-menu>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      &lt;!&ndash; Main Chart Canvas &ndash;&gt;-->
+<!--       <canvas *ngIf="dashboard.charts[0].data" baseChart-->
+<!--      [datasets]="[{-->
+<!--        label:'Series A',-->
+<!--        data: dashboard.charts[0].data-->
+<!--      }]"-->
+<!--      [chartType]="dashboard.charts[0].type"-->
+<!--      [options]="options">-->
+<!--    </canvas>-->
+<!--    </div>-->
+
+    <!-- Dashboard Info -->
+    <div class="desc-container">
+        <h5>William McKinnon</h5>
+        <h5>Smart City Developer</h5>
+        <h5>Innovation Lab</h5>
+        <hr>
+        <p>{{ dashboard.desc }}</p>
+        <ul class="tags">
+          <li *ngFor="let tag of dashboard.tags">{{ tag }}</li>
+        </ul>
+      </div>
+  </div>
+
+  <ul class="charts-container">
+<!--    <ng-container *ngFor="let chart of dashboard.charts; let i = index">-->
+<!--      <li class="charts">-->
+<!--        <app-chart></app-chart>-->
+<!--      </li>-->
+<!--    </ng-container>-->
+  </ul>
 </div>
-
-<ul class="charts-container">
-  <ng-container *ngFor="let chart of dashboard.charts; let i = index">
-    <li *ngIf="i != 0" class="charts">
-      <div class="chart-top-panel">
-        <h2>{{ chart.name }}</h2>
-        <div>
-          <!-- Fullscreen Button -->
-          <i class="material-icons-round" (click)="toggleFullScreen(i)">{{ screenIcon }}</i>
-          <!-- Chart Menu -->
-          <button mat-button [matMenuTriggerFor] = "menu">
-            <i class="material-icons">more_vert</i>
-          </button>
-          <mat-menu #menu = "matMenu">
-            <button mat-menu-item (click)="setAsPrimaryChart(i)">Set as Primary</button>
-            <button mat-menu-item>Edit</button>
-            <button mat-menu-item [matMenuTriggerFor] = "sizeChart">Adjust Size</button>
-            <button mat-menu-item [matMenuTriggerFor] = "moveChart">Move To</button>
-            <button mat-menu-item (click)="deleteChart(i)">Delete</button>
-          </mat-menu>
-          <mat-menu #moveChart = "matMenu">
-            <ng-container *ngFor="let dashboardNode of this.dashboards; let dashboardIndex = index" [attr.data-index]="dashboardIndex">
-                <button mat-menu-item *ngIf="dashboardNode.name != dashboard.name" (click)="dashboardService.moveChartToDashboard(this.dashboards, dashboard, dashboardIndex, i)">
-                  {{ dashboardNode.name }}
-                </button>
-            </ng-container>
-          </mat-menu>
-          <mat-menu #sizeChart = "matMenu">
-              <button mat-menu-item (click)="increaseSize(i)">Increase</button>
-              <button mat-menu-item (click)="decreaseSize(i)">Decrease</button>
-          </mat-menu>
-        </div>
-      </div>
-
-      <!-- Chart Canvas -->
-      <div *ngIf="chart.data" id="chart">
-        <canvas baseChart
-          [datasets]="[{
-            label: 'Series A',
-            data: chart.data
-          }]"
-          [chartType]="chart.type">
-        </canvas>
-      </div>
-    </li>
-  </ng-container>
-</ul>

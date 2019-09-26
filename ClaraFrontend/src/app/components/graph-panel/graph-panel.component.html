@@ -11,79 +11,59 @@
       <!-- Tab content -->
       <div id="openData" class="tabcontent">
         <div class="controls">
+
           <!-- Y Axis Selection -->
           <h4>Y Axis</h4>
           <br>
-          <div class="dropdown">
-            <button class="dropbtn">
-              <div *ngIf="yDataset">{{ yDataset.name }}</div>
-              <div *ngIf="!yDataset">Dataset</div>
-          </button>
-            <div class="dropdown-content">
-              <ul>
-                <li *ngFor="let dataset of datasets; let i = index">
-                  <a (click)="setYAxis(i)">{{ dataset.name }}</a>
-                </li>
-              </ul>
-            </div>
-          </div>
+          <mat-form-field>
+            <mat-label>Y Dataset</mat-label>
+            <mat-select id="yDatasetSelect" [(ngModel)]="ySelectedDataset" (selectionChange)="selectChange($event)">
+              <mat-option *ngFor="let dataset of datasets" [value]="dataset">
+                {{dataset.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
           <br>
-          <br>
-          <div class="dropdown">
-            <button class="dropbtn">
-              <div *ngIf="yField">{{ yField.name }}</div>
-              <div *ngIf="!yField">Field</div>
-            </button>
-            <div class="dropdown-content">
-              <ul>
-                <li *ngFor="let field of yFields; let i = index">
-                  <a (click)="selectYField(i)">{{ field.name }}</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <br>
-          <br>
+          <mat-form-field>
+            <mat-label>Y Field</mat-label>
+            <mat-select [disabled]="!ySelectedDataset" [(ngModel)]="ySelectedField" (selectionChange)="selectChange($event)">
+              <ng-container *ngIf="ySelectedDataset">
+                <mat-option *ngFor="let field of ySelectedDataset.fields.items" [value]="field">
+                  {{field.name}}
+                </mat-option>
+              </ng-container>
+            </mat-select>
+          </mat-form-field>
 
           <!-- X Axis Selection -->
           <h4>X Axis</h4>
           <br>
-          <div class="dropdown">
-            <button class="dropbtn">
-              <div *ngIf="xDataset">{{ xDataset.name }}</div>
-              <div *ngIf="!xDataset">Dataset</div>
-            </button>
-            <div class="dropdown-content">
-              <ul>
-                <li *ngFor="let dataset of datasets; let i = index">
-                  <a (click)="setXAxis(i)">{{ dataset.name }}</a>
-                </li>
-              </ul>
-            </div>
-          </div>
+          <mat-form-field>
+            <mat-label>X Dataset</mat-label>
+            <mat-select id="xDatasetSelect" [(ngModel)]="xSelectedDataset" (selectionChange)="selectChange($event)">
+              <mat-option *ngFor="let dataset of datasets" [value]="dataset">
+                {{dataset.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
           <br>
-          <br>
-          <div class="dropdown">
-            <button class="dropbtn">
-              <div *ngIf="xField">{{ xField.name }}</div>
-              <div *ngIf="!xField">Field</div>
-            </button>
-            <div class="dropdown-content">
-              <ul>
-                <li *ngFor="let field of xFields; let i = index">
-                  <a (click)="selectXField(i)">{{ field.name }}</a>
-                </li>
-              </ul>
-            </div>
-          </div>
+          <mat-form-field>
+            <mat-label>X Field</mat-label>
+            <mat-select [disabled]="!xSelectedDataset" [(ngModel)]="xSelectedField" (selectionChange)="selectChange($event)">
+              <ng-container *ngIf="xSelectedDataset">
+                <mat-option *ngFor="let field of xSelectedDataset.fields.items" [value]="field">
+                  {{field.name}}
+                </mat-option>
+              </ng-container>
+            </mat-select>
+          </mat-form-field>
         </div>
         <div class="graph">
           <canvas baseChart
             width="400"
             height="400"
+            [labels]="chart.labels"
             [datasets]="[{
-              label: 'Series A',
               data: chart.data
             }]"
             [chartType]="chart.type">

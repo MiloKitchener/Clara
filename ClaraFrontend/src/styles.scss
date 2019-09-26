@@ -1,6 +1,36 @@
 // Font
 @import url('https://fonts.googleapis.com/css?family=Nunito:200,300,400,500&display=swap');
 
+@import "variables.scss";
+@import '~aws-amplify-angular/Theme.css';
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$claraFrontend-primary: mat-palette($mat-light-blue);
+$claraFrontend-accent: mat-palette($mat-light-blue, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$claraFrontend-warn: mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$claraFrontend-theme: mat-light-theme($claraFrontend-primary, $claraFrontend-accent, $claraFrontend-warn);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($claraFrontend-theme);
+
 body {
   margin: 0;
   padding: 0;
@@ -10,6 +40,52 @@ body {
   background-color: #FAFBFE;
   overflow-x: hidden;
   overflow-y: overlay;
+}
+
+.amplify-form-button, .amplify-form-input {
+  font-family: 'Nunito Sans', sans-serif;
+  border: 0;
+  border-radius: 6px;
+}
+
+.amplify-form-actions {
+  margin: 0;
+}
+
+.amplify-input-label {
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+.amplify-form-row {
+  margin: 0;
+}
+
+.amplify-form-input {
+  padding: 0 2% 0 2%;
+  background-color: #EFEFEF;
+
+  &:hover {
+    background-color: #DFDFDF;
+  }
+}
+
+.amplify-form-button {
+  color: white;
+  background-image: $blue-gradient;
+
+  &:hover {
+    filter: brightness(0.95);
+  }
+}
+
+.amplify-form-link {
+  color: $color-primary;
+
+  &:hover {
+    color: $color-primary-dark;
+    transition: color 0.3s ease 0s;
+    cursor: pointer;
+  }
 }
 
 button:hover, input[type="submit"]:hover {
@@ -284,3 +360,6 @@ button:focus, input[type="submit"]:focus {
     left: 0;
   }
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

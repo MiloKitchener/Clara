@@ -1,0 +1,4 @@
+{
+  "dataset": "https://services1.arcgis.com/qAo1OsXi67t7XgmS/arcgis/rest/services/Traffic_Volumes/FeatureServer/0/",
+  "field": "AADT"
+}

@@ -3,11 +3,11 @@
     <div class="main-content">
       <div>
         <img src="assets/images/avatar.png" alt="">
-        <h5 style="margin-right:18px;text-align:center;">{{ post.author }}</h5>
+        <h5 style="margin-right:18px;text-align:center;">{{ post.owner }}</h5>
       </div>
       <div class="post-text">
         <h4>{{ post.title }}</h4>
-        <p>{{ post.description }}</p>
+        <p>{{ post.content }}</p>
       </div>
       <div class="vote-panel">
         <button (click)="upvote()">
@@ -17,7 +17,7 @@
           </svg>
         </button>
         <br>
-        <h5 [ngStyle]="{'color': post.num_votes < 0 ? '#eb3b3b' : 'black'}">{{ post.num_votes }}</h5>
+        <h5 [ngStyle]="{'color': post.votes < 0 ? '#eb3b3b' : 'black'}">{{ post.votes }}</h5>
         <button (click)="downvote()">
           <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="22.5px"
             height="30px" viewBox="0 0 50 80" xml:space="preserve">
@@ -30,16 +30,16 @@
     <div class="bottom-panel">
       <h5>{{ post.tag }}</h5>
       <button type="button" name="button" class="comment-btn" (click)="toggleComments()" style="float:left;">Comments
-        ({{ post.comments.length }})</button>
+        ({{ post.comments.items.length || 0 }})</button>
     </div>
   </div>
 
   <div [ngClass]="{'show' : viewComments, 'hide' : !viewComments}">
     <ul class="comments">
-      <li *ngFor="let comment of post.comments">{{ comment.comment }}</li>
+      <li *ngFor="let comment of post.comments.items">{{ comment.content }}</li>
     </ul>
     <form [formGroup]="addCommentForm" (ngSubmit)="submitComment()">
-      <input type="text" formControlName="comment" placeholder="Comment" required>
+      <input type="text" formControlName="content" placeholder="Comment" required>
       <input type="submit" value="Add Comment">
     </form>
   </div>

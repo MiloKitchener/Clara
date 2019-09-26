@@ -1,0 +1,71 @@
+type ARModel @model {
+	id: ID!
+	name: String!
+	scale: Float
+}
+
+type Post @model @auth(rules: [{allow: owner, operations: [create]}]) {
+  id: ID!
+  title: String!
+  content: String!
+  votes: Int!
+  owner: String
+  comments: [Comment] @connection(name: "PostComments")
+  tag: String!
+}
+
+type Comment @model @auth(rules: [{allow: owner, operations: [create]}]) {
+  id: ID!
+  owner: String
+  post: Post! @connection(name: "PostComments")
+  content: String!
+}
+
+type Dashboard @model @auth(rules: [{allow: owner, operations: [create, update, delete, read]}]) {
+  id: ID!
+  name: String
+  owner: String
+  desc: String
+  charts: [DashboardCharts] @connection(name: "DashboardCharts")
+  tags: [String]!
+}
+
+type DashboardCharts @model (queries: null) {
+  id: ID!
+  dashboard: Dashboard @connection(name: "DashboardCharts")
+  chart: Chart @connection(name: "ChartDashboards")
+}
+
+type Chart @model {
+  id: ID!
+  name: String
+  type: String
+  dataset1: String
+  field1: String
+  dataset2: String
+  field2: String
+  dashboards: [DashboardCharts] @connection(name: "ChartDashboards")
+}
+
+type Dataset @model {
+  id: ID!
+  name: String
+  desc: String
+  api_url: String
+  parent_url: String
+  type: String
+  fields: [Field] @connection(name: "DatasetFields")
+}
+
+type Field @model {
+  id: ID!
+  name: String
+  normalized_name: String
+  alias: String
+  type: String
+  dataset: Dataset @connection(name: "DatasetFields")
+}
+
+type Query {
+  getARCGISData(dataset: String, field: String): String @function(name: "getARCGISData-${env}")
+}

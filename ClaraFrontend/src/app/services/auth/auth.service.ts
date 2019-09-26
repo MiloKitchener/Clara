@@ -1,35 +1,43 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot} from '@angular/router';
+import {Router} from '@angular/router';
 import {CookieService} from 'ngx-cookie-service';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import {environment} from '../../../environments/environment';
+import {AmplifyService} from 'aws-amplify-angular';
+import {Auth} from 'aws-amplify';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService implements CanActivate {
+export class AuthService {
+  private returnURL = 'main';
 
   constructor(
     private http: HttpClient,
     private router: Router,
     private cookieService: CookieService,
-  ) { }
+    private amplifyService: AmplifyService
+  ) {
+    // Watch to see if there are changes to the state of authentication
+    this.amplifyService.authStateChange$
+      .subscribe(authState => {
+        // User logs in
+        if (authState.state === 'signedIn') {
+          // Send to user to whatever page they were last at, or main page
+          this.router.navigate([this.returnURL]).then();
+        }
+      });
+  }
 
   accessURL = environment.backendIP + 'api/token/';
   refreshURL = environment.backendIP + 'api/token/refresh/';
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-        if (!this.isUserSessionExpired()) { // User is still logged in and can access the resource
-            return true;
-        }
-
-        // User is not logged in, redirect to login page
-        this.router.navigate(['login'], { queryParams: { returnUrl: state.url } });
-        return false;
-    }
+  setReturn(returnURL: string) {
+    this.returnURL = returnURL;
+  }
 
   login(loginData, returnUrl) {
     return this.http.post<any>(this.accessURL, loginData).subscribe(
@@ -42,7 +50,7 @@ export class AuthService implements CanActivate {
         // document.getElementById('splash').style.visibility = 'visible';
         // document.getElementById('splash').style.animation = 'fadein 2s';
         // Redirect user to where they came from
-        this.router.navigate([returnUrl]);
+        this.router.navigate([returnUrl]).then();
       },
       error => console.log('Error', error)
     );
@@ -54,14 +62,13 @@ export class AuthService implements CanActivate {
         console.log(res);
       },
       err => console.log(err)
-    )
-  };
+    );
+  }
 
   logout() {
-    // Log the user out and remove the tokens that exist
-    // TODO: Add server call to logout
-    this.cookieService.delete(environment.access_token_name);
-    this.cookieService.delete(environment.refresh_token_name);
+    Auth.signOut()
+      .then(data => console.log(data))
+      .catch(err => console.log(err));
   }
 
   // Refresh the access token

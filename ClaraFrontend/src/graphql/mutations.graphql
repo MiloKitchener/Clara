@@ -1,0 +1,823 @@
+# this is an auto generated file. This will be overwritten
+mutation CreateArModel($input: CreateARModelInput!) {
+  createARModel(input: $input) {
+    id
+    name
+    scale
+  }
+}
+mutation UpdateArModel($input: UpdateARModelInput!) {
+  updateARModel(input: $input) {
+    id
+    name
+    scale
+  }
+}
+mutation DeleteArModel($input: DeleteARModelInput!) {
+  deleteARModel(input: $input) {
+    id
+    name
+    scale
+  }
+}
+mutation CreatePost($input: CreatePostInput!) {
+  createPost(input: $input) {
+    id
+    title
+    content
+    votes
+    owner
+    comments {
+      items {
+        id
+        owner
+        post {
+          id
+          title
+          content
+          votes
+          owner
+          comments {
+            nextToken
+          }
+          tag
+        }
+        content
+      }
+      nextToken
+    }
+    tag
+  }
+}
+mutation UpdatePost($input: UpdatePostInput!) {
+  updatePost(input: $input) {
+    id
+    title
+    content
+    votes
+    owner
+    comments {
+      items {
+        id
+        owner
+        post {
+          id
+          title
+          content
+          votes
+          owner
+          comments {
+            nextToken
+          }
+          tag
+        }
+        content
+      }
+      nextToken
+    }
+    tag
+  }
+}
+mutation DeletePost($input: DeletePostInput!) {
+  deletePost(input: $input) {
+    id
+    title
+    content
+    votes
+    owner
+    comments {
+      items {
+        id
+        owner
+        post {
+          id
+          title
+          content
+          votes
+          owner
+          comments {
+            nextToken
+          }
+          tag
+        }
+        content
+      }
+      nextToken
+    }
+    tag
+  }
+}
+mutation CreateComment($input: CreateCommentInput!) {
+  createComment(input: $input) {
+    id
+    owner
+    post {
+      id
+      title
+      content
+      votes
+      owner
+      comments {
+        items {
+          id
+          owner
+          post {
+            id
+            title
+            content
+            votes
+            owner
+            tag
+          }
+          content
+        }
+        nextToken
+      }
+      tag
+    }
+    content
+  }
+}
+mutation UpdateComment($input: UpdateCommentInput!) {
+  updateComment(input: $input) {
+    id
+    owner
+    post {
+      id
+      title
+      content
+      votes
+      owner
+      comments {
+        items {
+          id
+          owner
+          post {
+            id
+            title
+            content
+            votes
+            owner
+            tag
+          }
+          content
+        }
+        nextToken
+      }
+      tag
+    }
+    content
+  }
+}
+mutation DeleteComment($input: DeleteCommentInput!) {
+  deleteComment(input: $input) {
+    id
+    owner
+    post {
+      id
+      title
+      content
+      votes
+      owner
+      comments {
+        items {
+          id
+          owner
+          post {
+            id
+            title
+            content
+            votes
+            owner
+            tag
+          }
+          content
+        }
+        nextToken
+      }
+      tag
+    }
+    content
+  }
+}
+mutation CreateDashboard($input: CreateDashboardInput!) {
+  createDashboard(input: $input) {
+    id
+    name
+    owner
+    desc
+    charts {
+      items {
+        id
+        dashboard {
+          id
+          name
+          owner
+          desc
+          charts {
+            nextToken
+          }
+          tags
+        }
+        chart {
+          id
+          name
+          type
+          dataset1
+          field1
+          dataset2
+          field2
+          dashboards {
+            nextToken
+          }
+        }
+      }
+      nextToken
+    }
+    tags
+  }
+}
+mutation UpdateDashboard($input: UpdateDashboardInput!) {
+  updateDashboard(input: $input) {
+    id
+    name
+    owner
+    desc
+    charts {
+      items {
+        id
+        dashboard {
+          id
+          name
+          owner
+          desc
+          charts {
+            nextToken
+          }
+          tags
+        }
+        chart {
+          id
+          name
+          type
+          dataset1
+          field1
+          dataset2
+          field2
+          dashboards {
+            nextToken
+          }
+        }
+      }
+      nextToken
+    }
+    tags
+  }
+}
+mutation DeleteDashboard($input: DeleteDashboardInput!) {
+  deleteDashboard(input: $input) {
+    id
+    name
+    owner
+    desc
+    charts {
+      items {
+        id
+        dashboard {
+          id
+          name
+          owner
+          desc
+          charts {
+            nextToken
+          }
+          tags
+        }
+        chart {
+          id
+          name
+          type
+          dataset1
+          field1
+          dataset2
+          field2
+          dashboards {
+            nextToken
+          }
+        }
+      }
+      nextToken
+    }
+    tags
+  }
+}
+mutation CreateDashboardCharts($input: CreateDashboardChartsInput!) {
+  createDashboardCharts(input: $input) {
+    id
+    dashboard {
+      id
+      name
+      owner
+      desc
+      charts {
+        items {
+          id
+          dashboard {
+            id
+            name
+            owner
+            desc
+            tags
+          }
+          chart {
+            id
+            name
+            type
+            dataset1
+            field1
+            dataset2
+            field2
+          }
+        }
+        nextToken
+      }
+      tags
+    }
+    chart {
+      id
+      name
+      type
+      dataset1
+      field1
+      dataset2
+      field2
+      dashboards {
+        items {
+          id
+          dashboard {
+            id
+            name
+            owner
+            desc
+            tags
+          }
+          chart {
+            id
+            name
+            type
+            dataset1
+            field1
+            dataset2
+            field2
+          }
+        }
+        nextToken
+      }
+    }
+  }
+}
+mutation UpdateDashboardCharts($input: UpdateDashboardChartsInput!) {
+  updateDashboardCharts(input: $input) {
+    id
+    dashboard {
+      id
+      name
+      owner
+      desc
+      charts {
+        items {
+          id
+          dashboard {
+            id
+            name
+            owner
+            desc
+            tags
+          }
+          chart {
+            id
+            name
+            type
+            dataset1
+            field1
+            dataset2
+            field2
+          }
+        }
+        nextToken
+      }
+      tags
+    }
+    chart {
+      id
+      name
+      type
+      dataset1
+      field1
+      dataset2
+      field2
+      dashboards {
+        items {
+          id
+          dashboard {
+            id
+            name
+            owner
+            desc
+            tags
+          }
+          chart {
+            id
+            name
+            type
+            dataset1
+            field1
+            dataset2
+            field2
+          }
+        }
+        nextToken
+      }
+    }
+  }
+}
+mutation DeleteDashboardCharts($input: DeleteDashboardChartsInput!) {
+  deleteDashboardCharts(input: $input) {
+    id
+    dashboard {
+      id
+      name
+      owner
+      desc
+      charts {
+        items {
+          id
+          dashboard {
+            id
+            name
+            owner
+            desc
+            tags
+          }
+          chart {
+            id
+            name
+            type
+            dataset1
+            field1
+            dataset2
+            field2
+          }
+        }
+        nextToken
+      }
+      tags
+    }
+    chart {
+      id
+      name
+      type
+      dataset1
+      field1
+      dataset2
+      field2
+      dashboards {
+        items {
+          id
+          dashboard {
+            id
+            name
+            owner
+            desc
+            tags
+          }
+          chart {
+            id
+            name
+            type
+            dataset1
+            field1
+            dataset2
+            field2
+          }
+        }
+        nextToken
+      }
+    }
+  }
+}
+mutation CreateChart($input: CreateChartInput!) {
+  createChart(input: $input) {
+    id
+    name
+    type
+    dataset1
+    field1
+    dataset2
+    field2
+    dashboards {
+      items {
+        id
+        dashboard {
+          id
+          name
+          owner
+          desc
+          charts {
+            nextToken
+          }
+          tags
+        }
+        chart {
+          id
+          name
+          type
+          dataset1
+          field1
+          dataset2
+          field2
+          dashboards {
+            nextToken
+          }
+        }
+      }
+      nextToken
+    }
+  }
+}
+mutation UpdateChart($input: UpdateChartInput!) {
+  updateChart(input: $input) {
+    id
+    name
+    type
+    dataset1
+    field1
+    dataset2
+    field2
+    dashboards {
+      items {
+        id
+        dashboard {
+          id
+          name
+          owner
+          desc
+          charts {
+            nextToken
+          }
+          tags
+        }
+        chart {
+          id
+          name
+          type
+          dataset1
+          field1
+          dataset2
+          field2
+          dashboards {
+            nextToken
+          }
+        }
+      }
+      nextToken
+    }
+  }
+}
+mutation DeleteChart($input: DeleteChartInput!) {
+  deleteChart(input: $input) {
+    id
+    name
+    type
+    dataset1
+    field1
+    dataset2
+    field2
+    dashboards {
+      items {
+        id
+        dashboard {
+          id
+          name
+          owner
+          desc
+          charts {
+            nextToken
+          }
+          tags
+        }
+        chart {
+          id
+          name
+          type
+          dataset1
+          field1
+          dataset2
+          field2
+          dashboards {
+            nextToken
+          }
+        }
+      }
+      nextToken
+    }
+  }
+}
+mutation CreateDataset($input: CreateDatasetInput!) {
+  createDataset(input: $input) {
+    id
+    name
+    desc
+    api_url
+    parent_url
+    type
+    fields {
+      items {
+        id
+        name
+        normalized_name
+        alias
+        type
+        dataset {
+          id
+          name
+          desc
+          api_url
+          parent_url
+          type
+          fields {
+            nextToken
+          }
+        }
+      }
+      nextToken
+    }
+  }
+}
+mutation UpdateDataset($input: UpdateDatasetInput!) {
+  updateDataset(input: $input) {
+    id
+    name
+    desc
+    api_url
+    parent_url
+    type
+    fields {
+      items {
+        id
+        name
+        normalized_name
+        alias
+        type
+        dataset {
+          id
+          name
+          desc
+          api_url
+          parent_url
+          type
+          fields {
+            nextToken
+          }
+        }
+      }
+      nextToken
+    }
+  }
+}
+mutation DeleteDataset($input: DeleteDatasetInput!) {
+  deleteDataset(input: $input) {
+    id
+    name
+    desc
+    api_url
+    parent_url
+    type
+    fields {
+      items {
+        id
+        name
+        normalized_name
+        alias
+        type
+        dataset {
+          id
+          name
+          desc
+          api_url
+          parent_url
+          type
+          fields {
+            nextToken
+          }
+        }
+      }
+      nextToken
+    }
+  }
+}
+mutation CreateField($input: CreateFieldInput!) {
+  createField(input: $input) {
+    id
+    name
+    normalized_name
+    alias
+    type
+    dataset {
+      id
+      name
+      desc
+      api_url
+      parent_url
+      type
+      fields {
+        items {
+          id
+          name
+          normalized_name
+          alias
+          type
+          dataset {
+            id
+            name
+            desc
+            api_url
+            parent_url
+            type
+          }
+        }
+        nextToken
+      }
+    }
+  }
+}
+mutation UpdateField($input: UpdateFieldInput!) {
+  updateField(input: $input) {
+    id
+    name
+    normalized_name
+    alias
+    type
+    dataset {
+      id
+      name
+      desc
+      api_url
+      parent_url
+      type
+      fields {
+        items {
+          id
+          name
+          normalized_name
+          alias
+          type
+          dataset {
+            id
+            name
+            desc
+            api_url
+            parent_url
+            type
+          }
+        }
+        nextToken
+      }
+    }
+  }
+}
+mutation DeleteField($input: DeleteFieldInput!) {
+  deleteField(input: $input) {
+    id
+    name
+    normalized_name
+    alias
+    type
+    dataset {
+      id
+      name
+      desc
+      api_url
+      parent_url
+      type
+      fields {
+        items {
+          id
+          name
+          normalized_name
+          alias
+          type
+          dataset {
+            id
+            name
+            desc
+            api_url
+            parent_url
+            type
+          }
+        }
+        nextToken
+      }
+    }
+  }
+}

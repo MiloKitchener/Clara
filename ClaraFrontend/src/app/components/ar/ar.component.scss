@@ -1,24 +1,28 @@
 @import "../../../variables.scss";
 
-h1 {
-  margin: 0;
-  padding: $header-padding;
+.header-panel {
+  display: flex;
+  align-items: center;
+  padding: 20px 80px;
   background: $blue-gradient;
-  font-weight: $header-font-weight;
   color: white;
+
+  h1 {
+    text-align: left;
+    flex: 1;
+    font-weight: 500;
+  }
 }
 
-.upload-btn {
-  margin-top: 30px;
+.add-btn {
   border: 0;
-  border-radius: 5px;
-  padding: 8px 20px;
+  padding: 0;
   color: white;
-  background-color: $color-primary;
+  background-color: inherit;
   transition: $main-hover-transition;
 
   &:hover {
-    background-color: $color-primary-dark;
+    color: #EFEFEF;
     transition: $main-hover-transition;
   }
 }

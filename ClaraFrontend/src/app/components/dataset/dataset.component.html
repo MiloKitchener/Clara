@@ -5,6 +5,18 @@
 			<br>
 			<input type="submit" value="Upload Dataset">
 		</form>
+    <p>OR</p>
+    <form [formGroup]="uploadFullForm" (ngSubmit)="uploadFullDataset()">
+			<input type="text" formControlName="name" placeholder="Name">
+			<br>
+      <input type="text" formControlName="desc" placeholder="Description">
+			<br>
+      <input type="text" formControlName="api_url" placeholder="URL">
+			<br>
+      <input type="text" formControlName="parent_url" placeholder="Parent URL">
+			<br>
+			<input type="submit" value="Upload Dataset Full">
+		</form>
 		<button class="close-dataset-panel-btn" (click)="toggleDatasetUpload()">Cancel</button>
 	</div>
 	<div class="submit-dataset-proceed-panel" [ngStyle]="{'display': uploadedDataset === null ? 'none' : 'block'}">

@@ -1,7 +1,7 @@
 export class ARModel {
-  id: number;
+  id?: number;
   name: string;
-  scale: number;
+  scale?: number;
 
   constructor(name: string, scale: number) {
     this.name = name;

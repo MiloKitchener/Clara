@@ -9,9 +9,12 @@ h1 {
 }
 
 .posted-ideas {
-  padding: 5% 3%;
-  padding-top: 0;
+  padding: 0 3% 3% 0;
   display: flex;
+}
+
+.ideas-forum{
+  width: 100%
 }
 
 button, input[type="submit"] {
@@ -38,7 +41,6 @@ button:hover, input[type="submit"]:hover {
   padding: 2.5% 0;
   z-index: 10;
   margin-bottom: 4%;
-  background-color: #FAFBFE;
   width: 100%;
 }
 
@@ -78,11 +80,10 @@ button:hover, input[type="submit"]:hover {
 
   button {
     border: 0;
-    padding: 1.5%;
     background-color: white;
     box-shadow: $main-box-shadow;
     font-size: 2vh;
-    padding-left: 15px;
+    padding: 1.5% 1.5% 1.5% 15px;
     border-radius: 0 10px 10px 0;
 
     img {
@@ -169,10 +170,9 @@ button:hover, input[type="submit"]:hover {
 
 .side-panel {
   position: sticky;
-  top: 11%;
-  margin-top: 11%;
+  top: 10%;
+  margin-top: 10%;
   padding: 2.5%;
-  z-index: 10;
   background-color: white;
   box-shadow: $main-box-shadow;
   border-radius: 5px;

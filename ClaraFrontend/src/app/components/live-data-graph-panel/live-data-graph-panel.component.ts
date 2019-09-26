@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DashboardService } from '../../services/dashboard/dashboard.service';
-import {Device} from '../../classes/device';
-import {AppsyncService} from '../../services/appsync/appsync.service';
+import {Device} from '../../interfaces/device';
 
 @Component({
   selector: 'app-live-data-graph-panel',
@@ -14,9 +13,8 @@ export class LiveDataGraphPanelComponent implements OnInit {
   private chartData = [];
   private chartLabels = [];
   liveDataForm: FormGroup;
-  fields = [];
-  private selectedField;
   devices: Device[] = [];
+  private selectedField;
   private selectedDevice;
   private chart: any;
   data;
@@ -24,11 +22,10 @@ export class LiveDataGraphPanelComponent implements OnInit {
   constructor(
     private dashboardService: DashboardService,
     private formBuilder: FormBuilder,
-    private appsync: AppsyncService
   ) {
     this.liveDataForm = formBuilder.group({
-      fields: ['None', Validators.required],
-      devices: ['None', Validators.required],
+      device: ['', Validators.required],
+      field: [{value: '', disabled: !this.selectedDevice }, Validators.required],
     });
   }
 
@@ -77,56 +74,38 @@ export class LiveDataGraphPanelComponent implements OnInit {
     }
   }
 
-  onFieldChange(field) {
-    // empty previous chart values
-    this.chartLabels = [];
-    this.chartData = [];
-    this.updateLiveChart();
-
-    this.selectedField = field;
-    if (this.liveDataForm.controls.fields.value !== '' && this.liveDataForm.controls.devices.value !== '') {
-      this.subscribeToDevice(this.selectedDevice.uuid);
+  selectChange(event) {
+    if (event.source.id === 'deviceSelect') {
+      this.selectedField = null;
     }
-  }
-
-  onDeviceChange() {
-    // Empty previous chart values
-    this.chartLabels = [];
-    this.chartData = [];
-    this.updateLiveChart();
-    // Empty previous field values
-    this.fields = [];
-
-    this.selectedDevice = this.liveDataForm.get('devices').value;
-
     // Update fields
     const keys = Object.keys(this.selectedDevice);
     for (const key of keys) {
       // Remove unusable fields
       if (key !== 'uuid' && key !== 'deviceid' && key !== 'ts' && key !== '__typename') {
-        this.fields.push(key);
+        // this.fields.push(key);
       }
     }
-    if (this.liveDataForm.controls.fields.value !== '' && this.liveDataForm.controls.devices.value !== '') {
+    if (this.selectedDevice && this.selectedField) {
       this.subscribeToDevice(this.selectedDevice.uuid);
     }
   }
 
   private subscribeToDevice(uuid: string) {
-    this.appsync.hc().then(client => {
-      const observable = client.watchQuery({
-        query: this.dashboardService.ARDUINO_MOISTURE_QUERY,
-        variables: {uuid}
-      });
+    // this.appsync.hc().then(client => {
+    //   const observable = client.watchQuery({
+    //     query: this.dashboardService.ARDUINO_MOISTURE_QUERY,
+    //     variables: {uuid}
+    //   });
 
-      observable.subscribe(({data}) => {
+      // observable.subscribe(({data}) => {
         // if (!data) {
         //   return console.log('getAllUsers - no data');
         // }
         // this.data = _(data.allUser).sortBy('username').reject(['id', this._user.id]).value();
         // console.log('getAllUsers - Got data', this.data);
         // this.no_user = (this.users.length === 0);
-      });
+      // });
 
       // observable.subscribeToMore({
       //   document: this.dashboardService.ARDUINO_MOISTURE_SUB,
@@ -135,7 +114,7 @@ export class LiveDataGraphPanelComponent implements OnInit {
       //     return this._user.ts === data.ts ? prev : addUser(prev, user);
       //   }
       // });
-    });
+    // });
       // this.data = this.dataQuery.valueChanges;
 
       // this.dataQuery.subscribeToMore({

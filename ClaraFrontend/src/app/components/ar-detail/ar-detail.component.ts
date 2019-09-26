@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {ARModel} from '../../classes/ar-model';
+import {ARModel} from '../../interfaces/ar-model';
 import {ArService} from '../../services/ar/ar.service';
 
 @Component({
@@ -23,6 +23,6 @@ export class ArDetailComponent implements OnInit {
 
   onSave() {
     this.arModel.scale = this.updateARModelForm.get('scale').value;
-    this.arService.updateARModels(this.arModel).subscribe();
+    this.arService.updateARModels({id: this.arModel.id, name: this.arModel.name, scale: this.arModel.scale}).then();
   }
 }

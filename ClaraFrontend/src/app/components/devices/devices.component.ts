@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Device } from 'src/app/classes/device';
+import { Device } from 'src/app/interfaces/device';
 
 @Component({
   selector: 'app-devices',

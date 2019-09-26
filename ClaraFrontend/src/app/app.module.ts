@@ -1,4 +1,3 @@
-// import core modules
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -6,15 +5,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 
 
-import { MatMenuModule, MatButtonModule } from '@angular/material';
-import { MatExpansionModule, MatTabsModule } from '@angular/material';
+import { MatMenuModule, MatButtonModule, MatExpansionModule, MatTabsModule, MatSelectModule } from '@angular/material';
 import { CookieService } from 'ngx-cookie-service';
-import { JwtInterceptorService } from './services/auth/jwt-interceptor.service';
 
-// import third party modules
 import { ChartsModule } from 'ng2-charts';
 
-// import components
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -26,11 +21,9 @@ import { DatasetComponent } from './components/dataset/dataset.component';
 import { IdeasComponent } from './components/ideas/ideas.component';
 import { LabServicesComponent } from './components/lab-services/lab-services.component';
 
-// import sub components
 import { IdeaNodeComponent } from './components/idea-node/idea-node.component';
 import { GraphPanelComponent } from './components/graph-panel/graph-panel.component';
 import { AlexaFeedComponent } from './components/alexa-feed/alexa-feed.component';
-import { IdeaAnchorDirective } from './directives/idea-anchor.directive';
 import { ProfileComponent } from './components/profile/profile.component';
 import { LiveDataGraphPanelComponent } from './components/live-data-graph-panel/live-data-graph-panel.component';
 import { DevicesComponent } from './components/devices/devices.component';
@@ -39,11 +32,13 @@ import { ArUploadComponent } from './components/ar-upload/ar-upload.component';
 import { ArComponent } from './components/ar/ar.component';
 import { ArDetailComponent } from './components/ar-detail/ar-detail.component';
 import {environment} from '../environments/environment';
-import {HttpMockInterceptor} from './classes/http-mock-interceptor';
+import {HttpMockInterceptor} from './interfaces/http-mock-interceptor';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import {HttpRequestInterceptor} from './classes/http-request-interceptor';
+import {HttpRequestInterceptor} from './interfaces/http-request-interceptor';
 import {FileUploadModule} from 'ng2-file-upload';
 import { GraphQLModule } from './graphql.module';
+import {AmplifyAngularModule, AmplifyService} from 'aws-amplify-angular';
+import { ChartComponent } from './components/chart/chart.component';
 
 export const isMock = environment.mock;
 
@@ -59,7 +54,6 @@ export const isMock = environment.mock;
     MainComponent,
     NotFoundComponent,
     AlexaFeedComponent,
-    IdeaAnchorDirective,
     ProfileComponent,
     LiveDataGraphPanelComponent,
     DevicesComponent,
@@ -68,6 +62,7 @@ export const isMock = environment.mock;
     ArUploadComponent,
     ArComponent,
     ArDetailComponent,
+    ChartComponent,
   ],
   imports: [
     BrowserModule,
@@ -78,19 +73,17 @@ export const isMock = environment.mock;
     AppRoutingModule,
     FormsModule,
     MatTabsModule,
+    MatSelectModule,
     HttpClientModule,
     ReactiveFormsModule,
     ChartsModule,
     GraphQLModule,
-    FileUploadModule
+    FileUploadModule,
+    AmplifyAngularModule
   ],
   providers: [
     CookieService,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: JwtInterceptorService,
-      multi: true,
-    },
+    AmplifyService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: isMock ? HttpMockInterceptor : HttpRequestInterceptor,

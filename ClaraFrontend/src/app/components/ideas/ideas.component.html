@@ -3,7 +3,7 @@
 
 <!-- Posts Feed -->
 <div class="posted-ideas">
-  <div>
+  <div class="ideas-forum">
     <div class="search-panel">
       <div class="dropdown">
         <button class="dropbtn">Arrange By: {{ selectedFilter }}</button>
@@ -17,11 +17,11 @@
       </div>
 
       <form class="search-data-form" [formGroup]="searchDataForm" (ngSubmit)="search()">
-        <input type="text" formControlName="searchValue" placeholder="Search">
+        <input type="text" formControlName="searchText" placeholder="Search">
         <input type="submit" name="searchSubmit" value="See All Results">
       </form>
     </div>
-    <ng-template appIdeaAnchor></ng-template>
+    <app-idea-node *ngFor="let post of posts" [post]="post"></app-idea-node>
   </div>
 
   <div class="side-panel">
@@ -46,8 +46,8 @@
     <div *ngIf="newPostSubmitted && newPostForm.get('title').errors" class="invalid-feedback">
       <div *ngIf="newPostForm.get('title').errors.required">A title is required</div>
     </div>
-    <h4>Description</h4>
-    <textarea formControlName="description" cols="30" rows="10" placeholder="Description"></textarea>
+    <h4>Content</h4>
+    <textarea formControlName="content" cols="30" rows="10" placeholder="Content"></textarea>
     <select formControlName="tag">
       <option [value]="filter" *ngFor="let filter of filters">{{ filter }}</option>
     </select>

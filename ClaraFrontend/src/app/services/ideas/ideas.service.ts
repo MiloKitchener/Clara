@@ -1,33 +1,23 @@
-import { EventEmitter, Injectable } from '@angular/core';
-import { Post } from 'src/app/classes/post';
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { environment } from '../../../environments/environment';
-import { Observable } from 'rxjs';
+import { APIService } from '../../API.service';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class IdeasService {
-  private posts: Post[];
-  private filters: string[];
-  private arrangedFilters: string[];
-  public postUpdateEmitter = new EventEmitter();
+  private filters = ['Community', 'Transportation', 'Environment', 'Government', 'Information', 'Records', 'Parks and Rec', 'Waste'];
+  private arrangedFilters = ['Latest', 'Oldest', 'Popular', 'Trending'];
 
-  constructor(private http: HttpClient) {
-    // Initialize class variables
-    this.filters = ['Community', 'Transportation', 'Environment', 'Government', 'Information', 'Records', 'Parks and Rec', 'Waste'];
-    this.arrangedFilters = ['Latest', 'Oldest', 'Popular', 'Trending'];
-  }
+  constructor(
+    private http: HttpClient,
+    private apiService: APIService
+  ) { }
 
-  public getPostsObservable(): Observable<Post[]> {
+  public getPosts(): Promise<any> {
     // Pull posts from database
-    return this.http.get<Post[]>(environment.backendIP + 'posts/');
-  }
-
-  public getCommentsObservable(post: Post): Observable<Comment[]> {
-    // Pull comments for post from database
-    return this.http.post<Comment[]>(environment.backendIP + 'comments/post_comments/', post);
+    return this.apiService.ListPosts();
   }
 
   // Filters getter
@@ -41,18 +31,12 @@ export class IdeasService {
   }
 
   // Add a comment to a given idea
-  public addComment(post: Post, comment: any): void {
-    comment.post = post.url;
-    this.http.post(environment.backendIP + 'comments/', comment).subscribe(() => {
-      post.comments.push(comment);
-      // this.postUpdateEmitter.emit(this.posts);
-    });
+  public addComment(commentInput) {
+    return this.apiService.CreateComment(commentInput);
   }
 
   // Create an idea post
-  public addPost(postForm: any): void {
-    this.http.post(environment.backendIP + 'posts/', postForm).subscribe(() => {
-      this.postUpdateEmitter.emit();
-    });
+  public addPost(postInput): Promise<any> {
+    return this.apiService.CreatePost(postInput);
   }
 }

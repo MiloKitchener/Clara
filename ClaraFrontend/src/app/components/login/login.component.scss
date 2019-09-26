@@ -5,7 +5,7 @@ h1 {
   background-image: none;
   color: black;
   font-size: 4vw;
-  margin-bottom: 10%;
+  margin-bottom: 5%;
   opacity: 0;
   -webkit-animation: reveal 2s cubic-bezier(0, 1, 0.5, 1) 1 normal forwards;
      -moz-animation: reveal 2s ease-in 1 normal forwards;
@@ -14,12 +14,10 @@ h1 {
 }
 
 .left-container {
-  padding: 0;
   top: 0;
   left: 0;
   position: absolute;
-  padding: 4%;
-  padding-left: 8%;
+  padding: 4% 4% 4% 8%;
   height: 85%;
   width: 50%;
 }
@@ -37,13 +35,6 @@ h1 {
           animation-delay: 500ms;
 }
 
-input, button {
-  border: 0;
-  padding: 3% 5%;
-  border-radius: 6px;
-  font-size: 1.2vw;
-}
-
 input::placeholder {
   color: #989898;
   font-size: 1.2vw;
@@ -59,33 +50,12 @@ input::placeholder {
   }
 }
 
-input[type="text"], input[type="email"], input[type="password"] {
-  background-color: #efefef;
-  margin: 0;
-  width: 100%;
-}
-
 input:not([type="submit"]) {
   margin-bottom: 5%;
 }
 
 input:focus, button:focus {
   outline: none;
-}
-
-input[type="submit"], button {
-  color: white;
-  background-image: $blue-gradient;
-  width: 55%;
-}
-
-input[type="submit"]:hover, .sign-up-btn:hover {
-  filter: brightness(0.95);
-  cursor: pointer;
-}
-
-input[type="text"]:hover, input[type="email"]:hover, input[type="password"]:hover {
-  background-color: #DFDFDF;
 }
 
 .invalid-feedback {
@@ -97,21 +67,6 @@ input[type="text"]:hover, input[type="email"]:hover, input[type="password"]:hove
 
 button {
   margin: 0;
-}
-
-.text-btn {
-  background: none;
-  color: $color-primary;
-  padding: 0;
-  margin: 4%;
-  margin-right: 5%;
-  width: 50%;
-
-  &:hover {
-    color: $color-primary-dark;
-    transition: color 0.3s ease 0s;
-    cursor: pointer;
-  }
 }
 
 .right-container {

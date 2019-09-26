@@ -1,0 +1,823 @@
+# this is an auto generated file. This will be overwritten
+subscription OnCreateArModel {
+  onCreateARModel {
+    id
+    name
+    scale
+  }
+}
+subscription OnUpdateArModel {
+  onUpdateARModel {
+    id
+    name
+    scale
+  }
+}
+subscription OnDeleteArModel {
+  onDeleteARModel {
+    id
+    name
+    scale
+  }
+}
+subscription OnCreatePost($owner: String!) {
+  onCreatePost(owner: $owner) {
+    id
+    title
+    content
+    votes
+    owner
+    comments {
+      items {
+        id
+        owner
+        post {
+          id
+          title
+          content
+          votes
+          owner
+          comments {
+            nextToken
+          }
+          tag
+        }
+        content
+      }
+      nextToken
+    }
+    tag
+  }
+}
+subscription OnUpdatePost {
+  onUpdatePost {
+    id
+    title
+    content
+    votes
+    owner
+    comments {
+      items {
+        id
+        owner
+        post {
+          id
+          title
+          content
+          votes
+          owner
+          comments {
+            nextToken
+          }
+          tag
+        }
+        content
+      }
+      nextToken
+    }
+    tag
+  }
+}
+subscription OnDeletePost {
+  onDeletePost {
+    id
+    title
+    content
+    votes
+    owner
+    comments {
+      items {
+        id
+        owner
+        post {
+          id
+          title
+          content
+          votes
+          owner
+          comments {
+            nextToken
+          }
+          tag
+        }
+        content
+      }
+      nextToken
+    }
+    tag
+  }
+}
+subscription OnCreateComment($owner: String!) {
+  onCreateComment(owner: $owner) {
+    id
+    owner
+    post {
+      id
+      title
+      content
+      votes
+      owner
+      comments {
+        items {
+          id
+          owner
+          post {
+            id
+            title
+            content
+            votes
+            owner
+            tag
+          }
+          content
+        }
+        nextToken
+      }
+      tag
+    }
+    content
+  }
+}
+subscription OnUpdateComment {
+  onUpdateComment {
+    id
+    owner
+    post {
+      id
+      title
+      content
+      votes
+      owner
+      comments {
+        items {
+          id
+          owner
+          post {
+            id
+            title
+            content
+            votes
+            owner
+            tag
+          }
+          content
+        }
+        nextToken
+      }
+      tag
+    }
+    content
+  }
+}
+subscription OnDeleteComment {
+  onDeleteComment {
+    id
+    owner
+    post {
+      id
+      title
+      content
+      votes
+      owner
+      comments {
+        items {
+          id
+          owner
+          post {
+            id
+            title
+            content
+            votes
+            owner
+            tag
+          }
+          content
+        }
+        nextToken
+      }
+      tag
+    }
+    content
+  }
+}
+subscription OnCreateDashboard($owner: String!) {
+  onCreateDashboard(owner: $owner) {
+    id
+    name
+    owner
+    desc
+    charts {
+      items {
+        id
+        dashboard {
+          id
+          name
+          owner
+          desc
+          charts {
+            nextToken
+          }
+          tags
+        }
+        chart {
+          id
+          name
+          type
+          dataset1
+          field1
+          dataset2
+          field2
+          dashboards {
+            nextToken
+          }
+        }
+      }
+      nextToken
+    }
+    tags
+  }
+}
+subscription OnUpdateDashboard($owner: String!) {
+  onUpdateDashboard(owner: $owner) {
+    id
+    name
+    owner
+    desc
+    charts {
+      items {
+        id
+        dashboard {
+          id
+          name
+          owner
+          desc
+          charts {
+            nextToken
+          }
+          tags
+        }
+        chart {
+          id
+          name
+          type
+          dataset1
+          field1
+          dataset2
+          field2
+          dashboards {
+            nextToken
+          }
+        }
+      }
+      nextToken
+    }
+    tags
+  }
+}
+subscription OnDeleteDashboard($owner: String!) {
+  onDeleteDashboard(owner: $owner) {
+    id
+    name
+    owner
+    desc
+    charts {
+      items {
+        id
+        dashboard {
+          id
+          name
+          owner
+          desc
+          charts {
+            nextToken
+          }
+          tags
+        }
+        chart {
+          id
+          name
+          type
+          dataset1
+          field1
+          dataset2
+          field2
+          dashboards {
+            nextToken
+          }
+        }
+      }
+      nextToken
+    }
+    tags
+  }
+}
+subscription OnCreateDashboardCharts {
+  onCreateDashboardCharts {
+    id
+    dashboard {
+      id
+      name
+      owner
+      desc
+      charts {
+        items {
+          id
+          dashboard {
+            id
+            name
+            owner
+            desc
+            tags
+          }
+          chart {
+            id
+            name
+            type
+            dataset1
+            field1
+            dataset2
+            field2
+          }
+        }
+        nextToken
+      }
+      tags
+    }
+    chart {
+      id
+      name
+      type
+      dataset1
+      field1
+      dataset2
+      field2
+      dashboards {
+        items {
+          id
+          dashboard {
+            id
+            name
+            owner
+            desc
+            tags
+          }
+          chart {
+            id
+            name
+            type
+            dataset1
+            field1
+            dataset2
+            field2
+          }
+        }
+        nextToken
+      }
+    }
+  }
+}
+subscription OnUpdateDashboardCharts {
+  onUpdateDashboardCharts {
+    id
+    dashboard {
+      id
+      name
+      owner
+      desc
+      charts {
+        items {
+          id
+          dashboard {
+            id
+            name
+            owner
+            desc
+            tags
+          }
+          chart {
+            id
+            name
+            type
+            dataset1
+            field1
+            dataset2
+            field2
+          }
+        }
+        nextToken
+      }
+      tags
+    }
+    chart {
+      id
+      name
+      type
+      dataset1
+      field1
+      dataset2
+      field2
+      dashboards {
+        items {
+          id
+          dashboard {
+            id
+            name
+            owner
+            desc
+            tags
+          }
+          chart {
+            id
+            name
+            type
+            dataset1
+            field1
+            dataset2
+            field2
+          }
+        }
+        nextToken
+      }
+    }
+  }
+}
+subscription OnDeleteDashboardCharts {
+  onDeleteDashboardCharts {
+    id
+    dashboard {
+      id
+      name
+      owner
+      desc
+      charts {
+        items {
+          id
+          dashboard {
+            id
+            name
+            owner
+            desc
+            tags
+          }
+          chart {
+            id
+            name
+            type
+            dataset1
+            field1
+            dataset2
+            field2
+          }
+        }
+        nextToken
+      }
+      tags
+    }
+    chart {
+      id
+      name
+      type
+      dataset1
+      field1
+      dataset2
+      field2
+      dashboards {
+        items {
+          id
+          dashboard {
+            id
+            name
+            owner
+            desc
+            tags
+          }
+          chart {
+            id
+            name
+            type
+            dataset1
+            field1
+            dataset2
+            field2
+          }
+        }
+        nextToken
+      }
+    }
+  }
+}
+subscription OnCreateChart {
+  onCreateChart {
+    id
+    name
+    type
+    dataset1
+    field1
+    dataset2
+    field2
+    dashboards {
+      items {
+        id
+        dashboard {
+          id
+          name
+          owner
+          desc
+          charts {
+            nextToken
+          }
+          tags
+        }
+        chart {
+          id
+          name
+          type
+          dataset1
+          field1
+          dataset2
+          field2
+          dashboards {
+            nextToken
+          }
+        }
+      }
+      nextToken
+    }
+  }
+}
+subscription OnUpdateChart {
+  onUpdateChart {
+    id
+    name
+    type
+    dataset1
+    field1
+    dataset2
+    field2
+    dashboards {
+      items {
+        id
+        dashboard {
+          id
+          name
+          owner
+          desc
+          charts {
+            nextToken
+          }
+          tags
+        }
+        chart {
+          id
+          name
+          type
+          dataset1
+          field1
+          dataset2
+          field2
+          dashboards {
+            nextToken
+          }
+        }
+      }
+      nextToken
+    }
+  }
+}
+subscription OnDeleteChart {
+  onDeleteChart {
+    id
+    name
+    type
+    dataset1
+    field1
+    dataset2
+    field2
+    dashboards {
+      items {
+        id
+        dashboard {
+          id
+          name
+          owner
+          desc
+          charts {
+            nextToken
+          }
+          tags
+        }
+        chart {
+          id
+          name
+          type
+          dataset1
+          field1
+          dataset2
+          field2
+          dashboards {
+            nextToken
+          }
+        }
+      }
+      nextToken
+    }
+  }
+}
+subscription OnCreateDataset {
+  onCreateDataset {
+    id
+    name
+    desc
+    api_url
+    parent_url
+    type
+    fields {
+      items {
+        id
+        name
+        normalized_name
+        alias
+        type
+        dataset {
+          id
+          name
+          desc
+          api_url
+          parent_url
+          type
+          fields {
+            nextToken
+          }
+        }
+      }
+      nextToken
+    }
+  }
+}
+subscription OnUpdateDataset {
+  onUpdateDataset {
+    id
+    name
+    desc
+    api_url
+    parent_url
+    type
+    fields {
+      items {
+        id
+        name
+        normalized_name
+        alias
+        type
+        dataset {
+          id
+          name
+          desc
+          api_url
+          parent_url
+          type
+          fields {
+            nextToken
+          }
+        }
+      }
+      nextToken
+    }
+  }
+}
+subscription OnDeleteDataset {
+  onDeleteDataset {
+    id
+    name
+    desc
+    api_url
+    parent_url
+    type
+    fields {
+      items {
+        id
+        name
+        normalized_name
+        alias
+        type
+        dataset {
+          id
+          name
+          desc
+          api_url
+          parent_url
+          type
+          fields {
+            nextToken
+          }
+        }
+      }
+      nextToken
+    }
+  }
+}
+subscription OnCreateField {
+  onCreateField {
+    id
+    name
+    normalized_name
+    alias
+    type
+    dataset {
+      id
+      name
+      desc
+      api_url
+      parent_url
+      type
+      fields {
+        items {
+          id
+          name
+          normalized_name
+          alias
+          type
+          dataset {
+            id
+            name
+            desc
+            api_url
+            parent_url
+            type
+          }
+        }
+        nextToken
+      }
+    }
+  }
+}
+subscription OnUpdateField {
+  onUpdateField {
+    id
+    name
+    normalized_name
+    alias
+    type
+    dataset {
+      id
+      name
+      desc
+      api_url
+      parent_url
+      type
+      fields {
+        items {
+          id
+          name
+          normalized_name
+          alias
+          type
+          dataset {
+            id
+            name
+            desc
+            api_url
+            parent_url
+            type
+          }
+        }
+        nextToken
+      }
+    }
+  }
+}
+subscription OnDeleteField {
+  onDeleteField {
+    id
+    name
+    normalized_name
+    alias
+    type
+    dataset {
+      id
+      name
+      desc
+      api_url
+      parent_url
+      type
+      fields {
+        items {
+          id
+          name
+          normalized_name
+          alias
+          type
+          dataset {
+            id
+            name
+            desc
+            api_url
+            parent_url
+            type
+          }
+        }
+        nextToken
+      }
+    }
+  }
+}

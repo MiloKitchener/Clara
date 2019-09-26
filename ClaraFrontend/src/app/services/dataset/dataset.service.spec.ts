@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { AppsyncService } from './appsync.service';
+import { DatasetService } from './dataset.service';
 
-describe('AppsyncService', () => {
+describe('DatasetService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: AppsyncService = TestBed.get(AppsyncService);
+    const service: DatasetService = TestBed.get(DatasetService);
     expect(service).toBeTruthy();
   });
 });

@@ -1,0 +1,437 @@
+# this is an auto generated file. This will be overwritten
+query GetArcgisData($dataset: String, $field: String) {
+  getARCGISData(dataset: $dataset, field: $field)
+}
+query GetArModel($id: ID!) {
+  getARModel(id: $id) {
+    id
+    name
+    scale
+  }
+}
+query ListArModels(
+  $filter: ModelARModelFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listARModels(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      name
+      scale
+    }
+    nextToken
+  }
+}
+query GetPost($id: ID!) {
+  getPost(id: $id) {
+    id
+    title
+    content
+    votes
+    owner
+    comments {
+      items {
+        id
+        owner
+        post {
+          id
+          title
+          content
+          votes
+          owner
+          comments {
+            nextToken
+          }
+          tag
+        }
+        content
+      }
+      nextToken
+    }
+    tag
+  }
+}
+query ListPosts(
+  $filter: ModelPostFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listPosts(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      title
+      content
+      votes
+      owner
+      comments {
+        items {
+          id
+          owner
+          post {
+            id
+            title
+            content
+            votes
+            owner
+            tag
+          }
+          content
+        }
+        nextToken
+      }
+      tag
+    }
+    nextToken
+  }
+}
+query GetComment($id: ID!) {
+  getComment(id: $id) {
+    id
+    owner
+    post {
+      id
+      title
+      content
+      votes
+      owner
+      comments {
+        items {
+          id
+          owner
+          post {
+            id
+            title
+            content
+            votes
+            owner
+            tag
+          }
+          content
+        }
+        nextToken
+      }
+      tag
+    }
+    content
+  }
+}
+query ListComments(
+  $filter: ModelCommentFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listComments(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      owner
+      post {
+        id
+        title
+        content
+        votes
+        owner
+        comments {
+          items {
+            id
+            owner
+            content
+          }
+          nextToken
+        }
+        tag
+      }
+      content
+    }
+    nextToken
+  }
+}
+query GetDashboard($id: ID!) {
+  getDashboard(id: $id) {
+    id
+    name
+    owner
+    desc
+    charts {
+      items {
+        id
+        dashboard {
+          id
+          name
+          owner
+          desc
+          charts {
+            nextToken
+          }
+          tags
+        }
+        chart {
+          id
+          name
+          type
+          dataset1
+          field1
+          dataset2
+          field2
+          dashboards {
+            nextToken
+          }
+        }
+      }
+      nextToken
+    }
+    tags
+  }
+}
+query ListDashboards(
+  $filter: ModelDashboardFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listDashboards(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      name
+      owner
+      desc
+      charts {
+        items {
+          id
+          dashboard {
+            id
+            name
+            owner
+            desc
+            tags
+          }
+          chart {
+            id
+            name
+            type
+            dataset1
+            field1
+            dataset2
+            field2
+          }
+        }
+        nextToken
+      }
+      tags
+    }
+    nextToken
+  }
+}
+query GetChart($id: ID!) {
+  getChart(id: $id) {
+    id
+    name
+    type
+    dataset1
+    field1
+    dataset2
+    field2
+    dashboards {
+      items {
+        id
+        dashboard {
+          id
+          name
+          owner
+          desc
+          charts {
+            nextToken
+          }
+          tags
+        }
+        chart {
+          id
+          name
+          type
+          dataset1
+          field1
+          dataset2
+          field2
+          dashboards {
+            nextToken
+          }
+        }
+      }
+      nextToken
+    }
+  }
+}
+query ListCharts(
+  $filter: ModelChartFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listCharts(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      name
+      type
+      dataset1
+      field1
+      dataset2
+      field2
+      dashboards {
+        items {
+          id
+          dashboard {
+            id
+            name
+            owner
+            desc
+            tags
+          }
+          chart {
+            id
+            name
+            type
+            dataset1
+            field1
+            dataset2
+            field2
+          }
+        }
+        nextToken
+      }
+    }
+    nextToken
+  }
+}
+query GetDataset($id: ID!) {
+  getDataset(id: $id) {
+    id
+    name
+    desc
+    api_url
+    parent_url
+    type
+    fields {
+      items {
+        id
+        name
+        normalized_name
+        alias
+        type
+        dataset {
+          id
+          name
+          desc
+          api_url
+          parent_url
+          type
+          fields {
+            nextToken
+          }
+        }
+      }
+      nextToken
+    }
+  }
+}
+query ListDatasets(
+  $filter: ModelDatasetFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listDatasets(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      name
+      desc
+      api_url
+      parent_url
+      type
+      fields {
+        items {
+          id
+          name
+          normalized_name
+          alias
+          type
+          dataset {
+            id
+            name
+            desc
+            api_url
+            parent_url
+            type
+          }
+        }
+        nextToken
+      }
+    }
+    nextToken
+  }
+}
+query GetField($id: ID!) {
+  getField(id: $id) {
+    id
+    name
+    normalized_name
+    alias
+    type
+    dataset {
+      id
+      name
+      desc
+      api_url
+      parent_url
+      type
+      fields {
+        items {
+          id
+          name
+          normalized_name
+          alias
+          type
+          dataset {
+            id
+            name
+            desc
+            api_url
+            parent_url
+            type
+          }
+        }
+        nextToken
+      }
+    }
+  }
+}
+query ListFields(
+  $filter: ModelFieldFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listFields(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      name
+      normalized_name
+      alias
+      type
+      dataset {
+        id
+        name
+        desc
+        api_url
+        parent_url
+        type
+        fields {
+          items {
+            id
+            name
+            normalized_name
+            alias
+            type
+          }
+          nextToken
+        }
+      }
+    }
+    nextToken
+  }
+}

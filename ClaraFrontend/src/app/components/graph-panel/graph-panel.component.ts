@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Chart } from 'src/app/classes/chart';
-import { Dataset } from 'src/app/classes/dataset';
-import { Field } from 'src/app/classes/field';
+import { Chart } from 'src/app/interfaces/chart';
 
 import { DashboardService } from 'src/app/services/dashboard/dashboard.service';
+import {DatasetService} from '../../services/dataset/dataset.service';
 
 @Component({
   selector: 'app-graph-panel',
@@ -13,37 +12,25 @@ import { DashboardService } from 'src/app/services/dashboard/dashboard.service';
 })
 
 export class GraphPanelComponent implements OnInit {
-  // class variables
   public chart: Chart;
 
-  public datasets: Dataset[];
-  public yDataset: Dataset;
-  public xDataset: Dataset;
+  public datasets: any = [];
+  public ySelectedDataset;
+  public ySelectedField;
+  public xSelectedDataset;
+  public xSelectedField;
 
-  public yFields: Field[];
-  public xFields: Field[];
-  public yField: Field;
-  public xField: Field;
-
-  // constructor
   constructor(
-    private dashboardService: DashboardService
+    private dashboardService: DashboardService,
+    private datasetService: DatasetService
   ) { }
 
   ngOnInit() {
-    // instantiate instance variables
     this.chart = new Chart();
-    this.datasets = null;
-    this.yFields = null;
-    this.xFields = null;
-    this.yDataset = null;
-    this.xDataset = null;
-    this.yField = null;
-    this.xField = null;
 
     // GET datasets
-    this.dashboardService.getDatasets().subscribe((res: any[]) => {
-      this.datasets = res;
+    this.datasetService.getDatasets().then((res) => {
+      this.datasets = res.items;
     });
   }
 
@@ -52,81 +39,19 @@ export class GraphPanelComponent implements OnInit {
     Class Methods
   ****************************/
 
-
-  // sets the y axis
-  setYAxis(index: number) {
-    this.yDataset = this.datasets[index];
-    this.yField = null;
-    this.chart.data = [];
-
-    console.log(this.yDataset);
-
-    // get fields
-    this.dashboardService.getFields(this.yDataset.id.toString()).subscribe((res: any[]) => {
-      this.yFields = res;
-    });
-  }
-
-
-  // sets the x axis
-  setXAxis(index: number) {
-    this.xDataset = this.datasets[index];
-    this.xField = null;
-    this.chart.data = [];
-
-    // get fields
-    this.dashboardService.getFields(this.xDataset.id.toString()).subscribe((res: any[]) => {
-      this.xFields = res;
-    });
-  }
-
-
-  // sets the y field
-  selectYField(index: number) {
-    this.yField = this.yFields[index];
-
-    if (this.xField !== null) { // both fields selected
-      this.queryTable();
-    }
-  }
-
-
-  // sets the x field
-  selectXField(index: number) {
-    this.xField = this.xFields[index];
-
-    if (this.yField !== null) { // both fields selected
-      this.queryTable();
-    }
-  }
-
-
-  // adds the graph to the user's dashboard
+  // Adds the graph to the user's dashboard
   addGraph() {
-    if (this.yField === null || this.xField === null || this.chart.data.length === 0) {
+    if (this.ySelectedField === null || this.xSelectedField === null || this.chart.data.length === 0) {
       alert('Please Specify X / Y Axis Values');
-    } else { // close panel and add graph data to user charts
-      this.chart.name = this.yField.name + ' V ' + this.xField.name;
+    } else {
+      // Close panel and add graph data to user charts
+      this.chart.name = this.ySelectedField.name + ' V ' + this.xSelectedField.name;
       this.dashboardService.addChart(this.chart);
       this.closeGraphPanel();
     }
   }
 
-
-  // queries database for new chart data, updates chart accordingly
-  queryTable() {
-    this.dashboardService.getData({
-      field1: this.xField.id.toString(),
-      dataset1: this.xDataset.id.toString(),
-      field2: this.yField.id.toString(),
-      dataset2: this.yDataset.id.toString()
-    }).subscribe(res => {
-      this.chart.data = res;
-    });
-  }
-
-
-  // controls tab switching functionality
+  // Controls tab switching functionality
   openTab(tabName: string) {
     // Declare all variables
     let tabcontent: any;
@@ -158,9 +83,25 @@ export class GraphPanelComponent implements OnInit {
     document.getElementById(idTab).className += ' active';
   }
 
-
-  // sends signal to close graph panel
+  // Sends signal to close graph panel
   closeGraphPanel() {
     this.dashboardService.closeGraphPanel();
+  }
+
+  selectChange(event) {
+    if (event.source.id === 'yDatasetSelect') {
+      this.ySelectedField = null;
+    }
+    if (event.source.id === 'xDatasetSelect') {
+      this.xSelectedField = null;
+    }
+    if (this.ySelectedDataset && this.ySelectedField && this.xSelectedDataset && this.xSelectedField) {
+      this.dashboardService.getARCGISData(
+        this.ySelectedDataset.api_url,
+        this.ySelectedField.name
+      ).then((res) => {
+        console.log(res);
+      });
+    }
   }
 }

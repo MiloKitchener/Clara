@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ArService} from '../../services/ar/ar.service';
-import {ARModel} from '../../classes/ar-model';
 
 @Component({
   selector: 'app-ar-upload',
@@ -33,8 +32,7 @@ export class ArUploadComponent implements OnInit {
     if (this.arService.uploader.queue[0] != null) {
       // Create model
       const name = this.arService.uploader.queue[0].file.name.replace(/\.[^/.]+$/, '');
-      const arModel: ARModel = new ARModel(name, this.uploadForm.get('scale').value);
-      this.arService.createARModel(arModel).subscribe();
+      this.arService.createARModel({name, scale: this.uploadForm.get('scale').value}).then();
 
       // Upload all the files to S3
       for (const item of this.arService.uploader.queue) {

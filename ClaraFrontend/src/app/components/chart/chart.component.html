@@ -1,0 +1,40 @@
+<div class="chart-top-panel" *ngIf="chart">
+  <h2>{{ chart.name }}</h2>
+  <div>
+    <!-- Fullscreen Button -->
+    <i class="material-icons-round" (click)="toggleFullScreen()">{{ screenIcon }}</i>
+    <!-- Chart Menu -->
+<!--    <button mat-button [matMenuTriggerFor] = "menu">-->
+<!--      <i class="material-icons">more_vert</i>-->
+<!--    </button>-->
+<!--    <mat-menu #menu = "matMenu">-->
+<!--      <button mat-menu-item (click)="setAsPrimaryChart(i)">Set as Primary</button>-->
+<!--      <button mat-menu-item>Edit</button>-->
+<!--      <button mat-menu-item [matMenuTriggerFor] = "sizeChart">Adjust Size</button>-->
+<!--      <button mat-menu-item [matMenuTriggerFor] = "moveChart">Move To</button>-->
+<!--      <button mat-menu-item (click)="deleteChart(i)">Delete</button>-->
+<!--    </mat-menu>-->
+<!--    <mat-menu #moveChart = "matMenu">-->
+<!--&lt;!&ndash;            <ng-container *ngFor="let dashboardNode of this.dashboards; let dashboardIndex = index" [attr.data-index]="dashboardIndex">&ndash;&gt;-->
+<!--&lt;!&ndash;                <button mat-menu-item *ngIf="dashboardNode.name != dashboard.name" (click)="dashboardService.moveChartToDashboard(this.dashboards, dashboard, dashboardIndex, i)">&ndash;&gt;-->
+<!--&lt;!&ndash;                  {{ dashboardNode.name }}&ndash;&gt;-->
+<!--&lt;!&ndash;                </button>&ndash;&gt;-->
+<!--&lt;!&ndash;            </ng-container>&ndash;&gt;-->
+<!--    </mat-menu>-->
+<!--    <mat-menu #sizeChart = "matMenu">-->
+<!--        <button mat-menu-item (click)="increaseSize(i)">Increase</button>-->
+<!--        <button mat-menu-item (click)="decreaseSize(i)">Decrease</button>-->
+<!--    </mat-menu>-->
+  </div>
+</div>
+
+<!-- Chart Canvas -->
+<div *ngIf="chart.data" id="chart">
+  <canvas baseChart
+    [datasets]="[{
+      label: 'Series A',
+      data: chart.data
+    }]"
+    [chartType]="chart.type">
+  </canvas>
+</div>

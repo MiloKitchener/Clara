@@ -61,4 +61,10 @@ import 'zone.js/dist/zone';  // Included with Angular CLI.
  * APPLICATION IMPORTS
  */
 
-(window as any).global = window; // required by dragula (https://github.com/valor-software/ng2-dragula)
+// (window as any).global = window; // required by dragula (https://github.com/valor-software/ng2-dragula)
+
+// Required for AWS Amplify
+(window as any).global = window;
+(window as any).process = {
+  env: { DEBUG: undefined },
+};

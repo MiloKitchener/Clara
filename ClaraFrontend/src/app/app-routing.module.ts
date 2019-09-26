@@ -1,11 +1,6 @@
-// import core modules
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-// import services
-import { AuthService } from './services/auth/auth.service';
-
-// import components
 import { LoginComponent } from './components/login/login.component';
 import { MainComponent } from './components/main/main.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
@@ -19,8 +14,8 @@ import { DevicesComponent } from './components/devices/devices.component';
 import { SplashComponent } from './components/splash/splash.component';
 import { ArComponent } from './components/ar/ar.component';
 import { ArUploadComponent } from './components/ar-upload/ar-upload.component';
+import {AuthGuard} from './guards/auth/auth.guard';
 
-// define routes
 const routes: Routes = [
   { path: '', redirectTo: 'splash', pathMatch: 'full' },
   { path: 'splash', component: SplashComponent, data: { title: 'Welcome to Clara' } },
@@ -29,16 +24,16 @@ const routes: Routes = [
     path: 'main',
     component: MainComponent,
     data: { title: 'Clara' },
-    canActivate: [AuthService],
+    canActivate: [AuthGuard],
     children: [
       { path: '', redirectTo: 'dashboard/Main', pathMatch: 'full' },
       { path: 'dashboard', redirectTo: 'dashboard/Main', pathMatch: 'full' },
-      { path: 'dashboard/:id', component: DashboardComponent },
+      { path: 'dashboard/:name', component: DashboardComponent },
       { path: 'devices', component: DevicesComponent, data: { title: 'Devices' } },
       { path: 'dataset', component: DatasetComponent, data: { title: 'Dataset' } },
       { path: 'alexa-feed', component: AlexaFeedComponent, data: { title: 'Alexa Feed' } },
-      { path: 'data-ar', component: ArComponent, data: { title: 'Data AR' } },
-      { path: 'data-ar/upload', component: ArUploadComponent, data: { title: 'Upload Model' } },
+      { path: 'augmented-municipality', component: ArComponent, data: { title: 'Augmented Municipality' } },
+      { path: 'augmented-municipality/upload', component: ArUploadComponent, data: { title: 'Upload Model' } },
       { path: 'ideas', component: IdeasComponent, data: { title: 'Ideas' } },
       { path: 'lab-services', component: LabServicesComponent, data: { title: 'Lab-Services' } },
       { path: 'profile', component: ProfileComponent, data: { title: 'Profile' } }

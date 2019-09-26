@@ -5,9 +5,9 @@ export class Chart {
   name: string;
   type: ChartType;
   field1: string;
-  dataset1: string;
+  url1: string;
   field2: string;
-  dataset2: string;
+  url2: string;
   labels: Label[];
   data: [];
 

@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { ProfileService } from 'src/app/services/profile/profile.service';
 
-import { User } from 'src/app/classes/user';
+import { User } from 'src/app/interfaces/user';
 
 @Component({
   selector: 'app-profile',

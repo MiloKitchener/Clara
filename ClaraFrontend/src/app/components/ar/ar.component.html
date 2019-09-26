@@ -1,4 +1,9 @@
-<h1>AR Models</h1>
+<div class="header-panel">
+  <h1>AR Models</h1>
+  <button class="add-btn" routerLink="upload">
+    <i class="material-icons-round">add_circle</i>
+  </button>
+</div>
 
 <div class="model-selection">
   <div class="model-list-container">
@@ -8,12 +13,8 @@
         {{ model.name }}
       </li>
     </ul>
-
-    <button routerLink="upload" class="upload-btn">
-      <span>Add AR Model</span>
-    </button>
   </div>
-  
+
   <div class="model-info-container">
     <app-ar-detail [arModel]="selectedARModel"></app-ar-detail>
   </div>
