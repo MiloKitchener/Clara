@@ -1,6 +1,6 @@
 # Clara
 Clara is a municipal machine learning and analytics platform,  providing ideas and insights to the municipality of Kitchener.
-https://www.dashboard.askclara.ca
+https://clara.kitchener.ca
 
 ![](/claraScreenshot.png "")
 
@@ -73,20 +73,22 @@ The first step to setting up Clara on your local machine will be to download all
    - https://git-scm.com/downloads
 8. Putty
    - https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
+9. Cordova (Needed for Ionic Deployment)
+   - https://cordova.apache.org/
 
 
 <a name="local-deployment"></a>
 ## Local Deployment ##
 ### Frontend: ###
 1. Install all of the required programs, found under **setup**
-2. Navigate to ClaraFrontend
+2. Navigate to `site-frontend`
 3. Run `npm install`
 4. Run `ng serve`
 5. Navigate to the website using the URL: http://localhost:4200/
-6. If backend is also being run locally, navigate to ClaraFrontend->src->environments->environment.ts and change the `backendIP` value to `http://localhost:8000/`, then change the `backendIPWS` to `ws://localhost:8000/`
+6. If backend is also being run locally, navigate to site-frontend->src->environments->environment.ts and change the `backendIP` value to `http://localhost:8000/`, then change the `backendIPWS` to `ws://localhost:8000/`
 
 ### Backend: ###
-1. Navigate to ClaraBackend 
+1. Navigate to `backend` 
 2. Install the python 3 dependencies using pip
 3. Manage the database settings in base.py
 4. Run ”python manage.py makemigrations” and “python manage.py migrate” to set up database
@@ -95,12 +97,19 @@ The first step to setting up Clara on your local machine will be to download all
 7. Navigate to the backend using the URL: http://localhost:8000
 
 ### Electron: ###
-1. Navigate to ClaraFrontend
+1. Navigate to `site-frontend`
 2. If it hasn't been done already, run `npm install`
 3. Run `ng build --prod`
 4. Run `npm run electron`
 
-
+### Ionic: ###
+1. Navigate to `ionic`
+2. run `npm install`
+3. run `ionic serve`
+4. Navigate to the website using the URL: http://localhost:8100/
+5. If desired, change the web layout to a mobile responsive layout 
+   1. [Firefox How To](https://developer.mozilla.org/en-US/docs/Tools/Responsive_Design_Mode)
+   2. [Chrome How To](https://developers.google.com/web/tools/chrome-devtools/device-mode/)
 
 <a name="prod-deployment"></a>
 ## Production Deployment ##
@@ -111,6 +120,12 @@ The first step to setting up Clara on your local machine will be to download all
 
 ### Backend: ###
 1. TBD
+
+### Electron: ###
+https://medium.com/how-to-electron/a-complete-guide-to-packaging-your-electron-app-1bdc717d739f
+
+### Ionic: ###
+https://ionicframework.com/docs/v1/guide/publishing.html
 
 <a name="alexaIntegration"></a>
 ## Alexa Integration ##
@@ -139,7 +154,8 @@ To set up an Alexa skill [follow this tutorial](https://developer.amazon.com/doc
 - If the install freezes restart the pi and run the “bash ./setup.sh ./config.json” command again to resume the install 
 - Run `sudo su` to use the root user
 - Change the `~/.asoundrc` file to the following content (change the playback settings to match your device if using bluetooth speaker, else change it for your audio output device)
-`pcm.!default
+```
+pcm.!default
 {
 type asym
 playback.pcm {
@@ -156,7 +172,8 @@ capture.pcm {
   card 2
   device 0
 }
-}`
+}
+```
 
 
 **Startup:**

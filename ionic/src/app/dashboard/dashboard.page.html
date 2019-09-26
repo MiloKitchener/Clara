@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Dashboard</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ng-container *ngIf="selectedDashboard">
+      <ul>
+        <li *ngFor="let chart of selectedDashboard.charts; let i = index">
+          <!-- Chart Canvas -->
+          <div *ngIf="chart.data">
+            <canvas baseChart
+              [datasets]="[{
+                  label: 'Series A',
+                  data: chart.data
+                }]"
+              [chartType]="chart.type">
+            </canvas>
+          </div>
+        </li>
+      </ul>
+    </ng-container>
+</ion-content>

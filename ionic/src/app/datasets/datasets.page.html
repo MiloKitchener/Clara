@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Datasets</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar showcancelbutton="" (ioninput)="filterList($event)"></ion-searchbar>
+  <ion-list>
+    <li *ngFor="let dataset of datasets">
+      <h3>{{ dataset.name }}</h3>
+      <p>{{ dataset.desc }}</p>
+    </li>
+  </ion-list>
+</ion-content>
