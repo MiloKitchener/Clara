@@ -73,7 +73,6 @@ export class IdeasComponent implements OnInit {
     // Create the post object
     const newPost = this.newPostForm.value;
     newPost.votes = 0;
-    newPost.comments = [];
 
     // Create the post
     this.ideasService.addPost(newPost).then();
