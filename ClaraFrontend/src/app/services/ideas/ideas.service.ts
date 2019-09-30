@@ -39,4 +39,9 @@ export class IdeasService {
   public addPost(postInput): Promise<any> {
     return this.apiService.CreatePost(postInput);
   }
+
+  // Update votes
+  public updatePost(postInput): Promise<any> {
+    return this.apiService.UpdatePost(postInput);
+  }
 }

@@ -6,6 +6,6 @@ export class Post {
   content: string;
   votes: number;
   owner: string;
-  comments: Comment[];
+  comments: [Comment];
   tag: string;
 }

@@ -41,6 +41,8 @@ export class IdeaNodeComponent implements OnInit {
       this.post.votes--;
       this.voted = 0;
     }
+
+    this.ideaService.updatePost({id:this.post.id, votes:this.post.votes})
   }
 
   public downvote() {
@@ -54,6 +56,7 @@ export class IdeaNodeComponent implements OnInit {
       this.post.votes++;
       this.voted = 0;
     }
+    this.ideaService.updatePost({id:this.post.id, votes:this.post.votes})
   }
 
   // Toggles comment view
