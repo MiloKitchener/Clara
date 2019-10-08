@@ -4,6 +4,14 @@
 	"Parameters": {
 		"env": {
 			"Type": "String"
+		},
+		"apiclarafrontendGraphQLAPIIdOutput": {
+			"Type": "String",
+			"Default": "apiclarafrontendGraphQLAPIIdOutput"
+		},
+		"apiclarafrontendGraphQLAPIEndpointOutput": {
+			"Type": "String",
+			"Default": "apiclarafrontendGraphQLAPIEndpointOutput"
 		}
 	},
 	"Conditions": {
@@ -28,12 +36,12 @@
 				"FunctionName": {
 					"Fn::If": [
 						"ShouldNotCreateEnvResources",
-						"getARCGISData",
+						"createIoTData",
 						{
 							"Fn::Join": [
 								"",
 								[
-									"getARCGISData",
+									"createIoTData",
 									"-",
 									{
 										"Ref": "env"
@@ -50,6 +58,12 @@
 						},
 						"REGION": {
 							"Ref": "AWS::Region"
+						},
+						"API_CLARAFRONTEND_GRAPHQLAPIIDOUTPUT": {
+							"Ref": "apiclarafrontendGraphQLAPIIdOutput"
+						},
+						"API_CLARAFRONTEND_GRAPHQLAPIENDPOINTOUTPUT": {
+							"Ref": "apiclarafrontendGraphQLAPIEndpointOutput"
 						}
 					}
 				},
@@ -63,7 +77,7 @@
 				"Timeout": "25",
 				"Code": {
 					"S3Bucket": "clarafrontend-brad-20190926101043-deployment",
-					"S3Key": "amplify-builds/getARCGISData-45486c6d466d6d2b3659-build.zip"
+					"S3Key": "amplify-builds/createIoTData-694d5677763435457531-build.zip"
 				}
 			}
 		},
@@ -73,12 +87,12 @@
 				"RoleName": {
 					"Fn::If": [
 						"ShouldNotCreateEnvResources",
-						"clarafrontendLambdaRole5e398fa0",
+						"clarafrontendLambdaRoledf5b1341",
 						{
 							"Fn::Join": [
 								"",
 								[
-									"clarafrontendLambdaRole5e398fa0",
+									"clarafrontendLambdaRoledf5b1341",
 									"-",
 									{
 										"Ref": "env"
@@ -144,6 +158,55 @@
 									}
 								]
 							}
+						}
+					]
+				}
+			}
+		},
+		"AmplifyResourcesPolicy": {
+			"DependsOn": [
+				"LambdaExecutionRole"
+			],
+			"Type": "AWS::IAM::Policy",
+			"Properties": {
+				"PolicyName": "amplify-lambda-execution-policy",
+				"Roles": [
+					{
+						"Ref": "LambdaExecutionRole"
+					}
+				],
+				"PolicyDocument": {
+					"Version": "2012-10-17",
+					"Statement": [
+						{
+							"Effect": "Allow",
+							"Action": [
+								"appsync:Create*",
+								"appsync:StartSchemaCreation",
+								"appsync:GraphQL"
+							],
+							"Resource": [
+								{
+									"Fn::Join": [
+										"",
+										[
+											"arn:aws:appsync:",
+											{
+												"Ref": "AWS::Region"
+											},
+											":",
+											{
+												"Ref": "AWS::AccountId"
+											},
+											":apis/",
+											{
+												"Ref": "apiclarafrontendGraphQLAPIIdOutput"
+											},
+											"/*"
+										]
+									]
+								}
+							]
 						}
 					]
 				}

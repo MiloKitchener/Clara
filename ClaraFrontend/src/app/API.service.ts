@@ -21,6 +21,40 @@ export type DeleteARModelInput = {
   id?: string | null;
 };
 
+export type CreateIoTDeviceInput = {
+  id?: string | null;
+  uuid: string;
+  type: string;
+  fields: Array<string | null>;
+};
+
+export type UpdateIoTDeviceInput = {
+  id: string;
+  uuid?: string | null;
+  type?: string | null;
+  fields?: Array<string | null> | null;
+};
+
+export type DeleteIoTDeviceInput = {
+  id?: string | null;
+};
+
+export type UpdateIoTDataInput = {
+  uuid: string;
+  ts: number;
+  type?: string | null;
+  battery?: number | null;
+  moisture?: number | null;
+  co2?: number | null;
+  ph?: number | null;
+  uptime?: Array<number | null> | null;
+};
+
+export type DeleteIoTDataInput = {
+  uuid: string;
+  ts: number;
+};
+
 export type CreatePostInput = {
   id?: string | null;
   title: string;
@@ -81,40 +115,28 @@ export type DeleteDashboardInput = {
   id?: string | null;
 };
 
-export type CreateDashboardChartsInput = {
-  id?: string | null;
-  dashboardChartsDashboardId?: string | null;
-  dashboardChartsChartId?: string | null;
-};
-
-export type UpdateDashboardChartsInput = {
-  id: string;
-  dashboardChartsDashboardId?: string | null;
-  dashboardChartsChartId?: string | null;
-};
-
-export type DeleteDashboardChartsInput = {
-  id?: string | null;
-};
-
 export type CreateChartInput = {
   id?: string | null;
   name?: string | null;
   type?: string | null;
+  category?: string | null;
   dataset1?: string | null;
   field1?: string | null;
   dataset2?: string | null;
   field2?: string | null;
+  chartDashboardId?: string | null;
 };
 
 export type UpdateChartInput = {
   id: string;
   name?: string | null;
   type?: string | null;
+  category?: string | null;
   dataset1?: string | null;
   field1?: string | null;
   dataset2?: string | null;
   field2?: string | null;
+  chartDashboardId?: string | null;
 };
 
 export type DeleteChartInput = {
@@ -165,6 +187,17 @@ export type DeleteFieldInput = {
   id?: string | null;
 };
 
+export type CreateIoTDataInput = {
+  uuid: string;
+  ts: number;
+  type: string;
+  battery?: number | null;
+  moisture?: number | null;
+  co2?: number | null;
+  ph?: number | null;
+  uptime?: Array<number | null> | null;
+};
+
 export type ModelARModelFilterInput = {
   id?: ModelIDFilterInput | null;
   name?: ModelStringFilterInput | null;
@@ -212,16 +245,37 @@ export type ModelFloatFilterInput = {
   between?: Array<number | null> | null;
 };
 
-export type ModelPostFilterInput = {
+export type ModelIoTDeviceFilterInput = {
   id?: ModelIDFilterInput | null;
-  title?: ModelStringFilterInput | null;
-  content?: ModelStringFilterInput | null;
-  votes?: ModelIntFilterInput | null;
-  owner?: ModelStringFilterInput | null;
-  tag?: ModelStringFilterInput | null;
-  and?: Array<ModelPostFilterInput | null> | null;
-  or?: Array<ModelPostFilterInput | null> | null;
-  not?: ModelPostFilterInput | null;
+  uuid?: ModelStringFilterInput | null;
+  type?: ModelStringFilterInput | null;
+  fields?: ModelStringFilterInput | null;
+  and?: Array<ModelIoTDeviceFilterInput | null> | null;
+  or?: Array<ModelIoTDeviceFilterInput | null> | null;
+  not?: ModelIoTDeviceFilterInput | null;
+};
+
+export type ModelIntKeyConditionInput = {
+  eq?: number | null;
+  le?: number | null;
+  lt?: number | null;
+  ge?: number | null;
+  gt?: number | null;
+  between?: Array<number | null> | null;
+};
+
+export type ModelIoTDataFilterInput = {
+  uuid?: ModelIDFilterInput | null;
+  ts?: ModelIntFilterInput | null;
+  type?: ModelStringFilterInput | null;
+  battery?: ModelIntFilterInput | null;
+  moisture?: ModelIntFilterInput | null;
+  co2?: ModelIntFilterInput | null;
+  ph?: ModelIntFilterInput | null;
+  uptime?: ModelIntFilterInput | null;
+  and?: Array<ModelIoTDataFilterInput | null> | null;
+  or?: Array<ModelIoTDataFilterInput | null> | null;
+  not?: ModelIoTDataFilterInput | null;
 };
 
 export type ModelIntFilterInput = {
@@ -234,6 +288,23 @@ export type ModelIntFilterInput = {
   contains?: number | null;
   notContains?: number | null;
   between?: Array<number | null> | null;
+};
+
+export enum ModelSortDirection {
+  ASC = "ASC",
+  DESC = "DESC"
+}
+
+export type ModelPostFilterInput = {
+  id?: ModelIDFilterInput | null;
+  title?: ModelStringFilterInput | null;
+  content?: ModelStringFilterInput | null;
+  votes?: ModelIntFilterInput | null;
+  owner?: ModelStringFilterInput | null;
+  tag?: ModelStringFilterInput | null;
+  and?: Array<ModelPostFilterInput | null> | null;
+  or?: Array<ModelPostFilterInput | null> | null;
+  not?: ModelPostFilterInput | null;
 };
 
 export type ModelCommentFilterInput = {
@@ -260,6 +331,7 @@ export type ModelChartFilterInput = {
   id?: ModelIDFilterInput | null;
   name?: ModelStringFilterInput | null;
   type?: ModelStringFilterInput | null;
+  category?: ModelStringFilterInput | null;
   dataset1?: ModelStringFilterInput | null;
   field1?: ModelStringFilterInput | null;
   dataset2?: ModelStringFilterInput | null;
@@ -311,6 +383,54 @@ export type DeleteArModelMutation = {
   id: string;
   name: string;
   scale: number | null;
+};
+
+export type CreateIoTDeviceMutation = {
+  __typename: "IoTDevice";
+  id: string;
+  uuid: string;
+  type: string;
+  fields: Array<string | null>;
+};
+
+export type UpdateIoTDeviceMutation = {
+  __typename: "IoTDevice";
+  id: string;
+  uuid: string;
+  type: string;
+  fields: Array<string | null>;
+};
+
+export type DeleteIoTDeviceMutation = {
+  __typename: "IoTDevice";
+  id: string;
+  uuid: string;
+  type: string;
+  fields: Array<string | null>;
+};
+
+export type UpdateIoTDataMutation = {
+  __typename: "IoTData";
+  uuid: string;
+  ts: number;
+  type: string;
+  battery: number | null;
+  moisture: number | null;
+  co2: number | null;
+  ph: number | null;
+  uptime: Array<number | null> | null;
+};
+
+export type DeleteIoTDataMutation = {
+  __typename: "IoTData";
+  uuid: string;
+  ts: number;
+  type: string;
+  battery: number | null;
+  moisture: number | null;
+  co2: number | null;
+  ph: number | null;
+  uptime: Array<number | null> | null;
 };
 
 export type CreatePostMutation = {
@@ -524,10 +644,17 @@ export type CreateDashboardMutation = {
   owner: string | null;
   desc: string | null;
   charts: {
-    __typename: "ModelDashboardChartsConnection";
+    __typename: "ModelChartConnection";
     items: Array<{
-      __typename: "DashboardCharts";
+      __typename: "Chart";
       id: string;
+      name: string | null;
+      type: string | null;
+      category: string | null;
+      dataset1: string | null;
+      field1: string | null;
+      dataset2: string | null;
+      field2: string | null;
       dashboard: {
         __typename: "Dashboard";
         id: string;
@@ -535,24 +662,10 @@ export type CreateDashboardMutation = {
         owner: string | null;
         desc: string | null;
         charts: {
-          __typename: "ModelDashboardChartsConnection";
+          __typename: "ModelChartConnection";
           nextToken: string | null;
         } | null;
         tags: Array<string | null>;
-      } | null;
-      chart: {
-        __typename: "Chart";
-        id: string;
-        name: string | null;
-        type: string | null;
-        dataset1: string | null;
-        field1: string | null;
-        dataset2: string | null;
-        field2: string | null;
-        dashboards: {
-          __typename: "ModelDashboardChartsConnection";
-          nextToken: string | null;
-        } | null;
       } | null;
     } | null> | null;
     nextToken: string | null;
@@ -567,10 +680,17 @@ export type UpdateDashboardMutation = {
   owner: string | null;
   desc: string | null;
   charts: {
-    __typename: "ModelDashboardChartsConnection";
+    __typename: "ModelChartConnection";
     items: Array<{
-      __typename: "DashboardCharts";
+      __typename: "Chart";
       id: string;
+      name: string | null;
+      type: string | null;
+      category: string | null;
+      dataset1: string | null;
+      field1: string | null;
+      dataset2: string | null;
+      field2: string | null;
       dashboard: {
         __typename: "Dashboard";
         id: string;
@@ -578,24 +698,10 @@ export type UpdateDashboardMutation = {
         owner: string | null;
         desc: string | null;
         charts: {
-          __typename: "ModelDashboardChartsConnection";
+          __typename: "ModelChartConnection";
           nextToken: string | null;
         } | null;
         tags: Array<string | null>;
-      } | null;
-      chart: {
-        __typename: "Chart";
-        id: string;
-        name: string | null;
-        type: string | null;
-        dataset1: string | null;
-        field1: string | null;
-        dataset2: string | null;
-        field2: string | null;
-        dashboards: {
-          __typename: "ModelDashboardChartsConnection";
-          nextToken: string | null;
-        } | null;
       } | null;
     } | null> | null;
     nextToken: string | null;
@@ -610,10 +716,17 @@ export type DeleteDashboardMutation = {
   owner: string | null;
   desc: string | null;
   charts: {
-    __typename: "ModelDashboardChartsConnection";
+    __typename: "ModelChartConnection";
     items: Array<{
-      __typename: "DashboardCharts";
+      __typename: "Chart";
       id: string;
+      name: string | null;
+      type: string | null;
+      category: string | null;
+      dataset1: string | null;
+      field1: string | null;
+      dataset2: string | null;
+      field2: string | null;
       dashboard: {
         __typename: "Dashboard";
         id: string;
@@ -621,24 +734,10 @@ export type DeleteDashboardMutation = {
         owner: string | null;
         desc: string | null;
         charts: {
-          __typename: "ModelDashboardChartsConnection";
+          __typename: "ModelChartConnection";
           nextToken: string | null;
         } | null;
         tags: Array<string | null>;
-      } | null;
-      chart: {
-        __typename: "Chart";
-        id: string;
-        name: string | null;
-        type: string | null;
-        dataset1: string | null;
-        field1: string | null;
-        dataset2: string | null;
-        field2: string | null;
-        dashboards: {
-          __typename: "ModelDashboardChartsConnection";
-          nextToken: string | null;
-        } | null;
       } | null;
     } | null> | null;
     nextToken: string | null;
@@ -646,273 +745,46 @@ export type DeleteDashboardMutation = {
   tags: Array<string | null>;
 };
 
-export type CreateDashboardChartsMutation = {
-  __typename: "DashboardCharts";
-  id: string;
-  dashboard: {
-    __typename: "Dashboard";
-    id: string;
-    name: string | null;
-    owner: string | null;
-    desc: string | null;
-    charts: {
-      __typename: "ModelDashboardChartsConnection";
-      items: Array<{
-        __typename: "DashboardCharts";
-        id: string;
-        dashboard: {
-          __typename: "Dashboard";
-          id: string;
-          name: string | null;
-          owner: string | null;
-          desc: string | null;
-          tags: Array<string | null>;
-        } | null;
-        chart: {
-          __typename: "Chart";
-          id: string;
-          name: string | null;
-          type: string | null;
-          dataset1: string | null;
-          field1: string | null;
-          dataset2: string | null;
-          field2: string | null;
-        } | null;
-      } | null> | null;
-      nextToken: string | null;
-    } | null;
-    tags: Array<string | null>;
-  } | null;
-  chart: {
-    __typename: "Chart";
-    id: string;
-    name: string | null;
-    type: string | null;
-    dataset1: string | null;
-    field1: string | null;
-    dataset2: string | null;
-    field2: string | null;
-    dashboards: {
-      __typename: "ModelDashboardChartsConnection";
-      items: Array<{
-        __typename: "DashboardCharts";
-        id: string;
-        dashboard: {
-          __typename: "Dashboard";
-          id: string;
-          name: string | null;
-          owner: string | null;
-          desc: string | null;
-          tags: Array<string | null>;
-        } | null;
-        chart: {
-          __typename: "Chart";
-          id: string;
-          name: string | null;
-          type: string | null;
-          dataset1: string | null;
-          field1: string | null;
-          dataset2: string | null;
-          field2: string | null;
-        } | null;
-      } | null> | null;
-      nextToken: string | null;
-    } | null;
-  } | null;
-};
-
-export type UpdateDashboardChartsMutation = {
-  __typename: "DashboardCharts";
-  id: string;
-  dashboard: {
-    __typename: "Dashboard";
-    id: string;
-    name: string | null;
-    owner: string | null;
-    desc: string | null;
-    charts: {
-      __typename: "ModelDashboardChartsConnection";
-      items: Array<{
-        __typename: "DashboardCharts";
-        id: string;
-        dashboard: {
-          __typename: "Dashboard";
-          id: string;
-          name: string | null;
-          owner: string | null;
-          desc: string | null;
-          tags: Array<string | null>;
-        } | null;
-        chart: {
-          __typename: "Chart";
-          id: string;
-          name: string | null;
-          type: string | null;
-          dataset1: string | null;
-          field1: string | null;
-          dataset2: string | null;
-          field2: string | null;
-        } | null;
-      } | null> | null;
-      nextToken: string | null;
-    } | null;
-    tags: Array<string | null>;
-  } | null;
-  chart: {
-    __typename: "Chart";
-    id: string;
-    name: string | null;
-    type: string | null;
-    dataset1: string | null;
-    field1: string | null;
-    dataset2: string | null;
-    field2: string | null;
-    dashboards: {
-      __typename: "ModelDashboardChartsConnection";
-      items: Array<{
-        __typename: "DashboardCharts";
-        id: string;
-        dashboard: {
-          __typename: "Dashboard";
-          id: string;
-          name: string | null;
-          owner: string | null;
-          desc: string | null;
-          tags: Array<string | null>;
-        } | null;
-        chart: {
-          __typename: "Chart";
-          id: string;
-          name: string | null;
-          type: string | null;
-          dataset1: string | null;
-          field1: string | null;
-          dataset2: string | null;
-          field2: string | null;
-        } | null;
-      } | null> | null;
-      nextToken: string | null;
-    } | null;
-  } | null;
-};
-
-export type DeleteDashboardChartsMutation = {
-  __typename: "DashboardCharts";
-  id: string;
-  dashboard: {
-    __typename: "Dashboard";
-    id: string;
-    name: string | null;
-    owner: string | null;
-    desc: string | null;
-    charts: {
-      __typename: "ModelDashboardChartsConnection";
-      items: Array<{
-        __typename: "DashboardCharts";
-        id: string;
-        dashboard: {
-          __typename: "Dashboard";
-          id: string;
-          name: string | null;
-          owner: string | null;
-          desc: string | null;
-          tags: Array<string | null>;
-        } | null;
-        chart: {
-          __typename: "Chart";
-          id: string;
-          name: string | null;
-          type: string | null;
-          dataset1: string | null;
-          field1: string | null;
-          dataset2: string | null;
-          field2: string | null;
-        } | null;
-      } | null> | null;
-      nextToken: string | null;
-    } | null;
-    tags: Array<string | null>;
-  } | null;
-  chart: {
-    __typename: "Chart";
-    id: string;
-    name: string | null;
-    type: string | null;
-    dataset1: string | null;
-    field1: string | null;
-    dataset2: string | null;
-    field2: string | null;
-    dashboards: {
-      __typename: "ModelDashboardChartsConnection";
-      items: Array<{
-        __typename: "DashboardCharts";
-        id: string;
-        dashboard: {
-          __typename: "Dashboard";
-          id: string;
-          name: string | null;
-          owner: string | null;
-          desc: string | null;
-          tags: Array<string | null>;
-        } | null;
-        chart: {
-          __typename: "Chart";
-          id: string;
-          name: string | null;
-          type: string | null;
-          dataset1: string | null;
-          field1: string | null;
-          dataset2: string | null;
-          field2: string | null;
-        } | null;
-      } | null> | null;
-      nextToken: string | null;
-    } | null;
-  } | null;
-};
-
 export type CreateChartMutation = {
   __typename: "Chart";
   id: string;
   name: string | null;
   type: string | null;
+  category: string | null;
   dataset1: string | null;
   field1: string | null;
   dataset2: string | null;
   field2: string | null;
-  dashboards: {
-    __typename: "ModelDashboardChartsConnection";
-    items: Array<{
-      __typename: "DashboardCharts";
-      id: string;
-      dashboard: {
-        __typename: "Dashboard";
-        id: string;
-        name: string | null;
-        owner: string | null;
-        desc: string | null;
-        charts: {
-          __typename: "ModelDashboardChartsConnection";
-          nextToken: string | null;
-        } | null;
-        tags: Array<string | null>;
-      } | null;
-      chart: {
+  dashboard: {
+    __typename: "Dashboard";
+    id: string;
+    name: string | null;
+    owner: string | null;
+    desc: string | null;
+    charts: {
+      __typename: "ModelChartConnection";
+      items: Array<{
         __typename: "Chart";
         id: string;
         name: string | null;
         type: string | null;
+        category: string | null;
         dataset1: string | null;
         field1: string | null;
         dataset2: string | null;
         field2: string | null;
-        dashboards: {
-          __typename: "ModelDashboardChartsConnection";
-          nextToken: string | null;
+        dashboard: {
+          __typename: "Dashboard";
+          id: string;
+          name: string | null;
+          owner: string | null;
+          desc: string | null;
+          tags: Array<string | null>;
         } | null;
-      } | null;
-    } | null> | null;
-    nextToken: string | null;
+      } | null> | null;
+      nextToken: string | null;
+    } | null;
+    tags: Array<string | null>;
   } | null;
 };
 
@@ -921,43 +793,41 @@ export type UpdateChartMutation = {
   id: string;
   name: string | null;
   type: string | null;
+  category: string | null;
   dataset1: string | null;
   field1: string | null;
   dataset2: string | null;
   field2: string | null;
-  dashboards: {
-    __typename: "ModelDashboardChartsConnection";
-    items: Array<{
-      __typename: "DashboardCharts";
-      id: string;
-      dashboard: {
-        __typename: "Dashboard";
-        id: string;
-        name: string | null;
-        owner: string | null;
-        desc: string | null;
-        charts: {
-          __typename: "ModelDashboardChartsConnection";
-          nextToken: string | null;
-        } | null;
-        tags: Array<string | null>;
-      } | null;
-      chart: {
+  dashboard: {
+    __typename: "Dashboard";
+    id: string;
+    name: string | null;
+    owner: string | null;
+    desc: string | null;
+    charts: {
+      __typename: "ModelChartConnection";
+      items: Array<{
         __typename: "Chart";
         id: string;
         name: string | null;
         type: string | null;
+        category: string | null;
         dataset1: string | null;
         field1: string | null;
         dataset2: string | null;
         field2: string | null;
-        dashboards: {
-          __typename: "ModelDashboardChartsConnection";
-          nextToken: string | null;
+        dashboard: {
+          __typename: "Dashboard";
+          id: string;
+          name: string | null;
+          owner: string | null;
+          desc: string | null;
+          tags: Array<string | null>;
         } | null;
-      } | null;
-    } | null> | null;
-    nextToken: string | null;
+      } | null> | null;
+      nextToken: string | null;
+    } | null;
+    tags: Array<string | null>;
   } | null;
 };
 
@@ -966,43 +836,41 @@ export type DeleteChartMutation = {
   id: string;
   name: string | null;
   type: string | null;
+  category: string | null;
   dataset1: string | null;
   field1: string | null;
   dataset2: string | null;
   field2: string | null;
-  dashboards: {
-    __typename: "ModelDashboardChartsConnection";
-    items: Array<{
-      __typename: "DashboardCharts";
-      id: string;
-      dashboard: {
-        __typename: "Dashboard";
-        id: string;
-        name: string | null;
-        owner: string | null;
-        desc: string | null;
-        charts: {
-          __typename: "ModelDashboardChartsConnection";
-          nextToken: string | null;
-        } | null;
-        tags: Array<string | null>;
-      } | null;
-      chart: {
+  dashboard: {
+    __typename: "Dashboard";
+    id: string;
+    name: string | null;
+    owner: string | null;
+    desc: string | null;
+    charts: {
+      __typename: "ModelChartConnection";
+      items: Array<{
         __typename: "Chart";
         id: string;
         name: string | null;
         type: string | null;
+        category: string | null;
         dataset1: string | null;
         field1: string | null;
         dataset2: string | null;
         field2: string | null;
-        dashboards: {
-          __typename: "ModelDashboardChartsConnection";
-          nextToken: string | null;
+        dashboard: {
+          __typename: "Dashboard";
+          id: string;
+          name: string | null;
+          owner: string | null;
+          desc: string | null;
+          tags: Array<string | null>;
         } | null;
-      } | null;
-    } | null> | null;
-    nextToken: string | null;
+      } | null> | null;
+      nextToken: string | null;
+    } | null;
+    tags: Array<string | null>;
   } | null;
 };
 
@@ -1228,6 +1096,18 @@ export type DeleteFieldMutation = {
   } | null;
 };
 
+export type CreateIoTDataMutation = {
+  __typename: "IoTData";
+  uuid: string;
+  ts: number;
+  type: string;
+  battery: number | null;
+  moisture: number | null;
+  co2: number | null;
+  ph: number | null;
+  uptime: Array<number | null> | null;
+};
+
 export type GetArModelQuery = {
   __typename: "ARModel";
   id: string;
@@ -1242,6 +1122,54 @@ export type ListArModelsQuery = {
     id: string;
     name: string;
     scale: number | null;
+  } | null> | null;
+  nextToken: string | null;
+};
+
+export type GetIoTDeviceQuery = {
+  __typename: "IoTDevice";
+  id: string;
+  uuid: string;
+  type: string;
+  fields: Array<string | null>;
+};
+
+export type ListIoTDevicesQuery = {
+  __typename: "ModelIoTDeviceConnection";
+  items: Array<{
+    __typename: "IoTDevice";
+    id: string;
+    uuid: string;
+    type: string;
+    fields: Array<string | null>;
+  } | null> | null;
+  nextToken: string | null;
+};
+
+export type GetIoTDataQuery = {
+  __typename: "IoTData";
+  uuid: string;
+  ts: number;
+  type: string;
+  battery: number | null;
+  moisture: number | null;
+  co2: number | null;
+  ph: number | null;
+  uptime: Array<number | null> | null;
+};
+
+export type ListIoTDatasQuery = {
+  __typename: "ModelIoTDataConnection";
+  items: Array<{
+    __typename: "IoTData";
+    uuid: string;
+    ts: number;
+    type: string;
+    battery: number | null;
+    moisture: number | null;
+    co2: number | null;
+    ph: number | null;
+    uptime: Array<number | null> | null;
   } | null> | null;
   nextToken: string | null;
 };
@@ -1384,10 +1312,17 @@ export type GetDashboardQuery = {
   owner: string | null;
   desc: string | null;
   charts: {
-    __typename: "ModelDashboardChartsConnection";
+    __typename: "ModelChartConnection";
     items: Array<{
-      __typename: "DashboardCharts";
+      __typename: "Chart";
       id: string;
+      name: string | null;
+      type: string | null;
+      category: string | null;
+      dataset1: string | null;
+      field1: string | null;
+      dataset2: string | null;
+      field2: string | null;
       dashboard: {
         __typename: "Dashboard";
         id: string;
@@ -1395,24 +1330,10 @@ export type GetDashboardQuery = {
         owner: string | null;
         desc: string | null;
         charts: {
-          __typename: "ModelDashboardChartsConnection";
+          __typename: "ModelChartConnection";
           nextToken: string | null;
         } | null;
         tags: Array<string | null>;
-      } | null;
-      chart: {
-        __typename: "Chart";
-        id: string;
-        name: string | null;
-        type: string | null;
-        dataset1: string | null;
-        field1: string | null;
-        dataset2: string | null;
-        field2: string | null;
-        dashboards: {
-          __typename: "ModelDashboardChartsConnection";
-          nextToken: string | null;
-        } | null;
       } | null;
     } | null> | null;
     nextToken: string | null;
@@ -1429,10 +1350,17 @@ export type ListDashboardsQuery = {
     owner: string | null;
     desc: string | null;
     charts: {
-      __typename: "ModelDashboardChartsConnection";
+      __typename: "ModelChartConnection";
       items: Array<{
-        __typename: "DashboardCharts";
+        __typename: "Chart";
         id: string;
+        name: string | null;
+        type: string | null;
+        category: string | null;
+        dataset1: string | null;
+        field1: string | null;
+        dataset2: string | null;
+        field2: string | null;
         dashboard: {
           __typename: "Dashboard";
           id: string;
@@ -1440,16 +1368,6 @@ export type ListDashboardsQuery = {
           owner: string | null;
           desc: string | null;
           tags: Array<string | null>;
-        } | null;
-        chart: {
-          __typename: "Chart";
-          id: string;
-          name: string | null;
-          type: string | null;
-          dataset1: string | null;
-          field1: string | null;
-          dataset2: string | null;
-          field2: string | null;
         } | null;
       } | null> | null;
       nextToken: string | null;
@@ -1464,43 +1382,41 @@ export type GetChartQuery = {
   id: string;
   name: string | null;
   type: string | null;
+  category: string | null;
   dataset1: string | null;
   field1: string | null;
   dataset2: string | null;
   field2: string | null;
-  dashboards: {
-    __typename: "ModelDashboardChartsConnection";
-    items: Array<{
-      __typename: "DashboardCharts";
-      id: string;
-      dashboard: {
-        __typename: "Dashboard";
-        id: string;
-        name: string | null;
-        owner: string | null;
-        desc: string | null;
-        charts: {
-          __typename: "ModelDashboardChartsConnection";
-          nextToken: string | null;
-        } | null;
-        tags: Array<string | null>;
-      } | null;
-      chart: {
+  dashboard: {
+    __typename: "Dashboard";
+    id: string;
+    name: string | null;
+    owner: string | null;
+    desc: string | null;
+    charts: {
+      __typename: "ModelChartConnection";
+      items: Array<{
         __typename: "Chart";
         id: string;
         name: string | null;
         type: string | null;
+        category: string | null;
         dataset1: string | null;
         field1: string | null;
         dataset2: string | null;
         field2: string | null;
-        dashboards: {
-          __typename: "ModelDashboardChartsConnection";
-          nextToken: string | null;
+        dashboard: {
+          __typename: "Dashboard";
+          id: string;
+          name: string | null;
+          owner: string | null;
+          desc: string | null;
+          tags: Array<string | null>;
         } | null;
-      } | null;
-    } | null> | null;
-    nextToken: string | null;
+      } | null> | null;
+      nextToken: string | null;
+    } | null;
+    tags: Array<string | null>;
   } | null;
 };
 
@@ -1511,35 +1427,33 @@ export type ListChartsQuery = {
     id: string;
     name: string | null;
     type: string | null;
+    category: string | null;
     dataset1: string | null;
     field1: string | null;
     dataset2: string | null;
     field2: string | null;
-    dashboards: {
-      __typename: "ModelDashboardChartsConnection";
-      items: Array<{
-        __typename: "DashboardCharts";
-        id: string;
-        dashboard: {
-          __typename: "Dashboard";
-          id: string;
-          name: string | null;
-          owner: string | null;
-          desc: string | null;
-          tags: Array<string | null>;
-        } | null;
-        chart: {
+    dashboard: {
+      __typename: "Dashboard";
+      id: string;
+      name: string | null;
+      owner: string | null;
+      desc: string | null;
+      charts: {
+        __typename: "ModelChartConnection";
+        items: Array<{
           __typename: "Chart";
           id: string;
           name: string | null;
           type: string | null;
+          category: string | null;
           dataset1: string | null;
           field1: string | null;
           dataset2: string | null;
           field2: string | null;
-        } | null;
-      } | null> | null;
-      nextToken: string | null;
+        } | null> | null;
+        nextToken: string | null;
+      } | null;
+      tags: Array<string | null>;
     } | null;
   } | null> | null;
   nextToken: string | null;
@@ -1707,6 +1621,66 @@ export type OnDeleteArModelSubscription = {
   id: string;
   name: string;
   scale: number | null;
+};
+
+export type OnCreateIoTDeviceSubscription = {
+  __typename: "IoTDevice";
+  id: string;
+  uuid: string;
+  type: string;
+  fields: Array<string | null>;
+};
+
+export type OnUpdateIoTDeviceSubscription = {
+  __typename: "IoTDevice";
+  id: string;
+  uuid: string;
+  type: string;
+  fields: Array<string | null>;
+};
+
+export type OnDeleteIoTDeviceSubscription = {
+  __typename: "IoTDevice";
+  id: string;
+  uuid: string;
+  type: string;
+  fields: Array<string | null>;
+};
+
+export type OnCreateIoTDataSubscription = {
+  __typename: "IoTData";
+  uuid: string;
+  ts: number;
+  type: string;
+  battery: number | null;
+  moisture: number | null;
+  co2: number | null;
+  ph: number | null;
+  uptime: Array<number | null> | null;
+};
+
+export type OnUpdateIoTDataSubscription = {
+  __typename: "IoTData";
+  uuid: string;
+  ts: number;
+  type: string;
+  battery: number | null;
+  moisture: number | null;
+  co2: number | null;
+  ph: number | null;
+  uptime: Array<number | null> | null;
+};
+
+export type OnDeleteIoTDataSubscription = {
+  __typename: "IoTData";
+  uuid: string;
+  ts: number;
+  type: string;
+  battery: number | null;
+  moisture: number | null;
+  co2: number | null;
+  ph: number | null;
+  uptime: Array<number | null> | null;
 };
 
 export type OnCreatePostSubscription = {
@@ -1920,10 +1894,17 @@ export type OnCreateDashboardSubscription = {
   owner: string | null;
   desc: string | null;
   charts: {
-    __typename: "ModelDashboardChartsConnection";
+    __typename: "ModelChartConnection";
     items: Array<{
-      __typename: "DashboardCharts";
+      __typename: "Chart";
       id: string;
+      name: string | null;
+      type: string | null;
+      category: string | null;
+      dataset1: string | null;
+      field1: string | null;
+      dataset2: string | null;
+      field2: string | null;
       dashboard: {
         __typename: "Dashboard";
         id: string;
@@ -1931,24 +1912,10 @@ export type OnCreateDashboardSubscription = {
         owner: string | null;
         desc: string | null;
         charts: {
-          __typename: "ModelDashboardChartsConnection";
+          __typename: "ModelChartConnection";
           nextToken: string | null;
         } | null;
         tags: Array<string | null>;
-      } | null;
-      chart: {
-        __typename: "Chart";
-        id: string;
-        name: string | null;
-        type: string | null;
-        dataset1: string | null;
-        field1: string | null;
-        dataset2: string | null;
-        field2: string | null;
-        dashboards: {
-          __typename: "ModelDashboardChartsConnection";
-          nextToken: string | null;
-        } | null;
       } | null;
     } | null> | null;
     nextToken: string | null;
@@ -1963,10 +1930,17 @@ export type OnUpdateDashboardSubscription = {
   owner: string | null;
   desc: string | null;
   charts: {
-    __typename: "ModelDashboardChartsConnection";
+    __typename: "ModelChartConnection";
     items: Array<{
-      __typename: "DashboardCharts";
+      __typename: "Chart";
       id: string;
+      name: string | null;
+      type: string | null;
+      category: string | null;
+      dataset1: string | null;
+      field1: string | null;
+      dataset2: string | null;
+      field2: string | null;
       dashboard: {
         __typename: "Dashboard";
         id: string;
@@ -1974,24 +1948,10 @@ export type OnUpdateDashboardSubscription = {
         owner: string | null;
         desc: string | null;
         charts: {
-          __typename: "ModelDashboardChartsConnection";
+          __typename: "ModelChartConnection";
           nextToken: string | null;
         } | null;
         tags: Array<string | null>;
-      } | null;
-      chart: {
-        __typename: "Chart";
-        id: string;
-        name: string | null;
-        type: string | null;
-        dataset1: string | null;
-        field1: string | null;
-        dataset2: string | null;
-        field2: string | null;
-        dashboards: {
-          __typename: "ModelDashboardChartsConnection";
-          nextToken: string | null;
-        } | null;
       } | null;
     } | null> | null;
     nextToken: string | null;
@@ -2006,10 +1966,17 @@ export type OnDeleteDashboardSubscription = {
   owner: string | null;
   desc: string | null;
   charts: {
-    __typename: "ModelDashboardChartsConnection";
+    __typename: "ModelChartConnection";
     items: Array<{
-      __typename: "DashboardCharts";
+      __typename: "Chart";
       id: string;
+      name: string | null;
+      type: string | null;
+      category: string | null;
+      dataset1: string | null;
+      field1: string | null;
+      dataset2: string | null;
+      field2: string | null;
       dashboard: {
         __typename: "Dashboard";
         id: string;
@@ -2017,24 +1984,10 @@ export type OnDeleteDashboardSubscription = {
         owner: string | null;
         desc: string | null;
         charts: {
-          __typename: "ModelDashboardChartsConnection";
+          __typename: "ModelChartConnection";
           nextToken: string | null;
         } | null;
         tags: Array<string | null>;
-      } | null;
-      chart: {
-        __typename: "Chart";
-        id: string;
-        name: string | null;
-        type: string | null;
-        dataset1: string | null;
-        field1: string | null;
-        dataset2: string | null;
-        field2: string | null;
-        dashboards: {
-          __typename: "ModelDashboardChartsConnection";
-          nextToken: string | null;
-        } | null;
       } | null;
     } | null> | null;
     nextToken: string | null;
@@ -2042,273 +1995,46 @@ export type OnDeleteDashboardSubscription = {
   tags: Array<string | null>;
 };
 
-export type OnCreateDashboardChartsSubscription = {
-  __typename: "DashboardCharts";
-  id: string;
-  dashboard: {
-    __typename: "Dashboard";
-    id: string;
-    name: string | null;
-    owner: string | null;
-    desc: string | null;
-    charts: {
-      __typename: "ModelDashboardChartsConnection";
-      items: Array<{
-        __typename: "DashboardCharts";
-        id: string;
-        dashboard: {
-          __typename: "Dashboard";
-          id: string;
-          name: string | null;
-          owner: string | null;
-          desc: string | null;
-          tags: Array<string | null>;
-        } | null;
-        chart: {
-          __typename: "Chart";
-          id: string;
-          name: string | null;
-          type: string | null;
-          dataset1: string | null;
-          field1: string | null;
-          dataset2: string | null;
-          field2: string | null;
-        } | null;
-      } | null> | null;
-      nextToken: string | null;
-    } | null;
-    tags: Array<string | null>;
-  } | null;
-  chart: {
-    __typename: "Chart";
-    id: string;
-    name: string | null;
-    type: string | null;
-    dataset1: string | null;
-    field1: string | null;
-    dataset2: string | null;
-    field2: string | null;
-    dashboards: {
-      __typename: "ModelDashboardChartsConnection";
-      items: Array<{
-        __typename: "DashboardCharts";
-        id: string;
-        dashboard: {
-          __typename: "Dashboard";
-          id: string;
-          name: string | null;
-          owner: string | null;
-          desc: string | null;
-          tags: Array<string | null>;
-        } | null;
-        chart: {
-          __typename: "Chart";
-          id: string;
-          name: string | null;
-          type: string | null;
-          dataset1: string | null;
-          field1: string | null;
-          dataset2: string | null;
-          field2: string | null;
-        } | null;
-      } | null> | null;
-      nextToken: string | null;
-    } | null;
-  } | null;
-};
-
-export type OnUpdateDashboardChartsSubscription = {
-  __typename: "DashboardCharts";
-  id: string;
-  dashboard: {
-    __typename: "Dashboard";
-    id: string;
-    name: string | null;
-    owner: string | null;
-    desc: string | null;
-    charts: {
-      __typename: "ModelDashboardChartsConnection";
-      items: Array<{
-        __typename: "DashboardCharts";
-        id: string;
-        dashboard: {
-          __typename: "Dashboard";
-          id: string;
-          name: string | null;
-          owner: string | null;
-          desc: string | null;
-          tags: Array<string | null>;
-        } | null;
-        chart: {
-          __typename: "Chart";
-          id: string;
-          name: string | null;
-          type: string | null;
-          dataset1: string | null;
-          field1: string | null;
-          dataset2: string | null;
-          field2: string | null;
-        } | null;
-      } | null> | null;
-      nextToken: string | null;
-    } | null;
-    tags: Array<string | null>;
-  } | null;
-  chart: {
-    __typename: "Chart";
-    id: string;
-    name: string | null;
-    type: string | null;
-    dataset1: string | null;
-    field1: string | null;
-    dataset2: string | null;
-    field2: string | null;
-    dashboards: {
-      __typename: "ModelDashboardChartsConnection";
-      items: Array<{
-        __typename: "DashboardCharts";
-        id: string;
-        dashboard: {
-          __typename: "Dashboard";
-          id: string;
-          name: string | null;
-          owner: string | null;
-          desc: string | null;
-          tags: Array<string | null>;
-        } | null;
-        chart: {
-          __typename: "Chart";
-          id: string;
-          name: string | null;
-          type: string | null;
-          dataset1: string | null;
-          field1: string | null;
-          dataset2: string | null;
-          field2: string | null;
-        } | null;
-      } | null> | null;
-      nextToken: string | null;
-    } | null;
-  } | null;
-};
-
-export type OnDeleteDashboardChartsSubscription = {
-  __typename: "DashboardCharts";
-  id: string;
-  dashboard: {
-    __typename: "Dashboard";
-    id: string;
-    name: string | null;
-    owner: string | null;
-    desc: string | null;
-    charts: {
-      __typename: "ModelDashboardChartsConnection";
-      items: Array<{
-        __typename: "DashboardCharts";
-        id: string;
-        dashboard: {
-          __typename: "Dashboard";
-          id: string;
-          name: string | null;
-          owner: string | null;
-          desc: string | null;
-          tags: Array<string | null>;
-        } | null;
-        chart: {
-          __typename: "Chart";
-          id: string;
-          name: string | null;
-          type: string | null;
-          dataset1: string | null;
-          field1: string | null;
-          dataset2: string | null;
-          field2: string | null;
-        } | null;
-      } | null> | null;
-      nextToken: string | null;
-    } | null;
-    tags: Array<string | null>;
-  } | null;
-  chart: {
-    __typename: "Chart";
-    id: string;
-    name: string | null;
-    type: string | null;
-    dataset1: string | null;
-    field1: string | null;
-    dataset2: string | null;
-    field2: string | null;
-    dashboards: {
-      __typename: "ModelDashboardChartsConnection";
-      items: Array<{
-        __typename: "DashboardCharts";
-        id: string;
-        dashboard: {
-          __typename: "Dashboard";
-          id: string;
-          name: string | null;
-          owner: string | null;
-          desc: string | null;
-          tags: Array<string | null>;
-        } | null;
-        chart: {
-          __typename: "Chart";
-          id: string;
-          name: string | null;
-          type: string | null;
-          dataset1: string | null;
-          field1: string | null;
-          dataset2: string | null;
-          field2: string | null;
-        } | null;
-      } | null> | null;
-      nextToken: string | null;
-    } | null;
-  } | null;
-};
-
 export type OnCreateChartSubscription = {
   __typename: "Chart";
   id: string;
   name: string | null;
   type: string | null;
+  category: string | null;
   dataset1: string | null;
   field1: string | null;
   dataset2: string | null;
   field2: string | null;
-  dashboards: {
-    __typename: "ModelDashboardChartsConnection";
-    items: Array<{
-      __typename: "DashboardCharts";
-      id: string;
-      dashboard: {
-        __typename: "Dashboard";
-        id: string;
-        name: string | null;
-        owner: string | null;
-        desc: string | null;
-        charts: {
-          __typename: "ModelDashboardChartsConnection";
-          nextToken: string | null;
-        } | null;
-        tags: Array<string | null>;
-      } | null;
-      chart: {
+  dashboard: {
+    __typename: "Dashboard";
+    id: string;
+    name: string | null;
+    owner: string | null;
+    desc: string | null;
+    charts: {
+      __typename: "ModelChartConnection";
+      items: Array<{
         __typename: "Chart";
         id: string;
         name: string | null;
         type: string | null;
+        category: string | null;
         dataset1: string | null;
         field1: string | null;
         dataset2: string | null;
         field2: string | null;
-        dashboards: {
-          __typename: "ModelDashboardChartsConnection";
-          nextToken: string | null;
+        dashboard: {
+          __typename: "Dashboard";
+          id: string;
+          name: string | null;
+          owner: string | null;
+          desc: string | null;
+          tags: Array<string | null>;
         } | null;
-      } | null;
-    } | null> | null;
-    nextToken: string | null;
+      } | null> | null;
+      nextToken: string | null;
+    } | null;
+    tags: Array<string | null>;
   } | null;
 };
 
@@ -2317,43 +2043,41 @@ export type OnUpdateChartSubscription = {
   id: string;
   name: string | null;
   type: string | null;
+  category: string | null;
   dataset1: string | null;
   field1: string | null;
   dataset2: string | null;
   field2: string | null;
-  dashboards: {
-    __typename: "ModelDashboardChartsConnection";
-    items: Array<{
-      __typename: "DashboardCharts";
-      id: string;
-      dashboard: {
-        __typename: "Dashboard";
-        id: string;
-        name: string | null;
-        owner: string | null;
-        desc: string | null;
-        charts: {
-          __typename: "ModelDashboardChartsConnection";
-          nextToken: string | null;
-        } | null;
-        tags: Array<string | null>;
-      } | null;
-      chart: {
+  dashboard: {
+    __typename: "Dashboard";
+    id: string;
+    name: string | null;
+    owner: string | null;
+    desc: string | null;
+    charts: {
+      __typename: "ModelChartConnection";
+      items: Array<{
         __typename: "Chart";
         id: string;
         name: string | null;
         type: string | null;
+        category: string | null;
         dataset1: string | null;
         field1: string | null;
         dataset2: string | null;
         field2: string | null;
-        dashboards: {
-          __typename: "ModelDashboardChartsConnection";
-          nextToken: string | null;
+        dashboard: {
+          __typename: "Dashboard";
+          id: string;
+          name: string | null;
+          owner: string | null;
+          desc: string | null;
+          tags: Array<string | null>;
         } | null;
-      } | null;
-    } | null> | null;
-    nextToken: string | null;
+      } | null> | null;
+      nextToken: string | null;
+    } | null;
+    tags: Array<string | null>;
   } | null;
 };
 
@@ -2362,43 +2086,41 @@ export type OnDeleteChartSubscription = {
   id: string;
   name: string | null;
   type: string | null;
+  category: string | null;
   dataset1: string | null;
   field1: string | null;
   dataset2: string | null;
   field2: string | null;
-  dashboards: {
-    __typename: "ModelDashboardChartsConnection";
-    items: Array<{
-      __typename: "DashboardCharts";
-      id: string;
-      dashboard: {
-        __typename: "Dashboard";
-        id: string;
-        name: string | null;
-        owner: string | null;
-        desc: string | null;
-        charts: {
-          __typename: "ModelDashboardChartsConnection";
-          nextToken: string | null;
-        } | null;
-        tags: Array<string | null>;
-      } | null;
-      chart: {
+  dashboard: {
+    __typename: "Dashboard";
+    id: string;
+    name: string | null;
+    owner: string | null;
+    desc: string | null;
+    charts: {
+      __typename: "ModelChartConnection";
+      items: Array<{
         __typename: "Chart";
         id: string;
         name: string | null;
         type: string | null;
+        category: string | null;
         dataset1: string | null;
         field1: string | null;
         dataset2: string | null;
         field2: string | null;
-        dashboards: {
-          __typename: "ModelDashboardChartsConnection";
-          nextToken: string | null;
+        dashboard: {
+          __typename: "Dashboard";
+          id: string;
+          name: string | null;
+          owner: string | null;
+          desc: string | null;
+          tags: Array<string | null>;
         } | null;
-      } | null;
-    } | null> | null;
-    nextToken: string | null;
+      } | null> | null;
+      nextToken: string | null;
+    } | null;
+    tags: Array<string | null>;
   } | null;
 };
 
@@ -2685,6 +2407,114 @@ export class APIService {
     )) as any;
     return <DeleteArModelMutation>response.data.deleteARModel;
   }
+  async CreateIoTDevice(
+    input: CreateIoTDeviceInput
+  ): Promise<CreateIoTDeviceMutation> {
+    const statement = `mutation CreateIoTDevice($input: CreateIoTDeviceInput!) {
+        createIoTDevice(input: $input) {
+          __typename
+          id
+          uuid
+          type
+          fields
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      input
+    };
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <CreateIoTDeviceMutation>response.data.createIoTDevice;
+  }
+  async UpdateIoTDevice(
+    input: UpdateIoTDeviceInput
+  ): Promise<UpdateIoTDeviceMutation> {
+    const statement = `mutation UpdateIoTDevice($input: UpdateIoTDeviceInput!) {
+        updateIoTDevice(input: $input) {
+          __typename
+          id
+          uuid
+          type
+          fields
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      input
+    };
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <UpdateIoTDeviceMutation>response.data.updateIoTDevice;
+  }
+  async DeleteIoTDevice(
+    input: DeleteIoTDeviceInput
+  ): Promise<DeleteIoTDeviceMutation> {
+    const statement = `mutation DeleteIoTDevice($input: DeleteIoTDeviceInput!) {
+        deleteIoTDevice(input: $input) {
+          __typename
+          id
+          uuid
+          type
+          fields
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      input
+    };
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <DeleteIoTDeviceMutation>response.data.deleteIoTDevice;
+  }
+  async UpdateIoTData(
+    input: UpdateIoTDataInput
+  ): Promise<UpdateIoTDataMutation> {
+    const statement = `mutation UpdateIoTData($input: UpdateIoTDataInput!) {
+        updateIoTData(input: $input) {
+          __typename
+          uuid
+          ts
+          type
+          battery
+          moisture
+          co2
+          ph
+          uptime
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      input
+    };
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <UpdateIoTDataMutation>response.data.updateIoTData;
+  }
+  async DeleteIoTData(
+    input: DeleteIoTDataInput
+  ): Promise<DeleteIoTDataMutation> {
+    const statement = `mutation DeleteIoTData($input: DeleteIoTDataInput!) {
+        deleteIoTData(input: $input) {
+          __typename
+          uuid
+          ts
+          type
+          battery
+          moisture
+          co2
+          ph
+          uptime
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      input
+    };
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <DeleteIoTDataMutation>response.data.deleteIoTData;
+  }
   async CreatePost(input: CreatePostInput): Promise<CreatePostMutation> {
     const statement = `mutation CreatePost($input: CreatePostInput!) {
         createPost(input: $input) {
@@ -2970,6 +2800,13 @@ export class APIService {
             items {
               __typename
               id
+              name
+              type
+              category
+              dataset1
+              field1
+              dataset2
+              field2
               dashboard {
                 __typename
                 id
@@ -2981,20 +2818,6 @@ export class APIService {
                   nextToken
                 }
                 tags
-              }
-              chart {
-                __typename
-                id
-                name
-                type
-                dataset1
-                field1
-                dataset2
-                field2
-                dashboards {
-                  __typename
-                  nextToken
-                }
               }
             }
             nextToken
@@ -3025,6 +2848,13 @@ export class APIService {
             items {
               __typename
               id
+              name
+              type
+              category
+              dataset1
+              field1
+              dataset2
+              field2
               dashboard {
                 __typename
                 id
@@ -3036,20 +2866,6 @@ export class APIService {
                   nextToken
                 }
                 tags
-              }
-              chart {
-                __typename
-                id
-                name
-                type
-                dataset1
-                field1
-                dataset2
-                field2
-                dashboards {
-                  __typename
-                  nextToken
-                }
               }
             }
             nextToken
@@ -3080,6 +2896,13 @@ export class APIService {
             items {
               __typename
               id
+              name
+              type
+              category
+              dataset1
+              field1
+              dataset2
+              field2
               dashboard {
                 __typename
                 id
@@ -3091,20 +2914,6 @@ export class APIService {
                   nextToken
                 }
                 tags
-              }
-              chart {
-                __typename
-                id
-                name
-                type
-                dataset1
-                field1
-                dataset2
-                field2
-                dashboards {
-                  __typename
-                  nextToken
-                }
               }
             }
             nextToken
@@ -3120,267 +2929,6 @@ export class APIService {
     )) as any;
     return <DeleteDashboardMutation>response.data.deleteDashboard;
   }
-  async CreateDashboardCharts(
-    input: CreateDashboardChartsInput
-  ): Promise<CreateDashboardChartsMutation> {
-    const statement = `mutation CreateDashboardCharts($input: CreateDashboardChartsInput!) {
-        createDashboardCharts(input: $input) {
-          __typename
-          id
-          dashboard {
-            __typename
-            id
-            name
-            owner
-            desc
-            charts {
-              __typename
-              items {
-                __typename
-                id
-                dashboard {
-                  __typename
-                  id
-                  name
-                  owner
-                  desc
-                  tags
-                }
-                chart {
-                  __typename
-                  id
-                  name
-                  type
-                  dataset1
-                  field1
-                  dataset2
-                  field2
-                }
-              }
-              nextToken
-            }
-            tags
-          }
-          chart {
-            __typename
-            id
-            name
-            type
-            dataset1
-            field1
-            dataset2
-            field2
-            dashboards {
-              __typename
-              items {
-                __typename
-                id
-                dashboard {
-                  __typename
-                  id
-                  name
-                  owner
-                  desc
-                  tags
-                }
-                chart {
-                  __typename
-                  id
-                  name
-                  type
-                  dataset1
-                  field1
-                  dataset2
-                  field2
-                }
-              }
-              nextToken
-            }
-          }
-        }
-      }`;
-    const gqlAPIServiceArguments: any = {
-      input
-    };
-    const response = (await API.graphql(
-      graphqlOperation(statement, gqlAPIServiceArguments)
-    )) as any;
-    return <CreateDashboardChartsMutation>response.data.createDashboardCharts;
-  }
-  async UpdateDashboardCharts(
-    input: UpdateDashboardChartsInput
-  ): Promise<UpdateDashboardChartsMutation> {
-    const statement = `mutation UpdateDashboardCharts($input: UpdateDashboardChartsInput!) {
-        updateDashboardCharts(input: $input) {
-          __typename
-          id
-          dashboard {
-            __typename
-            id
-            name
-            owner
-            desc
-            charts {
-              __typename
-              items {
-                __typename
-                id
-                dashboard {
-                  __typename
-                  id
-                  name
-                  owner
-                  desc
-                  tags
-                }
-                chart {
-                  __typename
-                  id
-                  name
-                  type
-                  dataset1
-                  field1
-                  dataset2
-                  field2
-                }
-              }
-              nextToken
-            }
-            tags
-          }
-          chart {
-            __typename
-            id
-            name
-            type
-            dataset1
-            field1
-            dataset2
-            field2
-            dashboards {
-              __typename
-              items {
-                __typename
-                id
-                dashboard {
-                  __typename
-                  id
-                  name
-                  owner
-                  desc
-                  tags
-                }
-                chart {
-                  __typename
-                  id
-                  name
-                  type
-                  dataset1
-                  field1
-                  dataset2
-                  field2
-                }
-              }
-              nextToken
-            }
-          }
-        }
-      }`;
-    const gqlAPIServiceArguments: any = {
-      input
-    };
-    const response = (await API.graphql(
-      graphqlOperation(statement, gqlAPIServiceArguments)
-    )) as any;
-    return <UpdateDashboardChartsMutation>response.data.updateDashboardCharts;
-  }
-  async DeleteDashboardCharts(
-    input: DeleteDashboardChartsInput
-  ): Promise<DeleteDashboardChartsMutation> {
-    const statement = `mutation DeleteDashboardCharts($input: DeleteDashboardChartsInput!) {
-        deleteDashboardCharts(input: $input) {
-          __typename
-          id
-          dashboard {
-            __typename
-            id
-            name
-            owner
-            desc
-            charts {
-              __typename
-              items {
-                __typename
-                id
-                dashboard {
-                  __typename
-                  id
-                  name
-                  owner
-                  desc
-                  tags
-                }
-                chart {
-                  __typename
-                  id
-                  name
-                  type
-                  dataset1
-                  field1
-                  dataset2
-                  field2
-                }
-              }
-              nextToken
-            }
-            tags
-          }
-          chart {
-            __typename
-            id
-            name
-            type
-            dataset1
-            field1
-            dataset2
-            field2
-            dashboards {
-              __typename
-              items {
-                __typename
-                id
-                dashboard {
-                  __typename
-                  id
-                  name
-                  owner
-                  desc
-                  tags
-                }
-                chart {
-                  __typename
-                  id
-                  name
-                  type
-                  dataset1
-                  field1
-                  dataset2
-                  field2
-                }
-              }
-              nextToken
-            }
-          }
-        }
-      }`;
-    const gqlAPIServiceArguments: any = {
-      input
-    };
-    const response = (await API.graphql(
-      graphqlOperation(statement, gqlAPIServiceArguments)
-    )) as any;
-    return <DeleteDashboardChartsMutation>response.data.deleteDashboardCharts;
-  }
   async CreateChart(input: CreateChartInput): Promise<CreateChartMutation> {
     const statement = `mutation CreateChart($input: CreateChartInput!) {
         createChart(input: $input) {
@@ -3388,43 +2936,41 @@ export class APIService {
           id
           name
           type
+          category
           dataset1
           field1
           dataset2
           field2
-          dashboards {
+          dashboard {
             __typename
-            items {
+            id
+            name
+            owner
+            desc
+            charts {
               __typename
-              id
-              dashboard {
-                __typename
-                id
-                name
-                owner
-                desc
-                charts {
-                  __typename
-                  nextToken
-                }
-                tags
-              }
-              chart {
+              items {
                 __typename
                 id
                 name
                 type
+                category
                 dataset1
                 field1
                 dataset2
                 field2
-                dashboards {
+                dashboard {
                   __typename
-                  nextToken
+                  id
+                  name
+                  owner
+                  desc
+                  tags
                 }
               }
+              nextToken
             }
-            nextToken
+            tags
           }
         }
       }`;
@@ -3443,43 +2989,41 @@ export class APIService {
           id
           name
           type
+          category
           dataset1
           field1
           dataset2
           field2
-          dashboards {
+          dashboard {
             __typename
-            items {
+            id
+            name
+            owner
+            desc
+            charts {
               __typename
-              id
-              dashboard {
-                __typename
-                id
-                name
-                owner
-                desc
-                charts {
-                  __typename
-                  nextToken
-                }
-                tags
-              }
-              chart {
+              items {
                 __typename
                 id
                 name
                 type
+                category
                 dataset1
                 field1
                 dataset2
                 field2
-                dashboards {
+                dashboard {
                   __typename
-                  nextToken
+                  id
+                  name
+                  owner
+                  desc
+                  tags
                 }
               }
+              nextToken
             }
-            nextToken
+            tags
           }
         }
       }`;
@@ -3498,43 +3042,41 @@ export class APIService {
           id
           name
           type
+          category
           dataset1
           field1
           dataset2
           field2
-          dashboards {
+          dashboard {
             __typename
-            items {
+            id
+            name
+            owner
+            desc
+            charts {
               __typename
-              id
-              dashboard {
-                __typename
-                id
-                name
-                owner
-                desc
-                charts {
-                  __typename
-                  nextToken
-                }
-                tags
-              }
-              chart {
+              items {
                 __typename
                 id
                 name
                 type
+                category
                 dataset1
                 field1
                 dataset2
                 field2
-                dashboards {
+                dashboard {
                   __typename
-                  nextToken
+                  id
+                  name
+                  owner
+                  desc
+                  tags
                 }
               }
+              nextToken
             }
-            nextToken
+            tags
           }
         }
       }`;
@@ -3834,6 +3376,30 @@ export class APIService {
     )) as any;
     return <DeleteFieldMutation>response.data.deleteField;
   }
+  async CreateIoTData(
+    input: CreateIoTDataInput
+  ): Promise<CreateIoTDataMutation> {
+    const statement = `mutation CreateIoTData($input: CreateIoTDataInput!) {
+        createIoTData(input: $input) {
+          __typename
+          uuid
+          ts
+          type
+          battery
+          moisture
+          co2
+          ph
+          uptime
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      input
+    };
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <CreateIoTDataMutation>response.data.createIoTData;
+  }
   async GetArcgisData(
     dataset?: string,
     field?: string
@@ -3901,6 +3467,129 @@ export class APIService {
       graphqlOperation(statement, gqlAPIServiceArguments)
     )) as any;
     return <ListArModelsQuery>response.data.listARModels;
+  }
+  async GetIoTDevice(id: string): Promise<GetIoTDeviceQuery> {
+    const statement = `query GetIoTDevice($id: ID!) {
+        getIoTDevice(id: $id) {
+          __typename
+          id
+          uuid
+          type
+          fields
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      id
+    };
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <GetIoTDeviceQuery>response.data.getIoTDevice;
+  }
+  async ListIoTDevices(
+    filter?: ModelIoTDeviceFilterInput,
+    limit?: number,
+    nextToken?: string
+  ): Promise<ListIoTDevicesQuery> {
+    const statement = `query ListIoTDevices($filter: ModelIoTDeviceFilterInput, $limit: Int, $nextToken: String) {
+        listIoTDevices(filter: $filter, limit: $limit, nextToken: $nextToken) {
+          __typename
+          items {
+            __typename
+            id
+            uuid
+            type
+            fields
+          }
+          nextToken
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    if (limit) {
+      gqlAPIServiceArguments.limit = limit;
+    }
+    if (nextToken) {
+      gqlAPIServiceArguments.nextToken = nextToken;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <ListIoTDevicesQuery>response.data.listIoTDevices;
+  }
+  async GetIoTData(uuid: string, ts: number): Promise<GetIoTDataQuery> {
+    const statement = `query GetIoTData($uuid: ID!, $ts: Int!) {
+        getIoTData(uuid: $uuid, ts: $ts) {
+          __typename
+          uuid
+          ts
+          type
+          battery
+          moisture
+          co2
+          ph
+          uptime
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      uuid,
+      ts
+    };
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <GetIoTDataQuery>response.data.getIoTData;
+  }
+  async ListIoTDatas(
+    uuid?: string,
+    ts?: ModelIntKeyConditionInput,
+    filter?: ModelIoTDataFilterInput,
+    limit?: number,
+    nextToken?: string,
+    sortDirection?: ModelSortDirection
+  ): Promise<ListIoTDatasQuery> {
+    const statement = `query ListIoTDatas($uuid: ID, $ts: ModelIntKeyConditionInput, $filter: ModelIoTDataFilterInput, $limit: Int, $nextToken: String, $sortDirection: ModelSortDirection) {
+        listIoTDatas(uuid: $uuid, ts: $ts, filter: $filter, limit: $limit, nextToken: $nextToken, sortDirection: $sortDirection) {
+          __typename
+          items {
+            __typename
+            uuid
+            ts
+            type
+            battery
+            moisture
+            co2
+            ph
+            uptime
+          }
+          nextToken
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (uuid) {
+      gqlAPIServiceArguments.uuid = uuid;
+    }
+    if (ts) {
+      gqlAPIServiceArguments.ts = ts;
+    }
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    if (limit) {
+      gqlAPIServiceArguments.limit = limit;
+    }
+    if (nextToken) {
+      gqlAPIServiceArguments.nextToken = nextToken;
+    }
+    if (sortDirection) {
+      gqlAPIServiceArguments.sortDirection = sortDirection;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <ListIoTDatasQuery>response.data.listIoTDatas;
   }
   async GetPost(id: string): Promise<GetPostQuery> {
     const statement = `query GetPost($id: ID!) {
@@ -4108,6 +3797,13 @@ export class APIService {
             items {
               __typename
               id
+              name
+              type
+              category
+              dataset1
+              field1
+              dataset2
+              field2
               dashboard {
                 __typename
                 id
@@ -4119,20 +3815,6 @@ export class APIService {
                   nextToken
                 }
                 tags
-              }
-              chart {
-                __typename
-                id
-                name
-                type
-                dataset1
-                field1
-                dataset2
-                field2
-                dashboards {
-                  __typename
-                  nextToken
-                }
               }
             }
             nextToken
@@ -4167,6 +3849,13 @@ export class APIService {
               items {
                 __typename
                 id
+                name
+                type
+                category
+                dataset1
+                field1
+                dataset2
+                field2
                 dashboard {
                   __typename
                   id
@@ -4174,16 +3863,6 @@ export class APIService {
                   owner
                   desc
                   tags
-                }
-                chart {
-                  __typename
-                  id
-                  name
-                  type
-                  dataset1
-                  field1
-                  dataset2
-                  field2
                 }
               }
               nextToken
@@ -4215,43 +3894,41 @@ export class APIService {
           id
           name
           type
+          category
           dataset1
           field1
           dataset2
           field2
-          dashboards {
+          dashboard {
             __typename
-            items {
+            id
+            name
+            owner
+            desc
+            charts {
               __typename
-              id
-              dashboard {
-                __typename
-                id
-                name
-                owner
-                desc
-                charts {
-                  __typename
-                  nextToken
-                }
-                tags
-              }
-              chart {
+              items {
                 __typename
                 id
                 name
                 type
+                category
                 dataset1
                 field1
                 dataset2
                 field2
-                dashboards {
+                dashboard {
                   __typename
-                  nextToken
+                  id
+                  name
+                  owner
+                  desc
+                  tags
                 }
               }
+              nextToken
             }
-            nextToken
+            tags
           }
         }
       }`;
@@ -4276,35 +3953,33 @@ export class APIService {
             id
             name
             type
+            category
             dataset1
             field1
             dataset2
             field2
-            dashboards {
+            dashboard {
               __typename
-              items {
+              id
+              name
+              owner
+              desc
+              charts {
                 __typename
-                id
-                dashboard {
-                  __typename
-                  id
-                  name
-                  owner
-                  desc
-                  tags
-                }
-                chart {
+                items {
                   __typename
                   id
                   name
                   type
+                  category
                   dataset1
                   field1
                   dataset2
                   field2
                 }
+                nextToken
               }
-              nextToken
+              tags
             }
           }
           nextToken
@@ -4575,6 +4250,114 @@ export class APIService {
     )
   ) as Observable<OnDeleteArModelSubscription>;
 
+  OnCreateIoTDeviceListener: Observable<
+    OnCreateIoTDeviceSubscription
+  > = API.graphql(
+    graphqlOperation(
+      `subscription OnCreateIoTDevice {
+        onCreateIoTDevice {
+          __typename
+          id
+          uuid
+          type
+          fields
+        }
+      }`
+    )
+  ) as Observable<OnCreateIoTDeviceSubscription>;
+
+  OnUpdateIoTDeviceListener: Observable<
+    OnUpdateIoTDeviceSubscription
+  > = API.graphql(
+    graphqlOperation(
+      `subscription OnUpdateIoTDevice {
+        onUpdateIoTDevice {
+          __typename
+          id
+          uuid
+          type
+          fields
+        }
+      }`
+    )
+  ) as Observable<OnUpdateIoTDeviceSubscription>;
+
+  OnDeleteIoTDeviceListener: Observable<
+    OnDeleteIoTDeviceSubscription
+  > = API.graphql(
+    graphqlOperation(
+      `subscription OnDeleteIoTDevice {
+        onDeleteIoTDevice {
+          __typename
+          id
+          uuid
+          type
+          fields
+        }
+      }`
+    )
+  ) as Observable<OnDeleteIoTDeviceSubscription>;
+
+  OnCreateIoTDataListener: Observable<
+    OnCreateIoTDataSubscription
+  > = API.graphql(
+    graphqlOperation(
+      `subscription OnCreateIoTData {
+        onCreateIoTData {
+          __typename
+          uuid
+          ts
+          type
+          battery
+          moisture
+          co2
+          ph
+          uptime
+        }
+      }`
+    )
+  ) as Observable<OnCreateIoTDataSubscription>;
+
+  OnUpdateIoTDataListener: Observable<
+    OnUpdateIoTDataSubscription
+  > = API.graphql(
+    graphqlOperation(
+      `subscription OnUpdateIoTData {
+        onUpdateIoTData {
+          __typename
+          uuid
+          ts
+          type
+          battery
+          moisture
+          co2
+          ph
+          uptime
+        }
+      }`
+    )
+  ) as Observable<OnUpdateIoTDataSubscription>;
+
+  OnDeleteIoTDataListener: Observable<
+    OnDeleteIoTDataSubscription
+  > = API.graphql(
+    graphqlOperation(
+      `subscription OnDeleteIoTData {
+        onDeleteIoTData {
+          __typename
+          uuid
+          ts
+          type
+          battery
+          moisture
+          co2
+          ph
+          uptime
+        }
+      }`
+    )
+  ) as Observable<OnDeleteIoTDataSubscription>;
+
   OnCreatePostListener: Observable<OnCreatePostSubscription> = API.graphql(
     graphqlOperation(
       `subscription OnCreatePost($owner: String!) {
@@ -4837,6 +4620,13 @@ export class APIService {
             items {
               __typename
               id
+              name
+              type
+              category
+              dataset1
+              field1
+              dataset2
+              field2
               dashboard {
                 __typename
                 id
@@ -4848,20 +4638,6 @@ export class APIService {
                   nextToken
                 }
                 tags
-              }
-              chart {
-                __typename
-                id
-                name
-                type
-                dataset1
-                field1
-                dataset2
-                field2
-                dashboards {
-                  __typename
-                  nextToken
-                }
               }
             }
             nextToken
@@ -4888,6 +4664,13 @@ export class APIService {
             items {
               __typename
               id
+              name
+              type
+              category
+              dataset1
+              field1
+              dataset2
+              field2
               dashboard {
                 __typename
                 id
@@ -4899,20 +4682,6 @@ export class APIService {
                   nextToken
                 }
                 tags
-              }
-              chart {
-                __typename
-                id
-                name
-                type
-                dataset1
-                field1
-                dataset2
-                field2
-                dashboards {
-                  __typename
-                  nextToken
-                }
               }
             }
             nextToken
@@ -4939,6 +4708,13 @@ export class APIService {
             items {
               __typename
               id
+              name
+              type
+              category
+              dataset1
+              field1
+              dataset2
+              field2
               dashboard {
                 __typename
                 id
@@ -4950,20 +4726,6 @@ export class APIService {
                   nextToken
                 }
                 tags
-              }
-              chart {
-                __typename
-                id
-                name
-                type
-                dataset1
-                field1
-                dataset2
-                field2
-                dashboards {
-                  __typename
-                  nextToken
-                }
               }
             }
             nextToken
@@ -4974,255 +4736,6 @@ export class APIService {
     )
   ) as Observable<OnDeleteDashboardSubscription>;
 
-  OnCreateDashboardChartsListener: Observable<
-    OnCreateDashboardChartsSubscription
-  > = API.graphql(
-    graphqlOperation(
-      `subscription OnCreateDashboardCharts {
-        onCreateDashboardCharts {
-          __typename
-          id
-          dashboard {
-            __typename
-            id
-            name
-            owner
-            desc
-            charts {
-              __typename
-              items {
-                __typename
-                id
-                dashboard {
-                  __typename
-                  id
-                  name
-                  owner
-                  desc
-                  tags
-                }
-                chart {
-                  __typename
-                  id
-                  name
-                  type
-                  dataset1
-                  field1
-                  dataset2
-                  field2
-                }
-              }
-              nextToken
-            }
-            tags
-          }
-          chart {
-            __typename
-            id
-            name
-            type
-            dataset1
-            field1
-            dataset2
-            field2
-            dashboards {
-              __typename
-              items {
-                __typename
-                id
-                dashboard {
-                  __typename
-                  id
-                  name
-                  owner
-                  desc
-                  tags
-                }
-                chart {
-                  __typename
-                  id
-                  name
-                  type
-                  dataset1
-                  field1
-                  dataset2
-                  field2
-                }
-              }
-              nextToken
-            }
-          }
-        }
-      }`
-    )
-  ) as Observable<OnCreateDashboardChartsSubscription>;
-
-  OnUpdateDashboardChartsListener: Observable<
-    OnUpdateDashboardChartsSubscription
-  > = API.graphql(
-    graphqlOperation(
-      `subscription OnUpdateDashboardCharts {
-        onUpdateDashboardCharts {
-          __typename
-          id
-          dashboard {
-            __typename
-            id
-            name
-            owner
-            desc
-            charts {
-              __typename
-              items {
-                __typename
-                id
-                dashboard {
-                  __typename
-                  id
-                  name
-                  owner
-                  desc
-                  tags
-                }
-                chart {
-                  __typename
-                  id
-                  name
-                  type
-                  dataset1
-                  field1
-                  dataset2
-                  field2
-                }
-              }
-              nextToken
-            }
-            tags
-          }
-          chart {
-            __typename
-            id
-            name
-            type
-            dataset1
-            field1
-            dataset2
-            field2
-            dashboards {
-              __typename
-              items {
-                __typename
-                id
-                dashboard {
-                  __typename
-                  id
-                  name
-                  owner
-                  desc
-                  tags
-                }
-                chart {
-                  __typename
-                  id
-                  name
-                  type
-                  dataset1
-                  field1
-                  dataset2
-                  field2
-                }
-              }
-              nextToken
-            }
-          }
-        }
-      }`
-    )
-  ) as Observable<OnUpdateDashboardChartsSubscription>;
-
-  OnDeleteDashboardChartsListener: Observable<
-    OnDeleteDashboardChartsSubscription
-  > = API.graphql(
-    graphqlOperation(
-      `subscription OnDeleteDashboardCharts {
-        onDeleteDashboardCharts {
-          __typename
-          id
-          dashboard {
-            __typename
-            id
-            name
-            owner
-            desc
-            charts {
-              __typename
-              items {
-                __typename
-                id
-                dashboard {
-                  __typename
-                  id
-                  name
-                  owner
-                  desc
-                  tags
-                }
-                chart {
-                  __typename
-                  id
-                  name
-                  type
-                  dataset1
-                  field1
-                  dataset2
-                  field2
-                }
-              }
-              nextToken
-            }
-            tags
-          }
-          chart {
-            __typename
-            id
-            name
-            type
-            dataset1
-            field1
-            dataset2
-            field2
-            dashboards {
-              __typename
-              items {
-                __typename
-                id
-                dashboard {
-                  __typename
-                  id
-                  name
-                  owner
-                  desc
-                  tags
-                }
-                chart {
-                  __typename
-                  id
-                  name
-                  type
-                  dataset1
-                  field1
-                  dataset2
-                  field2
-                }
-              }
-              nextToken
-            }
-          }
-        }
-      }`
-    )
-  ) as Observable<OnDeleteDashboardChartsSubscription>;
-
   OnCreateChartListener: Observable<OnCreateChartSubscription> = API.graphql(
     graphqlOperation(
       `subscription OnCreateChart {
@@ -5231,43 +4744,41 @@ export class APIService {
           id
           name
           type
+          category
           dataset1
           field1
           dataset2
           field2
-          dashboards {
+          dashboard {
             __typename
-            items {
+            id
+            name
+            owner
+            desc
+            charts {
               __typename
-              id
-              dashboard {
-                __typename
-                id
-                name
-                owner
-                desc
-                charts {
-                  __typename
-                  nextToken
-                }
-                tags
-              }
-              chart {
+              items {
                 __typename
                 id
                 name
                 type
+                category
                 dataset1
                 field1
                 dataset2
                 field2
-                dashboards {
+                dashboard {
                   __typename
-                  nextToken
+                  id
+                  name
+                  owner
+                  desc
+                  tags
                 }
               }
+              nextToken
             }
-            nextToken
+            tags
           }
         }
       }`
@@ -5282,43 +4793,41 @@ export class APIService {
           id
           name
           type
+          category
           dataset1
           field1
           dataset2
           field2
-          dashboards {
+          dashboard {
             __typename
-            items {
+            id
+            name
+            owner
+            desc
+            charts {
               __typename
-              id
-              dashboard {
-                __typename
-                id
-                name
-                owner
-                desc
-                charts {
-                  __typename
-                  nextToken
-                }
-                tags
-              }
-              chart {
+              items {
                 __typename
                 id
                 name
                 type
+                category
                 dataset1
                 field1
                 dataset2
                 field2
-                dashboards {
+                dashboard {
                   __typename
-                  nextToken
+                  id
+                  name
+                  owner
+                  desc
+                  tags
                 }
               }
+              nextToken
             }
-            nextToken
+            tags
           }
         }
       }`
@@ -5333,43 +4842,41 @@ export class APIService {
           id
           name
           type
+          category
           dataset1
           field1
           dataset2
           field2
-          dashboards {
+          dashboard {
             __typename
-            items {
+            id
+            name
+            owner
+            desc
+            charts {
               __typename
-              id
-              dashboard {
-                __typename
-                id
-                name
-                owner
-                desc
-                charts {
-                  __typename
-                  nextToken
-                }
-                tags
-              }
-              chart {
+              items {
                 __typename
                 id
                 name
                 type
+                category
                 dataset1
                 field1
                 dataset2
                 field2
-                dashboards {
+                dashboard {
                   __typename
-                  nextToken
+                  id
+                  name
+                  owner
+                  desc
+                  tags
                 }
               }
+              nextToken
             }
-            nextToken
+            tags
           }
         }
       }`

@@ -1,7 +1,13 @@
 <div *ngIf="dashboard">
   <div class="name-settings-panel">
-    <h1> {{ dashboard.name + " Dashboard"}} </h1>
-    <button class="add-chart-btn" (click)="toggleAddChartPanel()">
+    <div class="dashboard-info">
+      <h1> {{ dashboard.name + " Dashboard"}} </h1>
+      <p>{{ dashboard.desc }}</p>
+      <ul class="tags">
+        <li *ngFor="let tag of dashboard.tags">{{ tag }}</li>
+      </ul>
+    </div>
+    <button class="add-chart-btn" (click)="openAddChartDialog()">
       <i class="material-icons-round">add_circle</i>
     </button>
 
@@ -17,11 +23,7 @@
     </ng-container>
   </div>
 
-  <div class="add-chart-panel" [ngStyle]="{'display':displayAddChartPanel === false ? 'none' : 'block'}">
-    <app-graph-panel></app-graph-panel>
-  </div>
-
-  <div class="top-container">
+<!--  <div class="top-container">-->
     <!-- Main Chart -->
 <!--    <div *ngIf="dashboard.charts[0]" class="main-chart">-->
 <!--      <div class="chart-top-panel">-->
@@ -53,25 +55,22 @@
 <!--      [options]="options">-->
 <!--    </canvas>-->
 <!--    </div>-->
+<!--  </div>-->
 
-    <!-- Dashboard Info -->
-    <div class="desc-container">
-        <h5>William McKinnon</h5>
-        <h5>Smart City Developer</h5>
-        <h5>Innovation Lab</h5>
-        <hr>
-        <p>{{ dashboard.desc }}</p>
-        <ul class="tags">
-          <li *ngFor="let tag of dashboard.tags">{{ tag }}</li>
-        </ul>
-      </div>
-  </div>
+  <mat-grid-list cols="3">
+  <mat-grid-tile
+      *ngFor="let chart of dashboard.charts.items"
+      [colspan]="1"
+      [rowspan]="1">
+    <mat-card>
+      <app-chart [chart]="chart"></app-chart>
+    </mat-card>
 
-  <ul class="charts-container">
-<!--    <ng-container *ngFor="let chart of dashboard.charts; let i = index">-->
-<!--      <li class="charts">-->
-<!--        <app-chart></app-chart>-->
-<!--      </li>-->
-<!--    </ng-container>-->
-  </ul>
+  </mat-grid-tile>
+</mat-grid-list>
+<!--  <ul *ngFor="let chart of dashboard.charts.items" class="charts-container">-->
+<!--    <li class="charts">-->
+<!--      <app-chart [chart]="chart"></app-chart>-->
+<!--    </li>-->
+<!--  </ul>-->
 </div>

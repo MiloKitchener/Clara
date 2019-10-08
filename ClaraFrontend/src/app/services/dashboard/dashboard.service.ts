@@ -1,11 +1,9 @@
-import { Injectable, EventEmitter } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Dashboard } from 'src/app/interfaces/dashboard';
 
 import { Chart } from 'src/app/interfaces/chart';
-import gql from 'graphql-tag';
-import {Apollo} from 'apollo-angular';
 import {APIService} from '../../API.service';
 
 @Injectable({
@@ -17,44 +15,8 @@ export class DashboardService {
   constructor(
     private router: Router,
     private http: HttpClient,
-    private apollo: Apollo,
     private apiService: APIService
   ) { }
-
-  public closePanel = new EventEmitter();
-
-  public ARDUINO_MOISTURE_QUERY = gql`
-     query getArduinoMoistures($uuid: ID!) {
-      getArduinoMoistures(uuid: $uuid) {
-        items {
-          uuid
-          ts
-          deviceid
-          battery
-          moisture
-          uptime
-        }
-      }
-    }
-  `;
-
-  public ARDUINO_MOISTURE_SUB = gql`
-      subscription NotifyArduinoMoisture($uuid: ID!) {
-        notifyArduinoMoisture(uuid: $uuid) {
-          uuid
-          ts
-          deviceid
-          battery
-          moisture
-          uptime
-        }
-      }
-    `;
-
-
-  /************************
-    Class Methods
-   ***********************/
 
   // GET specific dashboard from list
   getDashboard(name: string) {
@@ -99,63 +61,35 @@ export class DashboardService {
     return this.apiService.ListFields();
   }
 
-  getSubscription(query) {
-    return this.apollo.subscribe({
-      query
+  // Add chart to database
+  addOpenChart(chart: Chart, dashboardID: string) {
+    return this.apiService.CreateChart({
+      name: chart.name,
+      type: chart.type,
+      category: chart.category,
+      // @ts-ignore
+      dataset1: chart.url1.api_url,
+      // @ts-ignore
+      dataset2: chart.url2.api_url,
+      // @ts-ignore
+      field1: chart.field1.name,
+      // @ts-ignore
+      field2: chart.field2.name,
+      chartDashboardId: dashboardID
     });
   }
 
-  getWatchQuery(query, variables) {
-    return this.apollo.watchQuery({
-      query,
-      variables
+  // Add chart to database
+  addLiveChart(chart: Chart, dashboardID: string) {
+    return this.apiService.CreateChart({
+      name: chart.name,
+      type: chart.type,
+      category: chart.category,
+      dataset1: chart.url1,
+      dataset2: chart.url2,
+      field1: chart.field1,
+      field2: chart.field2,
+      chartDashboardId: dashboardID
     });
-  }
-
-  getLiveDevices() {
-    return this.apollo.watchQuery({
-        query: gql`
-          query ListDevices {
-            listDevices {
-              items {
-                uuid,
-                deviceid
-                ts
-                ... on ArduinoMoisture {
-                  battery
-                  moisture
-                  uptime
-                }
-                ... on ArduinoCO2 {
-                  battery
-                  Co2
-                  uptime
-                }
-                ... on ArduinoPH {
-                  battery
-                  pH
-                  uptime
-                }
-              }
-            }
-          }
-        `,
-      })
-      .valueChanges;
-  }
-
-
-  // Emits message to hide graph panel
-  closeGraphPanel() {
-    this.closePanel.emit();
-  }
-
-
-  // Add chart to currently opened dashboard, create copy of chart to avoid pointer related bugs
-  addChart(chart: Chart) {
-    let toAdd: Chart;
-    toAdd = new Chart(chart);
-    // TODO: Upload to backend
-    // this.currentDashboard.charts.push(toAdd);
   }
 }

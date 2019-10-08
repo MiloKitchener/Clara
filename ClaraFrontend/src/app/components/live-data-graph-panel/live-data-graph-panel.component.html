@@ -1,38 +1,38 @@
-<div class="controls">
-  <form [formGroup]="liveDataForm" (ngSubmit)="submit()">
-    <div class="graph">
-      <canvas id="live-chart" width="400" height="400"></canvas>
-    </div>
-
-    <br>
-    <!--  Device Selection   -->
-    <mat-form-field>
-      <mat-label>Device</mat-label>
-      <mat-select
-        id="deviceSelect"
-        formControlName="device"
-        (selectionChange)="selectChange($event)">
-        <mat-option *ngFor="let device of devices" [value]="device">
-          {{device.uuid}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-    <br>
-
-    <!--  Y Axis Selection   -->
-    <mat-form-field>
-      <mat-label>Field</mat-label>
-      <mat-select
-        id="fieldSelect"
-        formControlName="field"
-        (selectionChange)="selectChange($event)">
-        <ng-container *ngIf="selectedDevice">
-          <mat-option *ngFor="let field of selectedDevice.fields.items" [value]="field">
-            {{field.name}}
+<mat-dialog-content>
+  <div class="graph-panel-container">
+    <div class="controls">
+      <!-- Device Selection -->
+      <h4>Device</h4>
+      <mat-form-field>
+        <mat-label>Device</mat-label>
+        <mat-select id="deviceSelect" [(ngModel)]="selectedDevice" (selectionChange)="selectChange($event)">
+          <mat-option *ngFor="let device of devices" [value]="device">
+            {{device.uuid}}
           </mat-option>
-        </ng-container>
-      </mat-select>
-    </mat-form-field>
-    <input type="submit" value="Add Graph To Dashboard">
-  </form>
-</div>
+        </mat-select>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label>Field</mat-label>
+        <mat-select [disabled]="!selectedDevice" [(ngModel)]="selectedField" (selectionChange)="selectChange($event)">
+          <ng-container *ngIf="selectedDevice">
+            <mat-option *ngFor="let field of selectedDevice.fields" [value]="field">
+              {{field}}
+            </mat-option>
+          </ng-container>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="graph">
+      <canvas baseChart
+        [labels]=chart.labels
+        [datasets]="[{data: chart.data, label: chart.name}]"
+        [chartType]="chart.type">
+      </canvas>
+    </div>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+  <button mat-button mat-dialog-close class="close-btn">Cancel</button>
+  <button mat-button [mat-dialog-close]=chart>Add Graph to Dashboard</button>
+</mat-dialog-actions>

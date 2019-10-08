@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-chart',
@@ -7,13 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChartComponent implements OnInit {
 
-  public chart;
+  @Input() public chart;
   public screenIcon = 'fullscreen';
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   // Toggles chart in fullscreen
   public toggleFullScreen() {
