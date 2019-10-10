@@ -1,0 +1,7 @@
+organization=adeshkadambi
+projectKey=adeshkadambi_Clara
+serverUrl=https://sonarcloud.io
+serverVersion=8.0.0.1404
+dashboardUrl=https://sonarcloud.io/dashboard?id=adeshkadambi_Clara
+ceTaskId=AW22DiyELLog4i-6vhUc
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AW22DiyELLog4i-6vhUc
