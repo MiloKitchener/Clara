@@ -4,7 +4,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 
-
 import { MatMenuModule, MatButtonModule, MatExpansionModule, MatTabsModule, MatSelectModule } from '@angular/material';
 import { CookieService } from 'ngx-cookie-service';
 
@@ -79,7 +78,8 @@ export const isMock = environment.mock;
     ChartsModule,
     GraphQLModule,
     FileUploadModule,
-    AmplifyAngularModule
+    AmplifyAngularModule,
+    MatExpansionModule
   ],
   providers: [
     CookieService,
