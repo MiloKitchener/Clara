@@ -40,7 +40,7 @@ import {AmplifyAngularModule, AmplifyService} from 'aws-amplify-angular';
 import { ChartComponent } from './components/chart/chart.component';
 
 // Materialize Components
-import { MzCollapsibleModule } from 'ngx-materialize'
+import { MzCollapsibleModule, MzSidenavModule } from 'ngx-materialize'
 
 export const isMock = environment.mock;
 
@@ -83,7 +83,8 @@ export const isMock = environment.mock;
     FileUploadModule,
     AmplifyAngularModule,
     MatExpansionModule,
-    MzCollapsibleModule
+    MzCollapsibleModule,
+    MzSidenavModule
   ],
   providers: [
     CookieService,
