@@ -39,6 +39,9 @@ import { GraphQLModule } from './graphql.module';
 import {AmplifyAngularModule, AmplifyService} from 'aws-amplify-angular';
 import { ChartComponent } from './components/chart/chart.component';
 
+// Materialize Components
+import { MzCollapsibleModule } from 'ngx-materialize'
+
 export const isMock = environment.mock;
 
 @NgModule({
@@ -79,7 +82,8 @@ export const isMock = environment.mock;
     GraphQLModule,
     FileUploadModule,
     AmplifyAngularModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MzCollapsibleModule
   ],
   providers: [
     CookieService,

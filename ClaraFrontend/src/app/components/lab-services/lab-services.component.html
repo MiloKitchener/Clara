@@ -39,5 +39,21 @@
   
       </mat-expansion-panel>
     </mat-accordion>
+
+    <mz-collapsible
+      [mode]="'popout'"
+      [onClose]="closeFunctionCallback"
+      [onOpen]="openFunctionCallback"
+      [popout]="true">
+      <mz-collapsible-item [active]="true">
+        <mz-collapsible-item-header>
+          First
+        </mz-collapsible-item-header>
+        <mz-collapsible-item-body>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </mz-collapsible-item-body>
+      </mz-collapsible-item>
+    </mz-collapsible>
+
 </div>
 
