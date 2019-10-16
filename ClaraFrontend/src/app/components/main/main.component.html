@@ -43,8 +43,8 @@
         <img src="./assets/images/avatar.png" alt="profile-picture">
       </div>
     </div>
+
     <div class="nav-bottom">
-      <ul>
         <!-- Dashboards Nav -->
         <div class="dashboard-header">
           <h5 class="nav-header">DASHBOARDS</h5>
@@ -53,14 +53,14 @@
           </button>
         </div>
   
-        <li *ngFor="let dashboard of this.dashboards" routerLinkActive="active">
+        <!-- <li *ngFor="let dashboard of this.dashboards" routerLinkActive="active">
           <a [routerLink]="['dashboard', dashboard.name]">
             <i class="material-icons-outlined">dashboard</i>
             <span>{{ dashboard.name + " Dashboard"}}</span>
           </a>
-        </li>
-  
-        <h5 class="nav-header">DEVICES & DATASETS</h5>
+        </li> -->
+        
+        <h5 class="nav-header">TOOLS</h5>
 
         <!-- Devices Nav -->
         <li routerLinkActive="active">
@@ -87,6 +87,7 @@
         </li>
   
         <h5 class="nav-header">COMMUNICATION</h5>
+
         <!-- Ideas Nav -->
         <li routerLinkActive="active">
           <a routerLink="ideas">
@@ -108,7 +109,6 @@
             <span>Alexa</span>
           </a>
         </li>
-      </ul>
     </div>
   </nav>
 

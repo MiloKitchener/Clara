@@ -14,6 +14,7 @@ nav {
   padding-left: $nav-left-padding;
   z-index: 10;
   transition: $main-hover-transition;
+  box-shadow: none !important;
 
   img {
     margin-top: 10px;
@@ -31,9 +32,8 @@ nav {
   button {
     color: white;
     border: 0;
-    margin-top: 10px;
-    height: 40px;
-    width: 100px;
+    height: 60%;
+    // width: 100px;
     border-radius: 20px;
     background-color: rgba($color: #FFFFFF, $alpha: 0.2);
     transition: $main-hover-transition;
@@ -61,7 +61,6 @@ li {
     border-radius: 20px;
     background-color: none;
     text-align: center;
-    padding: 14px 16px;
     text-decoration: none;
     transition: $main-hover-transition;
 
