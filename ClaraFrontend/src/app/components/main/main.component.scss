@@ -36,12 +36,6 @@
   }
 }
 
-.nav-bottom {
-  h5{
-    height: auto !important;
-  }
-}
-
 .nav-top {
   background-color: $color-nav-top;
   text-align: center;
@@ -115,10 +109,16 @@ nav {
     }
   }
 
-  ul {
+  .nav-bottom {
     list-style-type: none;
     margin: 0;
     padding: 0;
+    width: 100%;
+    height: auto;
+    
+    h5{
+      height: auto !important;
+    }
 
     .dashboard-header {
       display: flex;
