@@ -1,19 +1,58 @@
 <h1>Lab Services</h1>
-<div class="upcoming">
-  <!--Placeholders-->
-  <p>
-    Upcoming Lab Services Sessions
-  </p>
-  <p class="list">May 30th</p>
-  <p class="list">June 30th</p>
-  <p class="list">August 27th</p>
+
+<div class="pilots">
+  <h2>Pilot Projects</h2>
+    <mz-collapsible
+      [mode]="'popout'"
+      [onClose]="closeFunctionCallback"
+      [onOpen]="openFunctionCallback"
+      [popout]="true">
+      <mz-collapsible-item [active]="false">
+        <mz-collapsible-item-header>
+          First
+        </mz-collapsible-item-header>
+        <mz-collapsible-item-body>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+            incididunt ut labore et dolore magna aliqua. Tristique magna sit amet purus gravida 
+            quis blandit. Id faucibus nisl tincidunt eget nullam non. Gravida rutrum quisque 
+            non tellus orci ac. Eleifend mi in nulla posuere sollicitudin. Bibendum ut tristique 
+            et egestas quis ipsum suspendisse ultrices gravida. Sed velit dignissim sodales ut 
+            eu sem integer vitae. Est sit amet facilisis magna etiam. Felis eget velit aliquet 
+            sagittis id consectetur purus ut faucibus. Aliquet porttitor lacus luctus accumsan 
+            tortor posuere ac ut consequat. 
+        </mz-collapsible-item-body>
+      </mz-collapsible-item>
+      <mz-collapsible-item [active]="false">
+          <mz-collapsible-item-header>
+            Second
+          </mz-collapsible-item-header>
+          <mz-collapsible-item-body>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+              incididunt ut labore et dolore magna aliqua. Tristique magna sit amet purus gravida 
+              quis blandit. Id faucibus nisl tincidunt eget nullam non. Gravida rutrum quisque 
+              non tellus orci ac. Eleifend mi in nulla posuere sollicitudin. Bibendum ut tristique 
+              et egestas quis ipsum suspendisse ultrices gravida. Sed velit dignissim sodales ut 
+              eu sem integer vitae. Est sit amet facilisis magna etiam. Felis eget velit aliquet 
+              sagittis id consectetur purus ut faucibus. Aliquet porttitor lacus luctus accumsan 
+              tortor posuere ac ut consequat. 
+          </mz-collapsible-item-body>
+        </mz-collapsible-item>
+        <mz-collapsible-item [active]="false">
+            <mz-collapsible-item-header>
+              Third
+            </mz-collapsible-item-header>
+            <mz-collapsible-item-body>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+                incididunt ut labore et dolore magna aliqua. Tristique magna sit amet purus gravida 
+                quis blandit. Id faucibus nisl tincidunt eget nullam non. Gravida rutrum quisque 
+                non tellus orci ac. Eleifend mi in nulla posuere sollicitudin. Bibendum ut tristique 
+                et egestas quis ipsum suspendisse ultrices gravida. Sed velit dignissim sodales ut 
+                eu sem integer vitae. Est sit amet facilisis magna etiam. Felis eget velit aliquet 
+                sagittis id consectetur purus ut faucibus. Aliquet porttitor lacus luctus accumsan 
+                tortor posuere ac ut consequat. 
+            </mz-collapsible-item-body>
+          </mz-collapsible-item>
+    </mz-collapsible>
+
 </div>
-<div class="pilot">
-  <p>
-    Pilot Projects <br> <br>
-  </p>
-  <p class="block">Smart Parking</p>
-  <p class="block">Smart Garbage</p>
-  <p class="block">Street Light Control</p>
-  <p class="block">Traffic Control System</p>
-</div>
+

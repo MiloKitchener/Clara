@@ -4,14 +4,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 
-
 import {
   MatMenuModule,
   MatButtonModule,
   MatExpansionModule,
   MatTabsModule,
   MatSelectModule,
-  MatDialogModule, MatIconModule, MatGridListModule, MatCardModule, MatSnackBarModule
+  MatDialogModule
 } from '@angular/material';
 import { CookieService } from 'ngx-cookie-service';
 
@@ -47,6 +46,9 @@ import { GraphQLModule } from './graphql.module';
 import {AmplifyAngularModule, AmplifyService} from 'aws-amplify-angular';
 import { ChartComponent } from './components/chart/chart.component';
 import {OpenDataGraphPanelComponent} from './components/open-data-graph-panel/open-data-graph-panel.component';
+
+// Materialize Components
+import { MzCollapsibleModule, MzSidenavModule } from 'ngx-materialize';
 
 export const isMock = environment.mock;
 
@@ -93,7 +95,10 @@ export const isMock = environment.mock;
     MatIconModule,
     MatGridListModule,
     MatCardModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatExpansionModule,
+    MzCollapsibleModule,
+    MzSidenavModule
   ],
   providers: [
     CookieService,

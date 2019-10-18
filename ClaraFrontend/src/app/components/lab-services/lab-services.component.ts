@@ -9,6 +9,8 @@ export class LabServicesComponent implements OnInit {
 
   constructor() { }
 
+  panelOpenState = false;
+
   ngOnInit() {
   }
 

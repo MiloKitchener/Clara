@@ -368,3 +368,12 @@ span.mat-button-wrapper {
   color: white;
 }
 
+
+h1 {
+  box-sizing: content-box;
+  font-weight: 300;
+}
+h1, h2, h3, h4, h5, h6 {
+  height: auto !important;
+  font-weight: 400 !important;
+}

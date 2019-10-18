@@ -38,75 +38,78 @@
         </ng-container>
       </div>
       <div class="profile-thumbnail">
-        <h3> William McKinnon </h3>
-        <h5> Smart City Developer </h5>
-        <img src="./assets/images/avatar.png" alt="">
+        <h3>First Last</h3>
+        <h5>Job Title</h5>
+        <img src="./assets/images/avatar.png" alt="profile-picture">
       </div>
     </div>
 
-    <ul>
-      <!-- Dashboards Nav -->
-      <div class="dashboard-header">
-        <h5 class="nav-header">DASHBOARDS</h5>
-        <button class="add-dashboard-btn" (click)="addDashboard()">
-          <i class="material-icons-round">add_circle</i>
-        </button>
-      </div>
+    <div class="nav-bottom">
+        <!-- Dashboards Nav -->
+        <div class="dashboard-header">
+          <h5 class="nav-header">DASHBOARDS</h5>
+          <button class="add-dashboard-btn" (click)="addDashboard()">
+            <i class="material-icons-round">add_circle</i>
+          </button>
+        </div>
+  
+        <!-- <li *ngFor="let dashboard of this.dashboards" routerLinkActive="active">
+          <a [routerLink]="['dashboard', dashboard.name]">
+            <i class="material-icons-outlined">dashboard</i>
+            <span>{{ dashboard.name + " Dashboard"}}</span>
+          </a>
+        </li> -->
+        
+        <h5 class="nav-header">TOOLS</h5>
 
-      <li *ngFor="let dashboard of this.dashboards" routerLinkActive="active">
-        <a [routerLink]="['dashboard', dashboard.name]">
-          <i class="material-icons-outlined">dashboard</i>
-          <span>{{ dashboard.name + " Dashboard"}}</span>
-        </a>
-      </li>
+        <!-- Devices Nav -->
+        <li routerLinkActive="active">
+          <a routerLink="devices">
+            <i class="material-icons-round">devices</i>
+            <span>Devices</span>
+          </a>
+        </li>
 
-      <h5 class="nav-header">DEVICES & DATASETS</h5>
-      <!-- Devices Nav -->
-      <li routerLinkActive="active">
-        <a routerLink="devices">
-          <i class="material-icons-round">devices</i>
-          <span>Devices</span>
-        </a>
-      </li>
-      <!-- Datasets Nav -->
-      <li routerLinkActive="active">
-        <a routerLink="dataset">
-          <i class="material-icons-round">data_usage</i>
-          <span>Datasets</span>
-        </a>
-      </li>
+        <!-- Datasets Nav -->
+        <li routerLinkActive="active">
+          <a routerLink="dataset">
+            <i class="material-icons-round">data_usage</i>
+            <span>Datasets</span>
+          </a>
+        </li>
+  
+        <!-- Datasets Nav -->
+        <li routerLinkActive="active">
+          <a routerLink="augmented-municipality">
+            <i class="material-icons-round">phone_android</i>
+            <span>Augmented Municipality</span>
+          </a>
+        </li>
+  
+        <h5 class="nav-header">COMMUNICATION</h5>
 
-      <!-- Datasets Nav -->
-      <li routerLinkActive="active">
-        <a routerLink="augmented-municipality">
-          <i class="material-icons-round">phone_android</i>
-          <span>Augmented Municipality</span>
-        </a>
-      </li>
-
-      <h5 class="nav-header">COMMUNICATION</h5>
-      <!-- Ideas Nav -->
-      <li routerLinkActive="active">
-        <a routerLink="ideas">
-          <i class="material-icons-outlined">highlight</i>
-          <span>Ideas</span>
-        </a>
-      </li>
-      <!-- Datasets Nav -->
-      <li routerLinkActive="active">
-        <a routerLink="lab-services">
-          <i class="material-icons-round">calendar_today</i>
-          <span>Lab Services</span>
-        </a>
-      </li>
-      <!-- Alexa Nav -->
-      <li routerLinkActive="active">
-        <a routerLink="alexa-feed">
-            <i class="material-icons-round">sentiment_satisfied</i>
-          <span>Alexa</span>
-        </a>
-      </li>
-    </ul>
+        <!-- Ideas Nav -->
+        <li routerLinkActive="active">
+          <a routerLink="ideas">
+            <i class="material-icons-outlined">highlight</i>
+            <span>Ideas</span>
+          </a>
+        </li>
+        <!-- Datasets Nav -->
+        <li routerLinkActive="active">
+          <a routerLink="lab-services">
+            <i class="material-icons-round">calendar_today</i>
+            <span>Lab Services</span>
+          </a>
+        </li>
+        <!-- Alexa Nav -->
+        <li routerLinkActive="active">
+          <a routerLink="alexa-feed">
+              <i class="material-icons-round">sentiment_satisfied</i>
+            <span>Alexa</span>
+          </a>
+        </li>
+    </div>
   </nav>
 
   <!-- Routed Elements -->
