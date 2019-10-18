@@ -10,7 +10,7 @@ import {
   MatExpansionModule,
   MatTabsModule,
   MatSelectModule,
-  MatDialogModule
+  MatDialogModule, MatGridListModule, MatIconModule, MatCardModule, MatSnackBarModule
 } from '@angular/material';
 import { CookieService } from 'ngx-cookie-service';
 
