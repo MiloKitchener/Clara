@@ -35,7 +35,6 @@ export class DashboardComponent implements OnInit {
         this.deviceService.subscribeIoTData().subscribe(subscription => {
           // @ts-ignore
           const data = subscription.value.data.onCreateIoTData;
-          console.log(subscription);
           this.dashboard.charts.items.forEach((chart) => {
             if (!chart.data) {
               chart.data = [];
@@ -43,8 +42,11 @@ export class DashboardComponent implements OnInit {
             if (!chart.labels) {
               chart.labels = [];
             }
-            chart.data.push(data[chart.field1]);
-            chart.labels.push(data.ts);
+            if (data[chart.field1] != null) {
+              console.log(data);
+              chart.data.push(data[chart.field1]);
+              chart.labels.push(data.ts);
+            }
           });
         });
       });

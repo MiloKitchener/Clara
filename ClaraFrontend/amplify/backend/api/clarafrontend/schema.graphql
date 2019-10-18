@@ -22,8 +22,12 @@ type IoTData @model(subscriptions: { level: public }) @key(fields: ["uuid", "ts"
 	type: String!
 	battery: Int
 	moisture: Int
-	co2: Int
-	ph: Int
+	CO2: Int
+	pH: Float
+	conductivity: Float
+	solids: Int
+	salinity: Float
+	s_gravity: Float
 	uptime: [Int]
 }
 

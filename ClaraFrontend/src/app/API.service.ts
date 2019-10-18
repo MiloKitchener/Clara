@@ -45,8 +45,12 @@ export type UpdateIoTDataInput = {
   type?: string | null;
   battery?: number | null;
   moisture?: number | null;
-  co2?: number | null;
-  ph?: number | null;
+  CO2?: number | null;
+  pH?: number | null;
+  conductivity?: number | null;
+  solids?: number | null;
+  salinity?: number | null;
+  s_gravity?: number | null;
   uptime?: Array<number | null> | null;
 };
 
@@ -193,8 +197,12 @@ export type CreateIoTDataInput = {
   type: string;
   battery?: number | null;
   moisture?: number | null;
-  co2?: number | null;
-  ph?: number | null;
+  CO2?: number | null;
+  pH?: number | null;
+  conductivity?: number | null;
+  solids?: number | null;
+  salinity?: number | null;
+  s_gravity?: number | null;
   uptime?: Array<number | null> | null;
 };
 
@@ -270,8 +278,12 @@ export type ModelIoTDataFilterInput = {
   type?: ModelStringFilterInput | null;
   battery?: ModelIntFilterInput | null;
   moisture?: ModelIntFilterInput | null;
-  co2?: ModelIntFilterInput | null;
-  ph?: ModelIntFilterInput | null;
+  CO2?: ModelIntFilterInput | null;
+  pH?: ModelFloatFilterInput | null;
+  conductivity?: ModelFloatFilterInput | null;
+  solids?: ModelIntFilterInput | null;
+  salinity?: ModelFloatFilterInput | null;
+  s_gravity?: ModelFloatFilterInput | null;
   uptime?: ModelIntFilterInput | null;
   and?: Array<ModelIoTDataFilterInput | null> | null;
   or?: Array<ModelIoTDataFilterInput | null> | null;
@@ -416,8 +428,12 @@ export type UpdateIoTDataMutation = {
   type: string;
   battery: number | null;
   moisture: number | null;
-  co2: number | null;
-  ph: number | null;
+  CO2: number | null;
+  pH: number | null;
+  conductivity: number | null;
+  solids: number | null;
+  salinity: number | null;
+  s_gravity: number | null;
   uptime: Array<number | null> | null;
 };
 
@@ -428,8 +444,12 @@ export type DeleteIoTDataMutation = {
   type: string;
   battery: number | null;
   moisture: number | null;
-  co2: number | null;
-  ph: number | null;
+  CO2: number | null;
+  pH: number | null;
+  conductivity: number | null;
+  solids: number | null;
+  salinity: number | null;
+  s_gravity: number | null;
   uptime: Array<number | null> | null;
 };
 
@@ -1103,8 +1123,12 @@ export type CreateIoTDataMutation = {
   type: string;
   battery: number | null;
   moisture: number | null;
-  co2: number | null;
-  ph: number | null;
+  CO2: number | null;
+  pH: number | null;
+  conductivity: number | null;
+  solids: number | null;
+  salinity: number | null;
+  s_gravity: number | null;
   uptime: Array<number | null> | null;
 };
 
@@ -1153,8 +1177,12 @@ export type GetIoTDataQuery = {
   type: string;
   battery: number | null;
   moisture: number | null;
-  co2: number | null;
-  ph: number | null;
+  CO2: number | null;
+  pH: number | null;
+  conductivity: number | null;
+  solids: number | null;
+  salinity: number | null;
+  s_gravity: number | null;
   uptime: Array<number | null> | null;
 };
 
@@ -1167,8 +1195,12 @@ export type ListIoTDatasQuery = {
     type: string;
     battery: number | null;
     moisture: number | null;
-    co2: number | null;
-    ph: number | null;
+    CO2: number | null;
+    pH: number | null;
+    conductivity: number | null;
+    solids: number | null;
+    salinity: number | null;
+    s_gravity: number | null;
     uptime: Array<number | null> | null;
   } | null> | null;
   nextToken: string | null;
@@ -1654,8 +1686,12 @@ export type OnCreateIoTDataSubscription = {
   type: string;
   battery: number | null;
   moisture: number | null;
-  co2: number | null;
-  ph: number | null;
+  CO2: number | null;
+  pH: number | null;
+  conductivity: number | null;
+  solids: number | null;
+  salinity: number | null;
+  s_gravity: number | null;
   uptime: Array<number | null> | null;
 };
 
@@ -1666,8 +1702,12 @@ export type OnUpdateIoTDataSubscription = {
   type: string;
   battery: number | null;
   moisture: number | null;
-  co2: number | null;
-  ph: number | null;
+  CO2: number | null;
+  pH: number | null;
+  conductivity: number | null;
+  solids: number | null;
+  salinity: number | null;
+  s_gravity: number | null;
   uptime: Array<number | null> | null;
 };
 
@@ -1678,8 +1718,12 @@ export type OnDeleteIoTDataSubscription = {
   type: string;
   battery: number | null;
   moisture: number | null;
-  co2: number | null;
-  ph: number | null;
+  CO2: number | null;
+  pH: number | null;
+  conductivity: number | null;
+  solids: number | null;
+  salinity: number | null;
+  s_gravity: number | null;
   uptime: Array<number | null> | null;
 };
 
@@ -2478,8 +2522,12 @@ export class APIService {
           type
           battery
           moisture
-          co2
-          ph
+          CO2
+          pH
+          conductivity
+          solids
+          salinity
+          s_gravity
           uptime
         }
       }`;
@@ -2502,8 +2550,12 @@ export class APIService {
           type
           battery
           moisture
-          co2
-          ph
+          CO2
+          pH
+          conductivity
+          solids
+          salinity
+          s_gravity
           uptime
         }
       }`;
@@ -3387,8 +3439,12 @@ export class APIService {
           type
           battery
           moisture
-          co2
-          ph
+          CO2
+          pH
+          conductivity
+          solids
+          salinity
+          s_gravity
           uptime
         }
       }`;
@@ -3528,8 +3584,12 @@ export class APIService {
           type
           battery
           moisture
-          co2
-          ph
+          CO2
+          pH
+          conductivity
+          solids
+          salinity
+          s_gravity
           uptime
         }
       }`;
@@ -3560,8 +3620,12 @@ export class APIService {
             type
             battery
             moisture
-            co2
-            ph
+            CO2
+            pH
+            conductivity
+            solids
+            salinity
+            s_gravity
             uptime
           }
           nextToken
@@ -4310,8 +4374,12 @@ export class APIService {
           type
           battery
           moisture
-          co2
-          ph
+          CO2
+          pH
+          conductivity
+          solids
+          salinity
+          s_gravity
           uptime
         }
       }`
@@ -4330,8 +4398,12 @@ export class APIService {
           type
           battery
           moisture
-          co2
-          ph
+          CO2
+          pH
+          conductivity
+          solids
+          salinity
+          s_gravity
           uptime
         }
       }`
@@ -4350,8 +4422,12 @@ export class APIService {
           type
           battery
           moisture
-          co2
-          ph
+          CO2
+          pH
+          conductivity
+          solids
+          salinity
+          s_gravity
           uptime
         }
       }`

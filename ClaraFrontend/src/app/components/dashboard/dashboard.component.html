@@ -58,19 +58,13 @@
 <!--  </div>-->
 
   <mat-grid-list cols="3">
-  <mat-grid-tile
-      *ngFor="let chart of dashboard.charts.items"
-      [colspan]="1"
-      [rowspan]="1">
-    <mat-card>
-      <app-chart [chart]="chart"></app-chart>
-    </mat-card>
-
-  </mat-grid-tile>
-</mat-grid-list>
-<!--  <ul *ngFor="let chart of dashboard.charts.items" class="charts-container">-->
-<!--    <li class="charts">-->
-<!--      <app-chart [chart]="chart"></app-chart>-->
-<!--    </li>-->
-<!--  </ul>-->
+    <mat-grid-tile
+        *ngFor="let chart of dashboard.charts.items"
+        [colspan]="1"
+        [rowspan]="1">
+      <mat-card>
+        <app-chart [chart]="chart"></app-chart>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
 </div>

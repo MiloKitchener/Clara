@@ -77,7 +77,7 @@
 				"Timeout": "25",
 				"Code": {
 					"S3Bucket": "clarafrontend-brad-20190926101043-deployment",
-					"S3Key": "amplify-builds/createIoTData-694d5677763435457531-build.zip"
+					"S3Key": "amplify-builds/createIoTData-444d7a53327853744333-build.zip"
 				}
 			}
 		},

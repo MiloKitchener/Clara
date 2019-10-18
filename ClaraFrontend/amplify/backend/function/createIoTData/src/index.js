@@ -25,8 +25,12 @@ exports.handler = async (event) => {
         type
         battery
         moisture
-        co2
-        ph
+        CO2
+        pH
+        conductivity
+        solids
+        salinity
+        s_gravity
         uptime
       }
     }`;

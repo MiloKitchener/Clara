@@ -51,8 +51,12 @@ mutation UpdateIoTData($input: UpdateIoTDataInput!) {
     type
     battery
     moisture
-    co2
-    ph
+    CO2
+    pH
+    conductivity
+    solids
+    salinity
+    s_gravity
     uptime
   }
 }
@@ -63,8 +67,12 @@ mutation DeleteIoTData($input: DeleteIoTDataInput!) {
     type
     battery
     moisture
-    co2
-    ph
+    CO2
+    pH
+    conductivity
+    solids
+    salinity
+    s_gravity
     uptime
   }
 }
@@ -666,8 +674,12 @@ mutation CreateIoTData($input: CreateIoTDataInput!) {
     type
     battery
     moisture
-    co2
-    ph
+    CO2
+    pH
+    conductivity
+    solids
+    salinity
+    s_gravity
     uptime
   }
 }

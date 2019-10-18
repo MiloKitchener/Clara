@@ -51,8 +51,12 @@ subscription OnCreateIoTData {
     type
     battery
     moisture
-    co2
-    ph
+    CO2
+    pH
+    conductivity
+    solids
+    salinity
+    s_gravity
     uptime
   }
 }
@@ -63,8 +67,12 @@ subscription OnUpdateIoTData {
     type
     battery
     moisture
-    co2
-    ph
+    CO2
+    pH
+    conductivity
+    solids
+    salinity
+    s_gravity
     uptime
   }
 }
@@ -75,8 +83,12 @@ subscription OnDeleteIoTData {
     type
     battery
     moisture
-    co2
-    ph
+    CO2
+    pH
+    conductivity
+    solids
+    salinity
+    s_gravity
     uptime
   }
 }
