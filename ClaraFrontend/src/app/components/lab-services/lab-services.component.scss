@@ -1,4 +1,7 @@
 @import "../../../variables.scss";
+body {
+  height: auto !important;
+}
 
 h1 {
   margin: 0;
@@ -16,15 +19,20 @@ h2 {
 
 p {
   text-align: justify;
-  //margin: 0 auto;
   width: 80%;
-  height:auto;
+  height:auto !important;
 }
 
 mz-collapsible-item-body {
   h1, h2, h3, h4, h5, h6 {
     text-align: left;
   }
+}
+
+.col-left {
+  text-align: justify;
+  width: 80%;
+  height:auto !important;
 }
 
 .pilots {
