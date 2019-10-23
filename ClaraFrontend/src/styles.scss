@@ -1,8 +1,7 @@
 // Font
 @import url('https://fonts.googleapis.com/css?family=Nunito:200,300,400,500&display=swap');
-
-@import "variables.scss";
 @import '~aws-amplify-angular/Theme.css';
+@import "variables.scss";
 
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
@@ -376,4 +375,8 @@ h1 {
 h1, h2, h3, h4, h5, h6 {
   height: auto !important;
   font-weight: 400 !important;
+}
+
+p {
+  height: auto !important;
 }

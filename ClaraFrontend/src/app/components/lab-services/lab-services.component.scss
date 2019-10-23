@@ -1,4 +1,7 @@
 @import "../../../variables.scss";
+body {
+  height: auto !important;
+}
 
 h1 {
   margin: 0;
@@ -16,14 +19,20 @@ h2 {
 
 p {
   text-align: justify;
-  //margin: 0 auto;
   width: 80%;
-  height:auto;
+  height:auto !important;
 }
 
-mat-expansion-panel {
+mz-collapsible-item-body {
+  h1, h2, h3, h4, h5, h6 {
+    text-align: left;
+  }
+}
+
+.col-left {
+  text-align: justify;
   width: 80%;
-  margin-left: 2%;
+  height:auto !important;
 }
 
 .pilots {
@@ -44,21 +53,6 @@ mat-expansion-panel {
     box-shadow: $main-box-shadow;
     text-align: start;
 }
-
-//Pilot projects placeholder
-/* .pilot {
-    margin-top: 40px;
-    margin-bottom: 40px;
-    margin-left: 150px;
-    margin-right: 150px;
-    padding: 100px;
-    font-weight: 500;
-    font-size: 20px;
-    border-radius: 7px;
-    background-color: white;
-    box-shadow: $main-box-shadow;
-    text-align: left;
-} */
 
 .list {
     text-align: center;
