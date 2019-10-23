@@ -1,0 +1,62 @@
+<mat-dialog-content>
+  <div class="graph-panel-container">
+    <div class="controls">
+      <!-- Y Axis Selection -->
+      <h4>Y Axis</h4>
+      <mat-form-field>
+        <mat-label>Y Dataset</mat-label>
+        <mat-select cdkfocusinitial id="yDatasetSelect" [(ngModel)]="ySelectedDataset" (selectionChange)="selectChange($event)">
+          <mat-option *ngFor="let dataset of datasets" [value]="dataset">
+            {{dataset.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label>Y Field</mat-label>
+        <mat-select [disabled]="!ySelectedDataset" [(ngModel)]="ySelectedField" (selectionChange)="selectChange($event)">
+          <ng-container *ngIf="ySelectedDataset">
+            <mat-option *ngFor="let field of ySelectedDataset.fields.items" [value]="field">
+              {{field.name}}
+            </mat-option>
+          </ng-container>
+        </mat-select>
+      </mat-form-field>
+
+      <!-- X Axis Selection -->
+      <h4>X Axis</h4>
+      <mat-form-field>
+        <mat-label>X Dataset</mat-label>
+        <mat-select id="xDatasetSelect" [(ngModel)]="xSelectedDataset" (selectionChange)="selectChange($event)">
+          <mat-option *ngFor="let dataset of datasets" [value]="dataset">
+            {{dataset.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label>X Field</mat-label>
+        <mat-select [disabled]="!xSelectedDataset" [(ngModel)]="xSelectedField" (selectionChange)="selectChange($event)">
+          <ng-container *ngIf="xSelectedDataset">
+            <mat-option *ngFor="let field of xSelectedDataset.fields.items" [value]="field">
+              {{field.name}}
+            </mat-option>
+          </ng-container>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="graph">
+      <canvas baseChart
+        [datasets]="[{
+          label: chart.name,
+          data: chart.data
+        }]"
+        [chartType]="chart.type">
+      </canvas>
+    </div>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+  <button mat-button mat-dialog-close class="close-btn">Cancel</button>
+  <button mat-button [mat-dialog-close]=chart>Add Graph to Dashboard</button>
+</mat-dialog-actions>

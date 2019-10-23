@@ -23,6 +23,78 @@ query ListArModels(
     nextToken
   }
 }
+query GetIoTDevice($id: ID!) {
+  getIoTDevice(id: $id) {
+    id
+    uuid
+    type
+    fields
+  }
+}
+query ListIoTDevices(
+  $filter: ModelIoTDeviceFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listIoTDevices(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      uuid
+      type
+      fields
+    }
+    nextToken
+  }
+}
+query GetIoTData($uuid: ID!, $ts: Int!) {
+  getIoTData(uuid: $uuid, ts: $ts) {
+    uuid
+    ts
+    type
+    battery
+    moisture
+    CO2
+    pH
+    conductivity
+    solids
+    salinity
+    s_gravity
+    uptime
+  }
+}
+query ListIoTDatas(
+  $uuid: ID
+  $ts: ModelIntKeyConditionInput
+  $filter: ModelIoTDataFilterInput
+  $limit: Int
+  $nextToken: String
+  $sortDirection: ModelSortDirection
+) {
+  listIoTDatas(
+    uuid: $uuid
+    ts: $ts
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+    sortDirection: $sortDirection
+  ) {
+    items {
+      uuid
+      ts
+      type
+      battery
+      moisture
+      CO2
+      pH
+      conductivity
+      solids
+      salinity
+      s_gravity
+      uptime
+    }
+    nextToken
+  }
+}
 query GetPost($id: ID!) {
   getPost(id: $id) {
     id
@@ -155,6 +227,13 @@ query GetDashboard($id: ID!) {
     charts {
       items {
         id
+        name
+        type
+        category
+        dataset1
+        field1
+        dataset2
+        field2
         dashboard {
           id
           name
@@ -164,18 +243,6 @@ query GetDashboard($id: ID!) {
             nextToken
           }
           tags
-        }
-        chart {
-          id
-          name
-          type
-          dataset1
-          field1
-          dataset2
-          field2
-          dashboards {
-            nextToken
-          }
         }
       }
       nextToken
@@ -197,21 +264,19 @@ query ListDashboards(
       charts {
         items {
           id
+          name
+          type
+          category
+          dataset1
+          field1
+          dataset2
+          field2
           dashboard {
             id
             name
             owner
             desc
             tags
-          }
-          chart {
-            id
-            name
-            type
-            dataset1
-            field1
-            dataset2
-            field2
           }
         }
         nextToken
@@ -226,37 +291,37 @@ query GetChart($id: ID!) {
     id
     name
     type
+    category
     dataset1
     field1
     dataset2
     field2
-    dashboards {
-      items {
-        id
-        dashboard {
-          id
-          name
-          owner
-          desc
-          charts {
-            nextToken
-          }
-          tags
-        }
-        chart {
+    dashboard {
+      id
+      name
+      owner
+      desc
+      charts {
+        items {
           id
           name
           type
+          category
           dataset1
           field1
           dataset2
           field2
-          dashboards {
-            nextToken
+          dashboard {
+            id
+            name
+            owner
+            desc
+            tags
           }
         }
+        nextToken
       }
-      nextToken
+      tags
     }
   }
 }
@@ -270,31 +335,30 @@ query ListCharts(
       id
       name
       type
+      category
       dataset1
       field1
       dataset2
       field2
-      dashboards {
-        items {
-          id
-          dashboard {
-            id
-            name
-            owner
-            desc
-            tags
-          }
-          chart {
+      dashboard {
+        id
+        name
+        owner
+        desc
+        charts {
+          items {
             id
             name
             type
+            category
             dataset1
             field1
             dataset2
             field2
           }
+          nextToken
         }
-        nextToken
+        tags
       }
     }
     nextToken

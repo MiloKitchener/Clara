@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GraphPanelComponent } from './graph-panel.component';
+import { AddGraphDialogComponent } from './add-graph-dialog.component';
 
-describe('GraphPanelComponent', () => {
-  let component: GraphPanelComponent;
-  let fixture: ComponentFixture<GraphPanelComponent>;
+describe('AddGraphDialogComponent', () => {
+  let component: AddGraphDialogComponent;
+  let fixture: ComponentFixture<AddGraphDialogComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GraphPanelComponent ]
+      declarations: [ AddGraphDialogComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GraphPanelComponent);
+    fixture = TestBed.createComponent(AddGraphDialogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

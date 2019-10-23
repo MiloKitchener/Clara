@@ -9,7 +9,8 @@ export class Chart {
   field2: string;
   url2: string;
   labels: Label[];
-  data: [];
+  data?: [];
+  category: string;
 
   // constructor can act as empty constructor or copy constructor
   constructor(chart?: Chart) {

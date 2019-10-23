@@ -20,6 +20,78 @@ subscription OnDeleteArModel {
     scale
   }
 }
+subscription OnCreateIoTDevice {
+  onCreateIoTDevice {
+    id
+    uuid
+    type
+    fields
+  }
+}
+subscription OnUpdateIoTDevice {
+  onUpdateIoTDevice {
+    id
+    uuid
+    type
+    fields
+  }
+}
+subscription OnDeleteIoTDevice {
+  onDeleteIoTDevice {
+    id
+    uuid
+    type
+    fields
+  }
+}
+subscription OnCreateIoTData {
+  onCreateIoTData {
+    uuid
+    ts
+    type
+    battery
+    moisture
+    CO2
+    pH
+    conductivity
+    solids
+    salinity
+    s_gravity
+    uptime
+  }
+}
+subscription OnUpdateIoTData {
+  onUpdateIoTData {
+    uuid
+    ts
+    type
+    battery
+    moisture
+    CO2
+    pH
+    conductivity
+    solids
+    salinity
+    s_gravity
+    uptime
+  }
+}
+subscription OnDeleteIoTData {
+  onDeleteIoTData {
+    uuid
+    ts
+    type
+    battery
+    moisture
+    CO2
+    pH
+    conductivity
+    solids
+    salinity
+    s_gravity
+    uptime
+  }
+}
 subscription OnCreatePost($owner: String!) {
   onCreatePost(owner: $owner) {
     id
@@ -209,6 +281,13 @@ subscription OnCreateDashboard($owner: String!) {
     charts {
       items {
         id
+        name
+        type
+        category
+        dataset1
+        field1
+        dataset2
+        field2
         dashboard {
           id
           name
@@ -218,18 +297,6 @@ subscription OnCreateDashboard($owner: String!) {
             nextToken
           }
           tags
-        }
-        chart {
-          id
-          name
-          type
-          dataset1
-          field1
-          dataset2
-          field2
-          dashboards {
-            nextToken
-          }
         }
       }
       nextToken
@@ -246,6 +313,13 @@ subscription OnUpdateDashboard($owner: String!) {
     charts {
       items {
         id
+        name
+        type
+        category
+        dataset1
+        field1
+        dataset2
+        field2
         dashboard {
           id
           name
@@ -255,18 +329,6 @@ subscription OnUpdateDashboard($owner: String!) {
             nextToken
           }
           tags
-        }
-        chart {
-          id
-          name
-          type
-          dataset1
-          field1
-          dataset2
-          field2
-          dashboards {
-            nextToken
-          }
         }
       }
       nextToken
@@ -283,6 +345,13 @@ subscription OnDeleteDashboard($owner: String!) {
     charts {
       items {
         id
+        name
+        type
+        category
+        dataset1
+        field1
+        dataset2
+        field2
         dashboard {
           id
           name
@@ -292,18 +361,6 @@ subscription OnDeleteDashboard($owner: String!) {
             nextToken
           }
           tags
-        }
-        chart {
-          id
-          name
-          type
-          dataset1
-          field1
-          dataset2
-          field2
-          dashboards {
-            nextToken
-          }
         }
       }
       nextToken
@@ -311,237 +368,42 @@ subscription OnDeleteDashboard($owner: String!) {
     tags
   }
 }
-subscription OnCreateDashboardCharts {
-  onCreateDashboardCharts {
-    id
-    dashboard {
-      id
-      name
-      owner
-      desc
-      charts {
-        items {
-          id
-          dashboard {
-            id
-            name
-            owner
-            desc
-            tags
-          }
-          chart {
-            id
-            name
-            type
-            dataset1
-            field1
-            dataset2
-            field2
-          }
-        }
-        nextToken
-      }
-      tags
-    }
-    chart {
-      id
-      name
-      type
-      dataset1
-      field1
-      dataset2
-      field2
-      dashboards {
-        items {
-          id
-          dashboard {
-            id
-            name
-            owner
-            desc
-            tags
-          }
-          chart {
-            id
-            name
-            type
-            dataset1
-            field1
-            dataset2
-            field2
-          }
-        }
-        nextToken
-      }
-    }
-  }
-}
-subscription OnUpdateDashboardCharts {
-  onUpdateDashboardCharts {
-    id
-    dashboard {
-      id
-      name
-      owner
-      desc
-      charts {
-        items {
-          id
-          dashboard {
-            id
-            name
-            owner
-            desc
-            tags
-          }
-          chart {
-            id
-            name
-            type
-            dataset1
-            field1
-            dataset2
-            field2
-          }
-        }
-        nextToken
-      }
-      tags
-    }
-    chart {
-      id
-      name
-      type
-      dataset1
-      field1
-      dataset2
-      field2
-      dashboards {
-        items {
-          id
-          dashboard {
-            id
-            name
-            owner
-            desc
-            tags
-          }
-          chart {
-            id
-            name
-            type
-            dataset1
-            field1
-            dataset2
-            field2
-          }
-        }
-        nextToken
-      }
-    }
-  }
-}
-subscription OnDeleteDashboardCharts {
-  onDeleteDashboardCharts {
-    id
-    dashboard {
-      id
-      name
-      owner
-      desc
-      charts {
-        items {
-          id
-          dashboard {
-            id
-            name
-            owner
-            desc
-            tags
-          }
-          chart {
-            id
-            name
-            type
-            dataset1
-            field1
-            dataset2
-            field2
-          }
-        }
-        nextToken
-      }
-      tags
-    }
-    chart {
-      id
-      name
-      type
-      dataset1
-      field1
-      dataset2
-      field2
-      dashboards {
-        items {
-          id
-          dashboard {
-            id
-            name
-            owner
-            desc
-            tags
-          }
-          chart {
-            id
-            name
-            type
-            dataset1
-            field1
-            dataset2
-            field2
-          }
-        }
-        nextToken
-      }
-    }
-  }
-}
 subscription OnCreateChart {
   onCreateChart {
     id
     name
     type
+    category
     dataset1
     field1
     dataset2
     field2
-    dashboards {
-      items {
-        id
-        dashboard {
-          id
-          name
-          owner
-          desc
-          charts {
-            nextToken
-          }
-          tags
-        }
-        chart {
+    dashboard {
+      id
+      name
+      owner
+      desc
+      charts {
+        items {
           id
           name
           type
+          category
           dataset1
           field1
           dataset2
           field2
-          dashboards {
-            nextToken
+          dashboard {
+            id
+            name
+            owner
+            desc
+            tags
           }
         }
+        nextToken
       }
-      nextToken
+      tags
     }
   }
 }
@@ -550,37 +412,37 @@ subscription OnUpdateChart {
     id
     name
     type
+    category
     dataset1
     field1
     dataset2
     field2
-    dashboards {
-      items {
-        id
-        dashboard {
-          id
-          name
-          owner
-          desc
-          charts {
-            nextToken
-          }
-          tags
-        }
-        chart {
+    dashboard {
+      id
+      name
+      owner
+      desc
+      charts {
+        items {
           id
           name
           type
+          category
           dataset1
           field1
           dataset2
           field2
-          dashboards {
-            nextToken
+          dashboard {
+            id
+            name
+            owner
+            desc
+            tags
           }
         }
+        nextToken
       }
-      nextToken
+      tags
     }
   }
 }
@@ -589,37 +451,37 @@ subscription OnDeleteChart {
     id
     name
     type
+    category
     dataset1
     field1
     dataset2
     field2
-    dashboards {
-      items {
-        id
-        dashboard {
-          id
-          name
-          owner
-          desc
-          charts {
-            nextToken
-          }
-          tags
-        }
-        chart {
+    dashboard {
+      id
+      name
+      owner
+      desc
+      charts {
+        items {
           id
           name
           type
+          category
           dataset1
           field1
           dataset2
           field2
-          dashboards {
-            nextToken
+          dashboard {
+            id
+            name
+            owner
+            desc
+            tags
           }
         }
+        nextToken
       }
-      nextToken
+      tags
     }
   }
 }

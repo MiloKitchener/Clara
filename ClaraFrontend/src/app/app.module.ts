@@ -4,7 +4,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 
-import { MatMenuModule, MatButtonModule, MatExpansionModule, MatTabsModule, MatSelectModule } from '@angular/material';
+import {
+  MatMenuModule,
+  MatButtonModule,
+  MatExpansionModule,
+  MatTabsModule,
+  MatSelectModule,
+  MatDialogModule, MatGridListModule, MatIconModule, MatCardModule, MatSnackBarModule
+} from '@angular/material';
 import { CookieService } from 'ngx-cookie-service';
 
 import { ChartsModule } from 'ng2-charts';
@@ -21,7 +28,7 @@ import { IdeasComponent } from './components/ideas/ideas.component';
 import { LabServicesComponent } from './components/lab-services/lab-services.component';
 
 import { IdeaNodeComponent } from './components/idea-node/idea-node.component';
-import { GraphPanelComponent } from './components/graph-panel/graph-panel.component';
+import { AddGraphDialogComponent } from './components/add-graph-dialog/add-graph-dialog.component';
 import { AlexaFeedComponent } from './components/alexa-feed/alexa-feed.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { LiveDataGraphPanelComponent } from './components/live-data-graph-panel/live-data-graph-panel.component';
@@ -38,8 +45,10 @@ import {FileUploadModule} from 'ng2-file-upload';
 import { GraphQLModule } from './graphql.module';
 import {AmplifyAngularModule, AmplifyService} from 'aws-amplify-angular';
 import { ChartComponent } from './components/chart/chart.component';
+import {OpenDataGraphPanelComponent} from './components/open-data-graph-panel/open-data-graph-panel.component';
 
 // Materialize Components
+
 import { MzCollapsibleModule, MzSidenavModule, MzCheckboxModule } from 'ngx-materialize'
 
 export const isMock = environment.mock;
@@ -49,7 +58,7 @@ export const isMock = environment.mock;
     AppComponent,
     IdeasComponent,
     IdeaNodeComponent,
-    GraphPanelComponent,
+    AddGraphDialogComponent,
     DatasetComponent,
     LabServicesComponent,
     LoginComponent,
@@ -58,6 +67,7 @@ export const isMock = environment.mock;
     AlexaFeedComponent,
     ProfileComponent,
     LiveDataGraphPanelComponent,
+    OpenDataGraphPanelComponent,
     DevicesComponent,
     SplashComponent,
     DashboardComponent,
@@ -76,12 +86,17 @@ export const isMock = environment.mock;
     FormsModule,
     MatTabsModule,
     MatSelectModule,
+    MatDialogModule,
     HttpClientModule,
     ReactiveFormsModule,
     ChartsModule,
     GraphQLModule,
     FileUploadModule,
     AmplifyAngularModule,
+    MatIconModule,
+    MatGridListModule,
+    MatCardModule,
+    MatSnackBarModule,
     MatExpansionModule,
     MzCollapsibleModule,
     MzSidenavModule,
@@ -97,7 +112,7 @@ export const isMock = environment.mock;
     }
   ],
   bootstrap: [AppComponent],
-  entryComponents: [IdeaNodeComponent]
+  entryComponents: [IdeaNodeComponent, AddGraphDialogComponent]
 })
 
 export class AppModule { }

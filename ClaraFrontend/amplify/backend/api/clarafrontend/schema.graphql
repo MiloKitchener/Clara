@@ -4,6 +4,33 @@ type ARModel @model {
 	scale: Float
 }
 
+type IoTDevice @model {
+  id: ID!
+  uuid: String!
+  type: String!
+  fields: [String]!
+}
+
+type IoTData @model(subscriptions: { level: public }) @key(fields: ["uuid", "ts"]) @auth (
+    rules: [
+        { allow: private, provider: iam, operations: [create] },
+        { allow: private, provider: userPools , operations: [read] }
+    ]
+) {
+  uuid: ID!
+	ts: Int!
+	type: String!
+	battery: Int
+	moisture: Int
+	CO2: Int
+	pH: Float
+	conductivity: Float
+	solids: Int
+	salinity: Float
+	s_gravity: Float
+	uptime: [Int]
+}
+
 type Post @model @auth(rules: [{allow: owner, operations: [create]}]) {
   id: ID!
   title: String!
@@ -26,25 +53,20 @@ type Dashboard @model @auth(rules: [{allow: owner, operations: [create, update, 
   name: String
   owner: String
   desc: String
-  charts: [DashboardCharts] @connection(name: "DashboardCharts")
+  charts: [Chart] @connection(name: "DashboardCharts")
   tags: [String]!
-}
-
-type DashboardCharts @model (queries: null) {
-  id: ID!
-  dashboard: Dashboard @connection(name: "DashboardCharts")
-  chart: Chart @connection(name: "ChartDashboards")
 }
 
 type Chart @model {
   id: ID!
   name: String
   type: String
+  category: String
   dataset1: String
   field1: String
   dataset2: String
   field2: String
-  dashboards: [DashboardCharts] @connection(name: "ChartDashboards")
+  dashboard: Dashboard @connection(name: "DashboardCharts")
 }
 
 type Dataset @model {

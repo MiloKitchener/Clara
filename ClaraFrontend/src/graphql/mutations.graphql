@@ -20,6 +20,62 @@ mutation DeleteArModel($input: DeleteARModelInput!) {
     scale
   }
 }
+mutation CreateIoTDevice($input: CreateIoTDeviceInput!) {
+  createIoTDevice(input: $input) {
+    id
+    uuid
+    type
+    fields
+  }
+}
+mutation UpdateIoTDevice($input: UpdateIoTDeviceInput!) {
+  updateIoTDevice(input: $input) {
+    id
+    uuid
+    type
+    fields
+  }
+}
+mutation DeleteIoTDevice($input: DeleteIoTDeviceInput!) {
+  deleteIoTDevice(input: $input) {
+    id
+    uuid
+    type
+    fields
+  }
+}
+mutation UpdateIoTData($input: UpdateIoTDataInput!) {
+  updateIoTData(input: $input) {
+    uuid
+    ts
+    type
+    battery
+    moisture
+    CO2
+    pH
+    conductivity
+    solids
+    salinity
+    s_gravity
+    uptime
+  }
+}
+mutation DeleteIoTData($input: DeleteIoTDataInput!) {
+  deleteIoTData(input: $input) {
+    uuid
+    ts
+    type
+    battery
+    moisture
+    CO2
+    pH
+    conductivity
+    solids
+    salinity
+    s_gravity
+    uptime
+  }
+}
 mutation CreatePost($input: CreatePostInput!) {
   createPost(input: $input) {
     id
@@ -209,6 +265,13 @@ mutation CreateDashboard($input: CreateDashboardInput!) {
     charts {
       items {
         id
+        name
+        type
+        category
+        dataset1
+        field1
+        dataset2
+        field2
         dashboard {
           id
           name
@@ -218,18 +281,6 @@ mutation CreateDashboard($input: CreateDashboardInput!) {
             nextToken
           }
           tags
-        }
-        chart {
-          id
-          name
-          type
-          dataset1
-          field1
-          dataset2
-          field2
-          dashboards {
-            nextToken
-          }
         }
       }
       nextToken
@@ -246,6 +297,13 @@ mutation UpdateDashboard($input: UpdateDashboardInput!) {
     charts {
       items {
         id
+        name
+        type
+        category
+        dataset1
+        field1
+        dataset2
+        field2
         dashboard {
           id
           name
@@ -255,18 +313,6 @@ mutation UpdateDashboard($input: UpdateDashboardInput!) {
             nextToken
           }
           tags
-        }
-        chart {
-          id
-          name
-          type
-          dataset1
-          field1
-          dataset2
-          field2
-          dashboards {
-            nextToken
-          }
         }
       }
       nextToken
@@ -283,6 +329,13 @@ mutation DeleteDashboard($input: DeleteDashboardInput!) {
     charts {
       items {
         id
+        name
+        type
+        category
+        dataset1
+        field1
+        dataset2
+        field2
         dashboard {
           id
           name
@@ -292,18 +345,6 @@ mutation DeleteDashboard($input: DeleteDashboardInput!) {
             nextToken
           }
           tags
-        }
-        chart {
-          id
-          name
-          type
-          dataset1
-          field1
-          dataset2
-          field2
-          dashboards {
-            nextToken
-          }
         }
       }
       nextToken
@@ -311,237 +352,42 @@ mutation DeleteDashboard($input: DeleteDashboardInput!) {
     tags
   }
 }
-mutation CreateDashboardCharts($input: CreateDashboardChartsInput!) {
-  createDashboardCharts(input: $input) {
-    id
-    dashboard {
-      id
-      name
-      owner
-      desc
-      charts {
-        items {
-          id
-          dashboard {
-            id
-            name
-            owner
-            desc
-            tags
-          }
-          chart {
-            id
-            name
-            type
-            dataset1
-            field1
-            dataset2
-            field2
-          }
-        }
-        nextToken
-      }
-      tags
-    }
-    chart {
-      id
-      name
-      type
-      dataset1
-      field1
-      dataset2
-      field2
-      dashboards {
-        items {
-          id
-          dashboard {
-            id
-            name
-            owner
-            desc
-            tags
-          }
-          chart {
-            id
-            name
-            type
-            dataset1
-            field1
-            dataset2
-            field2
-          }
-        }
-        nextToken
-      }
-    }
-  }
-}
-mutation UpdateDashboardCharts($input: UpdateDashboardChartsInput!) {
-  updateDashboardCharts(input: $input) {
-    id
-    dashboard {
-      id
-      name
-      owner
-      desc
-      charts {
-        items {
-          id
-          dashboard {
-            id
-            name
-            owner
-            desc
-            tags
-          }
-          chart {
-            id
-            name
-            type
-            dataset1
-            field1
-            dataset2
-            field2
-          }
-        }
-        nextToken
-      }
-      tags
-    }
-    chart {
-      id
-      name
-      type
-      dataset1
-      field1
-      dataset2
-      field2
-      dashboards {
-        items {
-          id
-          dashboard {
-            id
-            name
-            owner
-            desc
-            tags
-          }
-          chart {
-            id
-            name
-            type
-            dataset1
-            field1
-            dataset2
-            field2
-          }
-        }
-        nextToken
-      }
-    }
-  }
-}
-mutation DeleteDashboardCharts($input: DeleteDashboardChartsInput!) {
-  deleteDashboardCharts(input: $input) {
-    id
-    dashboard {
-      id
-      name
-      owner
-      desc
-      charts {
-        items {
-          id
-          dashboard {
-            id
-            name
-            owner
-            desc
-            tags
-          }
-          chart {
-            id
-            name
-            type
-            dataset1
-            field1
-            dataset2
-            field2
-          }
-        }
-        nextToken
-      }
-      tags
-    }
-    chart {
-      id
-      name
-      type
-      dataset1
-      field1
-      dataset2
-      field2
-      dashboards {
-        items {
-          id
-          dashboard {
-            id
-            name
-            owner
-            desc
-            tags
-          }
-          chart {
-            id
-            name
-            type
-            dataset1
-            field1
-            dataset2
-            field2
-          }
-        }
-        nextToken
-      }
-    }
-  }
-}
 mutation CreateChart($input: CreateChartInput!) {
   createChart(input: $input) {
     id
     name
     type
+    category
     dataset1
     field1
     dataset2
     field2
-    dashboards {
-      items {
-        id
-        dashboard {
-          id
-          name
-          owner
-          desc
-          charts {
-            nextToken
-          }
-          tags
-        }
-        chart {
+    dashboard {
+      id
+      name
+      owner
+      desc
+      charts {
+        items {
           id
           name
           type
+          category
           dataset1
           field1
           dataset2
           field2
-          dashboards {
-            nextToken
+          dashboard {
+            id
+            name
+            owner
+            desc
+            tags
           }
         }
+        nextToken
       }
-      nextToken
+      tags
     }
   }
 }
@@ -550,37 +396,37 @@ mutation UpdateChart($input: UpdateChartInput!) {
     id
     name
     type
+    category
     dataset1
     field1
     dataset2
     field2
-    dashboards {
-      items {
-        id
-        dashboard {
-          id
-          name
-          owner
-          desc
-          charts {
-            nextToken
-          }
-          tags
-        }
-        chart {
+    dashboard {
+      id
+      name
+      owner
+      desc
+      charts {
+        items {
           id
           name
           type
+          category
           dataset1
           field1
           dataset2
           field2
-          dashboards {
-            nextToken
+          dashboard {
+            id
+            name
+            owner
+            desc
+            tags
           }
         }
+        nextToken
       }
-      nextToken
+      tags
     }
   }
 }
@@ -589,37 +435,37 @@ mutation DeleteChart($input: DeleteChartInput!) {
     id
     name
     type
+    category
     dataset1
     field1
     dataset2
     field2
-    dashboards {
-      items {
-        id
-        dashboard {
-          id
-          name
-          owner
-          desc
-          charts {
-            nextToken
-          }
-          tags
-        }
-        chart {
+    dashboard {
+      id
+      name
+      owner
+      desc
+      charts {
+        items {
           id
           name
           type
+          category
           dataset1
           field1
           dataset2
           field2
-          dashboards {
-            nextToken
+          dashboard {
+            id
+            name
+            owner
+            desc
+            tags
           }
         }
+        nextToken
       }
-      nextToken
+      tags
     }
   }
 }
@@ -819,5 +665,21 @@ mutation DeleteField($input: DeleteFieldInput!) {
         nextToken
       }
     }
+  }
+}
+mutation CreateIoTData($input: CreateIoTDataInput!) {
+  createIoTData(input: $input) {
+    uuid
+    ts
+    type
+    battery
+    moisture
+    CO2
+    pH
+    conductivity
+    solids
+    salinity
+    s_gravity
+    uptime
   }
 }

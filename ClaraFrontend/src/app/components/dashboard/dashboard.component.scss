@@ -3,15 +3,15 @@
 .name-settings-panel {
   display: flex;
   align-items: center;
-  padding: 20px 80px;
+  padding: 20px 40px;
   background: $blue-gradient;
   color: white;
-  
-  h1 {
-    text-align: left;
-    flex: 1;
-    font-weight: 500;
-  }
+}
+
+.dashboard-info {
+  text-align: left;
+  flex: 3 0 0;
+  font-weight: 500;
 }
 
 .add-chart-btn {
@@ -20,6 +20,7 @@
   color: white;
   background-color: inherit;
   transition: $main-hover-transition;
+  flex: 0.2 0 0;
 
   &:hover {
     color: #EFEFEF;
@@ -30,6 +31,7 @@
 .add-chart-panel {
   z-index: 10;
   margin-left: 20%;
+  margin-bottom: 20%;
   position: fixed;
 }
 
