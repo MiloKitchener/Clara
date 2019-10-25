@@ -90,4 +90,5 @@ type Field @model {
 
 type Query {
   getARCGISData(dataset: String, field: String): String @function(name: "getARCGISData-${env}")
+  createDatasetAndFields(url: String): String @function(name: "createDatasetAndFields-${env}")
 }

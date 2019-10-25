@@ -2,6 +2,9 @@
 query GetArcgisData($dataset: String, $field: String) {
   getARCGISData(dataset: $dataset, field: $field)
 }
+query CreateDatasetAndFields($url: String) {
+  createDatasetAndFields(url: $url)
+}
 query GetArModel($id: ID!) {
   getARModel(id: $id) {
     id

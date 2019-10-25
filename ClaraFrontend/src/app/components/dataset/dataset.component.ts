@@ -117,14 +117,14 @@ export class DatasetComponent implements OnInit {
     this.datasetUploadView = this.datasetUploadView === false;
   }
 
-  // POSTS a dataset URL to the database
   uploadDataset() {
-    this.http.post(environment.backendIP + 'map/datasets', this.uploadForm.value).subscribe((res: string) => {
-      const resObj = JSON.parse(res);
-      this.uploadDataset = resObj[0]; // change for all datasets returned
-      this.uploadedDatasetName = this.uploadedDataset.db_Name;
-      this.uploadedDatasetFields = this.uploadedDataset.db_fields;
-    });
+    this.datasetService.createDatasetAndFields(this.uploadFullForm.value).then();
+    // this.http.post(environment.backendIP + 'map/datasets', this.uploadForm.value).subscribe((res: string) => {
+    //   const resObj = JSON.parse(res);
+    //   this.uploadDataset = resObj[0]; // change for all datasets returned
+    //   this.uploadedDatasetName = this.uploadedDataset.db_Name;
+    //   this.uploadedDatasetFields = this.uploadedDataset.db_fields;
+    // });
   }
 
   uploadFullDataset() {

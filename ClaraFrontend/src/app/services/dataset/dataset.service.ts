@@ -16,4 +16,8 @@ export class DatasetService {
   createDataset(dataset) {
     return this.apiService.CreateDataset(dataset);
   }
+
+  createDatasetAndFields(url: string) {
+    return this.apiService.CreateDatasetAndFields(url);
+  }
 }
