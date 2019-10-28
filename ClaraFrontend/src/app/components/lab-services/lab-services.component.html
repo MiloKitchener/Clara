@@ -10,39 +10,48 @@
           First
         </mz-collapsible-item-header>
         <mz-collapsible-item-body>
-          <p><strong>Pilot Description</strong><br></p>
-          <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
-              incididunt ut labore et dolore magna aliqua. Tristique magna sit amet purus gravida 
-              quis blandit. Id faucibus nisl tincidunt eget nullam non. Gravida rutrum quisque 
-              non tellus orci ac. Eleifend mi in nulla posuere sollicitudin. Bibendum ut tristique 
-              et egestas quis ipsum suspendisse ultrices gravida. Sed velit dignissim sodales ut 
-              eu sem integer vitae. Est sit amet facilisis magna etiam. Felis eget velit aliquet 
-              sagittis id consectetur purus ut faucibus. Aliquet porttitor lacus luctus accumsan 
-              tortor posuere ac ut consequat. 
-          </p>
-          <p>
-              <strong>Pilot Objectives</strong>
-          </p>
           <div class="col-left">
-            <mz-checkbox-container>
-              <input mz-checkbox
-                [label]="'This is the first objective of the pilot.'"
-                id="checkbox-id-1"
-                type="checkbox">
-                <br>
-                <input mz-checkbox
-                [label]="'This is the second objective of the pilot.'"
-                id="checkbox-id-2"
-                type="checkbox">
-                <br>
-                <input mz-checkbox
-                [label]="'This is the third objective of the pilot.'"
-                id="checkbox-id-3"
-                type="checkbox">
-            </mz-checkbox-container>
+              <p><strong>Pilot Description</strong><br></p>
+              <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+                  incididunt ut labore et dolore magna aliqua. Tristique magna sit amet purus gravida 
+                  quis blandit. Id faucibus nisl tincidunt eget nullam non. Gravida rutrum quisque 
+                  non tellus orci ac. Eleifend mi in nulla posuere sollicitudin. Bibendum ut tristique 
+                  et egestas quis ipsum suspendisse ultrices gravida. Sed velit dignissim sodales ut 
+                  eu sem integer vitae. Est sit amet facilisis magna etiam. Felis eget velit aliquet 
+                  sagittis id consectetur purus ut faucibus. Aliquet porttitor lacus luctus accumsan 
+                  tortor posuere ac ut consequat. 
+              </p>
+
+              <div class="col-left">
+                  <p><strong>Pilot Progress</strong></p>
+                    <mz-progress
+                      [backgroundClass]="'blue lighten-4'"
+                      [percentage]="55"
+                      [progressClass]="'blue'">
+                    </mz-progress>
+              </div>
+
+              <div class="col-left">
+                <p><strong>Pilot Objectives</strong></p>
+                <mz-checkbox-container>
+                  <input mz-checkbox
+                    [label]="'This is the first objective of the pilot.'"
+                    id="checkbox-id-1"
+                    type="checkbox">
+                    <br>
+                    <input mz-checkbox
+                    [label]="'This is the second objective of the pilot.'"
+                    id="checkbox-id-2"
+                    type="checkbox">
+                    <br>
+                    <input mz-checkbox
+                    [label]="'This is the third objective of the pilot.'"
+                    id="checkbox-id-3"
+                    type="checkbox">
+                </mz-checkbox-container>
+              </div>
           </div>
-          
         </mz-collapsible-item-body>
       </mz-collapsible-item>
       <mz-collapsible-item [active]="false">
