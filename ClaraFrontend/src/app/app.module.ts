@@ -49,7 +49,7 @@ import {OpenDataGraphPanelComponent} from './components/open-data-graph-panel/op
 
 // Materialize Components
 
-import { MzCollapsibleModule, MzSidenavModule, MzCheckboxModule } from 'ngx-materialize'
+import { MzCollapsibleModule, MzSidenavModule, MzCheckboxModule, MzProgressModule } from 'ngx-materialize'
 
 export const isMock = environment.mock;
 
@@ -100,7 +100,8 @@ export const isMock = environment.mock;
     MatExpansionModule,
     MzCollapsibleModule,
     MzSidenavModule,
-    MzCheckboxModule
+    MzCheckboxModule,
+    MzProgressModule
   ],
   providers: [
     CookieService,
