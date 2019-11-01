@@ -35,14 +35,24 @@ export class LiveDataGraphPanelComponent implements OnInit {
     if (this.selectedDevice && this.selectedField) {
       this.deviceService.getIoTData(this.selectedDevice.uuid, 5000).then((res) => {
         res.items.forEach((item) => {
-          this.chart.data.push(item[this.selectedField]);
-          this.chart.labels.push(item.ts);
+          if (this.chart.data.length > 30) {
+            this.chart.data.shift(item[this.selectedField]);
+            this.chart.labels.shift(item.ts);
+          } else {
+            this.chart.data.push(item[this.selectedField]);
+            this.chart.labels.push(item.ts);
+          }
         });
         this.deviceService.subscribeIoTData().subscribe(subscription => {
           // @ts-ignore
           const data = subscription.value.data.onCreateIoTData;
-          this.chart.data.push(data[this.selectedField]);
-          this.chart.labels.push(data.ts);
+          if (this.chart.data.length > 30) {
+            this.chart.data.shift(data[this.selectedField]);
+            this.chart.labels.shift(data.ts);
+          } else {
+            this.chart.data.push(data[this.selectedField]);
+            this.chart.labels.push(data.ts);
+          }
         });
         this.chart.field1 = this.selectedField;
         this.chart.url1 = this.selectedDevice.uuid;
