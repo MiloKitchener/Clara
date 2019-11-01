@@ -44,8 +44,14 @@ export class DashboardComponent implements OnInit {
             }
             if (data[chart.field1] != null) {
               console.log(data);
-              chart.data.push(data[chart.field1]);
-              chart.labels.push(data.ts);
+
+              if (chart.data.length > 30) {
+                chart.data.shift(data[chart.field1]);
+                chart.labels.shift(data.ts);
+              } else {
+                chart.data.push(data[chart.field1]);
+                chart.labels.push(data.ts);
+              }
             }
           });
         });
@@ -101,8 +107,13 @@ export class DashboardComponent implements OnInit {
         chart.data = [];
         chart.labels = [];
         res.items.forEach((item) => {
-          chart.data.push(item[chart.field1]);
-          chart.labels.push(item.ts);
+          if (chart.data.length > 30) {
+            chart.data.shift(item[chart.field1]);
+            chart.labels.shift(item.ts);
+          } else {
+            chart.data.push(item[chart.field1]);
+            chart.labels.push(item.ts);
+          }
         });
       });
     }
