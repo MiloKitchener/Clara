@@ -9,9 +9,26 @@ export class LabServicesComponent implements OnInit {
 
   constructor() { }
 
+  counter = 0;
+  percentage = 0;
   panelOpenState = false;
 
+  public objectives = [];
+
   ngOnInit() {
+  }
+
+  checkValue(event) {
+    console.log(event)
+
+    if (event.srcElement.checked === true) {
+       this.counter++
+    }
+    else if (event.srcElement.checked === false) {
+      this.counter--
+    }
+
+    this.percentage = (this.counter / 3) * 100;
   }
 
 }

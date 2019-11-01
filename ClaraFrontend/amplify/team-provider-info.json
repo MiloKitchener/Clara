@@ -15,7 +15,8 @@
                 "clarafrontende22e04c3": {}
             },
             "function": {
-                "getARCGISData": {}
+                "getARCGISData": {},
+                "createIoTData": {}
             }
         }
     },
