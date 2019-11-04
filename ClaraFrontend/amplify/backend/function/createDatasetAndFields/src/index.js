@@ -7,6 +7,7 @@ var apiClarafrontendGraphQLAPIEndpointOutput = process.env.API_CLARAFRONTEND_GRA
 
 Amplify Params - DO NOT EDIT */
 
+const axios = require('axios');
 const https = require('https');
 const AWS = require("aws-sdk");
 const urlParse = require("url").URL;
@@ -17,34 +18,43 @@ const endpoint = new urlParse(appsyncUrl).hostname.toString();
 exports.handler = async function (event, context) {
   console.log(event);
 
-  const url = event.arguments.url;
+  let url = event.arguments.url;
+  url = url.substring(5, url.length - 1);
+  console.log(url);
+  let fields = [];
+  let name = '';
+  await axios.get(url + '?f=json').then((response) => {
+    console.log(response);
+    response.data.fields.forEach((field) => {
+      fields.push(field.name);
+      console.log(field.name);
+    });
+    console.log(fields);
+  });
+  console.log('post post');
 
   const req = new AWS.HttpRequest(appsyncUrl, region);
-  const query = `
-   mutation createIoTData($input: CreateIoTDataInput!) {
-    createIoTData(input: $input) {
-      uuid
-      ts
-      type
-      battery
-      moisture
-      CO2
-      pH
-      conductivity
-      solids
-      salinity
-      s_gravity
-      uptime
-    }
-  }`;
+  const statement = `mutation CreateDataset($input: CreateDatasetInput!) {
+        createDataset(input: $input) {
+          id
+          name
+          desc
+          api_url
+          parent_url
+          type
+        }
+      }`;
 
   req.method = "POST";
   req.headers.host = endpoint;
   req.headers["Content-Type"] = "application/json";
   req.body = JSON.stringify({
-    query: query,
-    operationName: "createIoTData",
-    variables: {input: event}
+    query: statement,
+    operationName: "CreateDataset",
+    variables: {input: {
+        'name': name,
+        'api_url': url
+      }}
   });
 
   const signer = new AWS.Signers.V4(req, "appsync", true);
@@ -64,7 +74,8 @@ exports.handler = async function (event, context) {
 
   return {
     statusCode: 200,
-    body: data
+    // body: data
+    body: 'tempBody'
   };
 };
 

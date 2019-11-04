@@ -3475,6 +3475,19 @@ export class APIService {
     )) as any;
     return <string | null>response.data;
   }
+  async CreateDatasetAndFields(url?: string): Promise<string | null> {
+    const statement = `query CreateDatasetAndFields($url: String) {
+        createDatasetAndFields(url: $url)
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (url) {
+      gqlAPIServiceArguments.url = url;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <string | null>response.data;
+  }
   async GetArModel(id: string): Promise<GetArModelQuery> {
     const statement = `query GetArModel($id: ID!) {
         getARModel(id: $id) {

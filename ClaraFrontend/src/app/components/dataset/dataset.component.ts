@@ -118,7 +118,7 @@ export class DatasetComponent implements OnInit {
   }
 
   uploadDataset() {
-    this.datasetService.createDatasetAndFields(this.uploadFullForm.value).then();
+    this.datasetService.createDatasetAndFields(this.uploadForm.value).then();
     // this.http.post(environment.backendIP + 'map/datasets', this.uploadForm.value).subscribe((res: string) => {
     //   const resObj = JSON.parse(res);
     //   this.uploadDataset = resObj[0]; // change for all datasets returned
