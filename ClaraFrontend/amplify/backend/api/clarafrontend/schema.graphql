@@ -69,7 +69,12 @@ type Chart @model {
   dashboard: Dashboard @connection(name: "DashboardCharts")
 }
 
-type Dataset @model {
+type Dataset @model @auth (
+    rules: [
+        { allow: private, provider: iam, operations: [create] },
+        { allow: private, provider: userPools , operations: [create, read] }
+    ]
+) {
   id: ID!
   name: String
   desc: String
@@ -79,7 +84,12 @@ type Dataset @model {
   fields: [Field] @connection(name: "DatasetFields")
 }
 
-type Field @model {
+type Field @model @auth (
+    rules: [
+        { allow: private, provider: iam, operations: [create] },
+        { allow: private, provider: userPools , operations: [create, read] }
+    ]
+) {
   id: ID!
   name: String
   normalized_name: String

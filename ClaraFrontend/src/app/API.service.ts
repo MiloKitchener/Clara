@@ -147,15 +147,6 @@ export type DeleteChartInput = {
   id?: string | null;
 };
 
-export type CreateDatasetInput = {
-  id?: string | null;
-  name?: string | null;
-  desc?: string | null;
-  api_url?: string | null;
-  parent_url?: string | null;
-  type?: string | null;
-};
-
 export type UpdateDatasetInput = {
   id: string;
   name?: string | null;
@@ -167,15 +158,6 @@ export type UpdateDatasetInput = {
 
 export type DeleteDatasetInput = {
   id?: string | null;
-};
-
-export type CreateFieldInput = {
-  id?: string | null;
-  name?: string | null;
-  normalized_name?: string | null;
-  alias?: string | null;
-  type?: string | null;
-  fieldDatasetId?: string | null;
 };
 
 export type UpdateFieldInput = {
@@ -204,6 +186,24 @@ export type CreateIoTDataInput = {
   salinity?: number | null;
   s_gravity?: number | null;
   uptime?: Array<number | null> | null;
+};
+
+export type CreateDatasetInput = {
+  id?: string | null;
+  name?: string | null;
+  desc?: string | null;
+  api_url?: string | null;
+  parent_url?: string | null;
+  type?: string | null;
+};
+
+export type CreateFieldInput = {
+  id?: string | null;
+  name?: string | null;
+  normalized_name?: string | null;
+  alias?: string | null;
+  type?: string | null;
+  fieldDatasetId?: string | null;
 };
 
 export type ModelARModelFilterInput = {
@@ -894,41 +894,6 @@ export type DeleteChartMutation = {
   } | null;
 };
 
-export type CreateDatasetMutation = {
-  __typename: "Dataset";
-  id: string;
-  name: string | null;
-  desc: string | null;
-  api_url: string | null;
-  parent_url: string | null;
-  type: string | null;
-  fields: {
-    __typename: "ModelFieldConnection";
-    items: Array<{
-      __typename: "Field";
-      id: string;
-      name: string | null;
-      normalized_name: string | null;
-      alias: string | null;
-      type: string | null;
-      dataset: {
-        __typename: "Dataset";
-        id: string;
-        name: string | null;
-        desc: string | null;
-        api_url: string | null;
-        parent_url: string | null;
-        type: string | null;
-        fields: {
-          __typename: "ModelFieldConnection";
-          nextToken: string | null;
-        } | null;
-      } | null;
-    } | null> | null;
-    nextToken: string | null;
-  } | null;
-};
-
 export type UpdateDatasetMutation = {
   __typename: "Dataset";
   id: string;
@@ -996,45 +961,6 @@ export type DeleteDatasetMutation = {
       } | null;
     } | null> | null;
     nextToken: string | null;
-  } | null;
-};
-
-export type CreateFieldMutation = {
-  __typename: "Field";
-  id: string;
-  name: string | null;
-  normalized_name: string | null;
-  alias: string | null;
-  type: string | null;
-  dataset: {
-    __typename: "Dataset";
-    id: string;
-    name: string | null;
-    desc: string | null;
-    api_url: string | null;
-    parent_url: string | null;
-    type: string | null;
-    fields: {
-      __typename: "ModelFieldConnection";
-      items: Array<{
-        __typename: "Field";
-        id: string;
-        name: string | null;
-        normalized_name: string | null;
-        alias: string | null;
-        type: string | null;
-        dataset: {
-          __typename: "Dataset";
-          id: string;
-          name: string | null;
-          desc: string | null;
-          api_url: string | null;
-          parent_url: string | null;
-          type: string | null;
-        } | null;
-      } | null> | null;
-      nextToken: string | null;
-    } | null;
   } | null;
 };
 
@@ -1130,6 +1056,80 @@ export type CreateIoTDataMutation = {
   salinity: number | null;
   s_gravity: number | null;
   uptime: Array<number | null> | null;
+};
+
+export type CreateDatasetMutation = {
+  __typename: "Dataset";
+  id: string;
+  name: string | null;
+  desc: string | null;
+  api_url: string | null;
+  parent_url: string | null;
+  type: string | null;
+  fields: {
+    __typename: "ModelFieldConnection";
+    items: Array<{
+      __typename: "Field";
+      id: string;
+      name: string | null;
+      normalized_name: string | null;
+      alias: string | null;
+      type: string | null;
+      dataset: {
+        __typename: "Dataset";
+        id: string;
+        name: string | null;
+        desc: string | null;
+        api_url: string | null;
+        parent_url: string | null;
+        type: string | null;
+        fields: {
+          __typename: "ModelFieldConnection";
+          nextToken: string | null;
+        } | null;
+      } | null;
+    } | null> | null;
+    nextToken: string | null;
+  } | null;
+};
+
+export type CreateFieldMutation = {
+  __typename: "Field";
+  id: string;
+  name: string | null;
+  normalized_name: string | null;
+  alias: string | null;
+  type: string | null;
+  dataset: {
+    __typename: "Dataset";
+    id: string;
+    name: string | null;
+    desc: string | null;
+    api_url: string | null;
+    parent_url: string | null;
+    type: string | null;
+    fields: {
+      __typename: "ModelFieldConnection";
+      items: Array<{
+        __typename: "Field";
+        id: string;
+        name: string | null;
+        normalized_name: string | null;
+        alias: string | null;
+        type: string | null;
+        dataset: {
+          __typename: "Dataset";
+          id: string;
+          name: string | null;
+          desc: string | null;
+          api_url: string | null;
+          parent_url: string | null;
+          type: string | null;
+        } | null;
+      } | null> | null;
+      nextToken: string | null;
+    } | null;
+  } | null;
 };
 
 export type GetArModelQuery = {
@@ -2168,41 +2168,6 @@ export type OnDeleteChartSubscription = {
   } | null;
 };
 
-export type OnCreateDatasetSubscription = {
-  __typename: "Dataset";
-  id: string;
-  name: string | null;
-  desc: string | null;
-  api_url: string | null;
-  parent_url: string | null;
-  type: string | null;
-  fields: {
-    __typename: "ModelFieldConnection";
-    items: Array<{
-      __typename: "Field";
-      id: string;
-      name: string | null;
-      normalized_name: string | null;
-      alias: string | null;
-      type: string | null;
-      dataset: {
-        __typename: "Dataset";
-        id: string;
-        name: string | null;
-        desc: string | null;
-        api_url: string | null;
-        parent_url: string | null;
-        type: string | null;
-        fields: {
-          __typename: "ModelFieldConnection";
-          nextToken: string | null;
-        } | null;
-      } | null;
-    } | null> | null;
-    nextToken: string | null;
-  } | null;
-};
-
 export type OnUpdateDatasetSubscription = {
   __typename: "Dataset";
   id: string;
@@ -2273,45 +2238,6 @@ export type OnDeleteDatasetSubscription = {
   } | null;
 };
 
-export type OnCreateFieldSubscription = {
-  __typename: "Field";
-  id: string;
-  name: string | null;
-  normalized_name: string | null;
-  alias: string | null;
-  type: string | null;
-  dataset: {
-    __typename: "Dataset";
-    id: string;
-    name: string | null;
-    desc: string | null;
-    api_url: string | null;
-    parent_url: string | null;
-    type: string | null;
-    fields: {
-      __typename: "ModelFieldConnection";
-      items: Array<{
-        __typename: "Field";
-        id: string;
-        name: string | null;
-        normalized_name: string | null;
-        alias: string | null;
-        type: string | null;
-        dataset: {
-          __typename: "Dataset";
-          id: string;
-          name: string | null;
-          desc: string | null;
-          api_url: string | null;
-          parent_url: string | null;
-          type: string | null;
-        } | null;
-      } | null> | null;
-      nextToken: string | null;
-    } | null;
-  } | null;
-};
-
 export type OnUpdateFieldSubscription = {
   __typename: "Field";
   id: string;
@@ -2352,6 +2278,80 @@ export type OnUpdateFieldSubscription = {
 };
 
 export type OnDeleteFieldSubscription = {
+  __typename: "Field";
+  id: string;
+  name: string | null;
+  normalized_name: string | null;
+  alias: string | null;
+  type: string | null;
+  dataset: {
+    __typename: "Dataset";
+    id: string;
+    name: string | null;
+    desc: string | null;
+    api_url: string | null;
+    parent_url: string | null;
+    type: string | null;
+    fields: {
+      __typename: "ModelFieldConnection";
+      items: Array<{
+        __typename: "Field";
+        id: string;
+        name: string | null;
+        normalized_name: string | null;
+        alias: string | null;
+        type: string | null;
+        dataset: {
+          __typename: "Dataset";
+          id: string;
+          name: string | null;
+          desc: string | null;
+          api_url: string | null;
+          parent_url: string | null;
+          type: string | null;
+        } | null;
+      } | null> | null;
+      nextToken: string | null;
+    } | null;
+  } | null;
+};
+
+export type OnCreateDatasetSubscription = {
+  __typename: "Dataset";
+  id: string;
+  name: string | null;
+  desc: string | null;
+  api_url: string | null;
+  parent_url: string | null;
+  type: string | null;
+  fields: {
+    __typename: "ModelFieldConnection";
+    items: Array<{
+      __typename: "Field";
+      id: string;
+      name: string | null;
+      normalized_name: string | null;
+      alias: string | null;
+      type: string | null;
+      dataset: {
+        __typename: "Dataset";
+        id: string;
+        name: string | null;
+        desc: string | null;
+        api_url: string | null;
+        parent_url: string | null;
+        type: string | null;
+        fields: {
+          __typename: "ModelFieldConnection";
+          nextToken: string | null;
+        } | null;
+      } | null;
+    } | null> | null;
+    nextToken: string | null;
+  } | null;
+};
+
+export type OnCreateFieldSubscription = {
   __typename: "Field";
   id: string;
   name: string | null;
@@ -3140,53 +3140,6 @@ export class APIService {
     )) as any;
     return <DeleteChartMutation>response.data.deleteChart;
   }
-  async CreateDataset(
-    input: CreateDatasetInput
-  ): Promise<CreateDatasetMutation> {
-    const statement = `mutation CreateDataset($input: CreateDatasetInput!) {
-        createDataset(input: $input) {
-          __typename
-          id
-          name
-          desc
-          api_url
-          parent_url
-          type
-          fields {
-            __typename
-            items {
-              __typename
-              id
-              name
-              normalized_name
-              alias
-              type
-              dataset {
-                __typename
-                id
-                name
-                desc
-                api_url
-                parent_url
-                type
-                fields {
-                  __typename
-                  nextToken
-                }
-              }
-            }
-            nextToken
-          }
-        }
-      }`;
-    const gqlAPIServiceArguments: any = {
-      input
-    };
-    const response = (await API.graphql(
-      graphqlOperation(statement, gqlAPIServiceArguments)
-    )) as any;
-    return <CreateDatasetMutation>response.data.createDataset;
-  }
   async UpdateDataset(
     input: UpdateDatasetInput
   ): Promise<UpdateDatasetMutation> {
@@ -3280,55 +3233,6 @@ export class APIService {
       graphqlOperation(statement, gqlAPIServiceArguments)
     )) as any;
     return <DeleteDatasetMutation>response.data.deleteDataset;
-  }
-  async CreateField(input: CreateFieldInput): Promise<CreateFieldMutation> {
-    const statement = `mutation CreateField($input: CreateFieldInput!) {
-        createField(input: $input) {
-          __typename
-          id
-          name
-          normalized_name
-          alias
-          type
-          dataset {
-            __typename
-            id
-            name
-            desc
-            api_url
-            parent_url
-            type
-            fields {
-              __typename
-              items {
-                __typename
-                id
-                name
-                normalized_name
-                alias
-                type
-                dataset {
-                  __typename
-                  id
-                  name
-                  desc
-                  api_url
-                  parent_url
-                  type
-                }
-              }
-              nextToken
-            }
-          }
-        }
-      }`;
-    const gqlAPIServiceArguments: any = {
-      input
-    };
-    const response = (await API.graphql(
-      graphqlOperation(statement, gqlAPIServiceArguments)
-    )) as any;
-    return <CreateFieldMutation>response.data.createField;
   }
   async UpdateField(input: UpdateFieldInput): Promise<UpdateFieldMutation> {
     const statement = `mutation UpdateField($input: UpdateFieldInput!) {
@@ -3455,6 +3359,102 @@ export class APIService {
       graphqlOperation(statement, gqlAPIServiceArguments)
     )) as any;
     return <CreateIoTDataMutation>response.data.createIoTData;
+  }
+  async CreateDataset(
+    input: CreateDatasetInput
+  ): Promise<CreateDatasetMutation> {
+    const statement = `mutation CreateDataset($input: CreateDatasetInput!) {
+        createDataset(input: $input) {
+          __typename
+          id
+          name
+          desc
+          api_url
+          parent_url
+          type
+          fields {
+            __typename
+            items {
+              __typename
+              id
+              name
+              normalized_name
+              alias
+              type
+              dataset {
+                __typename
+                id
+                name
+                desc
+                api_url
+                parent_url
+                type
+                fields {
+                  __typename
+                  nextToken
+                }
+              }
+            }
+            nextToken
+          }
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      input
+    };
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <CreateDatasetMutation>response.data.createDataset;
+  }
+  async CreateField(input: CreateFieldInput): Promise<CreateFieldMutation> {
+    const statement = `mutation CreateField($input: CreateFieldInput!) {
+        createField(input: $input) {
+          __typename
+          id
+          name
+          normalized_name
+          alias
+          type
+          dataset {
+            __typename
+            id
+            name
+            desc
+            api_url
+            parent_url
+            type
+            fields {
+              __typename
+              items {
+                __typename
+                id
+                name
+                normalized_name
+                alias
+                type
+                dataset {
+                  __typename
+                  id
+                  name
+                  desc
+                  api_url
+                  parent_url
+                  type
+                }
+              }
+              nextToken
+            }
+          }
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      input
+    };
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <CreateFieldMutation>response.data.createField;
   }
   async GetArcgisData(
     dataset?: string,
@@ -4972,49 +4972,6 @@ export class APIService {
     )
   ) as Observable<OnDeleteChartSubscription>;
 
-  OnCreateDatasetListener: Observable<
-    OnCreateDatasetSubscription
-  > = API.graphql(
-    graphqlOperation(
-      `subscription OnCreateDataset {
-        onCreateDataset {
-          __typename
-          id
-          name
-          desc
-          api_url
-          parent_url
-          type
-          fields {
-            __typename
-            items {
-              __typename
-              id
-              name
-              normalized_name
-              alias
-              type
-              dataset {
-                __typename
-                id
-                name
-                desc
-                api_url
-                parent_url
-                type
-                fields {
-                  __typename
-                  nextToken
-                }
-              }
-            }
-            nextToken
-          }
-        }
-      }`
-    )
-  ) as Observable<OnCreateDatasetSubscription>;
-
   OnUpdateDatasetListener: Observable<
     OnUpdateDatasetSubscription
   > = API.graphql(
@@ -5100,51 +5057,6 @@ export class APIService {
       }`
     )
   ) as Observable<OnDeleteDatasetSubscription>;
-
-  OnCreateFieldListener: Observable<OnCreateFieldSubscription> = API.graphql(
-    graphqlOperation(
-      `subscription OnCreateField {
-        onCreateField {
-          __typename
-          id
-          name
-          normalized_name
-          alias
-          type
-          dataset {
-            __typename
-            id
-            name
-            desc
-            api_url
-            parent_url
-            type
-            fields {
-              __typename
-              items {
-                __typename
-                id
-                name
-                normalized_name
-                alias
-                type
-                dataset {
-                  __typename
-                  id
-                  name
-                  desc
-                  api_url
-                  parent_url
-                  type
-                }
-              }
-              nextToken
-            }
-          }
-        }
-      }`
-    )
-  ) as Observable<OnCreateFieldSubscription>;
 
   OnUpdateFieldListener: Observable<OnUpdateFieldSubscription> = API.graphql(
     graphqlOperation(
@@ -5235,4 +5147,92 @@ export class APIService {
       }`
     )
   ) as Observable<OnDeleteFieldSubscription>;
+
+  OnCreateDatasetListener: Observable<
+    OnCreateDatasetSubscription
+  > = API.graphql(
+    graphqlOperation(
+      `subscription OnCreateDataset {
+        onCreateDataset {
+          __typename
+          id
+          name
+          desc
+          api_url
+          parent_url
+          type
+          fields {
+            __typename
+            items {
+              __typename
+              id
+              name
+              normalized_name
+              alias
+              type
+              dataset {
+                __typename
+                id
+                name
+                desc
+                api_url
+                parent_url
+                type
+                fields {
+                  __typename
+                  nextToken
+                }
+              }
+            }
+            nextToken
+          }
+        }
+      }`
+    )
+  ) as Observable<OnCreateDatasetSubscription>;
+
+  OnCreateFieldListener: Observable<OnCreateFieldSubscription> = API.graphql(
+    graphqlOperation(
+      `subscription OnCreateField {
+        onCreateField {
+          __typename
+          id
+          name
+          normalized_name
+          alias
+          type
+          dataset {
+            __typename
+            id
+            name
+            desc
+            api_url
+            parent_url
+            type
+            fields {
+              __typename
+              items {
+                __typename
+                id
+                name
+                normalized_name
+                alias
+                type
+                dataset {
+                  __typename
+                  id
+                  name
+                  desc
+                  api_url
+                  parent_url
+                  type
+                }
+              }
+              nextToken
+            }
+          }
+        }
+      }`
+    )
+  ) as Observable<OnCreateFieldSubscription>;
 }

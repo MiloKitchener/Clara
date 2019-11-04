@@ -485,37 +485,6 @@ subscription OnDeleteChart {
     }
   }
 }
-subscription OnCreateDataset {
-  onCreateDataset {
-    id
-    name
-    desc
-    api_url
-    parent_url
-    type
-    fields {
-      items {
-        id
-        name
-        normalized_name
-        alias
-        type
-        dataset {
-          id
-          name
-          desc
-          api_url
-          parent_url
-          type
-          fields {
-            nextToken
-          }
-        }
-      }
-      nextToken
-    }
-  }
-}
 subscription OnUpdateDataset {
   onUpdateDataset {
     id
@@ -578,41 +547,6 @@ subscription OnDeleteDataset {
     }
   }
 }
-subscription OnCreateField {
-  onCreateField {
-    id
-    name
-    normalized_name
-    alias
-    type
-    dataset {
-      id
-      name
-      desc
-      api_url
-      parent_url
-      type
-      fields {
-        items {
-          id
-          name
-          normalized_name
-          alias
-          type
-          dataset {
-            id
-            name
-            desc
-            api_url
-            parent_url
-            type
-          }
-        }
-        nextToken
-      }
-    }
-  }
-}
 subscription OnUpdateField {
   onUpdateField {
     id
@@ -650,6 +584,72 @@ subscription OnUpdateField {
 }
 subscription OnDeleteField {
   onDeleteField {
+    id
+    name
+    normalized_name
+    alias
+    type
+    dataset {
+      id
+      name
+      desc
+      api_url
+      parent_url
+      type
+      fields {
+        items {
+          id
+          name
+          normalized_name
+          alias
+          type
+          dataset {
+            id
+            name
+            desc
+            api_url
+            parent_url
+            type
+          }
+        }
+        nextToken
+      }
+    }
+  }
+}
+subscription OnCreateDataset {
+  onCreateDataset {
+    id
+    name
+    desc
+    api_url
+    parent_url
+    type
+    fields {
+      items {
+        id
+        name
+        normalized_name
+        alias
+        type
+        dataset {
+          id
+          name
+          desc
+          api_url
+          parent_url
+          type
+          fields {
+            nextToken
+          }
+        }
+      }
+      nextToken
+    }
+  }
+}
+subscription OnCreateField {
+  onCreateField {
     id
     name
     normalized_name

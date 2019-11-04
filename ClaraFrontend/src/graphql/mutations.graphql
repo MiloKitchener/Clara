@@ -469,37 +469,6 @@ mutation DeleteChart($input: DeleteChartInput!) {
     }
   }
 }
-mutation CreateDataset($input: CreateDatasetInput!) {
-  createDataset(input: $input) {
-    id
-    name
-    desc
-    api_url
-    parent_url
-    type
-    fields {
-      items {
-        id
-        name
-        normalized_name
-        alias
-        type
-        dataset {
-          id
-          name
-          desc
-          api_url
-          parent_url
-          type
-          fields {
-            nextToken
-          }
-        }
-      }
-      nextToken
-    }
-  }
-}
 mutation UpdateDataset($input: UpdateDatasetInput!) {
   updateDataset(input: $input) {
     id
@@ -559,41 +528,6 @@ mutation DeleteDataset($input: DeleteDatasetInput!) {
         }
       }
       nextToken
-    }
-  }
-}
-mutation CreateField($input: CreateFieldInput!) {
-  createField(input: $input) {
-    id
-    name
-    normalized_name
-    alias
-    type
-    dataset {
-      id
-      name
-      desc
-      api_url
-      parent_url
-      type
-      fields {
-        items {
-          id
-          name
-          normalized_name
-          alias
-          type
-          dataset {
-            id
-            name
-            desc
-            api_url
-            parent_url
-            type
-          }
-        }
-        nextToken
-      }
     }
   }
 }
@@ -681,5 +615,71 @@ mutation CreateIoTData($input: CreateIoTDataInput!) {
     salinity
     s_gravity
     uptime
+  }
+}
+mutation CreateDataset($input: CreateDatasetInput!) {
+  createDataset(input: $input) {
+    id
+    name
+    desc
+    api_url
+    parent_url
+    type
+    fields {
+      items {
+        id
+        name
+        normalized_name
+        alias
+        type
+        dataset {
+          id
+          name
+          desc
+          api_url
+          parent_url
+          type
+          fields {
+            nextToken
+          }
+        }
+      }
+      nextToken
+    }
+  }
+}
+mutation CreateField($input: CreateFieldInput!) {
+  createField(input: $input) {
+    id
+    name
+    normalized_name
+    alias
+    type
+    dataset {
+      id
+      name
+      desc
+      api_url
+      parent_url
+      type
+      fields {
+        items {
+          id
+          name
+          normalized_name
+          alias
+          type
+          dataset {
+            id
+            name
+            desc
+            api_url
+            parent_url
+            type
+          }
+        }
+        nextToken
+      }
+    }
   }
 }
