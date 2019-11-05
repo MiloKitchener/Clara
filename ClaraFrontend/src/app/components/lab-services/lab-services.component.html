@@ -27,29 +27,31 @@
                   <p><strong>Pilot Progress</strong></p>
                     <mz-progress
                       [backgroundClass]="'blue lighten-4'"
-                      [percentage]="55"
+                      [percentage]= "percentage"
                       [progressClass]="'blue'">
                     </mz-progress>
               </div>
 
               <div class="col-left">
                 <p><strong>Pilot Objectives</strong></p>
-                <mz-checkbox-container>
-                  <input mz-checkbox
-                    [label]="'This is the first objective of the pilot.'"
-                    id="checkbox-id-1"
-                    type="checkbox">
-                    <br>
-                    <input mz-checkbox
-                    [label]="'This is the second objective of the pilot.'"
-                    id="checkbox-id-2"
-                    type="checkbox">
-                    <br>
-                    <input mz-checkbox
-                    [label]="'This is the third objective of the pilot.'"
-                    id="checkbox-id-3"
-                    type="checkbox">
-                </mz-checkbox-container>
+                <div class="check">
+                    <mz-checkbox-container>
+                        <input mz-checkbox (change) = "checkValue($event)"
+                          [label]="'This is the first objective of the pilot.'"
+                          id="checkbox-id-1"
+                          type="checkbox">
+                          <br>
+                          <input mz-checkbox (change) = "checkValue($event)"
+                          [label]="'This is the second objective of the pilot.'"
+                          id="checkbox-id-2"
+                          type="checkbox">
+                          <br>
+                          <input mz-checkbox (change) = "checkValue($event)"
+                          [label]="'This is the third objective of the pilot.'"
+                          id="checkbox-id-3"
+                          type="checkbox">
+                      </mz-checkbox-container>
+                </div>
               </div>
           </div>
         </mz-collapsible-item-body>
