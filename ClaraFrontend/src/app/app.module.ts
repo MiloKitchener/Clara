@@ -10,7 +10,9 @@ import {
   MatExpansionModule,
   MatTabsModule,
   MatSelectModule,
-  MatDialogModule, MatGridListModule, MatIconModule, MatCardModule, MatSnackBarModule
+  MatDialogModule, MatGridListModule, MatIconModule, MatCardModule, MatSnackBarModule,
+  MatCheckboxModule,
+  MatCheckbox
 } from '@angular/material';
 import { CookieService } from 'ngx-cookie-service';
 
@@ -92,6 +94,7 @@ export const isMock = environment.mock;
     MatCardModule,
     MatSnackBarModule,
     MatExpansionModule,
+    MatCheckboxModule,
     MzCollapsibleModule,
     MzSidenavModule,
     MzCheckboxModule,

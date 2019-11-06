@@ -19,9 +19,9 @@ export class PilotCardsComponent implements OnInit {
   checkValue(event) {
     console.log(event);
 
-    if (event.srcElement.checked === true) {
+    if (event.checked === true) {
        this.counter++;
-    } else if (event.srcElement.checked === false) {
+    } else if (event.checked === false) {
       this.counter--;
     }
 
