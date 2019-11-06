@@ -1,9 +1,3 @@
-type ARModel @model {
-	id: ID!
-	name: String!
-	scale: Float
-}
-
 type IoTDevice @model {
   id: ID!
   uuid: String!

@@ -1,35 +1,35 @@
-<div class="submit-dataset-panel" [ngStyle]="{'display': (datasetUploadView === true) ? 'block' : 'none'}">
-	<div [ngStyle]="{'display': uploadedDataset === null ? 'block' : 'none'}">
-		<form [formGroup]="uploadForm" (ngSubmit)="uploadDataset()">
-			<input type="text" formControlName="url" placeholder="Database URL">
-			<br>
-			<input type="submit" value="Upload Dataset">
-		</form>
-    <p>OR</p>
-    <form [formGroup]="uploadFullForm" (ngSubmit)="uploadFullDataset()">
-			<input type="text" formControlName="name" placeholder="Name">
-			<br>
-      <input type="text" formControlName="desc" placeholder="Description">
-			<br>
-      <input type="text" formControlName="api_url" placeholder="URL">
-			<br>
-      <input type="text" formControlName="parent_url" placeholder="Parent URL">
-			<br>
-			<input type="submit" value="Upload Dataset Full">
-		</form>
-		<button class="close-dataset-panel-btn" (click)="toggleDatasetUpload()">Cancel</button>
-	</div>
-	<div class="submit-dataset-proceed-panel" [ngStyle]="{'display': uploadedDataset === null ? 'none' : 'block'}">
-		<h3>{{ uploadedDatasetName }}</h3>
-		<ul class="dataset-fields">
-			<li *ngFor="let field of uploadedDatasetFields">
-				{{ field.field_name }}
-			</li>
-		</ul>
-		<button>Upload Dataset</button>
-		<button class="closeDatasetPanelBtn" (click)="toggleDatasetUpload();this.uploadedDataset=null;">Cancel</button>
-	</div>
-</div>
+<!--<div class="submit-dataset-panel" [ngStyle]="{'display': (datasetUploadView === true) ? 'block' : 'none'}">-->
+<!--	<div [ngStyle]="{'display': uploadedDataset === null ? 'block' : 'none'}">-->
+<!--		<form [formGroup]="uploadForm" (ngSubmit)="uploadDataset()">-->
+<!--			<input type="text" formControlName="url" placeholder="Database URL">-->
+<!--			<br>-->
+<!--			<input type="submit" value="Upload Dataset">-->
+<!--		</form>-->
+<!--    <p>OR</p>-->
+<!--    <form [formGroup]="uploadFullForm" (ngSubmit)="uploadFullDataset()">-->
+<!--			<input type="text" formControlName="name" placeholder="Name">-->
+<!--			<br>-->
+<!--      <input type="text" formControlName="desc" placeholder="Description">-->
+<!--			<br>-->
+<!--      <input type="text" formControlName="api_url" placeholder="URL">-->
+<!--			<br>-->
+<!--      <input type="text" formControlName="parent_url" placeholder="Parent URL">-->
+<!--			<br>-->
+<!--			<input type="submit" value="Upload Dataset Full">-->
+<!--		</form>-->
+<!--		<button class="close-dataset-panel-btn" (click)="toggleDatasetUpload()">Cancel</button>-->
+<!--	</div>-->
+<!--	<div class="submit-dataset-proceed-panel" [ngStyle]="{'display': uploadedDataset === null ? 'none' : 'block'}">-->
+<!--		<h3>{{ uploadedDatasetName }}</h3>-->
+<!--		<ul class="dataset-fields">-->
+<!--			<li *ngFor="let field of uploadedDatasetFields">-->
+<!--				{{ field.field_name }}-->
+<!--			</li>-->
+<!--		</ul>-->
+<!--		<button>Upload Dataset</button>-->
+<!--		<button class="closeDatasetPanelBtn" (click)="toggleDatasetUpload();this.uploadedDataset=null;">Cancel</button>-->
+<!--	</div>-->
+<!--</div>-->
 
 <div class=search-panel>
 	<h1>Find a Dataset</h1>

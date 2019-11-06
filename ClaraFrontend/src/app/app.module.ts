@@ -47,6 +47,7 @@ import {OpenDataGraphPanelComponent} from './components/open-data-graph-panel/op
 
 import { MzCollapsibleModule, MzSidenavModule, MzCheckboxModule, MzProgressModule } from 'ngx-materialize';
 import {PilotCardsComponent} from './components/pilot-cards/pilot-cards.component';
+import { DatasetAddPanelComponent } from './components/dataset-add-panel/dataset-add-panel.component';
 
 export const isMock = environment.mock;
 
@@ -70,6 +71,7 @@ export const isMock = environment.mock;
     DashboardComponent,
     ChartComponent,
     PilotCardsComponent,
+    DatasetAddPanelComponent,
   ],
   imports: [
     BrowserModule,

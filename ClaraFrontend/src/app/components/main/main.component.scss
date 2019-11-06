@@ -93,7 +93,7 @@ nav {
   height: 100%;
   background-color: $color-nav;
   overflow-x: hidden;
-  line-height: 0px;
+  line-height: 0;
 
   i {
     color: #8E8F93;
@@ -144,29 +144,27 @@ nav {
       }
     }
 
-    li {
-      a {
-        display: flex;
-        align-items: center;
-        padding: 10px $nav-item-side-padding;
-        color: #F5F5F5;
-        font-size: 1.6vh;
-        text-decoration: none;
+    a {
+      display: flex;
+      align-items: center;
+      padding: 10px $nav-item-side-padding;
+      color: #F5F5F5;
+      font-size: 1.6vh;
+      text-decoration: none;
+      transition: $main-hover-transition;
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.2);
         transition: $main-hover-transition;
+      }
 
-        &:hover {
-          background-color: rgba(0, 0, 0, 0.2);
-          transition: $main-hover-transition;
-        }
+      &:focus {
+        outline: none;
+      }
 
-        &:focus {
-          outline: none;
-        }
-
-        i {
-          color: #F5F5F5;
-          margin-right: 10px;
-        }
+      i {
+        color: #F5F5F5;
+        margin-right: 10px;
       }
     }
   }
@@ -217,10 +215,9 @@ router-outlet ~ * {
     margin-left: 0;
     width: 100%;
     display: block;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.08);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.08);
 
     i:first-child {
-      margin-left: 0;
       margin: 10px;
       float: left;
     }

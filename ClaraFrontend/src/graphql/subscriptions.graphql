@@ -1,25 +1,4 @@
 # this is an auto generated file. This will be overwritten
-subscription OnCreateArModel {
-  onCreateARModel {
-    id
-    name
-    scale
-  }
-}
-subscription OnUpdateArModel {
-  onUpdateARModel {
-    id
-    name
-    scale
-  }
-}
-subscription OnDeleteArModel {
-  onDeleteARModel {
-    id
-    name
-    scale
-  }
-}
 subscription OnCreateIoTDevice {
   onCreateIoTDevice {
     id

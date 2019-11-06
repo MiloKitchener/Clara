@@ -33,10 +33,6 @@ export class MainComponent implements OnInit {
     });
   }
 
-  /*********************
-   *  Class Methods
-   ********************/
-
   // Logs user out of the site, returns to login page
   public logout() {
     this.logoutService.logout();

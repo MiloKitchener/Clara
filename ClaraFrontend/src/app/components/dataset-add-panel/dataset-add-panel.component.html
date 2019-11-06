@@ -1,0 +1,7 @@
+<mat-dialog-content>
+  <form [formGroup]="uploadForm" (ngSubmit)="uploadDataset()">
+    <input type="text" formControlName="url" placeholder="Database URL">
+    <br>
+    <input type="submit" value="Upload Dataset">
+  </form>
+</mat-dialog-content>

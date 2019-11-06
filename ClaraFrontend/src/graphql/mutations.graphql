@@ -1,25 +1,4 @@
 # this is an auto generated file. This will be overwritten
-mutation CreateArModel($input: CreateARModelInput!) {
-  createARModel(input: $input) {
-    id
-    name
-    scale
-  }
-}
-mutation UpdateArModel($input: UpdateARModelInput!) {
-  updateARModel(input: $input) {
-    id
-    name
-    scale
-  }
-}
-mutation DeleteArModel($input: DeleteARModelInput!) {
-  deleteARModel(input: $input) {
-    id
-    name
-    scale
-  }
-}
 mutation CreateIoTDevice($input: CreateIoTDeviceInput!) {
   createIoTDevice(input: $input) {
     id

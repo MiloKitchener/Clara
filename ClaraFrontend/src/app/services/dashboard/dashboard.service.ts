@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Dashboard } from 'src/app/interfaces/dashboard';
 
 import { Chart } from 'src/app/interfaces/chart';
-import {APIService} from '../../API.service';
+import {APIService, ListDashboardsQuery} from '../../API.service';
 
 @Injectable({
   providedIn: 'root'
@@ -26,7 +26,7 @@ export class DashboardService {
   }
 
   // GET Dashboards
-  getDashboards() {
+  getDashboards(): Promise<ListDashboardsQuery> {
     return this.apiService.ListDashboards();
   }
 

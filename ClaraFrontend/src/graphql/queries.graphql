@@ -5,27 +5,6 @@ query GetArcgisData($dataset: String, $field: String) {
 query CreateDatasetAndFields($url: String) {
   createDatasetAndFields(url: $url)
 }
-query GetArModel($id: ID!) {
-  getARModel(id: $id) {
-    id
-    name
-    scale
-  }
-}
-query ListArModels(
-  $filter: ModelARModelFilterInput
-  $limit: Int
-  $nextToken: String
-) {
-  listARModels(filter: $filter, limit: $limit, nextToken: $nextToken) {
-    items {
-      id
-      name
-      scale
-    }
-    nextToken
-  }
-}
 query GetIoTDevice($id: ID!) {
   getIoTDevice(id: $id) {
     id

@@ -5,22 +5,6 @@ import API, { graphqlOperation } from "@aws-amplify/api";
 import { GraphQLResult } from "@aws-amplify/api/lib/types";
 import * as Observable from "zen-observable";
 
-export type CreateARModelInput = {
-  id?: string | null;
-  name: string;
-  scale?: number | null;
-};
-
-export type UpdateARModelInput = {
-  id: string;
-  name?: string | null;
-  scale?: number | null;
-};
-
-export type DeleteARModelInput = {
-  id?: string | null;
-};
-
 export type CreateIoTDeviceInput = {
   id?: string | null;
   uuid: string;
@@ -206,13 +190,14 @@ export type CreateFieldInput = {
   fieldDatasetId?: string | null;
 };
 
-export type ModelARModelFilterInput = {
+export type ModelIoTDeviceFilterInput = {
   id?: ModelIDFilterInput | null;
-  name?: ModelStringFilterInput | null;
-  scale?: ModelFloatFilterInput | null;
-  and?: Array<ModelARModelFilterInput | null> | null;
-  or?: Array<ModelARModelFilterInput | null> | null;
-  not?: ModelARModelFilterInput | null;
+  uuid?: ModelStringFilterInput | null;
+  type?: ModelStringFilterInput | null;
+  fields?: ModelStringFilterInput | null;
+  and?: Array<ModelIoTDeviceFilterInput | null> | null;
+  or?: Array<ModelIoTDeviceFilterInput | null> | null;
+  not?: ModelIoTDeviceFilterInput | null;
 };
 
 export type ModelIDFilterInput = {
@@ -239,28 +224,6 @@ export type ModelStringFilterInput = {
   notContains?: string | null;
   between?: Array<string | null> | null;
   beginsWith?: string | null;
-};
-
-export type ModelFloatFilterInput = {
-  ne?: number | null;
-  eq?: number | null;
-  le?: number | null;
-  lt?: number | null;
-  ge?: number | null;
-  gt?: number | null;
-  contains?: number | null;
-  notContains?: number | null;
-  between?: Array<number | null> | null;
-};
-
-export type ModelIoTDeviceFilterInput = {
-  id?: ModelIDFilterInput | null;
-  uuid?: ModelStringFilterInput | null;
-  type?: ModelStringFilterInput | null;
-  fields?: ModelStringFilterInput | null;
-  and?: Array<ModelIoTDeviceFilterInput | null> | null;
-  or?: Array<ModelIoTDeviceFilterInput | null> | null;
-  not?: ModelIoTDeviceFilterInput | null;
 };
 
 export type ModelIntKeyConditionInput = {
@@ -291,6 +254,18 @@ export type ModelIoTDataFilterInput = {
 };
 
 export type ModelIntFilterInput = {
+  ne?: number | null;
+  eq?: number | null;
+  le?: number | null;
+  lt?: number | null;
+  ge?: number | null;
+  gt?: number | null;
+  contains?: number | null;
+  notContains?: number | null;
+  between?: Array<number | null> | null;
+};
+
+export type ModelFloatFilterInput = {
   ne?: number | null;
   eq?: number | null;
   le?: number | null;
@@ -374,27 +349,6 @@ export type ModelFieldFilterInput = {
   and?: Array<ModelFieldFilterInput | null> | null;
   or?: Array<ModelFieldFilterInput | null> | null;
   not?: ModelFieldFilterInput | null;
-};
-
-export type CreateArModelMutation = {
-  __typename: "ARModel";
-  id: string;
-  name: string;
-  scale: number | null;
-};
-
-export type UpdateArModelMutation = {
-  __typename: "ARModel";
-  id: string;
-  name: string;
-  scale: number | null;
-};
-
-export type DeleteArModelMutation = {
-  __typename: "ARModel";
-  id: string;
-  name: string;
-  scale: number | null;
 };
 
 export type CreateIoTDeviceMutation = {
@@ -1132,24 +1086,6 @@ export type CreateFieldMutation = {
   } | null;
 };
 
-export type GetArModelQuery = {
-  __typename: "ARModel";
-  id: string;
-  name: string;
-  scale: number | null;
-};
-
-export type ListArModelsQuery = {
-  __typename: "ModelARModelConnection";
-  items: Array<{
-    __typename: "ARModel";
-    id: string;
-    name: string;
-    scale: number | null;
-  } | null> | null;
-  nextToken: string | null;
-};
-
 export type GetIoTDeviceQuery = {
   __typename: "IoTDevice";
   id: string;
@@ -1632,27 +1568,6 @@ export type ListFieldsQuery = {
     } | null;
   } | null> | null;
   nextToken: string | null;
-};
-
-export type OnCreateArModelSubscription = {
-  __typename: "ARModel";
-  id: string;
-  name: string;
-  scale: number | null;
-};
-
-export type OnUpdateArModelSubscription = {
-  __typename: "ARModel";
-  id: string;
-  name: string;
-  scale: number | null;
-};
-
-export type OnDeleteArModelSubscription = {
-  __typename: "ARModel";
-  id: string;
-  name: string;
-  scale: number | null;
 };
 
 export type OnCreateIoTDeviceSubscription = {
@@ -2394,63 +2309,6 @@ export type OnCreateFieldSubscription = {
   providedIn: "root"
 })
 export class APIService {
-  async CreateArModel(
-    input: CreateARModelInput
-  ): Promise<CreateArModelMutation> {
-    const statement = `mutation CreateArModel($input: CreateARModelInput!) {
-        createARModel(input: $input) {
-          __typename
-          id
-          name
-          scale
-        }
-      }`;
-    const gqlAPIServiceArguments: any = {
-      input
-    };
-    const response = (await API.graphql(
-      graphqlOperation(statement, gqlAPIServiceArguments)
-    )) as any;
-    return <CreateArModelMutation>response.data.createARModel;
-  }
-  async UpdateArModel(
-    input: UpdateARModelInput
-  ): Promise<UpdateArModelMutation> {
-    const statement = `mutation UpdateArModel($input: UpdateARModelInput!) {
-        updateARModel(input: $input) {
-          __typename
-          id
-          name
-          scale
-        }
-      }`;
-    const gqlAPIServiceArguments: any = {
-      input
-    };
-    const response = (await API.graphql(
-      graphqlOperation(statement, gqlAPIServiceArguments)
-    )) as any;
-    return <UpdateArModelMutation>response.data.updateARModel;
-  }
-  async DeleteArModel(
-    input: DeleteARModelInput
-  ): Promise<DeleteArModelMutation> {
-    const statement = `mutation DeleteArModel($input: DeleteARModelInput!) {
-        deleteARModel(input: $input) {
-          __typename
-          id
-          name
-          scale
-        }
-      }`;
-    const gqlAPIServiceArguments: any = {
-      input
-    };
-    const response = (await API.graphql(
-      graphqlOperation(statement, gqlAPIServiceArguments)
-    )) as any;
-    return <DeleteArModelMutation>response.data.deleteARModel;
-  }
   async CreateIoTDevice(
     input: CreateIoTDeviceInput
   ): Promise<CreateIoTDeviceMutation> {
@@ -3488,55 +3346,6 @@ export class APIService {
     )) as any;
     return <string | null>response.data;
   }
-  async GetArModel(id: string): Promise<GetArModelQuery> {
-    const statement = `query GetArModel($id: ID!) {
-        getARModel(id: $id) {
-          __typename
-          id
-          name
-          scale
-        }
-      }`;
-    const gqlAPIServiceArguments: any = {
-      id
-    };
-    const response = (await API.graphql(
-      graphqlOperation(statement, gqlAPIServiceArguments)
-    )) as any;
-    return <GetArModelQuery>response.data.getARModel;
-  }
-  async ListArModels(
-    filter?: ModelARModelFilterInput,
-    limit?: number,
-    nextToken?: string
-  ): Promise<ListArModelsQuery> {
-    const statement = `query ListArModels($filter: ModelARModelFilterInput, $limit: Int, $nextToken: String) {
-        listARModels(filter: $filter, limit: $limit, nextToken: $nextToken) {
-          __typename
-          items {
-            __typename
-            id
-            name
-            scale
-          }
-          nextToken
-        }
-      }`;
-    const gqlAPIServiceArguments: any = {};
-    if (filter) {
-      gqlAPIServiceArguments.filter = filter;
-    }
-    if (limit) {
-      gqlAPIServiceArguments.limit = limit;
-    }
-    if (nextToken) {
-      gqlAPIServiceArguments.nextToken = nextToken;
-    }
-    const response = (await API.graphql(
-      graphqlOperation(statement, gqlAPIServiceArguments)
-    )) as any;
-    return <ListArModelsQuery>response.data.listARModels;
-  }
   async GetIoTDevice(id: string): Promise<GetIoTDeviceQuery> {
     const statement = `query GetIoTDevice($id: ID!) {
         getIoTDevice(id: $id) {
@@ -4282,51 +4091,6 @@ export class APIService {
     )) as any;
     return <ListFieldsQuery>response.data.listFields;
   }
-  OnCreateArModelListener: Observable<
-    OnCreateArModelSubscription
-  > = API.graphql(
-    graphqlOperation(
-      `subscription OnCreateArModel {
-        onCreateARModel {
-          __typename
-          id
-          name
-          scale
-        }
-      }`
-    )
-  ) as Observable<OnCreateArModelSubscription>;
-
-  OnUpdateArModelListener: Observable<
-    OnUpdateArModelSubscription
-  > = API.graphql(
-    graphqlOperation(
-      `subscription OnUpdateArModel {
-        onUpdateARModel {
-          __typename
-          id
-          name
-          scale
-        }
-      }`
-    )
-  ) as Observable<OnUpdateArModelSubscription>;
-
-  OnDeleteArModelListener: Observable<
-    OnDeleteArModelSubscription
-  > = API.graphql(
-    graphqlOperation(
-      `subscription OnDeleteArModel {
-        onDeleteARModel {
-          __typename
-          id
-          name
-          scale
-        }
-      }`
-    )
-  ) as Observable<OnDeleteArModelSubscription>;
-
   OnCreateIoTDeviceListener: Observable<
     OnCreateIoTDeviceSubscription
   > = API.graphql(
