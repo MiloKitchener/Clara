@@ -16,7 +16,8 @@
             },
             "function": {
                 "getARCGISData": {},
-                "createIoTData": {}
+                "createIoTData": {},
+                "createDatasetAndFields": {}
             }
         }
     },
