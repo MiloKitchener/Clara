@@ -34,22 +34,19 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { LiveDataGraphPanelComponent } from './components/live-data-graph-panel/live-data-graph-panel.component';
 import { DevicesComponent } from './components/devices/devices.component';
 import { SplashComponent } from './components/splash/splash.component';
-import { ArUploadComponent } from './components/ar-upload/ar-upload.component';
-import { ArComponent } from './components/ar/ar.component';
-import { ArDetailComponent } from './components/ar-detail/ar-detail.component';
 import {environment} from '../environments/environment';
 import {HttpMockInterceptor} from './interfaces/http-mock-interceptor';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import {HttpRequestInterceptor} from './interfaces/http-request-interceptor';
 import {FileUploadModule} from 'ng2-file-upload';
-import { GraphQLModule } from './graphql.module';
 import {AmplifyAngularModule, AmplifyService} from 'aws-amplify-angular';
 import { ChartComponent } from './components/chart/chart.component';
 import {OpenDataGraphPanelComponent} from './components/open-data-graph-panel/open-data-graph-panel.component';
 
 // Materialize Components
 
-import { MzCollapsibleModule, MzSidenavModule, MzCheckboxModule, MzProgressModule } from 'ngx-materialize'
+import { MzCollapsibleModule, MzSidenavModule, MzCheckboxModule, MzProgressModule } from 'ngx-materialize';
+import {PilotCardsComponent} from './components/pilot-cards/pilot-cards.component';
 
 export const isMock = environment.mock;
 
@@ -71,10 +68,8 @@ export const isMock = environment.mock;
     DevicesComponent,
     SplashComponent,
     DashboardComponent,
-    ArUploadComponent,
-    ArComponent,
-    ArDetailComponent,
     ChartComponent,
+    PilotCardsComponent,
   ],
   imports: [
     BrowserModule,
@@ -90,7 +85,6 @@ export const isMock = environment.mock;
     HttpClientModule,
     ReactiveFormsModule,
     ChartsModule,
-    GraphQLModule,
     FileUploadModule,
     AmplifyAngularModule,
     MatIconModule,

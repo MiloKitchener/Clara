@@ -1,9 +1,0 @@
-<div *ngIf="arModel">
-  <h2>{{arModel.name | uppercase}} Details</h2>
-  <form [formGroup]="updateARModelForm" (ngSubmit)="onSave()">
-    <label>Scale:
-      <input type="text" formControlName="scale" [value]="arModel.scale">
-    </label>
-    <input type="submit" value="Submit">
-  </form>
-</div>
