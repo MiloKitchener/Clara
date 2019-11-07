@@ -21,9 +21,4 @@ export class DatasetAddPanelComponent implements OnInit {
       url: ['', Validators.required]
     });
   }
-
-   uploadDataset() {
-    this.datasetService.createDatasetAndFields(this.uploadForm.value).then();
-  }
-
 }

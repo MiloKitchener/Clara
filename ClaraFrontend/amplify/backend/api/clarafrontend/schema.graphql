@@ -32,7 +32,7 @@ type Post @model @auth(rules: [{allow: owner, operations: [create]}]) {
   votes: Int!
   owner: String
   comments: [Comment] @connection(name: "PostComments")
-  tag: String!
+  tags: String
 }
 
 type Comment @model @auth(rules: [{allow: owner, operations: [create]}]) {

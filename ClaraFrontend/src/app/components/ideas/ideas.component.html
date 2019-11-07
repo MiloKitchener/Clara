@@ -1,5 +1,10 @@
 <!-- Top Bar -->
-<h1>Ideas</h1>
+<div class="top-panel">
+  <h1>Ideas</h1>
+  <button class="add-dataset-btn" (click)="openAddPostDialog()">
+    <i class="material-icons-round">add_circle</i>
+  </button>
+</div>
 
 <!-- Posts Feed -->
 <div class="posted-ideas">
@@ -25,7 +30,6 @@
   </div>
 
   <div class="side-panel">
-    <button (click)="viewNewPost()">New Post</button>
     <h5>Filters</h5>
     <hr>
     <ul>
@@ -34,23 +38,4 @@
       </li>
     </ul>
   </div>
-</div>
-
-<!-- New Post Panel -->
-<div class="new-post-panel" [ngStyle]="{'display': toggleNewPostView === true ? 'block' : 'none'}">
-  <button class="close-new-post-panel-btn" (click)="closeNewPost()">x</button>
-
-  <form [formGroup]="newPostForm" (ngSubmit)="submitPost()">
-    <h4>Title</h4>
-    <input formControlName="title" type="text" placeholder="Title">
-    <div *ngIf="newPostSubmitted && newPostForm.get('title').errors" class="invalid-feedback">
-      <div *ngIf="newPostForm.get('title').errors.required">A title is required</div>
-    </div>
-    <h4>Content</h4>
-    <textarea formControlName="content" cols="30" rows="10" placeholder="Content"></textarea>
-    <select formControlName="tag">
-      <option [value]="filter" *ngFor="let filter of filters">{{ filter }}</option>
-    </select>
-    <input type="submit" value="Post Idea">
-  </form>
 </div>

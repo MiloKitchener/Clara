@@ -1,7 +1,7 @@
 <mat-dialog-content class="add-panel">
   <h4>Add Dataset</h4>
   <p>Paste the URL to the dataset you wish to add.</p>
-  <form [formGroup]="uploadForm" (ngSubmit)="uploadDataset()">
+  <form [formGroup]="uploadForm">
      <mat-form-field appearance="outline">
        <input matInput placeholder="Dataset URL" aria-label="Dataset URL" formControlName="url">
      </mat-form-field>

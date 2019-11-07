@@ -5,7 +5,6 @@ import { HttpClient } from '@angular/common/http';
 
 import { DatasetConfirmation } from 'src/app/interfaces/dataset-confirmation';
 import {DatasetService} from '../../services/dataset/dataset.service';
-import {AddGraphDialogComponent} from '../add-graph-dialog/add-graph-dialog.component';
 import {MatDialog} from '@angular/material';
 import {DatasetAddPanelComponent} from '../dataset-add-panel/dataset-add-panel.component';
 
