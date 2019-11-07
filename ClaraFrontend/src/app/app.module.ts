@@ -12,7 +12,7 @@ import {
   MatSelectModule,
   MatDialogModule, MatGridListModule, MatIconModule, MatCardModule, MatSnackBarModule,
   MatCheckboxModule,
-  MatCheckbox
+  MatCheckbox, MatInputModule
 } from '@angular/material';
 import { CookieService } from 'ngx-cookie-service';
 
@@ -100,7 +100,8 @@ export const isMock = environment.mock;
     MzCollapsibleModule,
     MzSidenavModule,
     MzCheckboxModule,
-    MzProgressModule
+    MzProgressModule,
+    MatInputModule
   ],
   providers: [
     CookieService,
@@ -112,7 +113,7 @@ export const isMock = environment.mock;
     }
   ],
   bootstrap: [AppComponent],
-  entryComponents: [IdeaNodeComponent, AddGraphDialogComponent]
+  entryComponents: [IdeaNodeComponent, AddGraphDialogComponent, DatasetAddPanelComponent]
 })
 
 export class AppModule { }

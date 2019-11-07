@@ -2,9 +2,32 @@
 
 .container {
   width: 80%;
-  padding: 5%;
-  padding-top: 0;
+  padding: 0 5% 5%;
   margin: auto;
+}
+
+h1 {
+  margin: 5% 0 5%;
+}
+
+.top-panel {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.add-dataset-btn {
+  border: 0;
+  padding: 0;
+  color: white;
+  background-color: inherit;
+  transition: $main-hover-transition;
+  flex: 0.2 0 0;
+
+  &:hover {
+    color: #EFEFEF;
+    transition: $main-hover-transition;
+  }
 }
 
 .buttons-panel {

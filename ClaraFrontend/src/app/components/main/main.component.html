@@ -54,39 +54,33 @@
         </div>
   
         <a *ngFor="let dashboard of this.dashboards" routerLinkActive="active" [routerLink]="['dashboard', dashboard.name]" >
-          <i class="material-icons-outlined">dashboard</i>
-          <span>{{ dashboard.name + " Dashboard"}}</span>
+          <i class="material-icons-outlined">dashboard</i>{{ dashboard.name + " Dashboard"}}
         </a>
 
         <h5 class="nav-header">TOOLS</h5>
 
         <!-- Devices Nav -->
         <a routerLink="devices" routerLinkActive="active">
-          <i class="material-icons-round">devices</i>
-          <span>Devices</span>
+          <i class="material-icons-round">devices</i>Devices
         </a>
         <!-- Datasets Nav -->
         <a routerLink="dataset" routerLinkActive="active">
-          <i class="material-icons-round">data_usage</i>
-          <span>Datasets</span>
+          <i class="material-icons-round">data_usage</i>Datasets
         </a>
   
         <h5 class="nav-header">COMMUNICATION</h5>
 
         <!-- Ideas Nav -->
         <a routerLink="ideas" routerLinkActive="active">
-          <i class="material-icons-outlined">highlight</i>
-          <span>Ideas</span>
+          <i class="material-icons-outlined">highlight</i>Ideas
         </a>
         <!-- Datasets Nav -->
         <a routerLink="lab-services" routerLinkActive="active">
-          <i class="material-icons-round">calendar_today</i>
-          <span>Lab Services</span>
+          <i class="material-icons-round">calendar_today</i>Lab Services
         </a>
         <!-- Alexa Nav -->
         <a routerLink="alexa-feed" routerLinkActive="active">
-            <i class="material-icons-round">sentiment_satisfied</i>
-          <span>Alexa</span>
+          <i class="material-icons-round">sentiment_satisfied</i>Alexa
         </a>
     </div>
   </nav>

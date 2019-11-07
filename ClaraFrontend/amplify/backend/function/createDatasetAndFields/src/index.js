@@ -19,7 +19,6 @@ exports.handler = async function (event, context) {
   console.log(event);
 
   let url = event.arguments.url;
-  url = url.substring(5, url.length - 1);
   console.log(url);
   let fields = [];
   let name = '';

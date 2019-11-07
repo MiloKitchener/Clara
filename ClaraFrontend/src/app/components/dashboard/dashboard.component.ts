@@ -43,8 +43,6 @@ export class DashboardComponent implements OnInit {
               chart.labels = [];
             }
             if (data[chart.field1] != null) {
-              console.log(data);
-
               if (chart.data.length > 30) {
                 chart.data.shift(data[chart.field1]);
                 chart.labels.shift(data.ts);
