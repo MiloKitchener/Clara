@@ -29,13 +29,13 @@
     </div>
     <div class="bottom-panel">
       <h5>{{ post.tag }}</h5>
-      <button type="button" name="button" class="comment-btn" (click)="toggleComments()" style="float:left;">Comments
+      <button *ngIf="post.comments" type="button" name="button" class="comment-btn" (click)="toggleComments()" style="float:left;">Comments
         ({{ post.comments.items.length || 0 }})</button>
     </div>
   </div>
 
   <div [ngClass]="{'show' : viewComments, 'hide' : !viewComments}">
-    <ul class="comments">
+    <ul class="comments" *ngIf="post.comments">
       <li *ngFor="let comment of post.comments.items">{{ comment.content }}</li>
     </ul>
     <form [formGroup]="addCommentForm" (ngSubmit)="submitComment()">

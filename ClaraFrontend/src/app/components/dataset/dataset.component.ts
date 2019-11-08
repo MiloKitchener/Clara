@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { HttpClient } from '@angular/common/http';
-import { environment } from '../../../environments/environment';
 
 import { DatasetConfirmation } from 'src/app/interfaces/dataset-confirmation';
 import {DatasetService} from '../../services/dataset/dataset.service';
+import {MatDialog} from '@angular/material';
+import {DatasetAddPanelComponent} from '../dataset-add-panel/dataset-add-panel.component';
 
 @Component({
   selector: 'app-dataset',
@@ -25,41 +26,29 @@ export class DatasetComponent implements OnInit {
 
   searchForm: FormGroup;
   uploadForm: FormGroup;
-  uploadFullForm: FormGroup;
-
-  numSets: number;
-  numRecentlyUpdated: number;
-  numOutOfDate: number;
-  numUnderReview: number;
+  numSets = 0;
+  numRecentlyUpdated = 0;
+  numOutOfDate = 0;
+  numUnderReview = 0;
 
   datasetUploadView: boolean;
 
   constructor(
     private http: HttpClient,
     private datasetService: DatasetService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit() {
     this.uploadedDataset = null;
     this.uploadedDatasetName = null;
     this.uploadedDatasetFields = null;
-    this.numSets = 0;
-    this.numRecentlyUpdated = 0;
-    this.numOutOfDate = 0;
-    this.numUnderReview = 0;
     this.datasetUploadView = false;
     this.setSelectedDataset('Open Data'); // default dataset is open data
 
     this.searchForm = this.fb.group({
       searchValue: ['', Validators.required]
-    });
-
-    this.uploadFullForm = this.fb.group({
-      name: ['', Validators.required],
-      desc: ['', Validators.required],
-      api_url: ['', Validators.required],
-      parent_url: ['', Validators.required]
     });
 
     this.uploadForm = this.fb.group({
@@ -112,11 +101,6 @@ export class DatasetComponent implements OnInit {
     }
   }
 
-  // toggles the view of the dataset upload form
-  toggleDatasetUpload() {
-    this.datasetUploadView = this.datasetUploadView === false;
-  }
-
   uploadDataset() {
     this.datasetService.createDatasetAndFields(this.uploadForm.value).then();
     // this.http.post(environment.backendIP + 'map/datasets', this.uploadForm.value).subscribe((res: string) => {
@@ -127,8 +111,13 @@ export class DatasetComponent implements OnInit {
     // });
   }
 
-  uploadFullDataset() {
-    this.datasetService.createDataset(this.uploadFullForm.value).then();
-    this.datasets.push(this.uploadFullForm.value);
+  openAddDatasetDialog() {
+    const dialogRef = this.dialog.open(DatasetAddPanelComponent);
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result !== '') {
+        this.datasetService.createDatasetAndFields(result.url).then();
+      }
+    });
   }
 }

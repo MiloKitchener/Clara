@@ -12,6 +12,7 @@ import {
   MatSelectModule,
   MatDialogModule, MatGridListModule, MatIconModule, MatCardModule, MatSnackBarModule,
   MatCheckboxModule,
+  MatCheckbox, MatInputModule
 } from '@angular/material';
 
 import { 
@@ -54,6 +55,7 @@ import {OpenDataGraphPanelComponent} from './components/open-data-graph-panel/op
 
 import {PilotCardsComponent} from './components/pilot-cards/pilot-cards.component';
 import { DatasetAddPanelComponent } from './components/dataset-add-panel/dataset-add-panel.component';
+import { PostAddPanelComponent } from './components/post-add-panel/post-add-panel.component';
 
 export const isMock = environment.mock;
 
@@ -78,6 +80,7 @@ export const isMock = environment.mock;
     ChartComponent,
     PilotCardsComponent,
     DatasetAddPanelComponent,
+    PostAddPanelComponent,
   ],
   imports: [
     BrowserModule,
@@ -104,7 +107,8 @@ export const isMock = environment.mock;
     MzCollapsibleModule,
     MzSidenavModule,
     MzCheckboxModule,
-    MzProgressModule
+    MzProgressModule,
+    MatInputModule
   ],
   providers: [
     CookieService,
@@ -116,7 +120,7 @@ export const isMock = environment.mock;
     }
   ],
   bootstrap: [AppComponent],
-  entryComponents: [IdeaNodeComponent, AddGraphDialogComponent]
+  entryComponents: [IdeaNodeComponent, AddGraphDialogComponent, DatasetAddPanelComponent, PostAddPanelComponent]
 })
 
 export class AppModule { }

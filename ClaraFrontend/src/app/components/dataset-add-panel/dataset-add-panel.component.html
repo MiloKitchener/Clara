@@ -1,7 +1,13 @@
-<mat-dialog-content>
-  <form [formGroup]="uploadForm" (ngSubmit)="uploadDataset()">
-    <input type="text" formControlName="url" placeholder="Database URL">
-    <br>
-    <input type="submit" value="Upload Dataset">
+<mat-dialog-content class="add-panel">
+  <h4>Add Dataset</h4>
+  <p>Paste the URL to the dataset you wish to add.</p>
+  <form [formGroup]="uploadForm">
+     <mat-form-field appearance="outline">
+       <input matInput placeholder="Dataset URL" aria-label="Dataset URL" formControlName="url">
+     </mat-form-field>
   </form>
 </mat-dialog-content>
+<mat-dialog-actions align="center">
+  <button mat-button mat-dialog-close class="close-btn">Cancel</button>
+  <button mat-button [mat-dialog-close]=uploadForm.value>Add Dataset</button>
+</mat-dialog-actions>

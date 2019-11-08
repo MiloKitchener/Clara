@@ -91,13 +91,13 @@ subscription OnCreatePost($owner: String!) {
           comments {
             nextToken
           }
-          tag
+          tags
         }
         content
       }
       nextToken
     }
-    tag
+    tags
   }
 }
 subscription OnUpdatePost {
@@ -120,13 +120,13 @@ subscription OnUpdatePost {
           comments {
             nextToken
           }
-          tag
+          tags
         }
         content
       }
       nextToken
     }
-    tag
+    tags
   }
 }
 subscription OnDeletePost {
@@ -149,13 +149,13 @@ subscription OnDeletePost {
           comments {
             nextToken
           }
-          tag
+          tags
         }
         content
       }
       nextToken
     }
-    tag
+    tags
   }
 }
 subscription OnCreateComment($owner: String!) {
@@ -178,13 +178,13 @@ subscription OnCreateComment($owner: String!) {
             content
             votes
             owner
-            tag
+            tags
           }
           content
         }
         nextToken
       }
-      tag
+      tags
     }
     content
   }
@@ -209,13 +209,13 @@ subscription OnUpdateComment {
             content
             votes
             owner
-            tag
+            tags
           }
           content
         }
         nextToken
       }
-      tag
+      tags
     }
     content
   }
@@ -240,13 +240,13 @@ subscription OnDeleteComment {
             content
             votes
             owner
-            tag
+            tags
           }
           content
         }
         nextToken
       }
-      tag
+      tags
     }
     content
   }

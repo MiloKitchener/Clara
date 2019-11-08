@@ -97,13 +97,13 @@ query GetPost($id: ID!) {
           comments {
             nextToken
           }
-          tag
+          tags
         }
         content
       }
       nextToken
     }
-    tag
+    tags
   }
 }
 query ListPosts(
@@ -128,13 +128,13 @@ query ListPosts(
             content
             votes
             owner
-            tag
+            tags
           }
           content
         }
         nextToken
       }
-      tag
+      tags
     }
     nextToken
   }
@@ -159,13 +159,13 @@ query GetComment($id: ID!) {
             content
             votes
             owner
-            tag
+            tags
           }
           content
         }
         nextToken
       }
-      tag
+      tags
     }
     content
   }
@@ -193,7 +193,7 @@ query ListComments(
           }
           nextToken
         }
-        tag
+        tags
       }
       content
     }

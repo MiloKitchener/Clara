@@ -49,7 +49,7 @@ export type CreatePostInput = {
   content: string;
   votes: number;
   owner?: string | null;
-  tag: string;
+  tags?: string | null;
 };
 
 export type UpdatePostInput = {
@@ -58,7 +58,7 @@ export type UpdatePostInput = {
   content?: string | null;
   votes?: number | null;
   owner?: string | null;
-  tag?: string | null;
+  tags?: string | null;
 };
 
 export type DeletePostInput = {
@@ -314,7 +314,7 @@ export type ModelPostFilterInput = {
   content?: ModelStringFilterInput | null;
   votes?: ModelIntFilterInput | null;
   owner?: ModelStringFilterInput | null;
-  tag?: ModelStringFilterInput | null;
+  tags?: ModelStringFilterInput | null;
   and?: Array<ModelPostFilterInput | null> | null;
   or?: Array<ModelPostFilterInput | null> | null;
   not?: ModelPostFilterInput | null;
@@ -471,13 +471,13 @@ export type CreatePostMutation = {
           __typename: "ModelCommentConnection";
           nextToken: string | null;
         } | null;
-        tag: string;
+        tags: string | null;
       };
       content: string;
     } | null> | null;
     nextToken: string | null;
   } | null;
-  tag: string;
+  tags: string | null;
 };
 
 export type UpdatePostMutation = {
@@ -504,13 +504,13 @@ export type UpdatePostMutation = {
           __typename: "ModelCommentConnection";
           nextToken: string | null;
         } | null;
-        tag: string;
+        tags: string | null;
       };
       content: string;
     } | null> | null;
     nextToken: string | null;
   } | null;
-  tag: string;
+  tags: string | null;
 };
 
 export type DeletePostMutation = {
@@ -537,13 +537,13 @@ export type DeletePostMutation = {
           __typename: "ModelCommentConnection";
           nextToken: string | null;
         } | null;
-        tag: string;
+        tags: string | null;
       };
       content: string;
     } | null> | null;
     nextToken: string | null;
   } | null;
-  tag: string;
+  tags: string | null;
 };
 
 export type CreateCommentMutation = {
@@ -570,13 +570,13 @@ export type CreateCommentMutation = {
           content: string;
           votes: number;
           owner: string | null;
-          tag: string;
+          tags: string | null;
         };
         content: string;
       } | null> | null;
       nextToken: string | null;
     } | null;
-    tag: string;
+    tags: string | null;
   };
   content: string;
 };
@@ -605,13 +605,13 @@ export type UpdateCommentMutation = {
           content: string;
           votes: number;
           owner: string | null;
-          tag: string;
+          tags: string | null;
         };
         content: string;
       } | null> | null;
       nextToken: string | null;
     } | null;
-    tag: string;
+    tags: string | null;
   };
   content: string;
 };
@@ -640,13 +640,13 @@ export type DeleteCommentMutation = {
           content: string;
           votes: number;
           owner: string | null;
-          tag: string;
+          tags: string | null;
         };
         content: string;
       } | null> | null;
       nextToken: string | null;
     } | null;
-    tag: string;
+    tags: string | null;
   };
   content: string;
 };
@@ -1242,13 +1242,13 @@ export type GetPostQuery = {
           __typename: "ModelCommentConnection";
           nextToken: string | null;
         } | null;
-        tag: string;
+        tags: string | null;
       };
       content: string;
     } | null> | null;
     nextToken: string | null;
   } | null;
-  tag: string;
+  tags: string | null;
 };
 
 export type ListPostsQuery = {
@@ -1273,13 +1273,13 @@ export type ListPostsQuery = {
           content: string;
           votes: number;
           owner: string | null;
-          tag: string;
+          tags: string | null;
         };
         content: string;
       } | null> | null;
       nextToken: string | null;
     } | null;
-    tag: string;
+    tags: string | null;
   } | null> | null;
   nextToken: string | null;
 };
@@ -1308,13 +1308,13 @@ export type GetCommentQuery = {
           content: string;
           votes: number;
           owner: string | null;
-          tag: string;
+          tags: string | null;
         };
         content: string;
       } | null> | null;
       nextToken: string | null;
     } | null;
-    tag: string;
+    tags: string | null;
   };
   content: string;
 };
@@ -1342,7 +1342,7 @@ export type ListCommentsQuery = {
         } | null> | null;
         nextToken: string | null;
       } | null;
-      tag: string;
+      tags: string | null;
     };
     content: string;
   } | null> | null;
@@ -1770,13 +1770,13 @@ export type OnCreatePostSubscription = {
           __typename: "ModelCommentConnection";
           nextToken: string | null;
         } | null;
-        tag: string;
+        tags: string | null;
       };
       content: string;
     } | null> | null;
     nextToken: string | null;
   } | null;
-  tag: string;
+  tags: string | null;
 };
 
 export type OnUpdatePostSubscription = {
@@ -1803,13 +1803,13 @@ export type OnUpdatePostSubscription = {
           __typename: "ModelCommentConnection";
           nextToken: string | null;
         } | null;
-        tag: string;
+        tags: string | null;
       };
       content: string;
     } | null> | null;
     nextToken: string | null;
   } | null;
-  tag: string;
+  tags: string | null;
 };
 
 export type OnDeletePostSubscription = {
@@ -1836,13 +1836,13 @@ export type OnDeletePostSubscription = {
           __typename: "ModelCommentConnection";
           nextToken: string | null;
         } | null;
-        tag: string;
+        tags: string | null;
       };
       content: string;
     } | null> | null;
     nextToken: string | null;
   } | null;
-  tag: string;
+  tags: string | null;
 };
 
 export type OnCreateCommentSubscription = {
@@ -1869,13 +1869,13 @@ export type OnCreateCommentSubscription = {
           content: string;
           votes: number;
           owner: string | null;
-          tag: string;
+          tags: string | null;
         };
         content: string;
       } | null> | null;
       nextToken: string | null;
     } | null;
-    tag: string;
+    tags: string | null;
   };
   content: string;
 };
@@ -1904,13 +1904,13 @@ export type OnUpdateCommentSubscription = {
           content: string;
           votes: number;
           owner: string | null;
-          tag: string;
+          tags: string | null;
         };
         content: string;
       } | null> | null;
       nextToken: string | null;
     } | null;
-    tag: string;
+    tags: string | null;
   };
   content: string;
 };
@@ -1939,13 +1939,13 @@ export type OnDeleteCommentSubscription = {
           content: string;
           votes: number;
           owner: string | null;
-          tag: string;
+          tags: string | null;
         };
         content: string;
       } | null> | null;
       nextToken: string | null;
     } | null;
-    tag: string;
+    tags: string | null;
   };
   content: string;
 };
@@ -2591,13 +2591,13 @@ export class APIService {
                   __typename
                   nextToken
                 }
-                tag
+                tags
               }
               content
             }
             nextToken
           }
-          tag
+          tags
         }
       }`;
     const gqlAPIServiceArguments: any = {
@@ -2634,13 +2634,13 @@ export class APIService {
                   __typename
                   nextToken
                 }
-                tag
+                tags
               }
               content
             }
             nextToken
           }
-          tag
+          tags
         }
       }`;
     const gqlAPIServiceArguments: any = {
@@ -2677,13 +2677,13 @@ export class APIService {
                   __typename
                   nextToken
                 }
-                tag
+                tags
               }
               content
             }
             nextToken
           }
-          tag
+          tags
         }
       }`;
     const gqlAPIServiceArguments: any = {
@@ -2722,13 +2722,13 @@ export class APIService {
                   content
                   votes
                   owner
-                  tag
+                  tags
                 }
                 content
               }
               nextToken
             }
-            tag
+            tags
           }
           content
         }
@@ -2769,13 +2769,13 @@ export class APIService {
                   content
                   votes
                   owner
-                  tag
+                  tags
                 }
                 content
               }
               nextToken
             }
-            tag
+            tags
           }
           content
         }
@@ -2816,13 +2816,13 @@ export class APIService {
                   content
                   votes
                   owner
-                  tag
+                  tags
                 }
                 content
               }
               nextToken
             }
-            tag
+            tags
           }
           content
         }
@@ -3709,13 +3709,13 @@ export class APIService {
                   __typename
                   nextToken
                 }
-                tag
+                tags
               }
               content
             }
             nextToken
           }
-          tag
+          tags
         }
       }`;
     const gqlAPIServiceArguments: any = {
@@ -3754,13 +3754,13 @@ export class APIService {
                   content
                   votes
                   owner
-                  tag
+                  tags
                 }
                 content
               }
               nextToken
             }
-            tag
+            tags
           }
           nextToken
         }
@@ -3806,13 +3806,13 @@ export class APIService {
                   content
                   votes
                   owner
-                  tag
+                  tags
                 }
                 content
               }
               nextToken
             }
-            tag
+            tags
           }
           content
         }
@@ -3854,7 +3854,7 @@ export class APIService {
                 }
                 nextToken
               }
-              tag
+              tags
             }
             content
           }
@@ -4503,13 +4503,13 @@ export class APIService {
                   __typename
                   nextToken
                 }
-                tag
+                tags
               }
               content
             }
             nextToken
           }
-          tag
+          tags
         }
       }`
     )
@@ -4542,13 +4542,13 @@ export class APIService {
                   __typename
                   nextToken
                 }
-                tag
+                tags
               }
               content
             }
             nextToken
           }
-          tag
+          tags
         }
       }`
     )
@@ -4581,13 +4581,13 @@ export class APIService {
                   __typename
                   nextToken
                 }
-                tag
+                tags
               }
               content
             }
             nextToken
           }
-          tag
+          tags
         }
       }`
     )
@@ -4622,13 +4622,13 @@ export class APIService {
                   content
                   votes
                   owner
-                  tag
+                  tags
                 }
                 content
               }
               nextToken
             }
-            tag
+            tags
           }
           content
         }
@@ -4665,13 +4665,13 @@ export class APIService {
                   content
                   votes
                   owner
-                  tag
+                  tags
                 }
                 content
               }
               nextToken
             }
-            tag
+            tags
           }
           content
         }
@@ -4708,13 +4708,13 @@ export class APIService {
                   content
                   votes
                   owner
-                  tag
+                  tags
                 }
                 content
               }
               nextToken
             }
-            tag
+            tags
           }
           content
         }

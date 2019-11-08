@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Post } from '../../interfaces/post';
 import { IdeasService } from 'src/app/services/ideas/ideas.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {MatDialog} from '@angular/material';
+import {PostAddPanelComponent} from '../post-add-panel/post-add-panel.component';
 
 @Component({
   selector: 'app-ideas',
@@ -16,15 +18,12 @@ export class IdeasComponent implements OnInit {
   arrangedFilters: string[];
   selectedFilter: string;
 
-  newPostForm: FormGroup;
   searchDataForm: FormGroup;
-
-  toggleNewPostView: boolean;
-  newPostSubmitted: boolean;
 
   constructor(
     private ideasService: IdeasService,
     private fb: FormBuilder,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit() {
@@ -37,49 +36,19 @@ export class IdeasComponent implements OnInit {
     this.filters = this.ideasService.getFilters();
     this.arrangedFilters = this.ideasService.getArrangedFilters();
 
-    this.newPostForm = this.fb.group({
-      title: ['', Validators.required],
-      content: ['', Validators.required],
-      tag: ['None', Validators.required]
-    });
-
     this.searchDataForm = this.fb.group({
       searchText: ['', Validators.required]
     });
 
     this.selectedFilter = 'None';
-    this.toggleNewPostView = false;
-    this.newPostSubmitted = false;
   }
 
-  // selects a filter
+  // Selects a filter
   selectFilter(name: string) {
     this.selectedFilter = name;
   }
 
-  // makes the newPostPanel visible
-  viewNewPost() {
-    this.toggleNewPostView = true;
-  }
-
-  // removes newPostPanel visibility
-  closeNewPost() {
-    this.toggleNewPostView = false;
-  }
-
-  // Adds a new idea post
-  submitPost() {
-    this.newPostSubmitted = true;
-    // Create the post object
-    const newPost = this.newPostForm.value;
-    newPost.votes = 0;
-
-    // Create the post
-    this.ideasService.addPost(newPost).then();
-    this.posts.push(newPost);
-  }
-
-  // search function used by search form
+  // Search function used by search form
   search() {
     const input = this.searchDataForm.get('searchText').value;
     const filter = input.toUpperCase();
@@ -98,5 +67,18 @@ export class IdeasComponent implements OnInit {
         li[i].style.display = "none";
       }
     }*/
+  }
+
+  openAddPostDialog() {
+    const dialogRef = this.dialog.open(PostAddPanelComponent);
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result !== '') {
+        result.votes = 0;
+        // Create the post
+        this.ideasService.addPost(result).then();
+        this.posts.push(result);
+      }
+    });
   }
 }

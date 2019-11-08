@@ -75,13 +75,13 @@ mutation CreatePost($input: CreatePostInput!) {
           comments {
             nextToken
           }
-          tag
+          tags
         }
         content
       }
       nextToken
     }
-    tag
+    tags
   }
 }
 mutation UpdatePost($input: UpdatePostInput!) {
@@ -104,13 +104,13 @@ mutation UpdatePost($input: UpdatePostInput!) {
           comments {
             nextToken
           }
-          tag
+          tags
         }
         content
       }
       nextToken
     }
-    tag
+    tags
   }
 }
 mutation DeletePost($input: DeletePostInput!) {
@@ -133,13 +133,13 @@ mutation DeletePost($input: DeletePostInput!) {
           comments {
             nextToken
           }
-          tag
+          tags
         }
         content
       }
       nextToken
     }
-    tag
+    tags
   }
 }
 mutation CreateComment($input: CreateCommentInput!) {
@@ -162,13 +162,13 @@ mutation CreateComment($input: CreateCommentInput!) {
             content
             votes
             owner
-            tag
+            tags
           }
           content
         }
         nextToken
       }
-      tag
+      tags
     }
     content
   }
@@ -193,13 +193,13 @@ mutation UpdateComment($input: UpdateCommentInput!) {
             content
             votes
             owner
-            tag
+            tags
           }
           content
         }
         nextToken
       }
-      tag
+      tags
     }
     content
   }
@@ -224,13 +224,13 @@ mutation DeleteComment($input: DeleteCommentInput!) {
             content
             votes
             owner
-            tag
+            tags
           }
           content
         }
         nextToken
       }
-      tag
+      tags
     }
     content
   }
