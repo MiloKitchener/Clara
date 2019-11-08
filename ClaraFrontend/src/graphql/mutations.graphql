@@ -580,6 +580,42 @@ mutation DeleteField($input: DeleteFieldInput!) {
     }
   }
 }
+mutation CreatePilot($input: CreatePilotInput!) {
+  createPilot(input: $input) {
+    id
+    name
+    description
+    budget
+    stakeholders
+    start
+    end
+    contact
+  }
+}
+mutation UpdatePilot($input: UpdatePilotInput!) {
+  updatePilot(input: $input) {
+    id
+    name
+    description
+    budget
+    stakeholders
+    start
+    end
+    contact
+  }
+}
+mutation DeletePilot($input: DeletePilotInput!) {
+  deletePilot(input: $input) {
+    id
+    name
+    description
+    budget
+    stakeholders
+    start
+    end
+    contact
+  }
+}
 mutation CreateIoTData($input: CreateIoTDataInput!) {
   createIoTData(input: $input) {
     uuid

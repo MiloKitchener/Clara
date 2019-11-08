@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { LabServicesService } from 'src/app/services/lab-services/lab-services.service'
 
 @Component({
   selector: 'app-pilot-cards',
@@ -7,13 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PilotCardsComponent implements OnInit {
 
-  constructor() { }
+  @Input() card: any;
+
+  constructor(
+    private labServicesService:LabServicesService
+  ) { }
 
   counter = 0;
   percentage = 0;
   panelOpenState = false;
 
   ngOnInit() {
+
   }
 
   checkValue(event) {

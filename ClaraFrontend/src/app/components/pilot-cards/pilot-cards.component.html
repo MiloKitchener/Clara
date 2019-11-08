@@ -1,20 +1,13 @@
 <mat-expansion-panel>
   <mat-expansion-panel-header>
-      First
+      {{ card.name }}
   </mat-expansion-panel-header>
   <div class="col-left">
     <div class="col-left">
       <p><strong>Pilot Description</strong><br></p>
-      <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-          incididunt ut labore et dolore magna aliqua. Tristique magna sit amet purus gravida
-          quis blandit. Id faucibus nisl tincidunt eget nullam non. Gravida rutrum quisque
-          non tellus orci ac. Eleifend mi in nulla posuere sollicitudin. Bibendum ut tristique
-          et egestas quis ipsum suspendisse ultrices gravida. Sed velit dignissim sodales ut
-          eu sem integer vitae. Est sit amet facilisis magna etiam. Felis eget velit aliquet
-          sagittis id consectetur purus ut faucibus. Aliquet porttitor lacus luctus accumsan
-          tortor posuere ac ut consequat.
-      </p>
+      <p> {{ card.description }} </p>
+      <p> Start Date: {{ card.start }}</p>
+      <p> End Date: {{ card.end }} </p>
     </div>
 
     <div class="col-left">
@@ -29,9 +22,9 @@
     <div class="col-left">
       <p><strong>Pilot Objectives</strong></p>
       <div class="check">
-          <mat-checkbox (change) = "checkValue($event)"> This is the third objective of the pilot. </mat-checkbox>
+          <mat-checkbox (change) = "checkValue($event)"> This is the first objective of the pilot. </mat-checkbox>
           <br>
-          <mat-checkbox (change) = "checkValue($event)"> This is the third objective of the pilot. </mat-checkbox>
+          <mat-checkbox (change) = "checkValue($event)"> This is the second objective of the pilot. </mat-checkbox>
           <br>
           <mat-checkbox (change) = "checkValue($event)"> This is the third objective of the pilot. </mat-checkbox>
       </div>
@@ -39,7 +32,10 @@
 
     <div class="col-left">
       <p><strong>Additional Information</strong><br></p>
-      <p>Budget: $50,000 , Duration: Start/End, Contact: Courtney Zinn, Stakeholders: X, Y, Z</p>
+      <p>Budget: ${{ card.budget }}</p> 
+      <p>Contact: {{ card.contact }}</p> 
+      <p>Stakeholders: {{ card.stakeholders.length }}</p>
+      <p *ngFor="let person of card.stakeholders">{{ person }}</p>
     </div>
   </div>
 </mat-expansion-panel>

@@ -481,3 +481,34 @@ query ListFields(
     nextToken
   }
 }
+query GetPilot($id: ID!) {
+  getPilot(id: $id) {
+    id
+    name
+    description
+    budget
+    stakeholders
+    start
+    end
+    contact
+  }
+}
+query ListPilots(
+  $filter: ModelPilotFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listPilots(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      name
+      description
+      budget
+      stakeholders
+      start
+      end
+      contact
+    }
+    nextToken
+  }
+}

@@ -157,6 +157,32 @@ export type DeleteFieldInput = {
   id?: string | null;
 };
 
+export type CreatePilotInput = {
+  id?: string | null;
+  name: string;
+  description: string;
+  budget?: number | null;
+  stakeholders?: Array<string | null> | null;
+  start?: string | null;
+  end?: string | null;
+  contact?: string | null;
+};
+
+export type UpdatePilotInput = {
+  id: string;
+  name?: string | null;
+  description?: string | null;
+  budget?: number | null;
+  stakeholders?: Array<string | null> | null;
+  start?: string | null;
+  end?: string | null;
+  contact?: string | null;
+};
+
+export type DeletePilotInput = {
+  id?: string | null;
+};
+
 export type CreateIoTDataInput = {
   uuid: string;
   ts: number;
@@ -349,6 +375,20 @@ export type ModelFieldFilterInput = {
   and?: Array<ModelFieldFilterInput | null> | null;
   or?: Array<ModelFieldFilterInput | null> | null;
   not?: ModelFieldFilterInput | null;
+};
+
+export type ModelPilotFilterInput = {
+  id?: ModelIDFilterInput | null;
+  name?: ModelStringFilterInput | null;
+  description?: ModelStringFilterInput | null;
+  budget?: ModelIntFilterInput | null;
+  stakeholders?: ModelStringFilterInput | null;
+  start?: ModelStringFilterInput | null;
+  end?: ModelStringFilterInput | null;
+  contact?: ModelStringFilterInput | null;
+  and?: Array<ModelPilotFilterInput | null> | null;
+  or?: Array<ModelPilotFilterInput | null> | null;
+  not?: ModelPilotFilterInput | null;
 };
 
 export type CreateIoTDeviceMutation = {
@@ -996,6 +1036,42 @@ export type DeleteFieldMutation = {
   } | null;
 };
 
+export type CreatePilotMutation = {
+  __typename: "Pilot";
+  id: string;
+  name: string;
+  description: string;
+  budget: number | null;
+  stakeholders: Array<string | null> | null;
+  start: string | null;
+  end: string | null;
+  contact: string | null;
+};
+
+export type UpdatePilotMutation = {
+  __typename: "Pilot";
+  id: string;
+  name: string;
+  description: string;
+  budget: number | null;
+  stakeholders: Array<string | null> | null;
+  start: string | null;
+  end: string | null;
+  contact: string | null;
+};
+
+export type DeletePilotMutation = {
+  __typename: "Pilot";
+  id: string;
+  name: string;
+  description: string;
+  budget: number | null;
+  stakeholders: Array<string | null> | null;
+  start: string | null;
+  end: string | null;
+  contact: string | null;
+};
+
 export type CreateIoTDataMutation = {
   __typename: "IoTData";
   uuid: string;
@@ -1566,6 +1642,34 @@ export type ListFieldsQuery = {
         nextToken: string | null;
       } | null;
     } | null;
+  } | null> | null;
+  nextToken: string | null;
+};
+
+export type GetPilotQuery = {
+  __typename: "Pilot";
+  id: string;
+  name: string;
+  description: string;
+  budget: number | null;
+  stakeholders: Array<string | null> | null;
+  start: string | null;
+  end: string | null;
+  contact: string | null;
+};
+
+export type ListPilotsQuery = {
+  __typename: "ModelPilotConnection";
+  items: Array<{
+    __typename: "Pilot";
+    id: string;
+    name: string;
+    description: string;
+    budget: number | null;
+    stakeholders: Array<string | null> | null;
+    start: string | null;
+    end: string | null;
+    contact: string | null;
   } | null> | null;
   nextToken: string | null;
 };
@@ -2229,6 +2333,42 @@ export type OnDeleteFieldSubscription = {
       nextToken: string | null;
     } | null;
   } | null;
+};
+
+export type OnCreatePilotSubscription = {
+  __typename: "Pilot";
+  id: string;
+  name: string;
+  description: string;
+  budget: number | null;
+  stakeholders: Array<string | null> | null;
+  start: string | null;
+  end: string | null;
+  contact: string | null;
+};
+
+export type OnUpdatePilotSubscription = {
+  __typename: "Pilot";
+  id: string;
+  name: string;
+  description: string;
+  budget: number | null;
+  stakeholders: Array<string | null> | null;
+  start: string | null;
+  end: string | null;
+  contact: string | null;
+};
+
+export type OnDeletePilotSubscription = {
+  __typename: "Pilot";
+  id: string;
+  name: string;
+  description: string;
+  budget: number | null;
+  stakeholders: Array<string | null> | null;
+  start: string | null;
+  end: string | null;
+  contact: string | null;
 };
 
 export type OnCreateDatasetSubscription = {
@@ -3190,6 +3330,72 @@ export class APIService {
     )) as any;
     return <DeleteFieldMutation>response.data.deleteField;
   }
+  async CreatePilot(input: CreatePilotInput): Promise<CreatePilotMutation> {
+    const statement = `mutation CreatePilot($input: CreatePilotInput!) {
+        createPilot(input: $input) {
+          __typename
+          id
+          name
+          description
+          budget
+          stakeholders
+          start
+          end
+          contact
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      input
+    };
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <CreatePilotMutation>response.data.createPilot;
+  }
+  async UpdatePilot(input: UpdatePilotInput): Promise<UpdatePilotMutation> {
+    const statement = `mutation UpdatePilot($input: UpdatePilotInput!) {
+        updatePilot(input: $input) {
+          __typename
+          id
+          name
+          description
+          budget
+          stakeholders
+          start
+          end
+          contact
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      input
+    };
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <UpdatePilotMutation>response.data.updatePilot;
+  }
+  async DeletePilot(input: DeletePilotInput): Promise<DeletePilotMutation> {
+    const statement = `mutation DeletePilot($input: DeletePilotInput!) {
+        deletePilot(input: $input) {
+          __typename
+          id
+          name
+          description
+          budget
+          stakeholders
+          start
+          end
+          contact
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      input
+    };
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <DeletePilotMutation>response.data.deletePilot;
+  }
   async CreateIoTData(
     input: CreateIoTDataInput
   ): Promise<CreateIoTDataMutation> {
@@ -4091,6 +4297,65 @@ export class APIService {
     )) as any;
     return <ListFieldsQuery>response.data.listFields;
   }
+  async GetPilot(id: string): Promise<GetPilotQuery> {
+    const statement = `query GetPilot($id: ID!) {
+        getPilot(id: $id) {
+          __typename
+          id
+          name
+          description
+          budget
+          stakeholders
+          start
+          end
+          contact
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      id
+    };
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <GetPilotQuery>response.data.getPilot;
+  }
+  async ListPilots(
+    filter?: ModelPilotFilterInput,
+    limit?: number,
+    nextToken?: string
+  ): Promise<ListPilotsQuery> {
+    const statement = `query ListPilots($filter: ModelPilotFilterInput, $limit: Int, $nextToken: String) {
+        listPilots(filter: $filter, limit: $limit, nextToken: $nextToken) {
+          __typename
+          items {
+            __typename
+            id
+            name
+            description
+            budget
+            stakeholders
+            start
+            end
+            contact
+          }
+          nextToken
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    if (limit) {
+      gqlAPIServiceArguments.limit = limit;
+    }
+    if (nextToken) {
+      gqlAPIServiceArguments.nextToken = nextToken;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <ListPilotsQuery>response.data.listPilots;
+  }
   OnCreateIoTDeviceListener: Observable<
     OnCreateIoTDeviceSubscription
   > = API.graphql(
@@ -4911,6 +5176,60 @@ export class APIService {
       }`
     )
   ) as Observable<OnDeleteFieldSubscription>;
+
+  OnCreatePilotListener: Observable<OnCreatePilotSubscription> = API.graphql(
+    graphqlOperation(
+      `subscription OnCreatePilot {
+        onCreatePilot {
+          __typename
+          id
+          name
+          description
+          budget
+          stakeholders
+          start
+          end
+          contact
+        }
+      }`
+    )
+  ) as Observable<OnCreatePilotSubscription>;
+
+  OnUpdatePilotListener: Observable<OnUpdatePilotSubscription> = API.graphql(
+    graphqlOperation(
+      `subscription OnUpdatePilot {
+        onUpdatePilot {
+          __typename
+          id
+          name
+          description
+          budget
+          stakeholders
+          start
+          end
+          contact
+        }
+      }`
+    )
+  ) as Observable<OnUpdatePilotSubscription>;
+
+  OnDeletePilotListener: Observable<OnDeletePilotSubscription> = API.graphql(
+    graphqlOperation(
+      `subscription OnDeletePilot {
+        onDeletePilot {
+          __typename
+          id
+          name
+          description
+          budget
+          stakeholders
+          start
+          end
+          contact
+        }
+      }`
+    )
+  ) as Observable<OnDeletePilotSubscription>;
 
   OnCreateDatasetListener: Observable<
     OnCreateDatasetSubscription

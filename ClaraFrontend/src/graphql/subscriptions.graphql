@@ -596,6 +596,42 @@ subscription OnDeleteField {
     }
   }
 }
+subscription OnCreatePilot {
+  onCreatePilot {
+    id
+    name
+    description
+    budget
+    stakeholders
+    start
+    end
+    contact
+  }
+}
+subscription OnUpdatePilot {
+  onUpdatePilot {
+    id
+    name
+    description
+    budget
+    stakeholders
+    start
+    end
+    contact
+  }
+}
+subscription OnDeletePilot {
+  onDeletePilot {
+    id
+    name
+    description
+    budget
+    stakeholders
+    start
+    end
+    contact
+  }
+}
 subscription OnCreateDataset {
   onCreateDataset {
     id
