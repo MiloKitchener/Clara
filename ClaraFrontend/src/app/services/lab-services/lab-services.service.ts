@@ -12,4 +12,13 @@ export class LabServicesService {
   public getPilots(): Promise<any> {
     return this.apiService.ListPilots();
   }
+
+  public listObjectives (id:string) {
+    return this.apiService.GetPilot(id);
+  }
+
+  public updateObjective(objInput): Promise<any> {
+    return this.apiService.UpdateObjective(objInput);
+  }
+
 }

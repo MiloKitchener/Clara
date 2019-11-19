@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LabServicesService } from 'src/app/services/lab-services/lab-services.service'
+import { LabServicesService } from 'src/app/services/lab-services/lab-services.service';
 
 @Component({
   selector: 'app-lab-services',
@@ -11,7 +11,9 @@ export class LabServicesComponent implements OnInit {
   cards: [];
   panelOpenState = false;
 
-  constructor(private labServicesService: LabServicesService) { }
+  constructor(
+    private labServicesService: LabServicesService
+    ) { }
   
   public objectives = [];
 

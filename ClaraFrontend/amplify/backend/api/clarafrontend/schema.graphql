@@ -96,11 +96,19 @@ type Pilot @model {
   id: ID!
   name: String!
   description: String!
+  objective: [Objective] @connection(name: "PilotObjective")
   budget: Int
   stakeholders: [String]
   start: String
   end: String
   contact: String
+}
+
+type Objective @model {
+  id: ID!
+  pilot: Pilot! @connection(name: "PilotObjective")
+  content: String!
+  state: Boolean!
 }
 
 type Query {

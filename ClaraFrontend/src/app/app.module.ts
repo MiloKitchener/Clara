@@ -10,9 +10,13 @@ import {
   MatExpansionModule,
   MatTabsModule,
   MatSelectModule,
-  MatDialogModule, MatGridListModule, MatIconModule, MatCardModule, MatSnackBarModule,
-  MatCheckboxModule,
-  MatCheckbox, MatInputModule
+  MatDialogModule, 
+  MatGridListModule, 
+  MatIconModule, 
+  MatCardModule, 
+  MatSnackBarModule,
+  MatCheckboxModule, 
+  MatInputModule
 } from '@angular/material';
 
 import { 
@@ -23,7 +27,6 @@ import {
 } from 'ngx-materialize';
 
 import { CookieService } from 'ngx-cookie-service';
-
 import { ChartsModule } from 'ng2-charts';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -54,6 +57,7 @@ import { ChartComponent } from './components/chart/chart.component';
 import {OpenDataGraphPanelComponent} from './components/open-data-graph-panel/open-data-graph-panel.component';
 
 import {PilotCardsComponent} from './components/pilot-cards/pilot-cards.component';
+
 import { DatasetAddPanelComponent } from './components/dataset-add-panel/dataset-add-panel.component';
 import { PostAddPanelComponent } from './components/post-add-panel/post-add-panel.component';
 
