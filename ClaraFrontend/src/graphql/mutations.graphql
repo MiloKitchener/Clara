@@ -580,6 +580,210 @@ mutation DeleteField($input: DeleteFieldInput!) {
     }
   }
 }
+mutation CreatePilot($input: CreatePilotInput!) {
+  createPilot(input: $input) {
+    id
+    name
+    description
+    objective {
+      items {
+        id
+        pilot {
+          id
+          name
+          description
+          objective {
+            nextToken
+          }
+          budget
+          stakeholders
+          start
+          end
+          contact
+        }
+        content
+        state
+      }
+      nextToken
+    }
+    budget
+    stakeholders
+    start
+    end
+    contact
+  }
+}
+mutation UpdatePilot($input: UpdatePilotInput!) {
+  updatePilot(input: $input) {
+    id
+    name
+    description
+    objective {
+      items {
+        id
+        pilot {
+          id
+          name
+          description
+          objective {
+            nextToken
+          }
+          budget
+          stakeholders
+          start
+          end
+          contact
+        }
+        content
+        state
+      }
+      nextToken
+    }
+    budget
+    stakeholders
+    start
+    end
+    contact
+  }
+}
+mutation DeletePilot($input: DeletePilotInput!) {
+  deletePilot(input: $input) {
+    id
+    name
+    description
+    objective {
+      items {
+        id
+        pilot {
+          id
+          name
+          description
+          objective {
+            nextToken
+          }
+          budget
+          stakeholders
+          start
+          end
+          contact
+        }
+        content
+        state
+      }
+      nextToken
+    }
+    budget
+    stakeholders
+    start
+    end
+    contact
+  }
+}
+mutation CreateObjective($input: CreateObjectiveInput!) {
+  createObjective(input: $input) {
+    id
+    pilot {
+      id
+      name
+      description
+      objective {
+        items {
+          id
+          pilot {
+            id
+            name
+            description
+            budget
+            stakeholders
+            start
+            end
+            contact
+          }
+          content
+          state
+        }
+        nextToken
+      }
+      budget
+      stakeholders
+      start
+      end
+      contact
+    }
+    content
+    state
+  }
+}
+mutation UpdateObjective($input: UpdateObjectiveInput!) {
+  updateObjective(input: $input) {
+    id
+    pilot {
+      id
+      name
+      description
+      objective {
+        items {
+          id
+          pilot {
+            id
+            name
+            description
+            budget
+            stakeholders
+            start
+            end
+            contact
+          }
+          content
+          state
+        }
+        nextToken
+      }
+      budget
+      stakeholders
+      start
+      end
+      contact
+    }
+    content
+    state
+  }
+}
+mutation DeleteObjective($input: DeleteObjectiveInput!) {
+  deleteObjective(input: $input) {
+    id
+    pilot {
+      id
+      name
+      description
+      objective {
+        items {
+          id
+          pilot {
+            id
+            name
+            description
+            budget
+            stakeholders
+            start
+            end
+            contact
+          }
+          content
+          state
+        }
+        nextToken
+      }
+      budget
+      stakeholders
+      start
+      end
+      contact
+    }
+    content
+    state
+  }
+}
 mutation CreateIoTData($input: CreateIoTDataInput!) {
   createIoTData(input: $input) {
     uuid

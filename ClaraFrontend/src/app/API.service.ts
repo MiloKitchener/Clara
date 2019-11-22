@@ -157,6 +157,50 @@ export type DeleteFieldInput = {
   id?: string | null;
 };
 
+export type CreatePilotInput = {
+  id?: string | null;
+  name: string;
+  description: string;
+  budget?: number | null;
+  stakeholders?: Array<string | null> | null;
+  start?: string | null;
+  end?: string | null;
+  contact?: string | null;
+};
+
+export type UpdatePilotInput = {
+  id: string;
+  name?: string | null;
+  description?: string | null;
+  budget?: number | null;
+  stakeholders?: Array<string | null> | null;
+  start?: string | null;
+  end?: string | null;
+  contact?: string | null;
+};
+
+export type DeletePilotInput = {
+  id?: string | null;
+};
+
+export type CreateObjectiveInput = {
+  id?: string | null;
+  content: string;
+  state: boolean;
+  objectivePilotId: string;
+};
+
+export type UpdateObjectiveInput = {
+  id: string;
+  content?: string | null;
+  state?: boolean | null;
+  objectivePilotId?: string | null;
+};
+
+export type DeleteObjectiveInput = {
+  id?: string | null;
+};
+
 export type CreateIoTDataInput = {
   uuid: string;
   ts: number;
@@ -349,6 +393,34 @@ export type ModelFieldFilterInput = {
   and?: Array<ModelFieldFilterInput | null> | null;
   or?: Array<ModelFieldFilterInput | null> | null;
   not?: ModelFieldFilterInput | null;
+};
+
+export type ModelPilotFilterInput = {
+  id?: ModelIDFilterInput | null;
+  name?: ModelStringFilterInput | null;
+  description?: ModelStringFilterInput | null;
+  budget?: ModelIntFilterInput | null;
+  stakeholders?: ModelStringFilterInput | null;
+  start?: ModelStringFilterInput | null;
+  end?: ModelStringFilterInput | null;
+  contact?: ModelStringFilterInput | null;
+  and?: Array<ModelPilotFilterInput | null> | null;
+  or?: Array<ModelPilotFilterInput | null> | null;
+  not?: ModelPilotFilterInput | null;
+};
+
+export type ModelObjectiveFilterInput = {
+  id?: ModelIDFilterInput | null;
+  content?: ModelStringFilterInput | null;
+  state?: ModelBooleanFilterInput | null;
+  and?: Array<ModelObjectiveFilterInput | null> | null;
+  or?: Array<ModelObjectiveFilterInput | null> | null;
+  not?: ModelObjectiveFilterInput | null;
+};
+
+export type ModelBooleanFilterInput = {
+  ne?: boolean | null;
+  eq?: boolean | null;
 };
 
 export type CreateIoTDeviceMutation = {
@@ -996,6 +1068,234 @@ export type DeleteFieldMutation = {
   } | null;
 };
 
+export type CreatePilotMutation = {
+  __typename: "Pilot";
+  id: string;
+  name: string;
+  description: string;
+  objective: {
+    __typename: "ModelObjectiveConnection";
+    items: Array<{
+      __typename: "Objective";
+      id: string;
+      pilot: {
+        __typename: "Pilot";
+        id: string;
+        name: string;
+        description: string;
+        objective: {
+          __typename: "ModelObjectiveConnection";
+          nextToken: string | null;
+        } | null;
+        budget: number | null;
+        stakeholders: Array<string | null> | null;
+        start: string | null;
+        end: string | null;
+        contact: string | null;
+      };
+      content: string;
+      state: boolean;
+    } | null> | null;
+    nextToken: string | null;
+  } | null;
+  budget: number | null;
+  stakeholders: Array<string | null> | null;
+  start: string | null;
+  end: string | null;
+  contact: string | null;
+};
+
+export type UpdatePilotMutation = {
+  __typename: "Pilot";
+  id: string;
+  name: string;
+  description: string;
+  objective: {
+    __typename: "ModelObjectiveConnection";
+    items: Array<{
+      __typename: "Objective";
+      id: string;
+      pilot: {
+        __typename: "Pilot";
+        id: string;
+        name: string;
+        description: string;
+        objective: {
+          __typename: "ModelObjectiveConnection";
+          nextToken: string | null;
+        } | null;
+        budget: number | null;
+        stakeholders: Array<string | null> | null;
+        start: string | null;
+        end: string | null;
+        contact: string | null;
+      };
+      content: string;
+      state: boolean;
+    } | null> | null;
+    nextToken: string | null;
+  } | null;
+  budget: number | null;
+  stakeholders: Array<string | null> | null;
+  start: string | null;
+  end: string | null;
+  contact: string | null;
+};
+
+export type DeletePilotMutation = {
+  __typename: "Pilot";
+  id: string;
+  name: string;
+  description: string;
+  objective: {
+    __typename: "ModelObjectiveConnection";
+    items: Array<{
+      __typename: "Objective";
+      id: string;
+      pilot: {
+        __typename: "Pilot";
+        id: string;
+        name: string;
+        description: string;
+        objective: {
+          __typename: "ModelObjectiveConnection";
+          nextToken: string | null;
+        } | null;
+        budget: number | null;
+        stakeholders: Array<string | null> | null;
+        start: string | null;
+        end: string | null;
+        contact: string | null;
+      };
+      content: string;
+      state: boolean;
+    } | null> | null;
+    nextToken: string | null;
+  } | null;
+  budget: number | null;
+  stakeholders: Array<string | null> | null;
+  start: string | null;
+  end: string | null;
+  contact: string | null;
+};
+
+export type CreateObjectiveMutation = {
+  __typename: "Objective";
+  id: string;
+  pilot: {
+    __typename: "Pilot";
+    id: string;
+    name: string;
+    description: string;
+    objective: {
+      __typename: "ModelObjectiveConnection";
+      items: Array<{
+        __typename: "Objective";
+        id: string;
+        pilot: {
+          __typename: "Pilot";
+          id: string;
+          name: string;
+          description: string;
+          budget: number | null;
+          stakeholders: Array<string | null> | null;
+          start: string | null;
+          end: string | null;
+          contact: string | null;
+        };
+        content: string;
+        state: boolean;
+      } | null> | null;
+      nextToken: string | null;
+    } | null;
+    budget: number | null;
+    stakeholders: Array<string | null> | null;
+    start: string | null;
+    end: string | null;
+    contact: string | null;
+  };
+  content: string;
+  state: boolean;
+};
+
+export type UpdateObjectiveMutation = {
+  __typename: "Objective";
+  id: string;
+  pilot: {
+    __typename: "Pilot";
+    id: string;
+    name: string;
+    description: string;
+    objective: {
+      __typename: "ModelObjectiveConnection";
+      items: Array<{
+        __typename: "Objective";
+        id: string;
+        pilot: {
+          __typename: "Pilot";
+          id: string;
+          name: string;
+          description: string;
+          budget: number | null;
+          stakeholders: Array<string | null> | null;
+          start: string | null;
+          end: string | null;
+          contact: string | null;
+        };
+        content: string;
+        state: boolean;
+      } | null> | null;
+      nextToken: string | null;
+    } | null;
+    budget: number | null;
+    stakeholders: Array<string | null> | null;
+    start: string | null;
+    end: string | null;
+    contact: string | null;
+  };
+  content: string;
+  state: boolean;
+};
+
+export type DeleteObjectiveMutation = {
+  __typename: "Objective";
+  id: string;
+  pilot: {
+    __typename: "Pilot";
+    id: string;
+    name: string;
+    description: string;
+    objective: {
+      __typename: "ModelObjectiveConnection";
+      items: Array<{
+        __typename: "Objective";
+        id: string;
+        pilot: {
+          __typename: "Pilot";
+          id: string;
+          name: string;
+          description: string;
+          budget: number | null;
+          stakeholders: Array<string | null> | null;
+          start: string | null;
+          end: string | null;
+          contact: string | null;
+        };
+        content: string;
+        state: boolean;
+      } | null> | null;
+      nextToken: string | null;
+    } | null;
+    budget: number | null;
+    stakeholders: Array<string | null> | null;
+    start: string | null;
+    end: string | null;
+    contact: string | null;
+  };
+  content: string;
+  state: boolean;
+};
+
 export type CreateIoTDataMutation = {
   __typename: "IoTData";
   uuid: string;
@@ -1566,6 +1866,151 @@ export type ListFieldsQuery = {
         nextToken: string | null;
       } | null;
     } | null;
+  } | null> | null;
+  nextToken: string | null;
+};
+
+export type GetPilotQuery = {
+  __typename: "Pilot";
+  id: string;
+  name: string;
+  description: string;
+  objective: {
+    __typename: "ModelObjectiveConnection";
+    items: Array<{
+      __typename: "Objective";
+      id: string;
+      pilot: {
+        __typename: "Pilot";
+        id: string;
+        name: string;
+        description: string;
+        objective: {
+          __typename: "ModelObjectiveConnection";
+          nextToken: string | null;
+        } | null;
+        budget: number | null;
+        stakeholders: Array<string | null> | null;
+        start: string | null;
+        end: string | null;
+        contact: string | null;
+      };
+      content: string;
+      state: boolean;
+    } | null> | null;
+    nextToken: string | null;
+  } | null;
+  budget: number | null;
+  stakeholders: Array<string | null> | null;
+  start: string | null;
+  end: string | null;
+  contact: string | null;
+};
+
+export type ListPilotsQuery = {
+  __typename: "ModelPilotConnection";
+  items: Array<{
+    __typename: "Pilot";
+    id: string;
+    name: string;
+    description: string;
+    objective: {
+      __typename: "ModelObjectiveConnection";
+      items: Array<{
+        __typename: "Objective";
+        id: string;
+        pilot: {
+          __typename: "Pilot";
+          id: string;
+          name: string;
+          description: string;
+          budget: number | null;
+          stakeholders: Array<string | null> | null;
+          start: string | null;
+          end: string | null;
+          contact: string | null;
+        };
+        content: string;
+        state: boolean;
+      } | null> | null;
+      nextToken: string | null;
+    } | null;
+    budget: number | null;
+    stakeholders: Array<string | null> | null;
+    start: string | null;
+    end: string | null;
+    contact: string | null;
+  } | null> | null;
+  nextToken: string | null;
+};
+
+export type GetObjectiveQuery = {
+  __typename: "Objective";
+  id: string;
+  pilot: {
+    __typename: "Pilot";
+    id: string;
+    name: string;
+    description: string;
+    objective: {
+      __typename: "ModelObjectiveConnection";
+      items: Array<{
+        __typename: "Objective";
+        id: string;
+        pilot: {
+          __typename: "Pilot";
+          id: string;
+          name: string;
+          description: string;
+          budget: number | null;
+          stakeholders: Array<string | null> | null;
+          start: string | null;
+          end: string | null;
+          contact: string | null;
+        };
+        content: string;
+        state: boolean;
+      } | null> | null;
+      nextToken: string | null;
+    } | null;
+    budget: number | null;
+    stakeholders: Array<string | null> | null;
+    start: string | null;
+    end: string | null;
+    contact: string | null;
+  };
+  content: string;
+  state: boolean;
+};
+
+export type ListObjectivesQuery = {
+  __typename: "ModelObjectiveConnection";
+  items: Array<{
+    __typename: "Objective";
+    id: string;
+    pilot: {
+      __typename: "Pilot";
+      id: string;
+      name: string;
+      description: string;
+      objective: {
+        __typename: "ModelObjectiveConnection";
+        items: Array<{
+          __typename: "Objective";
+          id: string;
+          content: string;
+          state: boolean;
+        } | null> | null;
+        nextToken: string | null;
+      } | null;
+      budget: number | null;
+      stakeholders: Array<string | null> | null;
+      start: string | null;
+      end: string | null;
+      contact: string | null;
+    };
+    content: string;
+    state: boolean;
   } | null> | null;
   nextToken: string | null;
 };
@@ -2229,6 +2674,234 @@ export type OnDeleteFieldSubscription = {
       nextToken: string | null;
     } | null;
   } | null;
+};
+
+export type OnCreatePilotSubscription = {
+  __typename: "Pilot";
+  id: string;
+  name: string;
+  description: string;
+  objective: {
+    __typename: "ModelObjectiveConnection";
+    items: Array<{
+      __typename: "Objective";
+      id: string;
+      pilot: {
+        __typename: "Pilot";
+        id: string;
+        name: string;
+        description: string;
+        objective: {
+          __typename: "ModelObjectiveConnection";
+          nextToken: string | null;
+        } | null;
+        budget: number | null;
+        stakeholders: Array<string | null> | null;
+        start: string | null;
+        end: string | null;
+        contact: string | null;
+      };
+      content: string;
+      state: boolean;
+    } | null> | null;
+    nextToken: string | null;
+  } | null;
+  budget: number | null;
+  stakeholders: Array<string | null> | null;
+  start: string | null;
+  end: string | null;
+  contact: string | null;
+};
+
+export type OnUpdatePilotSubscription = {
+  __typename: "Pilot";
+  id: string;
+  name: string;
+  description: string;
+  objective: {
+    __typename: "ModelObjectiveConnection";
+    items: Array<{
+      __typename: "Objective";
+      id: string;
+      pilot: {
+        __typename: "Pilot";
+        id: string;
+        name: string;
+        description: string;
+        objective: {
+          __typename: "ModelObjectiveConnection";
+          nextToken: string | null;
+        } | null;
+        budget: number | null;
+        stakeholders: Array<string | null> | null;
+        start: string | null;
+        end: string | null;
+        contact: string | null;
+      };
+      content: string;
+      state: boolean;
+    } | null> | null;
+    nextToken: string | null;
+  } | null;
+  budget: number | null;
+  stakeholders: Array<string | null> | null;
+  start: string | null;
+  end: string | null;
+  contact: string | null;
+};
+
+export type OnDeletePilotSubscription = {
+  __typename: "Pilot";
+  id: string;
+  name: string;
+  description: string;
+  objective: {
+    __typename: "ModelObjectiveConnection";
+    items: Array<{
+      __typename: "Objective";
+      id: string;
+      pilot: {
+        __typename: "Pilot";
+        id: string;
+        name: string;
+        description: string;
+        objective: {
+          __typename: "ModelObjectiveConnection";
+          nextToken: string | null;
+        } | null;
+        budget: number | null;
+        stakeholders: Array<string | null> | null;
+        start: string | null;
+        end: string | null;
+        contact: string | null;
+      };
+      content: string;
+      state: boolean;
+    } | null> | null;
+    nextToken: string | null;
+  } | null;
+  budget: number | null;
+  stakeholders: Array<string | null> | null;
+  start: string | null;
+  end: string | null;
+  contact: string | null;
+};
+
+export type OnCreateObjectiveSubscription = {
+  __typename: "Objective";
+  id: string;
+  pilot: {
+    __typename: "Pilot";
+    id: string;
+    name: string;
+    description: string;
+    objective: {
+      __typename: "ModelObjectiveConnection";
+      items: Array<{
+        __typename: "Objective";
+        id: string;
+        pilot: {
+          __typename: "Pilot";
+          id: string;
+          name: string;
+          description: string;
+          budget: number | null;
+          stakeholders: Array<string | null> | null;
+          start: string | null;
+          end: string | null;
+          contact: string | null;
+        };
+        content: string;
+        state: boolean;
+      } | null> | null;
+      nextToken: string | null;
+    } | null;
+    budget: number | null;
+    stakeholders: Array<string | null> | null;
+    start: string | null;
+    end: string | null;
+    contact: string | null;
+  };
+  content: string;
+  state: boolean;
+};
+
+export type OnUpdateObjectiveSubscription = {
+  __typename: "Objective";
+  id: string;
+  pilot: {
+    __typename: "Pilot";
+    id: string;
+    name: string;
+    description: string;
+    objective: {
+      __typename: "ModelObjectiveConnection";
+      items: Array<{
+        __typename: "Objective";
+        id: string;
+        pilot: {
+          __typename: "Pilot";
+          id: string;
+          name: string;
+          description: string;
+          budget: number | null;
+          stakeholders: Array<string | null> | null;
+          start: string | null;
+          end: string | null;
+          contact: string | null;
+        };
+        content: string;
+        state: boolean;
+      } | null> | null;
+      nextToken: string | null;
+    } | null;
+    budget: number | null;
+    stakeholders: Array<string | null> | null;
+    start: string | null;
+    end: string | null;
+    contact: string | null;
+  };
+  content: string;
+  state: boolean;
+};
+
+export type OnDeleteObjectiveSubscription = {
+  __typename: "Objective";
+  id: string;
+  pilot: {
+    __typename: "Pilot";
+    id: string;
+    name: string;
+    description: string;
+    objective: {
+      __typename: "ModelObjectiveConnection";
+      items: Array<{
+        __typename: "Objective";
+        id: string;
+        pilot: {
+          __typename: "Pilot";
+          id: string;
+          name: string;
+          description: string;
+          budget: number | null;
+          stakeholders: Array<string | null> | null;
+          start: string | null;
+          end: string | null;
+          contact: string | null;
+        };
+        content: string;
+        state: boolean;
+      } | null> | null;
+      nextToken: string | null;
+    } | null;
+    budget: number | null;
+    stakeholders: Array<string | null> | null;
+    start: string | null;
+    end: string | null;
+    contact: string | null;
+  };
+  content: string;
+  state: boolean;
 };
 
 export type OnCreateDatasetSubscription = {
@@ -3190,6 +3863,300 @@ export class APIService {
     )) as any;
     return <DeleteFieldMutation>response.data.deleteField;
   }
+  async CreatePilot(input: CreatePilotInput): Promise<CreatePilotMutation> {
+    const statement = `mutation CreatePilot($input: CreatePilotInput!) {
+        createPilot(input: $input) {
+          __typename
+          id
+          name
+          description
+          objective {
+            __typename
+            items {
+              __typename
+              id
+              pilot {
+                __typename
+                id
+                name
+                description
+                objective {
+                  __typename
+                  nextToken
+                }
+                budget
+                stakeholders
+                start
+                end
+                contact
+              }
+              content
+              state
+            }
+            nextToken
+          }
+          budget
+          stakeholders
+          start
+          end
+          contact
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      input
+    };
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <CreatePilotMutation>response.data.createPilot;
+  }
+  async UpdatePilot(input: UpdatePilotInput): Promise<UpdatePilotMutation> {
+    const statement = `mutation UpdatePilot($input: UpdatePilotInput!) {
+        updatePilot(input: $input) {
+          __typename
+          id
+          name
+          description
+          objective {
+            __typename
+            items {
+              __typename
+              id
+              pilot {
+                __typename
+                id
+                name
+                description
+                objective {
+                  __typename
+                  nextToken
+                }
+                budget
+                stakeholders
+                start
+                end
+                contact
+              }
+              content
+              state
+            }
+            nextToken
+          }
+          budget
+          stakeholders
+          start
+          end
+          contact
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      input
+    };
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <UpdatePilotMutation>response.data.updatePilot;
+  }
+  async DeletePilot(input: DeletePilotInput): Promise<DeletePilotMutation> {
+    const statement = `mutation DeletePilot($input: DeletePilotInput!) {
+        deletePilot(input: $input) {
+          __typename
+          id
+          name
+          description
+          objective {
+            __typename
+            items {
+              __typename
+              id
+              pilot {
+                __typename
+                id
+                name
+                description
+                objective {
+                  __typename
+                  nextToken
+                }
+                budget
+                stakeholders
+                start
+                end
+                contact
+              }
+              content
+              state
+            }
+            nextToken
+          }
+          budget
+          stakeholders
+          start
+          end
+          contact
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      input
+    };
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <DeletePilotMutation>response.data.deletePilot;
+  }
+  async CreateObjective(
+    input: CreateObjectiveInput
+  ): Promise<CreateObjectiveMutation> {
+    const statement = `mutation CreateObjective($input: CreateObjectiveInput!) {
+        createObjective(input: $input) {
+          __typename
+          id
+          pilot {
+            __typename
+            id
+            name
+            description
+            objective {
+              __typename
+              items {
+                __typename
+                id
+                pilot {
+                  __typename
+                  id
+                  name
+                  description
+                  budget
+                  stakeholders
+                  start
+                  end
+                  contact
+                }
+                content
+                state
+              }
+              nextToken
+            }
+            budget
+            stakeholders
+            start
+            end
+            contact
+          }
+          content
+          state
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      input
+    };
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <CreateObjectiveMutation>response.data.createObjective;
+  }
+  async UpdateObjective(
+    input: UpdateObjectiveInput
+  ): Promise<UpdateObjectiveMutation> {
+    const statement = `mutation UpdateObjective($input: UpdateObjectiveInput!) {
+        updateObjective(input: $input) {
+          __typename
+          id
+          pilot {
+            __typename
+            id
+            name
+            description
+            objective {
+              __typename
+              items {
+                __typename
+                id
+                pilot {
+                  __typename
+                  id
+                  name
+                  description
+                  budget
+                  stakeholders
+                  start
+                  end
+                  contact
+                }
+                content
+                state
+              }
+              nextToken
+            }
+            budget
+            stakeholders
+            start
+            end
+            contact
+          }
+          content
+          state
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      input
+    };
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <UpdateObjectiveMutation>response.data.updateObjective;
+  }
+  async DeleteObjective(
+    input: DeleteObjectiveInput
+  ): Promise<DeleteObjectiveMutation> {
+    const statement = `mutation DeleteObjective($input: DeleteObjectiveInput!) {
+        deleteObjective(input: $input) {
+          __typename
+          id
+          pilot {
+            __typename
+            id
+            name
+            description
+            objective {
+              __typename
+              items {
+                __typename
+                id
+                pilot {
+                  __typename
+                  id
+                  name
+                  description
+                  budget
+                  stakeholders
+                  start
+                  end
+                  contact
+                }
+                content
+                state
+              }
+              nextToken
+            }
+            budget
+            stakeholders
+            start
+            end
+            contact
+          }
+          content
+          state
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      input
+    };
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <DeleteObjectiveMutation>response.data.deleteObjective;
+  }
   async CreateIoTData(
     input: CreateIoTDataInput
   ): Promise<CreateIoTDataMutation> {
@@ -4091,6 +5058,213 @@ export class APIService {
     )) as any;
     return <ListFieldsQuery>response.data.listFields;
   }
+  async GetPilot(id: string): Promise<GetPilotQuery> {
+    const statement = `query GetPilot($id: ID!) {
+        getPilot(id: $id) {
+          __typename
+          id
+          name
+          description
+          objective {
+            __typename
+            items {
+              __typename
+              id
+              pilot {
+                __typename
+                id
+                name
+                description
+                objective {
+                  __typename
+                  nextToken
+                }
+                budget
+                stakeholders
+                start
+                end
+                contact
+              }
+              content
+              state
+            }
+            nextToken
+          }
+          budget
+          stakeholders
+          start
+          end
+          contact
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      id
+    };
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <GetPilotQuery>response.data.getPilot;
+  }
+  async ListPilots(
+    filter?: ModelPilotFilterInput,
+    limit?: number,
+    nextToken?: string
+  ): Promise<ListPilotsQuery> {
+    const statement = `query ListPilots($filter: ModelPilotFilterInput, $limit: Int, $nextToken: String) {
+        listPilots(filter: $filter, limit: $limit, nextToken: $nextToken) {
+          __typename
+          items {
+            __typename
+            id
+            name
+            description
+            objective {
+              __typename
+              items {
+                __typename
+                id
+                pilot {
+                  __typename
+                  id
+                  name
+                  description
+                  budget
+                  stakeholders
+                  start
+                  end
+                  contact
+                }
+                content
+                state
+              }
+              nextToken
+            }
+            budget
+            stakeholders
+            start
+            end
+            contact
+          }
+          nextToken
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    if (limit) {
+      gqlAPIServiceArguments.limit = limit;
+    }
+    if (nextToken) {
+      gqlAPIServiceArguments.nextToken = nextToken;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <ListPilotsQuery>response.data.listPilots;
+  }
+  async GetObjective(id: string): Promise<GetObjectiveQuery> {
+    const statement = `query GetObjective($id: ID!) {
+        getObjective(id: $id) {
+          __typename
+          id
+          pilot {
+            __typename
+            id
+            name
+            description
+            objective {
+              __typename
+              items {
+                __typename
+                id
+                pilot {
+                  __typename
+                  id
+                  name
+                  description
+                  budget
+                  stakeholders
+                  start
+                  end
+                  contact
+                }
+                content
+                state
+              }
+              nextToken
+            }
+            budget
+            stakeholders
+            start
+            end
+            contact
+          }
+          content
+          state
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      id
+    };
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <GetObjectiveQuery>response.data.getObjective;
+  }
+  async ListObjectives(
+    filter?: ModelObjectiveFilterInput,
+    limit?: number,
+    nextToken?: string
+  ): Promise<ListObjectivesQuery> {
+    const statement = `query ListObjectives($filter: ModelObjectiveFilterInput, $limit: Int, $nextToken: String) {
+        listObjectives(filter: $filter, limit: $limit, nextToken: $nextToken) {
+          __typename
+          items {
+            __typename
+            id
+            pilot {
+              __typename
+              id
+              name
+              description
+              objective {
+                __typename
+                items {
+                  __typename
+                  id
+                  content
+                  state
+                }
+                nextToken
+              }
+              budget
+              stakeholders
+              start
+              end
+              contact
+            }
+            content
+            state
+          }
+          nextToken
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    if (limit) {
+      gqlAPIServiceArguments.limit = limit;
+    }
+    if (nextToken) {
+      gqlAPIServiceArguments.nextToken = nextToken;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <ListObjectivesQuery>response.data.listObjectives;
+  }
   OnCreateIoTDeviceListener: Observable<
     OnCreateIoTDeviceSubscription
   > = API.graphql(
@@ -4911,6 +6085,276 @@ export class APIService {
       }`
     )
   ) as Observable<OnDeleteFieldSubscription>;
+
+  OnCreatePilotListener: Observable<OnCreatePilotSubscription> = API.graphql(
+    graphqlOperation(
+      `subscription OnCreatePilot {
+        onCreatePilot {
+          __typename
+          id
+          name
+          description
+          objective {
+            __typename
+            items {
+              __typename
+              id
+              pilot {
+                __typename
+                id
+                name
+                description
+                objective {
+                  __typename
+                  nextToken
+                }
+                budget
+                stakeholders
+                start
+                end
+                contact
+              }
+              content
+              state
+            }
+            nextToken
+          }
+          budget
+          stakeholders
+          start
+          end
+          contact
+        }
+      }`
+    )
+  ) as Observable<OnCreatePilotSubscription>;
+
+  OnUpdatePilotListener: Observable<OnUpdatePilotSubscription> = API.graphql(
+    graphqlOperation(
+      `subscription OnUpdatePilot {
+        onUpdatePilot {
+          __typename
+          id
+          name
+          description
+          objective {
+            __typename
+            items {
+              __typename
+              id
+              pilot {
+                __typename
+                id
+                name
+                description
+                objective {
+                  __typename
+                  nextToken
+                }
+                budget
+                stakeholders
+                start
+                end
+                contact
+              }
+              content
+              state
+            }
+            nextToken
+          }
+          budget
+          stakeholders
+          start
+          end
+          contact
+        }
+      }`
+    )
+  ) as Observable<OnUpdatePilotSubscription>;
+
+  OnDeletePilotListener: Observable<OnDeletePilotSubscription> = API.graphql(
+    graphqlOperation(
+      `subscription OnDeletePilot {
+        onDeletePilot {
+          __typename
+          id
+          name
+          description
+          objective {
+            __typename
+            items {
+              __typename
+              id
+              pilot {
+                __typename
+                id
+                name
+                description
+                objective {
+                  __typename
+                  nextToken
+                }
+                budget
+                stakeholders
+                start
+                end
+                contact
+              }
+              content
+              state
+            }
+            nextToken
+          }
+          budget
+          stakeholders
+          start
+          end
+          contact
+        }
+      }`
+    )
+  ) as Observable<OnDeletePilotSubscription>;
+
+  OnCreateObjectiveListener: Observable<
+    OnCreateObjectiveSubscription
+  > = API.graphql(
+    graphqlOperation(
+      `subscription OnCreateObjective {
+        onCreateObjective {
+          __typename
+          id
+          pilot {
+            __typename
+            id
+            name
+            description
+            objective {
+              __typename
+              items {
+                __typename
+                id
+                pilot {
+                  __typename
+                  id
+                  name
+                  description
+                  budget
+                  stakeholders
+                  start
+                  end
+                  contact
+                }
+                content
+                state
+              }
+              nextToken
+            }
+            budget
+            stakeholders
+            start
+            end
+            contact
+          }
+          content
+          state
+        }
+      }`
+    )
+  ) as Observable<OnCreateObjectiveSubscription>;
+
+  OnUpdateObjectiveListener: Observable<
+    OnUpdateObjectiveSubscription
+  > = API.graphql(
+    graphqlOperation(
+      `subscription OnUpdateObjective {
+        onUpdateObjective {
+          __typename
+          id
+          pilot {
+            __typename
+            id
+            name
+            description
+            objective {
+              __typename
+              items {
+                __typename
+                id
+                pilot {
+                  __typename
+                  id
+                  name
+                  description
+                  budget
+                  stakeholders
+                  start
+                  end
+                  contact
+                }
+                content
+                state
+              }
+              nextToken
+            }
+            budget
+            stakeholders
+            start
+            end
+            contact
+          }
+          content
+          state
+        }
+      }`
+    )
+  ) as Observable<OnUpdateObjectiveSubscription>;
+
+  OnDeleteObjectiveListener: Observable<
+    OnDeleteObjectiveSubscription
+  > = API.graphql(
+    graphqlOperation(
+      `subscription OnDeleteObjective {
+        onDeleteObjective {
+          __typename
+          id
+          pilot {
+            __typename
+            id
+            name
+            description
+            objective {
+              __typename
+              items {
+                __typename
+                id
+                pilot {
+                  __typename
+                  id
+                  name
+                  description
+                  budget
+                  stakeholders
+                  start
+                  end
+                  contact
+                }
+                content
+                state
+              }
+              nextToken
+            }
+            budget
+            stakeholders
+            start
+            end
+            contact
+          }
+          content
+          state
+        }
+      }`
+    )
+  ) as Observable<OnDeleteObjectiveSubscription>;
 
   OnCreateDatasetListener: Observable<
     OnCreateDatasetSubscription

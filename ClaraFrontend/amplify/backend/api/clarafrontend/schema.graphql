@@ -92,6 +92,25 @@ type Field @model @auth (
   dataset: Dataset @connection(name: "DatasetFields")
 }
 
+type Pilot @model {
+  id: ID!
+  name: String!
+  description: String!
+  objective: [Objective] @connection(name: "PilotObjective")
+  budget: Int
+  stakeholders: [String]
+  start: String
+  end: String
+  contact: String
+}
+
+type Objective @model {
+  id: ID!
+  pilot: Pilot! @connection(name: "PilotObjective")
+  content: String!
+  state: Boolean!
+}
+
 type Query {
   getARCGISData(dataset: String, field: String): String @function(name: "getARCGISData-${env}")
   createDatasetAndFields(url: String): String @function(name: "createDatasetAndFields-${env}")

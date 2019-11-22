@@ -481,3 +481,140 @@ query ListFields(
     nextToken
   }
 }
+query GetPilot($id: ID!) {
+  getPilot(id: $id) {
+    id
+    name
+    description
+    objective {
+      items {
+        id
+        pilot {
+          id
+          name
+          description
+          objective {
+            nextToken
+          }
+          budget
+          stakeholders
+          start
+          end
+          contact
+        }
+        content
+        state
+      }
+      nextToken
+    }
+    budget
+    stakeholders
+    start
+    end
+    contact
+  }
+}
+query ListPilots(
+  $filter: ModelPilotFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listPilots(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      name
+      description
+      objective {
+        items {
+          id
+          pilot {
+            id
+            name
+            description
+            budget
+            stakeholders
+            start
+            end
+            contact
+          }
+          content
+          state
+        }
+        nextToken
+      }
+      budget
+      stakeholders
+      start
+      end
+      contact
+    }
+    nextToken
+  }
+}
+query GetObjective($id: ID!) {
+  getObjective(id: $id) {
+    id
+    pilot {
+      id
+      name
+      description
+      objective {
+        items {
+          id
+          pilot {
+            id
+            name
+            description
+            budget
+            stakeholders
+            start
+            end
+            contact
+          }
+          content
+          state
+        }
+        nextToken
+      }
+      budget
+      stakeholders
+      start
+      end
+      contact
+    }
+    content
+    state
+  }
+}
+query ListObjectives(
+  $filter: ModelObjectiveFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listObjectives(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      pilot {
+        id
+        name
+        description
+        objective {
+          items {
+            id
+            content
+            state
+          }
+          nextToken
+        }
+        budget
+        stakeholders
+        start
+        end
+        contact
+      }
+      content
+      state
+    }
+    nextToken
+  }
+}

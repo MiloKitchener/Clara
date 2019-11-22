@@ -596,6 +596,210 @@ subscription OnDeleteField {
     }
   }
 }
+subscription OnCreatePilot {
+  onCreatePilot {
+    id
+    name
+    description
+    objective {
+      items {
+        id
+        pilot {
+          id
+          name
+          description
+          objective {
+            nextToken
+          }
+          budget
+          stakeholders
+          start
+          end
+          contact
+        }
+        content
+        state
+      }
+      nextToken
+    }
+    budget
+    stakeholders
+    start
+    end
+    contact
+  }
+}
+subscription OnUpdatePilot {
+  onUpdatePilot {
+    id
+    name
+    description
+    objective {
+      items {
+        id
+        pilot {
+          id
+          name
+          description
+          objective {
+            nextToken
+          }
+          budget
+          stakeholders
+          start
+          end
+          contact
+        }
+        content
+        state
+      }
+      nextToken
+    }
+    budget
+    stakeholders
+    start
+    end
+    contact
+  }
+}
+subscription OnDeletePilot {
+  onDeletePilot {
+    id
+    name
+    description
+    objective {
+      items {
+        id
+        pilot {
+          id
+          name
+          description
+          objective {
+            nextToken
+          }
+          budget
+          stakeholders
+          start
+          end
+          contact
+        }
+        content
+        state
+      }
+      nextToken
+    }
+    budget
+    stakeholders
+    start
+    end
+    contact
+  }
+}
+subscription OnCreateObjective {
+  onCreateObjective {
+    id
+    pilot {
+      id
+      name
+      description
+      objective {
+        items {
+          id
+          pilot {
+            id
+            name
+            description
+            budget
+            stakeholders
+            start
+            end
+            contact
+          }
+          content
+          state
+        }
+        nextToken
+      }
+      budget
+      stakeholders
+      start
+      end
+      contact
+    }
+    content
+    state
+  }
+}
+subscription OnUpdateObjective {
+  onUpdateObjective {
+    id
+    pilot {
+      id
+      name
+      description
+      objective {
+        items {
+          id
+          pilot {
+            id
+            name
+            description
+            budget
+            stakeholders
+            start
+            end
+            contact
+          }
+          content
+          state
+        }
+        nextToken
+      }
+      budget
+      stakeholders
+      start
+      end
+      contact
+    }
+    content
+    state
+  }
+}
+subscription OnDeleteObjective {
+  onDeleteObjective {
+    id
+    pilot {
+      id
+      name
+      description
+      objective {
+        items {
+          id
+          pilot {
+            id
+            name
+            description
+            budget
+            stakeholders
+            start
+            end
+            contact
+          }
+          content
+          state
+        }
+        nextToken
+      }
+      budget
+      stakeholders
+      start
+      end
+      contact
+    }
+    content
+    state
+  }
+}
 subscription OnCreateDataset {
   onCreateDataset {
     id
