@@ -12,11 +12,13 @@
 
     <div class="col-left">
       <p><strong>Pilot Progress</strong></p>
-      <mz-progress
-          [backgroundClass]="'blue lighten-4'"
-          [percentage]= "percentage"
-          [progressClass]="'blue'">
-      </mz-progress>
+
+      <mat-progress-bar
+          [color]="primary"
+          [mode]="mode"
+          [value]="percentage">
+      </mat-progress-bar>
+
     </div>
 
     <div class="col-left">

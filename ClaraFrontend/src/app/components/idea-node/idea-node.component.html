@@ -1,46 +1,28 @@
-<div class="component-container">
-  <div class="idea-node-container">
-    <div class="main-content">
-      <div class="user">
-        <img src="assets/images/avatar.png" alt="">
-        <h5>{{ post.owner }}</h5>
-      </div>
-      <div class="post-text">
-        <h4>{{ post.title }}</h4>
-        <p>{{ post.content }}</p>
-      </div>
-      <div class="vote-panel">
-        <button (click)="upvote()">
-          <svg width="22.5px" height="30px" viewBox="0 0 50 80" xml:space="preserve">
-            <polyline [ngStyle]="{'stroke': voted === 1 ? '#40f7aa' : 'black'}" fill="none" stroke-width="3"
-              stroke-linecap="round" stroke-linejoin="round" points="45.63,75.8 0.375,38.087 45.63,0.375 " />
-          </svg>
-        </button>
-        <br>
-        <h5 [ngStyle]="{'color': post.votes < 0 ? '#eb3b3b' : 'black'}">{{ post.votes }}</h5>
-        <button (click)="downvote()">
-          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="22.5px"
-            height="30px" viewBox="0 0 50 80" xml:space="preserve">
-            <polyline [ngStyle]="{'stroke': voted === 2 ? '#eb3b3b' : 'black'}" fill="none" stroke-width="3"
-              stroke-linecap="round" stroke-linejoin="round" points="0.375,0.375 45.63,38.087 0.375,75.8 " />
-          </svg>
-        </button>
-      </div>
-    </div>
-    <div class="bottom-panel">
-      <h5>{{ post.tag }}</h5>
-      <button *ngIf="post.comments" type="button" name="button" class="comment-btn" (click)="toggleComments()" style="float:left;">Comments
-        ({{ post.comments.items.length || 0 }})</button>
-    </div>
-  </div>
+<mat-card class="col-left">
 
-  <div [ngClass]="{'show' : viewComments, 'hide' : !viewComments}">
-    <ul class="comments" *ngIf="post.comments">
-      <li *ngFor="let comment of post.comments.items">{{ comment.content }}</li>
-    </ul>
-    <form [formGroup]="addCommentForm" (ngSubmit)="submitComment()">
-      <input type="text" formControlName="content" placeholder="Comment" required>
-      <input type="submit" value="Add Comment">
-    </form>
-  </div>
-</div>
+  <mat-card-actions>
+      <button mat-button>LIKE</button>
+      <button mat-button>DISLIKE</button>
+      <button mat-button color="primary" class = 'close'>CLOSE</button>
+  </mat-card-actions>
+
+  <mat-card-header>
+    <div mat-card-avatar><img src="assets/images/avatar.png" alt=""></div>
+    <mat-card-title>Shiba Inu</mat-card-title>
+    <mat-card-subtitle>Author Name</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <p>
+      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+      bred for hunting.
+    </p>
+
+    <p class = 'comment'>
+      Open Comments
+    </p>
+  </mat-card-content>
+  
+
+</mat-card>

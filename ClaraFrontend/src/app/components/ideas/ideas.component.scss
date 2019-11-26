@@ -1,230 +1,30 @@
 @import "../../../variables.scss";
 
-.top-panel {
-  padding: 4%;
+body {
+  height: auto !important;
+}
+
+h1 {
+  margin: 0;
+  padding: $header-padding;
+  background: $blue-gradient;
+  font-weight: $header-font-weight;
   color: white;
-  background-image: $blue-gradient;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
 }
 
-.add-dataset-btn {
-  border: 0;
-  padding: 0;
-  color: white;
-  background-color: inherit;
-  transition: $main-hover-transition;
-  flex: 0.2 0 0;
-
-  &:hover {
-    color: #EFEFEF;
-    transition: $main-hover-transition;
-  }
-}
-
-.posted-ideas {
-  padding: 0 3% 3% 0;
-  display: flex;
-}
-
-.ideas-forum{
-  width: 100%
-}
-
-button, input[type="submit"] {
-  border: 0;
-  background-color: $color-primary;
-  color: white;
-  border-radius: 5px;
-  transition: $main-hover-transition;
-}
-
-button:hover, input[type="submit"]:hover {
-  background-color: $color-primary-dark;
-  transition: $main-hover-transition;
-}
-
-/*****************************
-  Search / Filter Style
-*****************************/
-
-
-.search-panel {
-  position: sticky;
-  top: 0;
-  padding: 2.5% 0;
-  z-index: 10;
-  margin-bottom: 4%;
-  width: 100%;
-}
-
-.search-data-form {
-  input {
-    border: 0;
-    padding: 1.5%;
-    background-color: white;
-    box-shadow: $main-box-shadow;
-    font-size: 2vh;
-
-    &[type="text"] {
-      width: 50%;
-      border-radius: 10px 0 0 10px;
-      color: $color-secondary;
-    }
-
-    &[type="submit"] {
-      border-radius: 0 10px 10px 0;
-      text-align: right;
-      color: white;
-      background-color: $color-primary;
-      font-weight: bold;
-      transition: $main-hover-transition;
-      box-shadow: $main-box-shadow;
-
-      &:hover {
-        background-color: $color-primary-dark;
-        transition: $main-hover-transition;
-      }
-    }
-
-    &::placeholder {
-      color: #BBBBBB;
-    }
-  }
-
-  button {
-    border: 0;
-    background-color: white;
-    box-shadow: $main-box-shadow;
-    font-size: 2vh;
-    padding: 1.5% 1.5% 1.5% 15px;
-    border-radius: 0 10px 10px 0;
-
-    img {
-      height: 10px;
-    }
-  }
-}
-
-/*****************************
-  Dropdown Style
-*****************************/
-
-
-/* Style The Dropdown Button */
-.dropbtn {
-  background-color: white;
-  color: $color-secondary;
-  box-shadow: $main-box-shadow;
-  font-weight: bold;
-  padding: 6%;
-  font-size: 2vh;
+h2 {
   text-align: left;
-  border: none;
-  border-radius: 10px;
-  
-  &:hover {
-    color: $color-primary-dark;
-    background-color: white;
-  }
+  margin-left: 2%;
+  font-weight: 300;
 }
 
-/* The container <div> - needed to position the dropdown content */
-.dropdown {
-  position: relative;
-  float: left;
-  width: 25%;
-
-  ul, li {
-    list-style-type: none;
-    margin-left: 0;
-    padding-left: 0;
-  }
-
-  ul {
-    max-height: 20vh;
-    overflow-y: auto;
-  }
+p {
+  text-align: justify;
+  width: 100%;
+  height:auto !important;
 }
 
-/* Dropdown Content (Hidden by Default) */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 60%;
-  margin-left: 20%;
-  box-shadow: $dark-box-shadow;
-  z-index: 1;
-
-  a {
-    color: black;
-    padding: 10%;
-    text-decoration: none;
-    display: block;
-    font-size: 2vh;
-    
-    &:hover {
-      background-color: #f1f1f1
-    }
-  }
+.ideas {
+  width: 75%;
 }
 
-
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-
-/****************************
-  Side Panel
-****************************/
-
-
-.side-panel {
-  position: sticky;
-  top: 10%;
-  margin-top: 10%;
-  padding: 2.5%;
-  background-color: white;
-  box-shadow: $main-box-shadow;
-  border-radius: 5px;
-  height: 500px;
-  width: 30%;
-  margin-left: 1%;
-
-  button {
-    padding: 4.5% 10%;
-    font-size: 14pt;
-    font-weight: 500;
-  }
-
-  h2 {
-    text-align: left;
-    font-weight: 500;
-    margin-bottom: 0;
-  }
-
-  hr {
-    border: 0;
-    background-color: black;
-    height: 1px;
-    margin-top: 0;
-  }
-
-  ul {
-    padding: 0;
-
-    > li {
-      text-align: left;
-      margin: 6%;
-      color: $color-primary;
-
-      span {
-        color: black;
-      }
-    }
-  }
-}

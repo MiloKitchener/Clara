@@ -13,18 +13,13 @@ import {
   MatDialogModule, 
   MatGridListModule, 
   MatIconModule, 
-  MatCardModule, 
   MatSnackBarModule,
   MatCheckboxModule, 
   MatInputModule
 } from '@angular/material';
 
-import { 
-  MzCollapsibleModule, 
-  MzSidenavModule, 
-  MzCheckboxModule, 
-  MzProgressModule 
-} from 'ngx-materialize';
+import {MatCardModule} from '@angular/material/card';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 import { CookieService } from 'ngx-cookie-service';
 import { ChartsModule } from 'ng2-charts';
@@ -108,11 +103,8 @@ export const isMock = environment.mock;
     MatSnackBarModule,
     MatExpansionModule,
     MatCheckboxModule,
-    MzCollapsibleModule,
-    MzSidenavModule,
-    MzCheckboxModule,
-    MzProgressModule,
-    MatInputModule
+    MatInputModule,
+    MatProgressBarModule
   ],
   providers: [
     CookieService,

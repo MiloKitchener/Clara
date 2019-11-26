@@ -1,5 +1,22 @@
 @import "../../../variables.scss";
 
+
+.col-left {
+  text-align: justify;
+  width: 100%;
+  height:auto !important;
+  margin-left: 1%;
+}
+
+.close {
+  float: right;
+}
+
+img {
+  border-radius: 50%;
+  width: 100%;
+}
+
 .component-container {
   text-align: left;
   padding: 30px;
@@ -7,12 +24,6 @@
   background-color: white;
   box-shadow: $main-box-shadow;
   margin: 10px 10px 30px;
-}
-
-img {
-  height: 100px;
-  border-radius: 50%;
-  margin-right: 20px;
 }
 
 .idea-node-container {

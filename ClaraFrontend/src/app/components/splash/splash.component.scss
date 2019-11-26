@@ -64,6 +64,7 @@ li {
     text-align: center;
     text-decoration: none;
     transition: $main-hover-transition;
+    padding: 0 15px;
 
     &:hover {
       background-color: rgba($color: #000000, $alpha: 0.1);

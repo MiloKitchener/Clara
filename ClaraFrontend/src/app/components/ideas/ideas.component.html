@@ -1,41 +1,10 @@
-<!-- Top Bar -->
-<div class="top-panel">
-  <h1>Ideas</h1>
-  <button class="add-dataset-btn" (click)="openAddPostDialog()">
-    <i class="material-icons-round">add_circle</i>
-  </button>
+<h1>Ideas</h1>
+
+<div class='ideas'> 
+  <h2>Open Ideas</h2>
+  <app-idea-node></app-idea-node>
 </div>
 
-<!-- Posts Feed -->
-<div class="posted-ideas">
-  <div class="ideas-forum">
-    <div class="search-panel">
-      <div class="dropdown">
-        <button class="dropbtn">Arrange By: {{ selectedFilter }}</button>
-        <div class="dropdown-content">
-          <ul>
-            <li *ngFor="let arrangedFilter of arrangedFilters">
-              <a (click)="selectFilter(arrangedFilter)">{{ arrangedFilter }}</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <form class="search-data-form" [formGroup]="searchDataForm" (ngSubmit)="search()">
-        <input type="text" formControlName="searchText" placeholder="Search">
-        <input type="submit" name="searchSubmit" value="See All Results">
-      </form>
-    </div>
-    <app-idea-node *ngFor="let post of posts" [post]="post"></app-idea-node>
-  </div>
-
-  <div class="side-panel">
-    <h5>Filters</h5>
-    <hr>
-    <ul>
-      <li *ngFor="let filter of filters">
-        <span>{{ filter }}</span>
-      </li>
-    </ul>
-  </div>
+<div class='ideas'> 
+  <h2>Closed Ideas</h2>
 </div>
