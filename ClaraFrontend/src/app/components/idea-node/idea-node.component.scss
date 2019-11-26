@@ -12,6 +12,12 @@
   float: right;
 }
 
+.score {
+  float: right;
+  margin: 0 0 0 0 !important;
+  line-height: 36px;
+}
+
 img {
   border-radius: 50%;
   width: 100%;
@@ -24,46 +30,6 @@ img {
   background-color: white;
   box-shadow: $main-box-shadow;
   margin: 10px 10px 30px;
-}
-
-.idea-node-container {
-  h4 {
-    font-size: 20pt;
-    margin: 0 0 10px;
-  }
-
-  p {
-    height: 50%;
-    text-align: justify;
-    max-height: 100px;
-    overflow-y: auto;
-    font-size: 10pt;
-  }
-
-  button {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    background: none;
-
-    &:hover {
-      cursor: pointer;
-    }
-  }
-}
-
-.main-content {
-  display: flex;
-}
-
-.vote-panel {
-  text-align: center;
-  margin-left: 5%;
-  margin-top: 30px;
-}
-
-svg {
-  transform: rotate(90deg);
 }
 
 polyline {
