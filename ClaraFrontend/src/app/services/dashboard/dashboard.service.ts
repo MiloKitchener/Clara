@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 import { Dashboard } from 'src/app/interfaces/dashboard';
 
 import { Chart } from 'src/app/interfaces/chart';
@@ -14,7 +13,6 @@ export class DashboardService {
 
   constructor(
     private router: Router,
-    private http: HttpClient,
     private apiService: APIService
   ) { }
 
@@ -27,7 +25,7 @@ export class DashboardService {
 
   // GET Dashboards
   getDashboards(): Promise<ListDashboardsQuery> {
-    return this.apiService.ListDashboards();
+    return this.apiService.ListDashboards(null, 1000);
   }
 
   // GET the datapoints for a field specified in the parameters
@@ -58,7 +56,7 @@ export class DashboardService {
 
   // Returns a list of fields corresponding to a database parameter
   getFields(id: string) {
-    return this.apiService.ListFields();
+    return this.apiService.ListFields(null, 1000);
   }
 
   // Add chart to database

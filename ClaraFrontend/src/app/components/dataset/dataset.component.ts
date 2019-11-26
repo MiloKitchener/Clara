@@ -25,8 +25,6 @@ export class DatasetComponent implements OnInit {
   uploadedDatasetFields: any;
 
   searchForm: FormGroup;
-  uploadForm: FormGroup;
-  numSets = 0;
   numRecentlyUpdated = 0;
   numOutOfDate = 0;
   numUnderReview = 0;
@@ -41,18 +39,10 @@ export class DatasetComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.uploadedDataset = null;
-    this.uploadedDatasetName = null;
-    this.uploadedDatasetFields = null;
-    this.datasetUploadView = false;
     this.setSelectedDataset('Open Data'); // default dataset is open data
 
     this.searchForm = this.fb.group({
       searchValue: ['', Validators.required]
-    });
-
-    this.uploadForm = this.fb.group({
-      url: ['', Validators.required]
     });
   }
 
@@ -60,7 +50,6 @@ export class DatasetComponent implements OnInit {
   // Populates page with selected dataset information
   setSelectedDataset(name: string) {
     this.selectedDataset = name;
-    this.numSets = 0;
     this.numRecentlyUpdated = 0;
     this.numOutOfDate = 0;
     this.numUnderReview = 0;
@@ -68,7 +57,6 @@ export class DatasetComponent implements OnInit {
     // GET datasets
     this.datasetService.getDatasets().then((res) => {
       this.datasets = res.items;
-      this.numSets = this.datasets.length;
 
       // let year: string;
       // for (let i = 0; i < this.datasets.length; i++) {
@@ -82,7 +70,7 @@ export class DatasetComponent implements OnInit {
     });
   }
 
-  // search function used by search form
+  // Search function used by search form
   search() {
     const input = this.searchForm.get('searchValue').value;
     const filter = input.toUpperCase();
@@ -99,16 +87,6 @@ export class DatasetComponent implements OnInit {
         li[i].style.display = 'none';
       }
     }
-  }
-
-  uploadDataset() {
-    this.datasetService.createDatasetAndFields(this.uploadForm.value).then();
-    // this.http.post(environment.backendIP + 'map/datasets', this.uploadForm.value).subscribe((res: string) => {
-    //   const resObj = JSON.parse(res);
-    //   this.uploadDataset = resObj[0]; // change for all datasets returned
-    //   this.uploadedDatasetName = this.uploadedDataset.db_Name;
-    //   this.uploadedDatasetFields = this.uploadedDataset.db_fields;
-    // });
   }
 
   openAddDatasetDialog() {

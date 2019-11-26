@@ -10,7 +10,7 @@ export class DatasetService {
 
   // Returns a list of datasets
   getDatasets() {
-    return this.apiService.ListDatasets();
+    return this.apiService.ListDatasets(null, 1000);
   }
 
   createDataset(dataset) {
