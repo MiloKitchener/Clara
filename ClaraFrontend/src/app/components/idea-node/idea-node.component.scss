@@ -6,6 +6,7 @@
   width: 100%;
   height:auto !important;
   margin-left: 1%;
+  margin-bottom: 1%;
 }
 
 .close {
@@ -52,18 +53,6 @@ polyline {
   justify-content: space-between;
 }
 
-.comment-btn {
-  color: $color-primary;
-  transition: $main-hover-transition;
-  margin-right: 80px;
-
-  &:hover {
-    font-weight: bold;
-    color: $color-primary-dark;
-    transition: $main-hover-transition;
-  }
-}
-
 .comments {
   border-top: 1px solid #EFEFEF;
   padding: 15px;
@@ -97,15 +86,6 @@ input {
     background-color: #EAEAEA;
     transition: $main-hover-transition;
   }
-}
-
-li {
-  margin: 10px;
-}
-
-.show {
-  display: block; 
-  animation: openComment 1s cubic-bezier(0, 1, 0.5, 1) 1 normal forwards;
 }
 
 .hide {

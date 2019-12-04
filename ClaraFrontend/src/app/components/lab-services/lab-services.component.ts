@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LabServicesService } from 'src/app/services/lab-services/lab-services.service';
+import { MatDialog, MatDialogConfig } from "@angular/material";
+import { LabServicesOptionsComponent } from 'src/app/lab-services-options/lab-services-options.component';
 
 @Component({
   selector: 'app-lab-services',
@@ -11,14 +13,21 @@ export class LabServicesComponent implements OnInit {
   cards: [];
   panelOpenState = false;
 
-  constructor(
-    private labServicesService: LabServicesService
-    ) { }
+  constructor(private labServicesService: LabServicesService, private dialog: MatDialog) { }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(LabServicesOptionsComponent, {
+      width: '400px',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
   
   public objectives = [];
 
   ngOnInit() {
-
     this.labServicesService.getPilots().then((results) => {
       this.cards = results.items;
     });

@@ -3,7 +3,11 @@
 <div class="pilots">
   <h2>Pilot Projects</h2>
     <mat-accordion>
-        <app-pilot-cards *ngFor="let card of cards" [pilot]="card"></app-pilot-cards>
+      <app-pilot-cards *ngFor="let card of cards" [pilot]="card"></app-pilot-cards>
     </mat-accordion>
 </div>
 
+<div class="options">
+  <h2>Options</h2>
+    <button mat-raised-button (click)="openDialog()">Create New Pilot</button>
+</div>

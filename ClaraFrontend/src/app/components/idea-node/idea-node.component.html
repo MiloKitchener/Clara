@@ -2,27 +2,42 @@
 
   <mat-card-actions>
       <button mat-stroked-button color="warn" class = 'close'>CLOSE</button>
-      <button mat-button class="close"><mat-icon>thumb_down</mat-icon></button>
-      <h3 class='score'>0</h3>
-      <button mat-button class='close'><mat-icon>thumb_up</mat-icon></button>
+      <button mat-button class="close" (click)="downvote()"><mat-icon [ngStyle]="{'color': voted === 2 ? '#eb3b3b' : 'black'}">thumb_down</mat-icon></button>
+      <h3 class='score'>{{ post.votes }}</h3>
+      <button mat-button class='close' (click)="upvote()"><mat-icon [ngStyle]="{'color': voted === 1 ? '#40f7aa' : 'black'}">thumb_up</mat-icon></button>
   </mat-card-actions>
 
   <mat-card-header>
     <div mat-card-avatar><img src="assets/images/avatar.png" alt=""></div>
-    <mat-card-title>Shiba Inu</mat-card-title>
-    <mat-card-subtitle>Author Name</mat-card-subtitle>
+    <mat-card-title>{{ post.title }}</mat-card-title>
+    <mat-card-subtitle>{{ post.owner }}</mat-card-subtitle>
   </mat-card-header>
 
   <mat-card-content>
-    <p>
-      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-      bred for hunting.
-    </p>
 
-    <p class = 'comment'>
-      Open Comments
-    </p>
+    <p> {{ post.content }} </p>
+
+    <p> {{ post.tags }} </p>
+
+    <button *ngIf="post.comments" mat-button name="button" (click)="toggleComments()">
+      View Comments ({{ post.comments.items.length || 0 }})
+    </button>
+
+    <div class='comments' [ngClass]="{'show' : viewComments, 'hide' : !viewComments}" *ngIf="post.comments">
+
+      <mat-card *ngFor="let comment of post.comments.items">
+        <mat-card-content>
+          <p>{{ comment.content }}</p>
+        </mat-card-content>
+      </mat-card>
+
+      <form [formGroup]="addCommentForm" (ngSubmit)="submitComment()">
+        <input type="text" formControlName="content" placeholder="Comment" required>
+        <input type="submit" value="Add Comment">
+      </form>
+
+    </div>
+
   </mat-card-content>
   
 

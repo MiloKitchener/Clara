@@ -41,7 +41,6 @@ export class PilotCardsComponent implements OnInit {
     }
     
     this.labServicesService.updateObjective( {id:event.source.id, state: event.checked} )
-
     this.percentage = (this.counter / this.pilot.objective.items.length) * 100;
   }
 

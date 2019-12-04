@@ -15,11 +15,13 @@ import {
   MatIconModule, 
   MatSnackBarModule,
   MatCheckboxModule, 
-  MatInputModule
+  MatInputModule,
+  MatNativeDateModule
 } from '@angular/material';
 
 import {MatCardModule} from '@angular/material/card';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 import { CookieService } from 'ngx-cookie-service';
 import { ChartsModule } from 'ng2-charts';
@@ -55,6 +57,7 @@ import {PilotCardsComponent} from './components/pilot-cards/pilot-cards.componen
 
 import { DatasetAddPanelComponent } from './components/dataset-add-panel/dataset-add-panel.component';
 import { PostAddPanelComponent } from './components/post-add-panel/post-add-panel.component';
+import { LabServicesOptionsComponent } from './lab-services-options/lab-services-options.component';
 
 export const isMock = environment.mock;
 
@@ -80,6 +83,7 @@ export const isMock = environment.mock;
     PilotCardsComponent,
     DatasetAddPanelComponent,
     PostAddPanelComponent,
+    LabServicesOptionsComponent,
   ],
   imports: [
     BrowserModule,
@@ -104,7 +108,9 @@ export const isMock = environment.mock;
     MatExpansionModule,
     MatCheckboxModule,
     MatInputModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [
     CookieService,
@@ -116,7 +122,7 @@ export const isMock = environment.mock;
     }
   ],
   bootstrap: [AppComponent],
-  entryComponents: [IdeaNodeComponent, AddGraphDialogComponent, DatasetAddPanelComponent, PostAddPanelComponent]
+  entryComponents: [IdeaNodeComponent, AddGraphDialogComponent, DatasetAddPanelComponent, PostAddPanelComponent, LabServicesOptionsComponent]
 })
 
 export class AppModule { }

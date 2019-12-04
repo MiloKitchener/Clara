@@ -1,0 +1,44 @@
+<h1 mat-dialog-title>Create New Pilot</h1>
+<div mat-dialog-content class="content">
+    <mat-form-field>
+        <input matInput placeholder="Pilot Name">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <textarea matInput placeholder="Pilot Description"></textarea>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <input matInput [matDatepicker]="picker1" placeholder="Start Date" [formControl]="date">
+        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <input matInput [matDatepicker]="picker2" placeholder="End Date" [formControl]="date">
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <input matInput placeholder="Budget">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <input matInput placeholder="Primary Contact Name">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <input matInput placeholder="Stakeholders">
+    </mat-form-field>
+    <br>
+    <mat-form-field *ngFor="let objective of objectives">
+        <input matInput placeholder="Objective">
+    </mat-form-field>
+    <button mat-button (click)="addObjective()">Add Objective</button>
+
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="" cdkFocusInitial>Ok</button>
+</div>
