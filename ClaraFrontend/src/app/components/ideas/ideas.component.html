@@ -5,9 +5,9 @@
   <app-idea-node *ngFor="let post of posts" [post]="post" class='card'></app-idea-node>
 </div>
 
-<div class='options'>
+<div class="options">
   <h2>Options</h2>
-  
+  <button mat-raised-button (click)="openDialog()">Create New Pilot</button>
 </div>
 
 <div class='ideas'> 

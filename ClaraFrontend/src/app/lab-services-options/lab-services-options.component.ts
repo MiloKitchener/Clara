@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog, MatDialogConfig} from "@angular/material";
+import { FormBuilder, FormArray, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-lab-services-options',
@@ -8,18 +9,42 @@ import {MatDialog, MatDialogConfig} from "@angular/material";
 })
 export class LabServicesOptionsComponent implements OnInit {
 
-  constructor(private dialog: MatDialog) { }
+  newPilot = this.fb.group({
+    pilotName: ['', Validators.required],
+    pilotDesc: ['', Validators.required],
+    picker1: ['', Validators.required],
+    picker2: ['', Validators.required],
+    budget: ['', Validators.required],
+    contact: ['', Validators.required],
+    stakeholders: ['', Validators.required],
+    objectives: this.fb.array([
+      this.fb.control('')
+    ])
+  });
 
-  private objectives = [];
+  get objectives() {
+    return this.newPilot.get('objectives') as FormArray;
+  }
+
+  constructor(private dialog: MatDialog, private fb: FormBuilder) { }
 
   addObjective() {
-    this.objectives.push("test");
-    console.log(`We now have ${this.objectives.length} objectives`);
-    console.log(this.objectives)
+    this.objectives.push(this.fb.control(''));
   }
 
-  ngOnInit() {
-    console.log(`We now have ${this.objectives.length} objectives`);
+  removeObjective() {
+    if (this.objectives.length === 0) {
+      console.log('Cannot have less than zero objectives.')
+    } else {
+      this.objectives.removeAt(-1)
+    }
   }
 
+  onSubmit() {
+    // TODO: Use EventEmitter with form value
+    console.warn(this.newPilot.value);
+  }
+
+  ngOnInit() {}
+  
 }

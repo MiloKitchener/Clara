@@ -59,35 +59,6 @@ polyline {
   text-align: justify;
 }
 
-form {
-  text-align: center;
-}
-
-input {
-  border: 0;
-  background-color: #EFEFEF;
-  color: black;
-  border-radius: 7px;
-  padding: 10px 20px;
-  transition: $main-hover-transition;
-
-  &[type="submit"] {
-    margin-left: 20px;
-    background-color: $color-primary;
-    color: white;
-
-    &:hover {
-      background-color: $color-primary-dark;
-      transition: $main-hover-transition;
-    }
-  }
-
-  &[type="text"]:hover {
-    background-color: #EAEAEA;
-    transition: $main-hover-transition;
-  }
-}
-
 .hide {
   display: none;
 }

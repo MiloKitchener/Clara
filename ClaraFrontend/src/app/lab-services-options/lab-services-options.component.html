@@ -1,44 +1,64 @@
 <h1 mat-dialog-title>Create New Pilot</h1>
 <div mat-dialog-content class="content">
-    <mat-form-field>
-        <input matInput placeholder="Pilot Name">
-    </mat-form-field>
-    <br>
-    <mat-form-field>
-        <textarea matInput placeholder="Pilot Description"></textarea>
-    </mat-form-field>
-    <br>
-    <mat-form-field>
-        <input matInput [matDatepicker]="picker1" placeholder="Start Date" [formControl]="date">
-        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-        <mat-datepicker #picker1></mat-datepicker>
-    </mat-form-field>
-    <br>
-    <mat-form-field>
-        <input matInput [matDatepicker]="picker2" placeholder="End Date" [formControl]="date">
-        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-        <mat-datepicker #picker2></mat-datepicker>
-    </mat-form-field>
-    <br>
-    <mat-form-field>
-        <input matInput placeholder="Budget">
-    </mat-form-field>
-    <br>
-    <mat-form-field>
-        <input matInput placeholder="Primary Contact Name">
-    </mat-form-field>
-    <br>
-    <mat-form-field>
-        <input matInput placeholder="Stakeholders">
-    </mat-form-field>
-    <br>
-    <mat-form-field *ngFor="let objective of objectives">
-        <input matInput placeholder="Objective">
-    </mat-form-field>
-    <button mat-button (click)="addObjective()">Add Objective</button>
 
-</div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">No Thanks</button>
-  <button mat-button [mat-dialog-close]="" cdkFocusInitial>Ok</button>
+    <form [formGroup]='newPilot' (ngSubmit)="onSubmit()">
+        <mat-form-field>
+            <input matInput formControlName="pilotName" placeholder="Pilot Name">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <textarea matInput formControlName="pilotDesc" placeholder="Pilot Description"></textarea>
+        </mat-form-field>
+        <br>
+        <mat-form-field style="margin-right: 2%; width: 49% !important;">
+            <input matInput formControlName="picker1" [matDatepicker]="picker1" placeholder="Start Date" [formControl]="date">
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field style="width: 49% !important;">
+            <input matInput formControlName="picker2" [matDatepicker]="picker2" placeholder="End Date" [formControl]="date">
+            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <input matInput formControlName="budget" placeholder="Budget">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <input matInput formControlName="contact" placeholder="Primary Contact Name">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <input matInput formControlName="stakeholders" placeholder="Stakeholders">
+        </mat-form-field>
+
+        <div formArrayName="objectives">
+            <div *ngFor="let item of objectives.controls; let i=index">
+                <!-- The repeated template -->
+                <mat-form-field>
+                    <input matInput [formControlName]="i" placeholder="Objective">
+                </mat-form-field>
+                
+            </div>
+            <button mat-button (click)="addObjective()">Add Objective</button>
+            <button mat-button (click)="removeObjective()">Remove Objective</button>
+        </div>
+
+        <div mat-dialog-actions>
+            <button mat-button [mat-dialog-close]>Cancel</button>
+            <button mat-raised-button type="submit" [disabled]="!newPilot.valid" [mat-dialog-close]>Submit</button>
+        </div>
+    </form>
+
+
+    <p>
+        Form Value: {{ newPilot.value | json }}
+    </p>
+
+
+    <p>
+        Form Status: {{ newPilot.status }}
+    </p>
+
 </div>

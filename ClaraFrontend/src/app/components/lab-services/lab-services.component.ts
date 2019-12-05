@@ -17,7 +17,8 @@ export class LabServicesComponent implements OnInit {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(LabServicesOptionsComponent, {
-      width: '400px',
+      width: '500px',
+      maxHeight: '800px'
     });
 
     dialogRef.afterClosed().subscribe(result => {
