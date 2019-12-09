@@ -23,6 +23,11 @@ type IoTData @model(subscriptions: { level: public }) @key(fields: ["uuid", "ts"
 	salinity: Float
 	s_gravity: Float
 	uptime: [Int]
+	total: Int
+	count: Int
+	direction: String
+	down: Int
+	up: Int
 }
 
 type Post @model @auth(rules: [{allow: owner, operations: [create]}]) {

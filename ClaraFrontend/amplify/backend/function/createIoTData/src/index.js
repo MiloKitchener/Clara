@@ -32,6 +32,11 @@ exports.handler = async (event) => {
         salinity
         s_gravity
         uptime
+        total
+        count
+        direction
+        down
+        up
       }
     }`;
 

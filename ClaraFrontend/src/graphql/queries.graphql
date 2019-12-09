@@ -42,6 +42,11 @@ query GetIoTData($uuid: ID!, $ts: Int!) {
     salinity
     s_gravity
     uptime
+    total
+    count
+    direction
+    down
+    up
   }
 }
 query ListIoTDatas(
@@ -73,6 +78,11 @@ query ListIoTDatas(
       salinity
       s_gravity
       uptime
+      total
+      count
+      direction
+      down
+      up
     }
     nextToken
   }

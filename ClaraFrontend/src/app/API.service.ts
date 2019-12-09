@@ -36,6 +36,11 @@ export type UpdateIoTDataInput = {
   salinity?: number | null;
   s_gravity?: number | null;
   uptime?: Array<number | null> | null;
+  total?: number | null;
+  count?: number | null;
+  direction?: string | null;
+  down?: number | null;
+  up?: number | null;
 };
 
 export type DeleteIoTDataInput = {
@@ -214,6 +219,11 @@ export type CreateIoTDataInput = {
   salinity?: number | null;
   s_gravity?: number | null;
   uptime?: Array<number | null> | null;
+  total?: number | null;
+  count?: number | null;
+  direction?: string | null;
+  down?: number | null;
+  up?: number | null;
 };
 
 export type CreateDatasetInput = {
@@ -292,6 +302,11 @@ export type ModelIoTDataFilterInput = {
   salinity?: ModelFloatFilterInput | null;
   s_gravity?: ModelFloatFilterInput | null;
   uptime?: ModelIntFilterInput | null;
+  total?: ModelIntFilterInput | null;
+  count?: ModelIntFilterInput | null;
+  direction?: ModelStringFilterInput | null;
+  down?: ModelIntFilterInput | null;
+  up?: ModelIntFilterInput | null;
   and?: Array<ModelIoTDataFilterInput | null> | null;
   or?: Array<ModelIoTDataFilterInput | null> | null;
   not?: ModelIoTDataFilterInput | null;
@@ -461,6 +476,11 @@ export type UpdateIoTDataMutation = {
   salinity: number | null;
   s_gravity: number | null;
   uptime: Array<number | null> | null;
+  total: number | null;
+  count: number | null;
+  direction: string | null;
+  down: number | null;
+  up: number | null;
 };
 
 export type DeleteIoTDataMutation = {
@@ -477,6 +497,11 @@ export type DeleteIoTDataMutation = {
   salinity: number | null;
   s_gravity: number | null;
   uptime: Array<number | null> | null;
+  total: number | null;
+  count: number | null;
+  direction: string | null;
+  down: number | null;
+  up: number | null;
 };
 
 export type CreatePostMutation = {
@@ -1310,6 +1335,11 @@ export type CreateIoTDataMutation = {
   salinity: number | null;
   s_gravity: number | null;
   uptime: Array<number | null> | null;
+  total: number | null;
+  count: number | null;
+  direction: string | null;
+  down: number | null;
+  up: number | null;
 };
 
 export type CreateDatasetMutation = {
@@ -1420,6 +1450,11 @@ export type GetIoTDataQuery = {
   salinity: number | null;
   s_gravity: number | null;
   uptime: Array<number | null> | null;
+  total: number | null;
+  count: number | null;
+  direction: string | null;
+  down: number | null;
+  up: number | null;
 };
 
 export type ListIoTDatasQuery = {
@@ -1438,6 +1473,11 @@ export type ListIoTDatasQuery = {
     salinity: number | null;
     s_gravity: number | null;
     uptime: Array<number | null> | null;
+    total: number | null;
+    count: number | null;
+    direction: string | null;
+    down: number | null;
+    up: number | null;
   } | null> | null;
   nextToken: string | null;
 };
@@ -2053,6 +2093,11 @@ export type OnCreateIoTDataSubscription = {
   salinity: number | null;
   s_gravity: number | null;
   uptime: Array<number | null> | null;
+  total: number | null;
+  count: number | null;
+  direction: string | null;
+  down: number | null;
+  up: number | null;
 };
 
 export type OnUpdateIoTDataSubscription = {
@@ -2069,6 +2114,11 @@ export type OnUpdateIoTDataSubscription = {
   salinity: number | null;
   s_gravity: number | null;
   uptime: Array<number | null> | null;
+  total: number | null;
+  count: number | null;
+  direction: string | null;
+  down: number | null;
+  up: number | null;
 };
 
 export type OnDeleteIoTDataSubscription = {
@@ -2085,6 +2135,11 @@ export type OnDeleteIoTDataSubscription = {
   salinity: number | null;
   s_gravity: number | null;
   uptime: Array<number | null> | null;
+  total: number | null;
+  count: number | null;
+  direction: string | null;
+  down: number | null;
+  up: number | null;
 };
 
 export type OnCreatePostSubscription = {
@@ -3060,6 +3115,11 @@ export class APIService {
           salinity
           s_gravity
           uptime
+          total
+          count
+          direction
+          down
+          up
         }
       }`;
     const gqlAPIServiceArguments: any = {
@@ -3088,6 +3148,11 @@ export class APIService {
           salinity
           s_gravity
           uptime
+          total
+          count
+          direction
+          down
+          up
         }
       }`;
     const gqlAPIServiceArguments: any = {
@@ -3867,6 +3932,7 @@ export class APIService {
     const statement = `mutation CreatePilot($input: CreatePilotInput!) {
         createPilot(input: $input) {
           __typename
+<<<<<<< Updated upstream
           id
           name
           description
@@ -3900,6 +3966,25 @@ export class APIService {
           start
           end
           contact
+=======
+          uuid
+          ts
+          type
+          battery
+          moisture
+          CO2
+          pH
+          conductivity
+          solids
+          salinity
+          s_gravity
+          uptime
+          total
+          count
+          direction
+          down
+          up
+>>>>>>> Stashed changes
         }
       }`;
     const gqlAPIServiceArguments: any = {
@@ -4380,6 +4465,11 @@ export class APIService {
           salinity
           s_gravity
           uptime
+          total
+          count
+          direction
+          down
+          up
         }
       }`;
     const gqlAPIServiceArguments: any = {
@@ -4416,6 +4506,11 @@ export class APIService {
             salinity
             s_gravity
             uptime
+            total
+            count
+            direction
+            down
+            up
           }
           nextToken
         }
@@ -5332,6 +5427,11 @@ export class APIService {
           salinity
           s_gravity
           uptime
+          total
+          count
+          direction
+          down
+          up
         }
       }`
     )
@@ -5356,6 +5456,11 @@ export class APIService {
           salinity
           s_gravity
           uptime
+          total
+          count
+          direction
+          down
+          up
         }
       }`
     )
@@ -5380,6 +5485,11 @@ export class APIService {
           salinity
           s_gravity
           uptime
+          total
+          count
+          direction
+          down
+          up
         }
       }`
     )

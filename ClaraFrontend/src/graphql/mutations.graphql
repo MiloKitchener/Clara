@@ -37,6 +37,11 @@ mutation UpdateIoTData($input: UpdateIoTDataInput!) {
     salinity
     s_gravity
     uptime
+    total
+    count
+    direction
+    down
+    up
   }
 }
 mutation DeleteIoTData($input: DeleteIoTDataInput!) {
@@ -53,6 +58,11 @@ mutation DeleteIoTData($input: DeleteIoTDataInput!) {
     salinity
     s_gravity
     uptime
+    total
+    count
+    direction
+    down
+    up
   }
 }
 mutation CreatePost($input: CreatePostInput!) {
@@ -798,6 +808,11 @@ mutation CreateIoTData($input: CreateIoTDataInput!) {
     salinity
     s_gravity
     uptime
+    total
+    count
+    direction
+    down
+    up
   }
 }
 mutation CreateDataset($input: CreateDatasetInput!) {

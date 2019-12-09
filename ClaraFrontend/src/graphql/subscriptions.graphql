@@ -37,6 +37,11 @@ subscription OnCreateIoTData {
     salinity
     s_gravity
     uptime
+    total
+    count
+    direction
+    down
+    up
   }
 }
 subscription OnUpdateIoTData {
@@ -53,6 +58,11 @@ subscription OnUpdateIoTData {
     salinity
     s_gravity
     uptime
+    total
+    count
+    direction
+    down
+    up
   }
 }
 subscription OnDeleteIoTData {
@@ -69,6 +79,11 @@ subscription OnDeleteIoTData {
     salinity
     s_gravity
     uptime
+    total
+    count
+    direction
+    down
+    up
   }
 }
 subscription OnCreatePost($owner: String!) {
