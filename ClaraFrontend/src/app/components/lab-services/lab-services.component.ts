@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LabServicesService } from 'src/app/services/lab-services/lab-services.service';
 import { MatDialog } from "@angular/material";
-import { LabServicesOptionsComponent } from 'src/app/lab-services-options/lab-services-options.component';
+import { LabServicesOptionsComponent } from 'src/app/components/lab-services-options/lab-services-options.component';
 
 @Component({
   selector: 'app-lab-services',

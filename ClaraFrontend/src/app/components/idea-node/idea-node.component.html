@@ -27,7 +27,8 @@
 
       <mat-card *ngFor="let comment of post.comments.items">
         <mat-card-content>
-          <p>{{ comment.content }}</p>
+          <p><strong>{{ comment.owner }}</strong>: {{ comment.content }}</p>
+          <p>{{ comment.createdAt }}</p>
         </mat-card-content>
       </mat-card>
 
@@ -36,13 +37,10 @@
       <div>
         <h4>New Comment</h4>
         <form [formGroup]="addCommentForm" (ngSubmit)="submitComment()">
-          <mat-form-field style="margin-right: 1%; width: 25%;">
-            <input matInput formControlName="name" placeholder="Name" required>
-          </mat-form-field>
-          <mat-form-field style="margin-right: 1%; width: 50%;">
+          <mat-form-field style="margin-right: 1%; width: 79%;">
             <input matInput formControlName="content" placeholder="Comment" required>
           </mat-form-field>
-          <button style="width: 20%;" mat-button type="submit">Add Comment</button>
+          <button style="width: 20%;" [disabled]="!addCommentForm.valid" mat-button type="submit">Add Comment</button>
         </form>
       </div>
 

@@ -57,7 +57,8 @@ import {PilotCardsComponent} from './components/pilot-cards/pilot-cards.componen
 
 import { DatasetAddPanelComponent } from './components/dataset-add-panel/dataset-add-panel.component';
 import { PostAddPanelComponent } from './components/post-add-panel/post-add-panel.component';
-import { LabServicesOptionsComponent } from './lab-services-options/lab-services-options.component';
+import { LabServicesOptionsComponent } from './components/lab-services-options/lab-services-options.component';
+import { IdeaNodeGenerateComponent } from './components/idea-node-generate/idea-node-generate.component';
 
 export const isMock = environment.mock;
 
@@ -84,6 +85,7 @@ export const isMock = environment.mock;
     DatasetAddPanelComponent,
     PostAddPanelComponent,
     LabServicesOptionsComponent,
+    IdeaNodeGenerateComponent,
   ],
   imports: [
     BrowserModule,
