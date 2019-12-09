@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog, MatDialogConfig} from "@angular/material";
 import { FormBuilder, FormArray, Validators } from '@angular/forms';
+import { LabServicesService } from 'src/app/services/lab-services/lab-services.service';
 
 @Component({
   selector: 'app-lab-services-options',
@@ -10,13 +11,15 @@ import { FormBuilder, FormArray, Validators } from '@angular/forms';
 export class LabServicesOptionsComponent implements OnInit {
 
   newPilot = this.fb.group({
-    pilotName: ['', Validators.required],
-    pilotDesc: ['', Validators.required],
-    picker1: ['', Validators.required],
-    picker2: ['', Validators.required],
+    name: ['', Validators.required],
+    description: ['', Validators.required],
+    start: ['', Validators.required],
+    end: ['', Validators.required],
     budget: ['', Validators.required],
     contact: ['', Validators.required],
-    stakeholders: ['', Validators.required],
+    stakeholders: this.fb.array([
+      this.fb.control('')
+    ]),
     objectives: this.fb.array([
       this.fb.control('')
     ])
@@ -26,7 +29,23 @@ export class LabServicesOptionsComponent implements OnInit {
     return this.newPilot.get('objectives') as FormArray;
   }
 
-  constructor(private dialog: MatDialog, private fb: FormBuilder) { }
+  get stakeholders() {
+    return this.newPilot.get('stakeholders') as FormArray;
+  }
+  
+  constructor(private dialog: MatDialog, private fb: FormBuilder, private labServicesService: LabServicesService) { }
+
+  addSH() {
+    this.stakeholders.push(this.fb.control(''));
+  }
+
+  removeSH() {
+    if (this.stakeholders.length === 0) {
+      console.log('Cannot have less than zero stakeholders.')
+    } else {
+      this.stakeholders.removeAt(-1)
+    }
+  }
 
   addObjective() {
     this.objectives.push(this.fb.control(''));
@@ -41,10 +60,20 @@ export class LabServicesOptionsComponent implements OnInit {
   }
 
   onSubmit() {
-    // TODO: Use EventEmitter with form value
-    console.warn(this.newPilot.value);
+    var objpush = this.newPilot.controls['objectives'].value
+    delete this.newPilot.value.objectives
+
+    this.labServicesService.pushPilot(this.newPilot.value).then(result => {
+      objpush.forEach(element => {
+        this.labServicesService.pushObjectives({
+            "content": element,
+            "objectivePilotId": result.id,
+            "state": false
+          })
+      });
+    });
   }
 
   ngOnInit() {}
-  
+
 }

@@ -13,6 +13,14 @@ export class LabServicesService {
     return this.apiService.ListPilots();
   }
 
+  public pushPilot(objInput): Promise<any> {
+    return this.apiService.CreatePilot(objInput);
+  }
+
+  public pushObjectives(objInput): Promise<any> {
+    return this.apiService.CreateObjective(objInput);
+  }
+
   public listObjectives (id:string) {
     return this.apiService.GetPilot(id);
   }

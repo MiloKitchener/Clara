@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LabServicesService } from 'src/app/services/lab-services/lab-services.service';
-import { MatDialog, MatDialogConfig } from "@angular/material";
+import { MatDialog } from "@angular/material";
 import { LabServicesOptionsComponent } from 'src/app/lab-services-options/lab-services-options.component';
 
 @Component({
@@ -11,6 +11,7 @@ import { LabServicesOptionsComponent } from 'src/app/lab-services-options/lab-se
 export class LabServicesComponent implements OnInit {
 
   cards: [];
+  newCard: any;
   panelOpenState = false;
 
   constructor(private labServicesService: LabServicesService, private dialog: MatDialog) { }
@@ -22,6 +23,8 @@ export class LabServicesComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
+      this.newCard = result;
+      console.log(this.newCard);
       console.log('The dialog was closed');
     });
   }

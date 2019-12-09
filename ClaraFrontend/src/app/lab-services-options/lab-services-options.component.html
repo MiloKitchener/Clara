@@ -3,35 +3,43 @@
 
     <form [formGroup]='newPilot' (ngSubmit)="onSubmit()">
         <mat-form-field>
-            <input matInput formControlName="pilotName" placeholder="Pilot Name">
+            <input matInput type="text" formControlName="name" placeholder="Pilot Name">
         </mat-form-field>
         <br>
         <mat-form-field>
-            <textarea matInput formControlName="pilotDesc" placeholder="Pilot Description"></textarea>
+            <textarea matInput formControlName="description" placeholder="Pilot Description"></textarea>
         </mat-form-field>
         <br>
         <mat-form-field style="margin-right: 2%; width: 49% !important;">
-            <input matInput formControlName="picker1" [matDatepicker]="picker1" placeholder="Start Date" [formControl]="date">
-            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-            <mat-datepicker #picker1></mat-datepicker>
+            <input matInput formControlName="start" [matDatepicker]="start" placeholder="Start Date">
+            <mat-datepicker-toggle matSuffix [for]="start"></mat-datepicker-toggle>
+            <mat-datepicker #start></mat-datepicker>
         </mat-form-field>
         <mat-form-field style="width: 49% !important;">
-            <input matInput formControlName="picker2" [matDatepicker]="picker2" placeholder="End Date" [formControl]="date">
-            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-            <mat-datepicker #picker2></mat-datepicker>
+            <input matInput formControlName="end" [matDatepicker]="end" placeholder="End Date">
+            <mat-datepicker-toggle matSuffix [for]="end"></mat-datepicker-toggle>
+            <mat-datepicker #end></mat-datepicker>
         </mat-form-field>
         <br>
         <mat-form-field>
-            <input matInput formControlName="budget" placeholder="Budget">
+            <input matInput type="number" formControlName="budget" placeholder="Budget">
         </mat-form-field>
         <br>
         <mat-form-field>
-            <input matInput formControlName="contact" placeholder="Primary Contact Name">
+            <input matInput type="text" formControlName="contact" placeholder="Primary Contact Name">
         </mat-form-field>
         <br>
-        <mat-form-field>
-            <input matInput formControlName="stakeholders" placeholder="Stakeholders">
-        </mat-form-field>
+        <div formArrayName="stakeholders">
+                <div *ngFor="let item of stakeholders.controls; let j=index">
+                    <!-- The repeated template -->
+                    <mat-form-field>
+                        <input matInput [formControlName]="j" placeholder="Stakeholder">
+                    </mat-form-field>
+                    
+                </div>
+                <button mat-button type="button" (click)="addSH()">Add Stakeholder</button>
+                <button mat-button type="button" (click)="removeSH()">Remove Stakeholder</button>
+            </div>
 
         <div formArrayName="objectives">
             <div *ngFor="let item of objectives.controls; let i=index">
@@ -41,8 +49,8 @@
                 </mat-form-field>
                 
             </div>
-            <button mat-button (click)="addObjective()">Add Objective</button>
-            <button mat-button (click)="removeObjective()">Remove Objective</button>
+            <button mat-button type="button" (click)="addObjective()">Add Objective</button>
+            <button mat-button type="button" (click)="removeObjective()">Remove Objective</button>
         </div>
 
         <div mat-dialog-actions>
@@ -52,13 +60,10 @@
     </form>
 
 
-    <p>
-        Form Value: {{ newPilot.value | json }}
-    </p>
+    <p>Form Value: {{ newPilot.value | json }}</p>
+    <p>Form Status: {{ newPilot.status }}</p>
 
+    <p>Name: {{ newPilot.controls['name'].value }}</p>
 
-    <p>
-        Form Status: {{ newPilot.status }}
-    </p>
 
 </div>
