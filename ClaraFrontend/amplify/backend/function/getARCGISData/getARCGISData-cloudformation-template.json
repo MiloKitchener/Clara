@@ -62,13 +62,8 @@
 				"Runtime": "nodejs10.x",
 				"Timeout": "25",
 				"Code": {
-<<<<<<< Updated upstream
-					"S3Bucket": "clarafrontend-adesh-20190926100747-deployment",
-					"S3Key": "amplify-builds/getARCGISData-5345484232796b496630-build.zip"
-=======
 					"S3Bucket": "clarafrontend-master-20190926101326-deployment",
 					"S3Key": "amplify-builds/getARCGISData-45486c6d466d6d2b3659-build.zip"
->>>>>>> Stashed changes
 				}
 			}
 		},

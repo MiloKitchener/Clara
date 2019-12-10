@@ -3932,7 +3932,6 @@ export class APIService {
     const statement = `mutation CreatePilot($input: CreatePilotInput!) {
         createPilot(input: $input) {
           __typename
-<<<<<<< Updated upstream
           id
           name
           description
@@ -3966,25 +3965,6 @@ export class APIService {
           start
           end
           contact
-=======
-          uuid
-          ts
-          type
-          battery
-          moisture
-          CO2
-          pH
-          conductivity
-          solids
-          salinity
-          s_gravity
-          uptime
-          total
-          count
-          direction
-          down
-          up
->>>>>>> Stashed changes
         }
       }`;
     const gqlAPIServiceArguments: any = {
@@ -4260,6 +4240,11 @@ export class APIService {
           salinity
           s_gravity
           uptime
+          total
+          count
+          direction
+          down
+          up
         }
       }`;
     const gqlAPIServiceArguments: any = {
