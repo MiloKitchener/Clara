@@ -91,5 +91,3 @@ https://medium.com/how-to-electron/a-complete-guide-to-packaging-your-electron-a
 
 ### Ionic: ###
 https://ionicframework.com/docs/v1/guide/publishing.html
-
-#Test
