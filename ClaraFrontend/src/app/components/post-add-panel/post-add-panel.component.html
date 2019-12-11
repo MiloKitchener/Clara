@@ -1,21 +1,26 @@
-<mat-dialog-content class="add-panel">
-  <form [formGroup]="newPostForm">
-    <h4>Title</h4>
-    <mat-form-field appearance="outline">
-      <input matInput formControlName="title" type="text" aria-label="Post Title" placeholder="Title">
-    </mat-form-field>
-    <div *ngIf="newPostForm.get('title').errors" class="invalid-feedback">
-      <div *ngIf="newPostForm.get('title').errors.required">A title is required</div>
-    </div>
-    <h4>Content</h4>
-    <textarea formControlName="content" aria-label="Post Content" cols="30" rows="10" placeholder="Content"></textarea>
-<!--    <mat-select formControlName="tags" aria-label="Post Tags" multiple>-->
-<!--      <mat-option>None</mat-option>-->
-<!--      <mat-option *ngFor="let filter of this.ideaService.getFilters()" [value]="filter" >{{ filter }}</mat-option>-->
-<!--    </mat-select>-->
-  </form>
-</mat-dialog-content>
-<mat-dialog-actions align="center">
-  <button mat-button mat-dialog-close class="close-btn">Cancel</button>
-  <button mat-button [mat-dialog-close]=newPostForm.value>Post Idea</button>
-</mat-dialog-actions>
+<h1 mat-dialog-title>Post New Idea</h1>
+<div mat-dialog-content class="content">
+
+    <form [formGroup]='newPostForm'>
+        <mat-form-field>
+            <input matInput type="text" formControlName="title" placeholder="Post Title">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <textarea matInput formControlName="content" placeholder="Post Content"></textarea>
+        </mat-form-field>
+        <br>
+        <mat-label>Select a Category</mat-label>
+        <mat-select formControlName="tags" aria-label="Post Tags" multiple>
+          <mat-option>None</mat-option>
+          <mat-option *ngFor="let filter of this.ideaService.getFilters()" [value]="filter" >{{ filter }}</mat-option>
+        </mat-select>
+
+        <div mat-dialog-actions>
+            <button mat-button [mat-dialog-close]>Cancel</button>
+            <button mat-raised-button type="submit" [disabled]="!newPostForm.valid" [mat-dialog-close]=newPostForm.value>Submit</button>
+        </div>
+    </form>
+
+</div>
+

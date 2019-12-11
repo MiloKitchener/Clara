@@ -20,7 +20,7 @@ export class PostAddPanelComponent implements OnInit {
     this.newPostForm = this.fb.group({
       title: ['', Validators.required],
       content: ['', Validators.required],
-      // tags: ['None', Validators.required]
+      tags: ['None', Validators.required]
     });
   }
 

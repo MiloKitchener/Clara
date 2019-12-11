@@ -70,7 +70,10 @@ export class IdeasComponent implements OnInit {
   }
 
   openAddPostDialog() {
-    const dialogRef = this.dialog.open(PostAddPanelComponent);
+    const dialogRef = this.dialog.open(PostAddPanelComponent, {
+      width: '500px',
+      maxHeight: '800px'
+    });
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result !== '') {
